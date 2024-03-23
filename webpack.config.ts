@@ -61,7 +61,7 @@ const config: Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Starter Kit',
+            title: 'Teo Admin Dashboard',
             meta: {
                 themeColorLight: {
                     name: "theme-color",
