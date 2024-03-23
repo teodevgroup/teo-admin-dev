@@ -1,9 +1,8 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
+import App from './components/extended/App'
 
 const container = document.createElement('div')
-container.id = 'app'
 document.body.appendChild(container)
 const root = createRoot(container);
 root.render(<App />)

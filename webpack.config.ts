@@ -3,6 +3,7 @@ import { Configuration, EnvironmentPlugin, HotModuleReplacementPlugin } from "we
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import "webpack-dev-server"
+import { appBackgroundColorLight, appNavBackgroundColorDark } from "./src/lib/extended/theme"
 
 const config: Configuration = {
     mode: "development",
@@ -60,7 +61,19 @@ const config: Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Starter Kit'
+            title: 'Starter Kit',
+            meta: {
+                themeColorLight: {
+                    name: "theme-color",
+                    content: appBackgroundColorLight,
+                    media: "(prefers-color-scheme: light)"
+                },
+                themeColorDark: {
+                    name: "theme-color",
+                    content: appNavBackgroundColorDark,
+                    media: "(prefers-color-scheme: dark)"
+                }
+            }
         }),
         new MiniCssExtractPlugin({}),
         new HotModuleReplacementPlugin(),
