@@ -3,15 +3,18 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import AppRoot from './AppRoot'
 import AppNavLayout from './AppNavLayout'
-import Nav from '../generated/Nav'
+import Nav, { AsyncNav } from '../generated/Nav'
 
 const App = () => {
     return <AppRoot>
         <AppNavLayout>
             <Nav />
+            <Suspense fallback={"loading"}>
+                <AsyncNav />
+            </Suspense>
         </AppNavLayout>
     </AppRoot>
 }
