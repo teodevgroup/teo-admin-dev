@@ -9,8 +9,11 @@ import { appBackgroundColorDark, appBackgroundColorLight } from '../../lib/exten
 
 const AppRoot = styled.div`
     :global() {
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
         body {
             margin: 0;
+            font-family: Noto Sans, sans-serif;
         }
         * {
             box-sizing: border-box;

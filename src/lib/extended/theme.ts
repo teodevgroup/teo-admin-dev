@@ -19,6 +19,14 @@ export const desktopMax = '1199px'
 
 export const desktopHDMin = '1200px'
 
+export const tintColorLight = "#0052FF"
+
+export const tintColorDark = "#0052FF"
+
+export const tintColorContrastLight = "#0052FF"
+
+export const tintColorContrastDark = "#0052FF"
+
 export const appBackgroundColorLight = "#F6F6F8"
 
 export const appBackgroundColorDark = "#090C13"
@@ -30,3 +38,7 @@ export const appNavBackgroundColorDark = "#212A3D"
 export const spacing = "8px"
 
 export const margin = "20px"
+
+export const defaultTransitionTimeInterval = '0.2s'
+
+export const defaultTransitionCurve = 'ease-in-out'

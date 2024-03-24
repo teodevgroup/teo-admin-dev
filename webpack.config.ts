@@ -72,6 +72,10 @@ const config: Configuration = {
                     name: "theme-color",
                     content: appNavBackgroundColorDark,
                     media: "(prefers-color-scheme: dark)"
+                },
+                themes: {
+                    name: "color-scheme",
+                    content: "light dark"
                 }
             }
         }),

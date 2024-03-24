@@ -3,7 +3,7 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import React, { Suspense } from 'react'
+import React from 'react'
 import AppRoot from './AppRoot'
 import AppNavLayout from './AppNavLayout'
 import Nav from '../generated/Nav'

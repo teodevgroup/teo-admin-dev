@@ -4,10 +4,14 @@
 // with care.
 
 import { styled } from '@linaria/react'
-import { dark, flexContainer, light } from '../../lib/generated/theme'
+import { dark, flexContainer, light, transitionAll } from '../../lib/generated/theme'
 import { appNavBackgroundColorDark, appNavBackgroundColorLight, margin } from '../../lib/extended/theme'
 
-const NavElement = styled.div`
+type NavElementProps = {
+    collapsed: boolean
+}
+
+const NavElement = styled.div<NavElementProps>`
     ${flexContainer("column", "center", "flex-start")}
     ${light} {
         background-color: ${appNavBackgroundColorLight};
@@ -16,7 +20,8 @@ const NavElement = styled.div`
         background-color: ${appNavBackgroundColorDark};
     }
     padding: ${margin};
-    width: calc(16rem + ${margin});
+    width: ${({ collapsed }) => collapsed ? `calc(5rem + ${margin})` : `calc(16rem + ${margin})`};
+    ${transitionAll}
 `
 
 export default NavElement
