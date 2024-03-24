@@ -1,9 +1,9 @@
-import React, { ReactElement, ReactNode, cloneElement, useState } from 'react'
-import { autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole } from '@floating-ui/react'
+import React, { ReactElement, useState } from 'react'
+import { autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole, useClientPoint } from '@floating-ui/react'
 
 type WithTooltipProps = {
-    children: ReactElement,
-    tooltip: ReactElement,
+    children: (props: any) => ReactElement,
+    tooltip: (props: any) => ReactElement,
 }
 
 const WithTooltip = (props: WithTooltipProps) => {
@@ -11,30 +11,29 @@ const WithTooltip = (props: WithTooltipProps) => {
     const { refs, floatingStyles, context } = useFloating({ 
         open: isOpen,
         onOpenChange: setIsOpen,
-        middleware: [offset(10), flip(), shift()],
+        middleware: [offset(20), shift()],
         whileElementsMounted: autoUpdate,
-        placement: "bottom-end"
+        placement: "bottom-start"
     })
-    const hover = useHover(context)
+    const hover = useHover(context, { move: false, delay: {
+        open: 2000,
+        close: 0
+    } })
     const focus = useFocus(context)
-    const dismiss = useDismiss(context)
+    const dismiss = useDismiss(context, { referencePress: true })
+    const clientPoint = useClientPoint(context)
     const role = useRole(context, { role: "tooltip" })
     const { getReferenceProps, getFloatingProps } = useInteractions([
         hover,
         focus,
+        clientPoint,
         dismiss,
         role
     ])
-    return <div>
-        <div ref={refs.setReference} {...getReferenceProps()}>button</div>
-        <FloatingPortal>
-            <div ref={refs.setFloating} {...getFloatingProps()}>float</div>
-        </FloatingPortal>
-    </div>
     return <>
-        {cloneElement(props.children, { ref: refs.setReference, ...getReferenceProps() })}
+        {props.children({ ref: refs.setReference, ...getReferenceProps() })}
         <FloatingPortal>
-            {isOpen ? cloneElement(props.tooltip, { ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }): null}
+            {isOpen ? props.tooltip({ ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }) : null}
         </FloatingPortal>
     </>
 }

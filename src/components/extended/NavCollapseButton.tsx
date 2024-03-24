@@ -1,14 +1,14 @@
-import React from 'react'
-import { ComponentPropsWithoutRef } from "react"
+import React, { forwardRef } from 'react'
+import { ComponentPropsWithRef } from "react"
 import NavCollapseButtonElement, { NavCollapseButtonElementProps } from "./NavCollapseButtonElement"
 import { RiMenuLine } from "react-icons/ri"
 
-type NavCollapseButton = Omit<ComponentPropsWithoutRef<'button'>, 'children'> & NavCollapseButtonElementProps
+type NavCollapseButton = Omit<ComponentPropsWithRef<'button'>, 'children'> & NavCollapseButtonElementProps
 
-const NavCollapseButton = (props: NavCollapseButton) => {
-    return <NavCollapseButtonElement {...props}>
+const NavCollapseButton = forwardRef<HTMLButtonElement, NavCollapseButton>((props: NavCollapseButton, ref) => {
+    return <NavCollapseButtonElement ref={ref} {...props}>
         <RiMenuLine />
     </NavCollapseButtonElement>
-}
+})
 
 export default NavCollapseButton

@@ -39,6 +39,8 @@ export const spacing = "8px"
 
 export const margin = "20px"
 
+export const radius = "4px"
+
 export const defaultTransitionTimeInterval = '0.2s'
 
 export const defaultTransitionCurve = 'ease-in-out'
