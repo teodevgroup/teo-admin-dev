@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React from 'react'
 import NavElement from '../extended/NavElement'
 import NavCollapseButton from '../extended/NavCollapseButton'
@@ -10,8 +13,8 @@ import Tooltip from '../extended/Tooltip'
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
     return <NavElement collapsed={navCollapsed}>
-        <WithTooltip tooltip={(props) => <Tooltip {...props}>{navCollapsed ? "Expand navigation area" : "Collapse navigation area"}</Tooltip>}>
-            {(props) => <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} {...props} />}
+        <WithTooltip tooltip={<Tooltip>{navCollapsed ? "Expand navigation area" : "Collapse navigation area"}</Tooltip>}>
+            <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
         </WithTooltip>
         <NavLogo />
         <NavAppTitle collapsed={navCollapsed} />

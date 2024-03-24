@@ -1,11 +1,15 @@
-import React, { ReactElement, useState } from 'react'
-import { autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole, useClientPoint } from '@floating-ui/react'
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
+import React, { ReactElement, useState, cloneElement } from 'react'
+import { autoUpdate, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole, useClientPoint } from '@floating-ui/react'
 
 type WithTooltipProps = {
-    children: (props: any) => ReactElement,
-    tooltip: (props: any) => ReactElement,
+    children: ReactElement,
+    tooltip: ReactElement,
 }
 
+/// Component passed into <WithTooltip> must accept ref.
 const WithTooltip = (props: WithTooltipProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const { refs, floatingStyles, context } = useFloating({ 
@@ -31,9 +35,9 @@ const WithTooltip = (props: WithTooltipProps) => {
         role
     ])
     return <>
-        {props.children({ ref: refs.setReference, ...getReferenceProps() })}
+        {cloneElement(props.children, { ref: refs.setReference, ...getReferenceProps() })}
         <FloatingPortal>
-            {isOpen ? props.tooltip({ ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }) : null}
+            {isOpen ? cloneElement(props.tooltip, { ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }) : null}
         </FloatingPortal>
     </>
 }
