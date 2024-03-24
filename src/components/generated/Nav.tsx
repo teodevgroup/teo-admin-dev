@@ -7,13 +7,4 @@ const Nav = () => {
     </NavElement>
 }
 
-export const AsyncNav = () => {
-    throw new Promise((resolve, reject) => {
-        resolve("")
-    })
-    return <NavElement>
-        NAV
-    </NavElement>
-}
-
 export default Nav

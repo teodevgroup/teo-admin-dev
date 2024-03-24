@@ -6,15 +6,12 @@
 import React, { Suspense } from 'react'
 import AppRoot from './AppRoot'
 import AppNavLayout from './AppNavLayout'
-import Nav, { AsyncNav } from '../generated/Nav'
+import Nav from '../generated/Nav'
 
 const App = () => {
     return <AppRoot>
         <AppNavLayout>
             <Nav />
-            <Suspense fallback={"loading"}>
-                <AsyncNav />
-            </Suspense>
         </AppNavLayout>
     </AppRoot>
 }
