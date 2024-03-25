@@ -45,9 +45,9 @@ const WithContextMenu = (props: WithContextMenuProps) => {
     }
     useEffect(() => {
         const dismissMenu = () => setIsOpen(false)
-        document.addEventListener("mousedown", dismissMenu)
+        document.addEventListener("click", dismissMenu)
         return () => {
-            document.removeEventListener("mousedown", dismissMenu)
+            document.removeEventListener("click", dismissMenu)
         }
     }, [])
     return <>
