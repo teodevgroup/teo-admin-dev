@@ -6,8 +6,10 @@ import { omit } from 'radash'
 type ContextMenuItemProps = ComponentPropsWithRef<'div'> & ContextMenuItemElementProps & { action?: () => void }
 
 const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>((props: ContextMenuItemProps, ref) => {
-    return <ContextMenuItemElement ref={ref} {...omit(props, ['action'])} onClick={() => {
-        if (!props.disabled && props.action) {
+    return <ContextMenuItemElement ref={ref} {...omit(props, ['action'])} onClick={(e) => {
+        if (props.disabled) {
+            e.stopPropagation()
+        } else if (props.action) {
             props.action()
         }
     }} />
