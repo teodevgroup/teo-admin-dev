@@ -25,39 +25,33 @@ const WithContextMenu = (props: WithContextMenuProps) => {
         dismiss,
         role
     ])
+    const handleContextMenu = (e: MouseEvent) => {
+        e.preventDefault()
+        refs.setPositionReference({
+            getBoundingClientRect() {
+              return {
+                width: 0,
+                height: 0,
+                x: e.clientX,
+                y: e.clientY,
+                top: e.clientY,
+                right: e.clientX,
+                bottom: e.clientY,
+                left: e.clientX
+              };
+            }
+          });
+        setIsOpen(true)
+    }
     useEffect(() => {
-        const handleContextMenu = (e: MouseEvent) => {
-            e.preventDefault()
-            refs.setPositionReference({
-                getBoundingClientRect() {
-                  return {
-                    width: 0,
-                    height: 0,
-                    x: e.clientX,
-                    y: e.clientY,
-                    top: e.clientY,
-                    right: e.clientX,
-                    bottom: e.clientY,
-                    left: e.clientX
-                  };
-                }
-              });
-            setIsOpen(true)
-        }
         const dismissMenu = () => setIsOpen(false)
-        if (refs.reference.current) {
-            (refs.reference.current as any).addEventListener("contextmenu", handleContextMenu)
-        }
         document.addEventListener("mousedown", dismissMenu)
         return () => {
-            if (refs.reference.current) {
-                (refs.reference.current as any).removeEventListener("contextmenu", handleContextMenu)
-            }
             document.removeEventListener("mousedown", dismissMenu)
         }
     }, [])
     return <>
-        {cloneElement(props.children, { ref: refs.setReference, ...getReferenceProps() })}
+        {cloneElement(props.children, { ref: refs.setReference, ...getReferenceProps(), onContextMenu: handleContextMenu })}
         <FloatingPortal>
             {isOpen ? cloneElement(props.contextMenu, { ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }) : null}
         </FloatingPortal>
