@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React, { ReactElement, useState, cloneElement } from 'react'
-import { autoUpdate, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole, useClientPoint } from '@floating-ui/react'
+import { autoUpdate, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, FloatingPortal, useRole, useClientPoint, flip } from '@floating-ui/react'
 
 type WithTooltipProps = {
     children: ReactElement,
@@ -15,7 +15,7 @@ const WithTooltip = (props: WithTooltipProps) => {
     const { refs, floatingStyles, context } = useFloating({ 
         open: isOpen,
         onOpenChange: setIsOpen,
-        middleware: [offset(20), shift()],
+        middleware: [offset(20), flip(), shift()],
         whileElementsMounted: autoUpdate,
         placement: "bottom-start"
     })

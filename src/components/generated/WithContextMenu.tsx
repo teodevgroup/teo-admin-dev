@@ -2,11 +2,12 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React, { ReactElement, useState, cloneElement, useEffect } from 'react'
-import { offset, shift, useDismiss, useFloating, useInteractions, FloatingPortal, useRole } from '@floating-ui/react'
+import { offset, shift, useDismiss, useFloating, useInteractions, FloatingPortal, useRole, flip, autoUpdate } from '@floating-ui/react'
+import ContextMenu from '../extended/ContextMenu'
 
 type WithContextMenuProps = {
     children: ReactElement,
-    contextMenu: ReactElement,
+    contextMenu: typeof ContextMenu,
 }
 
 /// Component passed into <WithContextMenu> must accept ref.
@@ -15,10 +16,18 @@ const WithContextMenu = (props: WithContextMenuProps) => {
     const { refs, floatingStyles, context } = useFloating({ 
         open: isOpen,
         onOpenChange: setIsOpen,
-        middleware: [offset(0), shift()],
-        placement: "bottom-start",
-        strategy: "fixed"
+        middleware: [
+            offset({ mainAxis: 0, alignmentAxis: -8 }),
+            flip({
+              fallbackPlacements: ["left-start"]
+            }),
+            shift({ padding: 10 })
+        ],
+        placement: "right-start",
+        strategy: "fixed",
+        whileElementsMounted: autoUpdate
     })
+    
     const dismiss = useDismiss(context, { referencePress: true })
     const role = useRole(context, { role: "menu" })
     const { getReferenceProps, getFloatingProps } = useInteractions([
@@ -53,7 +62,7 @@ const WithContextMenu = (props: WithContextMenuProps) => {
     return <>
         {cloneElement(props.children, { ref: refs.setReference, ...getReferenceProps(), onContextMenu: handleContextMenu })}
         <FloatingPortal>
-            {isOpen ? cloneElement(props.contextMenu, { ref: refs.setFloating, style: floatingStyles, ...getFloatingProps() }) : null}
+            {isOpen ? cloneElement(props.contextMenu as any, { ref: refs.setFloating, style: floatingStyles, ...getFloatingProps(), context }) : null}
         </FloatingPortal>
     </>
 }
