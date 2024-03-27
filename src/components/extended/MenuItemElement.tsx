@@ -7,17 +7,17 @@ import { styled } from "@linaria/react"
 import { radius } from "../../lib/extended/theme"
 import { clearButton, dark, flexContainer, light } from "../../lib/generated/theme"
 
-export type ContextMenuItemElementProps = {
+export type MenuItemElementProps = {
     disabled?: boolean
     highlighted?: boolean
 }
 
-const ContextMenuItemElement = styled.button<ContextMenuItemElementProps>`
+const MenuItemElement = styled.button<MenuItemElementProps>`
     ${clearButton}
     line-height: 1;
     padding: ${radius};
     border-radius: ${radius};
-    ${flexContainer("row", "center")}
+    ${flexContainer("row", "center", "space-between")}
     user-select: none;
     cursor: default;
     ${light} {
@@ -30,4 +30,4 @@ const ContextMenuItemElement = styled.button<ContextMenuItemElementProps>`
     }
 `
 
-export default ContextMenuItemElement
+export default MenuItemElement

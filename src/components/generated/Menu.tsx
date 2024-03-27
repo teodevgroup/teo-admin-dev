@@ -1,13 +1,16 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react'
 import { ComponentPropsWithRef } from "react"
-import ContextMenuElement from './ContextMenuElement'
+import MenuElement from '../extended/MenuElement'
 import { autoUpdate, flip, FloatingFocusManager, FloatingList, FloatingNode, FloatingTree, offset, safePolygon, shift, useDismiss, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, useHover, useInteractions, useListNavigation, useMergeRefs, useRole, useTypeahead } from '@floating-ui/react'
 import { omit } from 'radash'
-import ContextMenuContext from '../generated/ContextMenuContext'
+import ContextMenuContext from './MenuContext'
 
-type ContextMenuProps = ComponentPropsWithRef<'div'>
+type MenuProps = ComponentPropsWithRef<'div'>
 
-const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: ContextMenuProps, ref) => {
+const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, ref) => {
     const parentMenuContext = useContext(ContextMenuContext)
     const tree = useFloatingTree()
     const parentId = useFloatingParentNodeId()
@@ -91,13 +94,13 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
           tree.events.off("click", handleTreeClick);
           tree.events.off("menuopen", onSubMenuOpen);
         };
-      }, [tree, nodeId, parentId]);
+    }, [tree, nodeId, parentId]);
     
-      useEffect(() => {
+    useEffect(() => {
         if (parentMenuContext.isOpen && tree) {
-          tree.events.emit("menuopen", { parentId, nodeId });
+            tree.events.emit("menuopen", { parentId, nodeId });
         }
-      }, [tree, parentMenuContext.isOpen, nodeId, parentId]);
+    }, [tree, parentMenuContext.isOpen, nodeId, parentId]);
     const element = <FloatingNode id={nodeId}>
         <ContextMenuContext.Provider value={{
             contextMenuTriggerMouseEvent: null,
@@ -115,9 +118,9 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
                     initialFocus={isNested ? -1 : 0}
                     returnFocus={!isNested}
                 >
-                    <ContextMenuElement ref={useMergeRefs([ref, refs.setFloating])} style={floatingStyles} {...omit(props, ['children'])} {...getFloatingProps()}>
+                    <MenuElement ref={useMergeRefs([ref, refs.setFloating])} style={floatingStyles} {...omit(props, ['children'])} {...getFloatingProps()}>
                         {props.children}
-                    </ContextMenuElement>
+                    </MenuElement>
                 </FloatingFocusManager> : null}
             </FloatingList>
         </ContextMenuContext.Provider>
@@ -131,4 +134,4 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
     }
 })
 
-export default ContextMenu
+export default Menu

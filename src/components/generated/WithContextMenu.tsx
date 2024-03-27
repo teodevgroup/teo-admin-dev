@@ -3,7 +3,7 @@
 
 import React, { ReactElement, useState, cloneElement, useEffect } from 'react'
 import { FloatingPortal } from '@floating-ui/react'
-import ContextMenuContext, { constMenuContextDefault } from './ContextMenuContext'
+import ContextMenuContext, { MenuContextDefault } from './MenuContext'
 
 type WithContextMenuProps = {
     children: ReactElement,
@@ -29,7 +29,7 @@ const WithContextMenu = (props: WithContextMenuProps) => {
     return <>
         {cloneElement(props.children, { onContextMenu: handleContextMenu })}
         <FloatingPortal>
-            <ContextMenuContext.Provider value={Object.assign({}, constMenuContextDefault, {
+            <ContextMenuContext.Provider value={Object.assign({}, MenuContextDefault, {
                 isOpen,
                 setIsOpen,
                 contextMenuTriggerMouseEvent: mouseEvent

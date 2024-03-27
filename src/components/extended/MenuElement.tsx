@@ -7,7 +7,7 @@ import { styled } from "@linaria/react"
 import { borderThin, radius } from "../../lib/extended/theme"
 import { dark, flexContainer, light } from "../../lib/generated/theme"
 
-const ContextMenuElement = styled.div`
+const MenuElement = styled.div`
     padding: ${radius};
     border-radius: ${radius};
     font-size: 0.875rem;
@@ -22,4 +22,4 @@ const ContextMenuElement = styled.div`
     }
 `
 
-export default ContextMenuElement
+export default MenuElement

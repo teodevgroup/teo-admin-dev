@@ -10,20 +10,20 @@ import NavLogo from '../extended/NavLogo'
 import WithTooltip from './WithTooltip'
 import Tooltip from '../extended/Tooltip'
 import WithContextMenu from './WithContextMenu'
-import ContextMenu from '../extended/ContextMenu'
-import ContextMenuItem from '../extended/ContextMenuItem'
+import Menu from './Menu'
+import ContextMenuItem from './MenuItem'
 
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
     return <WithContextMenu contextMenu={
-        <ContextMenu>
+        <Menu>
             <ContextMenuItem disabled={true} label="Menu A" />
             <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
             <ContextMenuItem label="Download">
                 <ContextMenuItem disabled={true} label="JSON" />
                 <ContextMenuItem disabled={true} label="CSV" />
             </ContextMenuItem>
-        </ContextMenu>
+        </Menu>
     }>
         <NavElement collapsed={navCollapsed}>
             <WithTooltip tooltip={<Tooltip>{navCollapsed ? "Expand navigation area" : "Collapse navigation area"}</Tooltip>}>

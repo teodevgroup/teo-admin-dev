@@ -1,19 +1,19 @@
 import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
-import ContextMenuItemElement, { ContextMenuItemElementProps } from './ContextMenuItemElement'
+import MenuItemElement, { MenuItemElementProps } from '../extended/MenuItemElement'
 import { omit } from 'radash'
-import ContextMenuItemText from './ContextMenuItemtext'
+import MenuItemTextElement from '../extended/MenuItemTextElement'
 import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
-import ContextMenuContext from '../generated/ContextMenuContext'
+import ContextMenuContext from './MenuContext'
 
-type ContextMenuItemProps = ComponentPropsWithRef<'button'> & ContextMenuItemElementProps & { action?: () => void, label: string }
+type MenuProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { action?: () => void, label: string }
 
-const ContextMenuItem = forwardRef<HTMLButtonElement, ContextMenuItemProps>((props: ContextMenuItemProps, forwardedRef) => {
+const Menu = forwardRef<HTMLButtonElement, MenuProps>((props: MenuProps, forwardedRef) => {
     const contextMenu = useContext(ContextMenuContext)
     const item = useListItem({ label: props.disabled ? null : props.label })
     const tree = useFloatingTree()
     const isActive = item.index === contextMenu.activeIndex
-    return <ContextMenuItemElement type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef])} {...omit(props, ['action', 'label'])} {...contextMenu.getItemProps({
+    return <MenuItemElement type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef])} {...omit(props, ['action', 'label'])} {...contextMenu.getItemProps({
         onClick(event: React.MouseEvent<HTMLButtonElement>) {
             if (props.disabled) {
                 event.stopPropagation()
@@ -27,10 +27,10 @@ const ContextMenuItem = forwardRef<HTMLButtonElement, ContextMenuItemProps>((pro
             contextMenu.setHasFocusInside(true);
         }
     })}>
-        <ContextMenuItemText>
+        <MenuItemTextElement>
             {props.label}
-        </ContextMenuItemText>
-    </ContextMenuItemElement>
+        </MenuItemTextElement>
+    </MenuItemElement>
 })
 
-export default ContextMenuItem
+export default Menu
