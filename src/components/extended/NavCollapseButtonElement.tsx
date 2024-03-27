@@ -7,6 +7,7 @@ export type NavCollapseButtonElementProps = {
 
 const NavCollapseButtonElement = styled.button<NavCollapseButtonElementProps>`
     ${clearButton}
+    line-height: 0;
     align-self: ${({ collapsed }) => collapsed ? `center` : `flex-end`};
     font-size: 1.5rem;
     ${transitionAll}

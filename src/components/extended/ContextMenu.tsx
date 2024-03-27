@@ -1,7 +1,7 @@
-import React, { Children, cloneElement, forwardRef, ReactElement, useContext, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react'
 import { ComponentPropsWithRef } from "react"
 import ContextMenuElement from './ContextMenuElement'
-import { autoUpdate, flip, FloatingTree, offset, safePolygon, shift, useDismiss, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, useHover, useInteractions, useListItem, useListNavigation, useRole, useTypeahead } from '@floating-ui/react'
+import { autoUpdate, flip, FloatingFocusManager, FloatingList, FloatingNode, FloatingTree, offset, safePolygon, shift, useDismiss, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, useHover, useInteractions, useListItem, useListNavigation, useMergeRefs, useRole, useTypeahead } from '@floating-ui/react'
 import { omit } from 'radash'
 import ContextMenuContext from '../generated/ContextMenuContext'
 
@@ -12,7 +12,6 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
     const tree = useFloatingTree()
     const parentId = useFloatingParentNodeId()
     const nodeId = useFloatingNodeId()
-    const item = useListItem()
     const isNested = parentId != null
     const { refs, floatingStyles, context } = useFloating({ 
         nodeId,
@@ -100,9 +99,30 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
           tree.events.emit("menuopen", { parentId, nodeId });
         }
       }, [tree, parentMenuContext.isOpen, nodeId, parentId]);
-    const element = <ContextMenuElement ref={refs.setFloating} style={floatingStyles} {...omit(props, ['children'])} {...getFloatingProps()}>
-        {Children.toArray(props.children).map((child: ReactElement) => cloneElement(child, {  }))}
-    </ContextMenuElement>
+    const element = <FloatingNode id={nodeId}>
+        <ContextMenuContext.Provider value={{
+            contextMenuTriggerMouseEvent: null,
+            activeIndex,
+            setActiveIndex,
+            getItemProps,
+            setHasFocusInside: parentMenuContext.setHasFocusInside,
+            isOpen: parentMenuContext.isOpen,
+            setIsOpen: parentMenuContext.setIsOpen,
+        }}>
+            <FloatingList elementsRef={listItemsRef} labelsRef={labelsRef}>
+                {parentMenuContext.isOpen ? <FloatingFocusManager
+                    context={context}
+                    modal={false}
+                    initialFocus={isNested ? -1 : 0}
+                    returnFocus={!isNested}
+                >
+                    <ContextMenuElement ref={useMergeRefs([ref, refs.setFloating])} style={floatingStyles} {...omit(props, ['children'])} {...getFloatingProps()}>
+                        {props.children}
+                    </ContextMenuElement>
+                </FloatingFocusManager> : null}
+            </FloatingList>
+        </ContextMenuContext.Provider>
+    </FloatingNode>
     if (!isNested) {
         return <FloatingTree>
             {element}

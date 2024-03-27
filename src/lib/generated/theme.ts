@@ -36,7 +36,7 @@ export const flexContainer = (direction: FlexDirection, alignItems: Property.Ali
     return `display: flex; flex-direction: ${direction}; align-items: ${alignItems}; justify-content: ${justifyContent};`
 }
 
-export const clearButton = `background: none; border: none; outline: none; box-shadow: none; margin: 0; padding: 0; line-height: 0;`
+export const clearButton = `background: none; border: none; outline: none; box-shadow: none; margin: 0; padding: 0;`
 
 export const clearHeading = `padding: 0; margin: 0; line-height: 1;`
 
