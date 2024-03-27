@@ -12,7 +12,7 @@ export type ContextMenuItemElementProps = {
     highlighted?: boolean
 }
 
-const ContextMenuItemElement = styled.div<ContextMenuItemElementProps>`
+const ContextMenuItemElement = styled.button<ContextMenuItemElementProps>`
     padding: ${radius};
     border-radius: ${radius};
     ${flexContainer("row", "center")}

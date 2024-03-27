@@ -15,10 +15,12 @@ import ContextMenuItem from '../extended/ContextMenuItem'
 
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
-    return <WithContextMenu contextMenu={<ContextMenu>
-        <ContextMenuItem disabled={true} label="Menu A" />
-        <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
-    </ContextMenu>}>
+    return <WithContextMenu contextMenu={
+        <ContextMenu>
+            <ContextMenuItem disabled={true} label="Menu A" />
+            <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
+        </ContextMenu>
+    }>
         <NavElement collapsed={navCollapsed}>
             <WithTooltip tooltip={<Tooltip>{navCollapsed ? "Expand navigation area" : "Collapse navigation area"}</Tooltip>}>
                 <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
