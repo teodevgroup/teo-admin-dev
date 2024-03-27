@@ -1,5 +1,15 @@
 import { createContext } from "react"
 
+export const constMenuContextDefault = {
+    contextMenuTriggerMouseEvent: null,
+    getItemProps: () => ({}),
+    activeIndex: null,
+    setActiveIndex: () => {},
+    setHasFocusInside: () => {},
+    isOpen: false,
+    setIsOpen: () => {},
+}
+
 const ContextMenuContext = createContext<{
     contextMenuTriggerMouseEvent: React.MouseEvent<HTMLElement, MouseEvent> | null,
     getItemProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>
@@ -8,14 +18,6 @@ const ContextMenuContext = createContext<{
     setHasFocusInside: React.Dispatch<React.SetStateAction<boolean>>
     isOpen: boolean,
     setIsOpen: (open: boolean) => void,
-}>({
-    contextMenuTriggerMouseEvent: null,
-    getItemProps: () => ({}),
-    activeIndex: null,
-    setActiveIndex: () => {},
-    setHasFocusInside: () => {},
-    isOpen: false,
-    setIsOpen: () => {},
-})
+}>(constMenuContextDefault)
 
 export default ContextMenuContext

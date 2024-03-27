@@ -73,7 +73,7 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
             })
         }
     }, [parentMenuContext.contextMenuTriggerMouseEvent])
-    React.useEffect(() => {
+    useEffect(() => {
         if (!tree) return;
     
         function handleTreeClick() {
@@ -95,7 +95,7 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
         };
       }, [tree, nodeId, parentId]);
     
-      React.useEffect(() => {
+      useEffect(() => {
         if (parentMenuContext.isOpen && tree) {
           tree.events.emit("menuopen", { parentId, nodeId });
         }
