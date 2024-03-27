@@ -19,6 +19,10 @@ const Nav = () => {
         <ContextMenu>
             <ContextMenuItem disabled={true} label="Menu A" />
             <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
+            <ContextMenuItem label="Download">
+                <ContextMenuItem disabled={true} label="JSON" />
+                <ContextMenuItem disabled={true} label="CSV" />
+            </ContextMenuItem>
         </ContextMenu>
     }>
         <NavElement collapsed={navCollapsed}>

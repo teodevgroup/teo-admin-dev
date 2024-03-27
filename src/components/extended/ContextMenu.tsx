@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react'
 import { ComponentPropsWithRef } from "react"
 import ContextMenuElement from './ContextMenuElement'
-import { autoUpdate, flip, FloatingFocusManager, FloatingList, FloatingNode, FloatingTree, offset, safePolygon, shift, useDismiss, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, useHover, useInteractions, useListItem, useListNavigation, useMergeRefs, useRole, useTypeahead } from '@floating-ui/react'
+import { autoUpdate, flip, FloatingFocusManager, FloatingList, FloatingNode, FloatingTree, offset, safePolygon, shift, useDismiss, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, useHover, useInteractions, useListNavigation, useMergeRefs, useRole, useTypeahead } from '@floating-ui/react'
 import { omit } from 'radash'
 import ContextMenuContext from '../generated/ContextMenuContext'
 
@@ -50,7 +50,6 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
         activeIndex
     })
     const {
-        getReferenceProps,
         getFloatingProps,
         getItemProps
     } = useInteractions([hover, role, dismiss, listNavigation, typeahead])
@@ -67,7 +66,7 @@ const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props: Context
                         right: parentMenuContext.contextMenuTriggerMouseEvent?.clientX ?? 0,
                         bottom: parentMenuContext.contextMenuTriggerMouseEvent?.clientY ?? 0,
                         left: parentMenuContext.contextMenuTriggerMouseEvent?.clientX ?? 0
-                    }                
+                    }
                 }
             })
         }

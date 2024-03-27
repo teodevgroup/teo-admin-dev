@@ -6,7 +6,7 @@ import ContextMenuItemText from './ContextMenuItemtext'
 import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
 import ContextMenuContext from '../generated/ContextMenuContext'
 
-type ContextMenuItemProps = Omit<ComponentPropsWithRef<'button'>, 'children'> & ContextMenuItemElementProps & { action?: () => void, label: string }
+type ContextMenuItemProps = ComponentPropsWithRef<'button'> & ContextMenuItemElementProps & { action?: () => void, label: string }
 
 const ContextMenuItem = forwardRef<HTMLButtonElement, ContextMenuItemProps>((props: ContextMenuItemProps, forwardedRef) => {
     const contextMenu = useContext(ContextMenuContext)
