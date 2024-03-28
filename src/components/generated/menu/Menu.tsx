@@ -10,7 +10,7 @@ import MenuContext from './MenuContext'
 
 type MenuProps = ComponentPropsWithRef<'div'>
 
-const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, ref) => {
+const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, forwardedRef) => {
     const menuContext = useContext(MenuContext)
     return <FloatingNode id={menuContext.nodeId}>
         <FloatingList elementsRef={menuContext.listItemsRef} labelsRef={menuContext.labelsRef}>
@@ -21,7 +21,7 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, ref) => {
                     initialFocus={menuContext.isNested ? -1 : 0}
                     returnFocus={!menuContext.isNested}
                 >
-                    <MenuElement ref={useMergeRefs([ref, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...omit(props, ['children'])} {...menuContext.getFloatingProps()}>
+                    <MenuElement ref={useMergeRefs([forwardedRef, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...omit(props, ['children'])} {...menuContext.getFloatingProps()}>
                         {props.children}
                     </MenuElement>
                 </FloatingFocusManager>
