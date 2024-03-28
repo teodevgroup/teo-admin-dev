@@ -8,7 +8,6 @@ import { radius } from "../../lib/extended/theme"
 import { clearButton, dark, flexContainer, light } from "../../lib/generated/theme"
 
 export type MenuItemElementProps = {
-    disabled?: boolean
     highlighted?: boolean
 }
 
