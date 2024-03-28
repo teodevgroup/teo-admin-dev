@@ -9,9 +9,9 @@ import NavAppTitle from '../extended/NavAppTitle'
 import NavLogo from '../extended/NavLogo'
 import WithTooltip from './WithTooltip'
 import Tooltip from '../extended/Tooltip'
-import WithContextMenu from './WithContextMenu'
-import Menu from './Menu'
-import ContextMenuItem from './MenuItem'
+import WithContextMenu from './menu/WithContextMenu'
+import Menu from './menu/Menu'
+import ContextMenuItem from './menu/MenuItem'
 
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
@@ -20,8 +20,10 @@ const Nav = () => {
             <ContextMenuItem disabled={true} label="Menu A" />
             <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
             <ContextMenuItem label="Download">
-                <ContextMenuItem disabled={true} label="JSON" />
-                <ContextMenuItem disabled={true} label="CSV" />
+                <Menu>
+                    <ContextMenuItem disabled={true} label="JSON" />
+                    <ContextMenuItem disabled={true} label="CSV" />
+                </Menu>
             </ContextMenuItem>
         </Menu>
     }>
