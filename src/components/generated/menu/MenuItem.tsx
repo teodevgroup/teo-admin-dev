@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, useContext } from 'react'
+import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
 import MenuItemElement, { MenuItemElementProps } from '../../extended/MenuItemElement'
 import { omit } from 'radash'
@@ -8,6 +8,7 @@ import MenuContext from './MenuContext'
 import MenuItemKeyboardShortcutElement from '../../extended/MenuItemKeyboardShortcutElement'
 import useMenuOwner from './useMenuOwner'
 import MenuItemAccessoryElement from '../../extended/MenuItemAccessoryElement'
+import mergeProps from 'merge-props'
 
 type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { action?: () => void, label: string, keyboardShortcut?: string }
 
@@ -18,7 +19,7 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
     const isActive = item.index === parentMenuContext.activeIndex
     const childMenuContext = props.children ? useMenuOwner() : null
     console.log("see child is open: ", childMenuContext?.isOpen)
-    return <MenuItemElement highlighted={isActive} type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef, childMenuContext?.refs.setPositionReference])} {...omit(props, ['action', 'label'])} {...parentMenuContext.getItemProps({
+    return <MenuItemElement highlighted={isActive} type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef, props.children ? childMenuContext?.refs.setPositionReference : null])} {...mergeProps(omit(props, ['action', 'label']), parentMenuContext.getItemProps({
         onClick(event: React.MouseEvent<HTMLButtonElement>) {
             if (props.disabled) {
                 event.stopPropagation()
@@ -28,10 +29,10 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
             tree?.events.emit("click")
         },
         onFocus(event: React.FocusEvent<HTMLButtonElement>) {
-            props.onFocus?.(event);
-            parentMenuContext.setHasFocusInside(true);
+            props.onFocus?.(event)
+            parentMenuContext.setHasFocusInside(true)
         }
-    })}>
+    }), childMenuContext?.getReferenceProps() as any)}>
         <MenuItemTextElement>
             {props.label}
         </MenuItemTextElement>

@@ -1,7 +1,7 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import React, { ReactElement, useState, cloneElement, useEffect } from 'react'
+import React, { ReactElement, cloneElement, useEffect } from 'react'
 import { FloatingPortal, FloatingTree } from '@floating-ui/react'
 import ContextMenuContext from './MenuContext'
 import useMenuOwner from './useMenuOwner'
