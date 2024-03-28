@@ -41,3 +41,11 @@ export const clearButton = `background: none; border: none; outline: none; box-s
 export const clearHeading = `padding: 0; margin: 0; line-height: 1;`
 
 export const transitionAll = `transition: all ${defaultTransitionTimeInterval} ${defaultTransitionCurve};`
+
+export const size = (width: string, height?: string) => {
+    if (height) {
+        return `width: ${width}; height: ${height};`
+    } else {
+        return `width: ${width}; height: ${width};`
+    }
+}

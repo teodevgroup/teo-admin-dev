@@ -7,11 +7,16 @@ import React from 'react'
 import AppRoot from './AppRoot'
 import AppNavLayout from './AppNavLayout'
 import Nav from '../generated/Nav'
+import AppContentLayout from './AppContentLayout'
+import StatusBar from './StatusBar'
 
 const App = () => {
     return <AppRoot>
         <AppNavLayout>
             <Nav />
+            <AppContentLayout>
+                <StatusBar />
+            </AppContentLayout>
         </AppNavLayout>
     </AppRoot>
 }

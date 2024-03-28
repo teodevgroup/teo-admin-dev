@@ -8,6 +8,7 @@ import { flexContainer } from '../../lib/generated/theme'
 
 const AppNavLayout = styled.div`
     ${flexContainer("row", "stretch", "stretch")}
+    flex-grow: 1;
 `
 
 export default AppNavLayout

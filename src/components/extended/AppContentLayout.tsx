@@ -8,6 +8,7 @@ import { flexContainer } from '../../lib/generated/theme'
 
 const AppContentLayout = styled.div`
     ${flexContainer("column", "stretch", "stretch")}
+    flex-grow: 1;
 `
 
 export default AppContentLayout
