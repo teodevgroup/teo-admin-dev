@@ -7,16 +7,18 @@ import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
 import MenuContext from './MenuContext'
 import MenuItemKeyboardShortcutElement from '../../extended/MenuItemKeyboardShortcutElement'
 import useMenuOwner from './useMenuOwner'
+import MenuItemAccessoryElement from '../../extended/MenuItemAccessoryElement'
 
 type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { action?: () => void, label: string, keyboardShortcut?: string }
 
 const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemProps, forwardedRef) => {
-    const menuContext = useContext(MenuContext)
+    const parentMenuContext = useContext(MenuContext)
     const item = useListItem({ label: props.disabled ? null : props.label })
     const tree = useFloatingTree()
-    const isActive = item.index === menuContext.activeIndex
+    const isActive = item.index === parentMenuContext.activeIndex
     const childMenuContext = props.children ? useMenuOwner() : null
-    return <MenuItemElement type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef])} {...omit(props, ['action', 'label'])} {...menuContext.getItemProps({
+    console.log("see child is open: ", childMenuContext?.isOpen)
+    return <MenuItemElement type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef, childMenuContext?.refs.setPositionReference])} {...omit(props, ['action', 'label'])} {...parentMenuContext.getItemProps({
         onClick(event: React.MouseEvent<HTMLButtonElement>) {
             if (props.disabled) {
                 event.stopPropagation()
@@ -27,20 +29,21 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
         },
         onFocus(event: React.FocusEvent<HTMLButtonElement>) {
             props.onFocus?.(event);
-            menuContext.setHasFocusInside(true);
+            parentMenuContext.setHasFocusInside(true);
         }
     })}>
         <MenuItemTextElement>
             {props.label}
         </MenuItemTextElement>
-        <MenuItemKeyboardShortcutElement>
-            {props.keyboardShortcut}
-        </MenuItemKeyboardShortcutElement>
-        {props.children ? <MenuContext.Provider value={childMenuContext as any}>
+        <MenuItemAccessoryElement>
+            <MenuItemKeyboardShortcutElement>
+                {props.keyboardShortcut}
+            </MenuItemKeyboardShortcutElement>
+            {props.children ? ">" : null}
+        </MenuItemAccessoryElement>
+        {props.children && childMenuContext?.isOpen ? <MenuContext.Provider value={childMenuContext as any}>
             {props.children}
         </MenuContext.Provider> : null}
-
-        {props.children ? props.children : null}
     </MenuItemElement>
 })
 

@@ -21,8 +21,8 @@ const Nav = () => {
             <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
             <ContextMenuItem label="Download">
                 <Menu>
-                    <ContextMenuItem disabled={true} label="JSON" />
-                    <ContextMenuItem disabled={true} label="CSV" />
+                    <ContextMenuItem label="JSON" />
+                    <ContextMenuItem label="CSV" />
                 </Menu>
             </ContextMenuItem>
         </Menu>
