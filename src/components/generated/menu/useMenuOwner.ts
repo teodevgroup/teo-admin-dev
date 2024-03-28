@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import MenuContext, { MenuContextProps } from "./MenuContext"
-import { autoUpdate, flip, offset, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, shift, useHover, safePolygon, useDismiss, useRole, useListNavigation, useTypeahead, useInteractions } from "@floating-ui/react"
+import { autoUpdate, flip, offset, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, shift, useHover, safePolygon, useDismiss, useRole, useListNavigation, useTypeahead, useInteractions, useClick } from "@floating-ui/react"
 
 const useMenuOwner: () => MenuContextProps = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -33,9 +33,14 @@ const useMenuOwner: () => MenuContextProps = () => {
         whileElementsMounted: autoUpdate
     })
     const hover = useHover(floatingContext, {
-        enabled: isNested,
+        enabled: true,
         delay: { open: 75 },
         handleClose: safePolygon({ blockPointerEvents: true })
+    })
+    const click = useClick(floatingContext, {
+        event: "mousedown",
+        toggle: true,
+        ignoreMouse: false
     })
     const dismiss = useDismiss(floatingContext, { referencePress: true })
     const role = useRole(floatingContext, { role: "menu" })

@@ -18,21 +18,23 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
     const tree = useFloatingTree()
     const isActive = item.index === parentMenuContext.activeIndex
     const childMenuContext = props.children ? useMenuOwner() : null
-    console.log("see child is open: ", childMenuContext?.isOpen)
-    return <MenuItemElement highlighted={isActive} type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([item.ref, forwardedRef, props.children ? childMenuContext?.refs.setPositionReference : null])} {...mergeProps(omit(props, ['action', 'label']), parentMenuContext.getItemProps({
-        onClick(event: React.MouseEvent<HTMLButtonElement>) {
-            if (props.disabled) {
-                event.stopPropagation()
-            } else if (props.action) {
-                props.action()
+    const element = <MenuItemElement highlighted={isActive} type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([forwardedRef, childMenuContext?.refs.setPositionReference, item.ref])} {...mergeProps(parentMenuContext.getItemProps(), 
+        omit(props, ['action', 'label']),
+        {
+            onClick(event: React.MouseEvent<HTMLButtonElement>) {
+                if (props.disabled) {
+                    event.stopPropagation()
+                } else if (props.action) {
+                    props.action()
+                }
+                tree?.events.emit("click")
+            },
+            onFocus(event: React.FocusEvent<HTMLButtonElement>) {
+                props.onFocus?.(event)
+                parentMenuContext.setHasFocusInside(true)
             }
-            tree?.events.emit("click")
         },
-        onFocus(event: React.FocusEvent<HTMLButtonElement>) {
-            props.onFocus?.(event)
-            parentMenuContext.setHasFocusInside(true)
-        }
-    }), childMenuContext?.getReferenceProps() as any)}>
+        childMenuContext?.getReferenceProps({}) as any)}>
         <MenuItemTextElement>
             {props.label}
         </MenuItemTextElement>
@@ -40,12 +42,19 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
             <MenuItemKeyboardShortcutElement>
                 {props.keyboardShortcut}
             </MenuItemKeyboardShortcutElement>
-            {props.children ? ">" : null}
+            {props.children ? "▶" : null}
         </MenuItemAccessoryElement>
         {props.children && childMenuContext?.isOpen ? <MenuContext.Provider value={childMenuContext as any}>
             {props.children}
         </MenuContext.Provider> : null}
     </MenuItemElement>
+    if (childMenuContext) {
+        return <div ref={childMenuContext.refs.setReference}>
+            {element}
+        </div>
+    } else {
+        return element
+    }
 })
 
 export default MenuItem

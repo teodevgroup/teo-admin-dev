@@ -14,18 +14,18 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, forwardedR
     const menuContext = useContext(MenuContext)
     return <FloatingNode id={menuContext.nodeId}>
         <FloatingList elementsRef={menuContext.listItemsRef} labelsRef={menuContext.labelsRef}>
-            {menuContext.isOpen ? <FloatingPortal>
+            <FloatingPortal>
                 <FloatingFocusManager
                     context={menuContext.floatingContext}
                     modal={false}
                     initialFocus={menuContext.isNested ? -1 : 0}
                     returnFocus={!menuContext.isNested}
                 >
-                    <MenuElement ref={useMergeRefs([forwardedRef, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...omit(props, ['children'])} {...menuContext.getFloatingProps()}>
+                    <MenuElement role="menu" ref={useMergeRefs([forwardedRef, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...menuContext.getFloatingProps(omit(props, ['children']))}>
                         {props.children}
                     </MenuElement>
                 </FloatingFocusManager>
-            </FloatingPortal>  : null}
+            </FloatingPortal>
         </FloatingList>
     </FloatingNode>
 })
