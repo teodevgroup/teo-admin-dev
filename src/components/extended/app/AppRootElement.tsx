@@ -10,10 +10,13 @@ import { appBackgroundColorDark, appBackgroundColorLight } from '../../../lib/ex
 const AppRootElement = styled.div`
     :global() {
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+        html {
+            overscroll-behavior: none; // for Safari
+        }
         body {
             margin: 0;
             font-family: Noto Sans, sans-serif;
+            overscroll-behavior: none; // for Chrome
         }
         * {
             box-sizing: border-box;

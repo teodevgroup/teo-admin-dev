@@ -41,6 +41,7 @@
         "react-hook-form": "^7.49.3",
         "react-icons": "^5.0.1",
         "react-use-path": "^0.3.1",
+        "react-virtualized": "^9.22.5",
         "suspend-react": "^0.1.3",
         "ts-loader": "^9.5.1",
         "ts-node": "^10.9.2",

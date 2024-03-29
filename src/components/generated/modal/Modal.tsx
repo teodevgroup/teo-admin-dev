@@ -18,7 +18,7 @@ const floatingOverlayExtendedCss = css`
 `
 
 const Modal = ({ isOpen, setIsOpen, dismissWithEscKey, dismissWithOutsideClick, children }: ModalProps) => {
-    const { refs, context: floatingContext, floatingStyles } = useFloating({ 
+    const { refs, context: floatingContext } = useFloating({ 
         open: isOpen,
         onOpenChange: setIsOpen,
     })
