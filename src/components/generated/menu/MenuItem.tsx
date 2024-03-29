@@ -1,13 +1,13 @@
 import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
-import MenuItemElement, { MenuItemElementProps } from '../../extended/MenuItemElement'
+import MenuItemElement, { MenuItemElementProps } from '../../extended/menu/MenuItemElement'
 import { omit } from 'radash'
-import MenuItemTextElement from '../../extended/MenuItemTextElement'
+import MenuItemTextElement from '../../extended/menu/MenuItemTextElement'
 import { useFloatingTree, useListItem, useMergeRefs } from '@floating-ui/react'
 import MenuContext from './MenuContext'
-import MenuItemKeyboardShortcutElement from '../../extended/MenuItemKeyboardShortcutElement'
+import MenuItemKeyboardShortcutElement from '../../extended/menu/MenuItemKeyboardShortcutElement'
 import useMenuOwner from './useMenuOwner'
-import MenuItemAccessoryElement from '../../extended/MenuItemAccessoryElement'
+import MenuItemAccessoryElement from '../../extended/menu/MenuItemAccessoryElement'
 import mergeProps from 'merge-props'
 
 type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { action?: () => void, label: string, keyboardShortcut?: string }

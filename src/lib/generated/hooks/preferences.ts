@@ -7,7 +7,24 @@ import cleanSet from 'clean-set'
 import { Dispatch, SetStateAction } from 'react'
 import { get } from 'object-path'
 
+export type Language = "en-us" | "en-uk" | "de" | "fr" | "es" | "hi" | "he" | "ja" | "ko" | "zh-cn" | "zh-tw"
+
+export const languageNames: { [key in Language]: string } = {
+    "en-us": "English (United States)",
+    "en-uk": "English (United Kingdom)",
+    "de": "Deutsch",
+    "fr": "Français",
+    "es": "Español",
+    "hi": "हिन्दी",
+    "he": "עברית",
+    "ja": "日本語",
+    "ko": "한국어",
+    "zh-cn": "中文（简体）",
+    "zh-tw": "中文（繁體）",
+}
+
 export interface Preferences {
+    lang: Language
     nav: NavPreferences
 }
 
@@ -34,3 +51,4 @@ const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Disp
 
 export const useNavPreferences = makePathedPreferencesHook<NavPreferences>(["nav"])
 export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "navCollapsed"])
+export const useLang = makePathedPreferencesHook<Language>(["lang"])

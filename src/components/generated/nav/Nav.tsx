@@ -2,16 +2,16 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React from 'react'
-import NavElement from '../extended/NavElement'
-import NavCollapseButton from '../extended/NavCollapseButton'
-import { useNavCollapsed } from '../../lib/generated/hooks/preferences'
-import NavAppTitle from '../extended/NavAppTitle'
-import NavLogo from '../extended/NavLogo'
-import WithTooltip from './WithTooltip'
-import Tooltip from '../extended/Tooltip'
-import WithContextMenu from './menu/WithContextMenu'
-import Menu from './menu/Menu'
-import ContextMenuItem from './menu/MenuItem'
+import NavElement from '../../extended/logo/NavElement'
+import NavCollapseButton from '../../extended/logo/NavCollapseButton'
+import { useNavCollapsed } from '../../../lib/generated/hooks/preferences'
+import NavAppTitle from '../../extended/logo/NavAppTitle'
+import NavLogo from '../../extended/logo/NavLogo'
+import WithTooltip from '../tooltip/WithTooltip'
+import Tooltip from '../../extended/tooltip/Tooltip'
+import WithContextMenu from '../menu/WithContextMenu'
+import Menu from '../menu/Menu'
+import ContextMenuItem from '../menu/MenuItem'
 
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()

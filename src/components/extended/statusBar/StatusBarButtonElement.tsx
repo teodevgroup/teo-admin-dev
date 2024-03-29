@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { clearButton } from "../../lib/generated/theme";
+import { clearButton } from "../../../lib/generated/theme";
 
 const StatusBarButtonElement = styled.button`
     ${clearButton}

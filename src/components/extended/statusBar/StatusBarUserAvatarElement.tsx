@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
-import { dark, flexContainer, light, size } from "../../lib/generated/theme"
-import { spacing } from "../../lib/extended/theme"
+import { dark, flexContainer, light, size } from "../../../lib/generated/theme"
+import { spacing } from "../../../lib/extended/theme"
 
 const StatusBarUserAvatarElement = styled.div`
     ${flexContainer("row", "center", "center")}

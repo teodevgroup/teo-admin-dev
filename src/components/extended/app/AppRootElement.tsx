@@ -4,10 +4,10 @@
 // with care.
 
 import { styled } from '@linaria/react'
-import { dark, light } from '../../lib/generated/theme'
-import { appBackgroundColorDark, appBackgroundColorLight } from '../../lib/extended/theme'
+import { dark, light } from '../../../lib/generated/theme'
+import { appBackgroundColorDark, appBackgroundColorLight } from '../../../lib/extended/theme'
 
-const AppRoot = styled.div`
+const AppRootElement = styled.div`
     :global() {
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -37,4 +37,4 @@ const AppRoot = styled.div`
     display: flex;
 `
 
-export default AppRoot
+export default AppRootElement

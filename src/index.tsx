@@ -1,6 +1,6 @@
 import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './components/extended/App'
+import App from './components/extended/app/App'
 
 const container = document.createElement('div')
 document.body.appendChild(container)

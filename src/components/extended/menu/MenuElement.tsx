@@ -4,8 +4,8 @@
 // with care.
 
 import { styled } from "@linaria/react"
-import { borderThin, radius } from "../../lib/extended/theme"
-import { dark, flexContainer, light } from "../../lib/generated/theme"
+import { borderThin, radius } from "../../../lib/extended/theme"
+import { dark, flexContainer, light } from "../../../lib/generated/theme"
 
 const MenuElement = styled.div`
     padding: ${radius};

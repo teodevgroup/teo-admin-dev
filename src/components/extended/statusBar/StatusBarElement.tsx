@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react";
-import { flexContainer } from "../../lib/generated/theme";
-import { margin } from "../../lib/extended/theme";
+import { flexContainer } from "../../../lib/generated/theme";
+import { margin } from "../../../lib/extended/theme";
 
 const StatusBarElement = styled.div`
     ${flexContainer("row", "center", "flex-end")}

@@ -4,8 +4,8 @@
 // with care.
 
 import { styled } from '@linaria/react'
-import { dark, flexContainer, light, transitionAll } from '../../lib/generated/theme'
-import { appNavBackgroundColorDark, appNavBackgroundColorLight, margin } from '../../lib/extended/theme'
+import { dark, flexContainer, light, transitionAll } from '../../../lib/generated/theme'
+import { appNavBackgroundColorDark, appNavBackgroundColorLight, margin } from '../../../lib/extended/theme'
 
 type NavElementProps = {
     collapsed: boolean

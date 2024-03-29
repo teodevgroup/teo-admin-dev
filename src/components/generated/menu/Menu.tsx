@@ -3,7 +3,7 @@
 
 import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
-import MenuElement from '../../extended/MenuElement'
+import MenuElement from '../../extended/menu/MenuElement'
 import { FloatingFocusManager, FloatingList, FloatingNode,  FloatingPortal,  useMergeRefs } from '@floating-ui/react'
 import { omit } from 'radash'
 import MenuContext from './MenuContext'

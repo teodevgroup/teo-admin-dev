@@ -4,8 +4,8 @@
 // with care.
 
 import { styled } from "@linaria/react"
-import { radius } from "../../lib/extended/theme"
-import { clearButton, dark, flexContainer, light } from "../../lib/generated/theme"
+import { radius } from "../../../lib/extended/theme"
+import { clearButton, dark, flexContainer, light } from "../../../lib/generated/theme"
 
 export type MenuItemElementProps = {
     highlighted?: boolean

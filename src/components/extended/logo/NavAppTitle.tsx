@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from "@linaria/react"
-import { clearHeading, transitionAll } from '../../lib/generated/theme'
-import { spacing } from '../../lib/extended/theme'
+import { clearHeading, transitionAll } from '../../../lib/generated/theme'
+import { spacing } from '../../../lib/extended/theme'
 
 type NavAppTitleProps = {
     collapsed: boolean

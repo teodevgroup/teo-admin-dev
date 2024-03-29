@@ -4,7 +4,7 @@
 // with care.
 
 import { styled } from '@linaria/react'
-import { flexContainer } from '../../lib/generated/theme'
+import { flexContainer } from '../../../lib/generated/theme'
 
 const AppContentLayout = styled.div`
     ${flexContainer("column", "stretch", "stretch")}

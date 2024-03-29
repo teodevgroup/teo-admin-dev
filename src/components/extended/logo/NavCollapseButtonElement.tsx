@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react"
-import { clearButton, transitionAll } from "../../lib/generated/theme"
+import { clearButton, transitionAll } from "../../../lib/generated/theme"
 
 export type NavCollapseButtonElementProps = {
     collapsed: boolean

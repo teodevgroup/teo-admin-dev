@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from "@linaria/react"
-import { margin, tintColorDark, tintColorLight } from '../../lib/extended/theme'
+import { margin, tintColorDark, tintColorLight } from '../../../lib/extended/theme'
 import Logo from './Logo'
-import { dark, light } from '../../lib/generated/theme'
+import { dark, light } from '../../../lib/generated/theme'
 
 const NavLogoElement = styled.div`
     margin-top: ${margin};

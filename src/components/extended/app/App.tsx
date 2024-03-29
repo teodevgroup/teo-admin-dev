@@ -4,21 +4,21 @@
 // with care.
 
 import React from 'react'
-import AppRoot from './AppRoot'
+import AppRootElement from './AppRootElement'
 import AppNavLayout from './AppNavLayout'
-import Nav from '../generated/Nav'
+import Nav from '../../generated/nav/Nav'
 import AppContentLayout from './AppContentLayout'
-import StatusBar from './StatusBar'
+import StatusBar from '../statusBar/StatusBar'
 
 const App = () => {
-    return <AppRoot>
+    return <AppRootElement>
         <AppNavLayout>
             <Nav />
             <AppContentLayout>
                 <StatusBar />
             </AppContentLayout>
         </AppNavLayout>
-    </AppRoot>
+    </AppRootElement>
 }
 
 export default App
