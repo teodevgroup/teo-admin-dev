@@ -9,7 +9,21 @@ import { get } from 'object-path'
 
 export type Language = "en-us" | "en-uk" | "de" | "fr" | "es" | "hi" | "he" | "ja" | "ko" | "zh-cn" | "zh-tw"
 
-export const languageNames: { [key in Language]: string } = {
+export const languageNamesArray: Array<Language> = [
+    "en-us",
+    "en-uk",
+    "de",
+    "fr",
+    "es",
+    "hi",
+    "he",
+    "ja",
+    "ko",
+    "zh-cn",
+    "zh-tw",
+]
+
+export const languageNamesMap: { [key in Language]: string } = {
     "en-us": "English (United States)",
     "en-uk": "English (United Kingdom)",
     "de": "Deutsch",
