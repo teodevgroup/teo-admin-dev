@@ -11,16 +11,18 @@ import WithTooltip from '../../generated/tooltip/WithTooltip'
 import Tooltip from '../tooltip/Tooltip'
 import { languageNamesArray, languageNamesMap, useLang } from '../../../lib/generated/hooks/preferences'
 import SelectList from '../../generated/selectList/SelectList'
-import SelectListItemElement from '../selectList/SelectListItemElement'
 import SelectListItem from '../../generated/selectList/SelectListItem'
 import StatusBarLanguageListCell from './StatusBarLanguageListCell'
+import SelectListVerticalLayout from '../../generated/selectList/SelectListVerticalLayout'
+import { useTranslation } from 'react-i18next'
 
 const StatusBar = () => {
     const [langModalIsOpen, setLangModalIsOpen] = useState(false)
     const [lang, setLang] = useLang()
     const [selectedLang, setSelectedLang] = useState(lang)
+    const { t, i18n } = useTranslation("translations")
     return <StatusBarElement>
-        <WithTooltip tooltip={<Tooltip>Change the dashboard language</Tooltip>}>
+        <WithTooltip tooltip={<Tooltip>{t("statusBar.langButton.tooltip")}</Tooltip>}>
             <StatusBarButtonElement onClick={() => setLangModalIsOpen(!langModalIsOpen)}>
                 <IoLanguage />
             </StatusBarButtonElement>
@@ -30,14 +32,20 @@ const StatusBar = () => {
             <ModalSheet>
                 <ModalSheetTitle>Language</ModalSheetTitle>
                 <ModalSheetDescription>Select a language.</ModalSheetDescription>
-                <SelectList selectedIndex={languageNamesArray.indexOf(lang)} setSelectedIndex={(index) => setLang(languageNamesArray[index as any])}>
-                    {languageNamesArray.map((name) => <SelectListItem key={name}>
-                        <StatusBarLanguageListCell>
-                            {languageNamesMap[name]}
-                        </StatusBarLanguageListCell>
-                    </SelectListItem>)}
+                <SelectList selectedIndex={languageNamesArray.indexOf(selectedLang)} setSelectedIndex={(index) => setSelectedLang(languageNamesArray[index as any])}>
+                    <SelectListVerticalLayout>
+                        {languageNamesArray.map((name) => <SelectListItem key={name}>
+                            <StatusBarLanguageListCell>
+                                {languageNamesMap[name]}
+                            </StatusBarLanguageListCell>
+                        </SelectListItem>)}
+                    </SelectListVerticalLayout>
                 </SelectList>
-                <button onClick={() => setLang(selectedLang)}>Confirm</button>
+                <button onClick={() => {
+                    setLang(selectedLang)
+                    setLangModalIsOpen(false)
+                    i18n.changeLanguage(selectedLang)
+                }}>Confirm</button>
             </ModalSheet>
         </Modal>
     </StatusBarElement>

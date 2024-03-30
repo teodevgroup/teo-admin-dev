@@ -5,7 +5,7 @@ import SelectListContext from './SelectListContext'
 type SelectListProps = {
     selectedIndex: number | null
     setSelectedIndex: Dispatch<SetStateAction<number | null>>
-    children: ReactElement[]
+    children: ReactElement | ReactElement[]
 }
 
 const SelectList = ({ selectedIndex, setSelectedIndex, children }: SelectListProps) => {

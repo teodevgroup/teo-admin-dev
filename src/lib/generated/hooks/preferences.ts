@@ -7,11 +7,11 @@ import cleanSet from 'clean-set'
 import { Dispatch, SetStateAction } from 'react'
 import { get } from 'object-path'
 
-export type Language = "en-us" | "en-uk" | "de" | "fr" | "es" | "hi" | "he" | "ja" | "ko" | "zh-cn" | "zh-tw"
+export type Language = "enUs" | "enUk" | "de" | "fr" | "es" | "hi" | "he" | "ja" | "ko" | "zhCn" | "zhTw"
 
 export const languageNamesArray: Array<Language> = [
-    "en-us",
-    "en-uk",
+    "enUs",
+    "enUk",
     "de",
     "fr",
     "es",
@@ -19,13 +19,13 @@ export const languageNamesArray: Array<Language> = [
     "he",
     "ja",
     "ko",
-    "zh-cn",
-    "zh-tw",
+    "zhCn",
+    "zhTw",
 ]
 
 export const languageNamesMap: { [key in Language]: string } = {
-    "en-us": "English (United States)",
-    "en-uk": "English (United Kingdom)",
+    "enUs": "English (United States)",
+    "enUk": "English (United Kingdom)",
     "de": "Deutsch",
     "fr": "Français",
     "es": "Español",
@@ -33,8 +33,8 @@ export const languageNamesMap: { [key in Language]: string } = {
     "he": "עברית",
     "ja": "日本語",
     "ko": "한국어",
-    "zh-cn": "中文（简体）",
-    "zh-tw": "中文（繁體）",
+    "zhCn": "中文（简体）",
+    "zhTw": "中文（繁體）",
 }
 
 export interface Preferences {

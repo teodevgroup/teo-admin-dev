@@ -6,7 +6,7 @@
 import { Preferences } from "../generated/hooks/preferences";
 
 const defaultPreferences: Preferences = {
-    lang: "en-us",
+    lang: "enUs",
     nav: {
         navCollapsed: false
     }

@@ -12,9 +12,11 @@ import Tooltip from '../../extended/tooltip/Tooltip'
 import WithContextMenu from '../menu/WithContextMenu'
 import Menu from '../menu/Menu'
 import ContextMenuItem from '../menu/MenuItem'
+import { useTranslation } from 'react-i18next'
 
 const Nav = () => {
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
+    const { t } = useTranslation("translations")
     return <WithContextMenu contextMenu={
         <Menu>
             <ContextMenuItem disabled={true} label="Menu A" />
@@ -28,7 +30,7 @@ const Nav = () => {
         </Menu>
     }>
         <NavElement collapsed={navCollapsed}>
-            <WithTooltip tooltip={<Tooltip>{navCollapsed ? "Expand navigation area" : "Collapse navigation area"}</Tooltip>}>
+            <WithTooltip tooltip={<Tooltip>{navCollapsed ? t("nav.expandButton.tooltip") : t("nav.collapseButton.tooltip")}</Tooltip>}>
                 <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
             </WithTooltip>
             <NavLogo />
