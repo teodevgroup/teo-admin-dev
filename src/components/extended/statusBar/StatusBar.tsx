@@ -30,8 +30,8 @@ const StatusBar = () => {
         <StatusBarUserAvatar name='V' />
         <Modal isOpen={langModalIsOpen} setIsOpen={setLangModalIsOpen} dismissWithEscKey dismissWithOutsideClick>
             <ModalSheet>
-                <ModalSheetTitle>Language</ModalSheetTitle>
-                <ModalSheetDescription>Select a language.</ModalSheetDescription>
+                <ModalSheetTitle>{t("statusBar.lang.language")}</ModalSheetTitle>
+                <ModalSheetDescription>{t("statusBar.lang.selectALanguage")}</ModalSheetDescription>
                 <SelectList selectedIndex={languageNamesArray.indexOf(selectedLang)} setSelectedIndex={(index) => setSelectedLang(languageNamesArray[index as any])}>
                     <SelectListVerticalLayout>
                         {languageNamesArray.map((name) => <SelectListItem key={name}>
@@ -45,7 +45,7 @@ const StatusBar = () => {
                     setLang(selectedLang)
                     setLangModalIsOpen(false)
                     i18n.changeLanguage(selectedLang)
-                }}>Confirm</button>
+                }}>{t("confirm")}</button>
             </ModalSheet>
         </Modal>
     </StatusBarElement>
