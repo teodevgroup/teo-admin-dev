@@ -2,7 +2,9 @@ import { globSync } from 'glob'
 import { writeFileSync } from 'fs'
 
 const generatedExcludes = [
-    ""
+    "src/lib/generated/teo/index.js",
+    "src/lib/generated/teo/index.d.ts",
+    "src/lib/generated/signIn/index.ts",
 ]
 
 const generatedFiles = [
