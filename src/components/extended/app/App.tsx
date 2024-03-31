@@ -9,6 +9,7 @@ import AppNavLayout from './AppNavLayout'
 import Nav from '../../generated/nav/Nav'
 import AppContentLayout from './AppContentLayout'
 import StatusBar from '../statusBar/StatusBar'
+import SignInModal from '../../generated/signInModal/SignInModal'
 
 const App = () => {
     return <AppRootElement>
@@ -18,6 +19,7 @@ const App = () => {
                 <StatusBar />
             </AppContentLayout>
         </AppNavLayout>
+        <SignInModal />
     </AppRootElement>
 }
 

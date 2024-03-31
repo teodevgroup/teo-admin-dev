@@ -13,7 +13,7 @@ type ModalProps = {
     children: ReactNode,
 }
 
-const floatingOverlayExtendedCss = css`
+export const floatingOverlayExtendedCss = css`
     ${flexContainer("row", "center", "center")}
 `
 
@@ -33,7 +33,6 @@ const Modal = ({ isOpen, setIsOpen, dismissWithEscKey, dismissWithOutsideClick, 
     const {
         getFloatingProps,
     } = useInteractions([role, dismiss, click])
-    console.log(isOpen)
     return <FloatingPortal>
         {isOpen && <FloatingOverlay lockScroll className={floatingOverlayExtendedCss}>
             <FloatingFocusManager context={floatingContext}>
