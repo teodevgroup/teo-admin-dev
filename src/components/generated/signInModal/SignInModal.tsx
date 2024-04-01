@@ -22,8 +22,7 @@ const SignInModal = () => {
                 </ModalElement>
             </FloatingFocusManager>
         </FloatingOverlay>}
-    </FloatingPortal>  
-    return <div></div>
+    </FloatingPortal>
 }
 
 export default SignInModal
