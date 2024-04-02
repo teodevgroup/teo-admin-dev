@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, PropsWithRef, useEffect, useRef, useState } from 'react'
+import React, { ForwardedRef, forwardRef, PropsWithRef, ReactElement, useEffect, useRef, useState } from 'react'
 import SelectElement from "../../extended/select/SelectElement"
 import { inner, SideObject, useFloating, autoUpdate, offset, shift, flip, size, useInteractions, useClick, useDismiss, useRole, useInnerOffset, useListNavigation, useTypeahead, useMergeRefs, FloatingPortal, FloatingOverlay, FloatingFocusManager, FloatingList } from '@floating-ui/react'
 import { flushSync } from 'react-dom'
@@ -13,6 +13,7 @@ type SelectProps<T> = PropsWithRef<HTMLButtonElement> & {
     onChange: (newValue: T) => void
     allowsNull?: boolean
     valueFormatter?: (value: T) => string
+    children: ReactElement | ReactElement[]
 }
 
 const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChange, allowsNull, children, valueFormatter = String, ...props }: SelectProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {

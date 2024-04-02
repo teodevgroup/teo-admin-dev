@@ -3,4 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-export { default, MenuItemElementProps } from '../../generated/menu/MenuItemElement'
+export { default, type MenuItemElementProps } from '../../generated/menu/MenuItemElement'

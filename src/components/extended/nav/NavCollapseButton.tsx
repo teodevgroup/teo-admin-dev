@@ -3,4 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-export { default, NavCollapseButtonProps } from '../../generated/nav/NavCollapseButton'
+export { default, type NavCollapseButtonProps } from '../../generated/nav/NavCollapseButton'

@@ -92,7 +92,6 @@ const config: Configuration = {
         },
         compress: true,
         port: 9000,
-        hot: true,
         historyApiFallback: { index: '/' },
     },
 }

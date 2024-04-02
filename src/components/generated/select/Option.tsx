@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, PropsWithRef, useContext } from 'react'
+import React, { ForwardedRef, forwardRef, PropsWithRef, ReactNode, useContext } from 'react'
 import OptionElement from '../../extended/select/OptionElement'
 import SelectContext from './selectContext'
 import { useListItem, useMergeRefs } from '@floating-ui/react'
@@ -6,6 +6,7 @@ import { useListItem, useMergeRefs } from '@floating-ui/react'
 export type OptionProps<T> = PropsWithRef<HTMLButtonElement> & {
     value: T
     valueFormatter?: (value: any) => string
+    children: ReactNode
 }
 
 const Option = forwardRef(({ value, valueFormatter = String, children, ...props }: OptionProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {

@@ -3,10 +3,20 @@
 
 import React from 'react'
 import SignInFormElement from "../../extended/signInModal/SignInFormElement"
+import Select from '../select/Select'
+import Option from '../select/Option'
 
 const SignInForm = () => {
     return <SignInFormElement>
-        ABC
+        <div>Sign In</div>
+        <Select value={"Admin"}>
+            <Option value="Admin">
+                <span>Admin</span>
+            </Option>
+            <Option value="User">
+                <span>User</span>
+            </Option>
+        </Select>
     </SignInFormElement>
 }
 
