@@ -3,12 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { styled } from '@linaria/react'
-import { flexContainer } from '../../../lib/generated/theme'
-
-const AppContentLayout = styled.div`
-    ${flexContainer("column", "stretch", "stretch")}
-    flex-grow: 1;
-`
-
-export default AppContentLayout
+export { default } from '../../generated/app/AppContentLayout'

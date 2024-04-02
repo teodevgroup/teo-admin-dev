@@ -3,8 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { styled } from "@linaria/react"
-
-const MenuItemKeyboardShortcutElement = styled.div``
-
-export default MenuItemKeyboardShortcutElement
+export { default } from '../../generated/menu/MenuItemKeyboardShortcutElement'

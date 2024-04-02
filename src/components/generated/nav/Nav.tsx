@@ -2,11 +2,11 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React from 'react'
-import NavElement from '../../extended/logo/NavElement'
-import NavCollapseButton from '../../extended/logo/NavCollapseButton'
+import NavElement from '../../extended/nav/NavElement'
+import NavCollapseButton from '../../extended/nav/NavCollapseButton'
 import { useNavCollapsed } from '../../../lib/generated/hooks/preferences'
-import NavAppTitle from '../../extended/logo/NavAppTitle'
-import NavLogo from '../../extended/logo/NavLogo'
+import NavAppTitle from '../../extended/nav/NavAppTitle'
+import NavLogo from '../../extended/nav/NavLogo'
 import WithTooltip from '../tooltip/WithTooltip'
 import Tooltip from '../../extended/tooltip/Tooltip'
 import WithContextMenu from '../menu/WithContextMenu'

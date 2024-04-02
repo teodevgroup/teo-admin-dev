@@ -3,4 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-export { default } from '../../generated/menu/MenuItemTextElement'
+export { default } from '../../generated/nav/NavLogo'
