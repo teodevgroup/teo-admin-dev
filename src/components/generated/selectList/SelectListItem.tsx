@@ -1,4 +1,7 @@
-import React, { ComponentPropsWithRef, forwardRef, MutableRefObject, RefObject, useContext, useEffect, useRef, useState } from 'react'
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
+import React, { ComponentPropsWithRef, forwardRef, useContext, useEffect, useRef, useState } from 'react'
 import SelectListItemElement from '../../extended/selectList/SelectListItemElement'
 import SelectListContext from './SelectListContext'
 import { useMergeRefs } from '@floating-ui/react'

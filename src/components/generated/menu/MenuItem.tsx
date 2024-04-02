@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
 import MenuItemElement, { MenuItemElementProps } from '../../extended/menu/MenuItemElement'

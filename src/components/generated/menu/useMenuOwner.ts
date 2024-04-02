@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { useContext, useEffect, useRef, useState } from "react"
 import MenuContext, { MenuContextProps } from "./MenuContext"
 import { autoUpdate, flip, offset, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, shift, useHover, safePolygon, useDismiss, useRole, useListNavigation, useTypeahead, useInteractions, useClick } from "@floating-ui/react"

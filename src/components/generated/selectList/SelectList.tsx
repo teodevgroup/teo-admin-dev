@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { Dispatch, ReactElement, SetStateAction, useRef, useState } from 'react'
 import SelectListElement from '../../extended/selectList/SelectListElement'
 import SelectListContext from './SelectListContext'

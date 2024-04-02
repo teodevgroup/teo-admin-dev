@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { FloatingFocusManager, FloatingOverlay, FloatingPortal, useFloating, useInteractions, useRole } from '@floating-ui/react'
 import React, { useState } from 'react'
 import { floatingOverlayExtendedCss } from '../modal/Modal'
