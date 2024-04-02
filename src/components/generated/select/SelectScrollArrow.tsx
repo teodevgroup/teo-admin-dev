@@ -24,7 +24,7 @@ const shouldShowArrow = (
         return false
     }
     
-export function ScrollArrow({
+function SelectScrollArrow({
     isPositioned,
     dir,
     scrollRef,
@@ -128,3 +128,5 @@ export function ScrollArrow({
         {dir === "up" ? "▲" : "▼"}
     </SelectScrollArrowElement>
 }
+
+export default SelectScrollArrow
