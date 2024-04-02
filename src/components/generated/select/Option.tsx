@@ -21,7 +21,7 @@ const Option = forwardRef(({ value, valueFormatter = String, children, ...props 
         tabIndex={context.activeIndex === index ? 0 : -1}
         style={{
         background:
-            context.activeIndex === i
+            context.activeIndex === index
             ? "rgba(0,200,255,0.2)"
             : index === context.selectedIndex
             ? "rgba(0,0,50,0.05)"
@@ -57,12 +57,12 @@ const Option = forwardRef(({ value, valueFormatter = String, children, ...props 
             // immediately closing `onClick` by deferring it
             clearTimeout(context.selectTimeoutRef.current)
             context.selectTimeoutRef.current = setTimeout(() => {
-                context.allowSelectRef.current = true;
+                context.allowSelectRef.current = true
             })
         }
         })}
     >
-        {children}
+        {children as any}
     </OptionElement>
 })
 

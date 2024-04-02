@@ -6,6 +6,7 @@ import mergeProps from 'merge-props'
 import SelectContentElement from '../../extended/select/SelectContentElement'
 import SelectScrollArrow from './SelectScrollArrow'
 import SelectPanelElement from '../../extended/select/SelectPanelElement'
+import SelectContext from './selectContext'
 
 type SelectProps<T> = PropsWithRef<HTMLButtonElement> & {
     value: T
@@ -156,36 +157,51 @@ const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChang
             <span>{valueFormatter(value)}</span>
         </SelectElement>
         {isOpen && <FloatingList elementsRef={listRef} labelsRef={listContentRef}>
-            <FloatingPortal>
-                <FloatingOverlay lockScroll={!touch} style={{ zIndex: 1 }}>
-                    <FloatingFocusManager context={floatingContext} modal={false}>
-                        <SelectPanelElement ref={refs.setFloating} style={{ ...floatingStyles, outline: "0" }}>
-                            <SelectContentElement ref={scrollRef} {...getFloatingProps({
-                                onScroll({ currentTarget }) {
-                                    flushSync(() => setScrollTop(currentTarget.scrollTop))
-                                },
-                                onContextMenu(e) {
-                                    e.preventDefault()
-                                }
-                            })}>
-                                {children as any}
-                            </SelectContentElement>
-                            {(["up", "down"] as Array<"up" | "down">).map((dir) => (
-                                <SelectScrollArrow
-                                    key={dir}
-                                    dir={dir}
-                                    scrollTop={scrollTop}
-                                    scrollRef={scrollRef}
-                                    innerOffset={innerOffset}
-                                    isPositioned={isPositioned}
-                                    onScroll={handleArrowScroll}
-                                    onHide={handleArrowHide}
-                                />
-                            ))}
-                        </SelectPanelElement>
-                    </FloatingFocusManager>
-                </FloatingOverlay>
-            </FloatingPortal>
+            <SelectContext.Provider value={{
+                isOpen,
+                setIsOpen,
+                blockSelection,
+                setBlockSelection,
+                selectedIndex,
+                setSelectedIndex,
+                activeIndex,
+                setActiveIndex,
+                getItemProps,
+                allowSelectRef,
+                allowMouseUpRef,
+                selectTimeoutRef,
+            }}>
+                <FloatingPortal>
+                    <FloatingOverlay lockScroll={!touch} style={{ zIndex: 1 }}>
+                        <FloatingFocusManager context={floatingContext} modal={false}>
+                            <SelectPanelElement ref={refs.setFloating} style={{ ...floatingStyles, outline: "0" }}>
+                                <SelectContentElement ref={scrollRef} {...getFloatingProps({
+                                    onScroll({ currentTarget }) {
+                                        flushSync(() => setScrollTop(currentTarget.scrollTop))
+                                    },
+                                    onContextMenu(e) {
+                                        e.preventDefault()
+                                    }
+                                })}>
+                                    {children as any}
+                                </SelectContentElement>
+                                {(["up", "down"] as Array<"up" | "down">).map((dir) => (
+                                    <SelectScrollArrow
+                                        key={dir}
+                                        dir={dir}
+                                        scrollTop={scrollTop}
+                                        scrollRef={scrollRef}
+                                        innerOffset={innerOffset}
+                                        isPositioned={isPositioned}
+                                        onScroll={handleArrowScroll}
+                                        onHide={handleArrowHide}
+                                    />
+                                ))}
+                            </SelectPanelElement>
+                        </FloatingFocusManager>
+                    </FloatingOverlay>
+                </FloatingPortal>
+            </SelectContext.Provider>
         </FloatingList>}
     </>
 })
