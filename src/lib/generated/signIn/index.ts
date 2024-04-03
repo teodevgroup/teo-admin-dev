@@ -52,6 +52,13 @@ const fetchAccount: () => Promise<Account> = () => {
     })
 }
 
+const flushAccountSetters = () => {
+    console.log("see this:", accountSetters, account)
+    accountSetters.forEach((setter) => {
+        setter(account)
+    })
+}
+
 const flushAccountResolves = () => {
     if (account) {
         savedResolves.forEach((resolve) => {
@@ -68,14 +75,21 @@ export const useAccount: () => Account = () => {
     useEffect(() => {
         accountSetters.push(setCurrentAccount)
         return () => {
-
+            accountSetters.splice(accountSetters.indexOf(setCurrentAccount), 1)
         }
     }, [])
     return suspend(fetchAccount, [currentAccount])
 }
 
 export const useAccountAvailable: () => boolean = () => {
-    const [currentAccount] = useState(getAccount())
+    const [currentAccount, setCurrentAccount] = useState(getAccount())
+    useEffect(() => {
+        accountSetters.push(setCurrentAccount)
+        return () => {
+            accountSetters.splice(accountSetters.indexOf(setCurrentAccount), 1)
+        }
+    }, [])
+    console.log("see available:", !!currentAccount)
     return !!currentAccount
 }
 
@@ -83,6 +97,7 @@ export const signOut = () => {
     account = null
     saveAccountIntoLocalStorage(null)
     flushAccountResolves()
+    flushAccountSetters()
 }
 
 export const signIn = async (model: AccountModel, data: any) => {
@@ -95,6 +110,7 @@ export const signIn = async (model: AccountModel, data: any) => {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
             flushAccountResolves()
+            flushAccountSetters()
             return 
         }
     }
@@ -107,6 +123,7 @@ export const signIn = async (model: AccountModel, data: any) => {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
             flushAccountResolves()
+            flushAccountSetters()
             return
         }
     }
