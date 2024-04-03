@@ -1,7 +1,7 @@
 
-import { GeneratedTranslation } from "."
+import { StaticGeneratedTranslation } from "../static"
 
-const zhTw: GeneratedTranslation = {
+const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "nav.title": "張氏管理儀錶盤",
     "nav.collapseButton.tooltip": "折疊導航區域",
     "nav.expandButton.tooltip": "展開導航區域",
@@ -11,4 +11,4 @@ const zhTw: GeneratedTranslation = {
     "confirm": "確認",
 }
 
-export default zhTw
+export default staticGeneratedTranslation

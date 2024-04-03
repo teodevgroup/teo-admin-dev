@@ -3,12 +3,17 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-export type GeneratedTranslation = {
-    "nav.title": string
-    "nav.collapseButton.tooltip": string
-    "nav.expandButton.tooltip": string
-    "statusBar.langButton.tooltip": string
-    "statusBar.lang.language": string
-    "statusBar.lang.selectALanguage": string
-    "confirm": string
+import { StaticGeneratedTranslation } from "./static";
+
+export type GeneratedTranslation = StaticGeneratedTranslation & {
+    "model.user.name": string
+    "model.user.desc": string
+    "model.admin.name": string
+    "model.admin.desc": string
+    "model.user.email.name": string
+    "model.user.email.desc": string
+    "model.user.phoneNo.name": string
+    "model.user.phoneNo.desc": string
+    "model.admin.email.name": string
+    "model.admin.email.desc": string
 }

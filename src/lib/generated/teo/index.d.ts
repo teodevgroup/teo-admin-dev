@@ -222,14 +222,14 @@ export type AdminIndirectRelations = undefined
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserScalarFields = "email" | "id" | "password"
+export type UserScalarFields = "email" | "id" | "password" | "phoneNo"
 
 /**
  * **User serializable scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserSerializableScalarFields = "email" | "id"
+export type UserSerializableScalarFields = "email" | "id" | "phoneNo"
 
 /**
  * **User relations**
@@ -326,6 +326,11 @@ export const enum UserScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     password = "password",
+
+    /// ### Phone no
+    ///
+    /// This synthesized enum member doesn't have a description.
+    phoneNo = "phoneNo",
 }
 
 /// ## User serializable scalar fields
@@ -342,6 +347,11 @@ export const enum UserSerializableScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     id = "id",
+
+    /// ### Phone no
+    ///
+    /// This synthesized enum member doesn't have a description.
+    phoneNo = "phoneNo",
 }
 
 /// ## User relations
@@ -2287,6 +2297,13 @@ export type UserSelect = {
      */
      id?: boolean
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
+    
 }
 
 
@@ -2342,6 +2359,13 @@ export type UserWhereInput = {
      */
      id?: number | std.Filter<number>
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string | std.StringFilter
+    
 }
 
 
@@ -2365,6 +2389,13 @@ export type UserWhereUniqueInput = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -2410,6 +2441,13 @@ export type UserScalarWhereWithAggregatesInput = {
      * This synthesized field doesn't have a description.
      */
      id?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string | std.StringWithAggregatesFilter
     
 }
 
@@ -2490,6 +2528,13 @@ export type UserOrderByInput = {
      */
      id?: std.Sort
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: std.Sort
+    
 }
 
 
@@ -2520,6 +2565,13 @@ export type UserCountAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      id?: boolean
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
     
 }
 
@@ -2579,6 +2631,13 @@ export type UserMinAggregateInputType = {
      */
      id?: boolean
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
+    
 }
 
 
@@ -2602,6 +2661,13 @@ export type UserMaxAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      id?: boolean
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
     
 }
 
@@ -2627,6 +2693,13 @@ export type UserCreateInput = {
      */
      password: string
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo: string
+    
 }
 
 
@@ -2650,6 +2723,13 @@ export type UserUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      password?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -2979,6 +3059,13 @@ export type User = {
      */
      id: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo: string
+    
 }
 export type UserGetPayload<S extends boolean | null | undefined | UserArgs, U = keyof S> = S extends true
     ? User
@@ -3042,6 +3129,13 @@ export type UserCountAggregateResult = {
      */
      id?: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: number
+    
 }
 
 
@@ -3100,6 +3194,13 @@ export type UserMinAggregateResult = {
      */
      id?: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
+    
 }
 
 
@@ -3123,6 +3224,13 @@ export type UserMaxAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -3227,6 +3335,13 @@ export type UserGroupByResult = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -4084,6 +4199,13 @@ export type UserScalarUpdateInput = {
      */
      password?: string
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
+    
 }
 
 
@@ -4100,6 +4222,13 @@ export type UserSignInCheckerIds = {
      * This synthesized field doesn't have a description.
      */
      email?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -4165,6 +4294,13 @@ export type UserSignInArgs = {
      * This synthesized field doesn't have a description.
      */
      password?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 

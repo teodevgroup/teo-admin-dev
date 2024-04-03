@@ -1,7 +1,7 @@
 
-import { GeneratedTranslation } from "."
+import { StaticGeneratedTranslation } from "../static"
 
-const enUk: GeneratedTranslation = {
+const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "nav.title": "Teo Admin Dashboard",
     "nav.collapseButton.tooltip": "Collapse navigation area",
     "nav.expandButton.tooltip": "Expand navigation area",
@@ -11,4 +11,4 @@ const enUk: GeneratedTranslation = {
     "confirm": "Confirm",
 }
 
-export default enUk
+export default staticGeneratedTranslation
