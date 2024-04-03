@@ -4,15 +4,10 @@
 // with care.
 
 import { Translation } from "."
+import generated from "../../generated/translations/zhCn"
 
-const zhCn: Translation = {
-    "nav.title": "张氏管理仪表盘",
-    "nav.collapseButton.tooltip": "折叠导航区域",
-    "nav.expandButton.tooltip": "展开导航区域",
-    "statusBar.langButton.tooltip": "更换仪表盘语言",
-    "statusBar.lang.language": "语言",
-    "statusBar.lang.selectALanguage": "选择一个语言。",
-    "confirm": "确认",
+const zhCn: Translation = { 
+    ...generated 
 }
 
 export default zhCn

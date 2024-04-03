@@ -3,11 +3,4 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { Translation } from "."
-import generated from "../../generated/translations/de"
-
-const de: Translation = { 
-    ...generated 
-}
-
-export default de
+export { default } from '../../generated/signInModal/SignInLineGroup'

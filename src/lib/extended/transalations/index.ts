@@ -3,12 +3,6 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-export type Translation = {
-    "nav.title": string
-    "nav.collapseButton.tooltip": string
-    "nav.expandButton.tooltip": string
-    "statusBar.langButton.tooltip": string
-    "statusBar.lang.language": string
-    "statusBar.lang.selectALanguage": string
-    "confirm": string
-}
+import { GeneratedTranslation } from "../../generated/translations"
+
+export type Translation = {} & GeneratedTranslation
