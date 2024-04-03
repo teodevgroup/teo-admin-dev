@@ -10,8 +10,10 @@ import { useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInD
 import { accountModels } from '../../../lib/generated/signIn'
 import SignInLineGroup from './SignInLineGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'
+import { useTranslation } from 'react-i18next'
 
 const SignInForm = () => {
+    const { t } = useTranslation("translations")
     const [signInModel, setSignInModel] = useSignInDefaultModel()
     const [userIdKey, setUserIdKey] = useSignInUserDefaultIdKey()
     const [userCheckerKey, setUserCheckerKey] = useSignInUserDefaultCheckerKey()
@@ -78,7 +80,7 @@ const SignInForm = () => {
             </Select>
             <input />
         </SignInLineGroup>
-        <button type='submit'>Submit</button>
+        <button type='submit'>{t("signIn.signIn")}</button>
     </SignInFormElement>
 }
 

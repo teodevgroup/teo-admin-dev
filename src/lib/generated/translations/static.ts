@@ -5,5 +5,6 @@ export type StaticGeneratedTranslation = {
     "statusBar.langButton.tooltip": string
     "statusBar.lang.language": string
     "statusBar.lang.selectALanguage": string
+    "signIn.signIn": string
     "confirm": string
 }

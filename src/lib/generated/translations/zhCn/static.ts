@@ -8,6 +8,7 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "statusBar.langButton.tooltip": "更换仪表盘语言",
     "statusBar.lang.language": "语言",
     "statusBar.lang.selectALanguage": "选择一个语言。",
+    "signIn.signIn": "登录",
     "confirm": "确认",
 }
 
