@@ -2,10 +2,11 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { dark, flexContainer, light, size } from "../../../lib/generated/theme"
+import { clearButton, dark, flexContainer, light, size } from "../../../lib/generated/theme"
 import { spacing } from "../../../lib/extended/theme"
 
-const StatusBarUserAvatarElement = styled.div`
+const StatusBarUserAvatarElement = styled.button`
+    ${clearButton}
     ${flexContainer("row", "center", "center")}
     ${size(`calc(1.5rem + 2 * ${spacing})`)}
     border-radius: ${`calc((1.5rem + 2 * ${spacing}) / 2)`};

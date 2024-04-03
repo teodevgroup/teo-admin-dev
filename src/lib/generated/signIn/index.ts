@@ -74,6 +74,17 @@ export const useAccount: () => Account = () => {
     return suspend(fetchAccount, [currentAccount])
 }
 
+export const useAccountAvailable: () => boolean = () => {
+    const [currentAccount] = useState(getAccount())
+    return !!currentAccount
+}
+
+export const signOut = () => {
+    account = null
+    saveAccountIntoLocalStorage(null)
+    flushAccountResolves()
+}
+
 export const signIn = async (model: AccountModel, data: any) => {
     if (model === "Admin") {
         const signInResult = await teo.admin.signIn({
@@ -84,6 +95,7 @@ export const signIn = async (model: AccountModel, data: any) => {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
             flushAccountResolves()
+            return 
         }
     }
     if (model === "User") {
@@ -95,6 +107,7 @@ export const signIn = async (model: AccountModel, data: any) => {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
             flushAccountResolves()
+            return
         }
     }
     throw new Error("invalid sign in model")

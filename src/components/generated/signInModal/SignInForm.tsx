@@ -64,7 +64,6 @@ const SignInForm = () => {
                 [checkerKey()]: data.checker,
             })    
         } catch(e) {
-            console.log(e)
             error = true
             alert("Please check your input")
         }

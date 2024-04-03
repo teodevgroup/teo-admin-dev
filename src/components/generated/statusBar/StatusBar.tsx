@@ -19,6 +19,7 @@ import StatusBarLanguageListCell from '../../generated/statusBar/StatusBarLangua
 import SelectListVerticalLayout from '../../generated/selectList/SelectListVerticalLayout'
 import { useTranslation } from 'react-i18next'
 import { languageNamesArray, languageNamesMap } from '../../../lib/extended/language'
+import { signOut } from '../../../lib/generated/signIn'
 
 const StatusBar = () => {
     const [langModalIsOpen, setLangModalIsOpen] = useState(false)
@@ -31,7 +32,7 @@ const StatusBar = () => {
                 <IoLanguage />
             </StatusBarButtonElement>
         </WithTooltip>
-        <StatusBarUserAvatar name='V' />
+        <StatusBarUserAvatar name='V' onClick={signOut} />
         <Modal isOpen={langModalIsOpen} setIsOpen={setLangModalIsOpen} dismissWithEscKey dismissWithOutsideClick>
             <ModalSheet>
                 <ModalSheetTitle>{t("statusBar.lang.language")}</ModalSheetTitle>
