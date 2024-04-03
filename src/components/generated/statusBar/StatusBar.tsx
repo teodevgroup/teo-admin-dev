@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import StatusBarButtonElement from "../../generated/statusBar/StatusBarButtonElement"
 import StatusBarElement from "../../generated/statusBar/StatusBarElement"
-import { IoLanguage } from "react-icons/io5"
+import { IoLanguage, IoNotifications } from "react-icons/io5"
 import StatusBarUserAvatar from '../../generated/statusBar/StatusBarUserAvatar'
 import Modal from '../../generated/modal/Modal'
 import ModalSheet from '../modal/ModalSheet'
@@ -30,6 +30,11 @@ const StatusBar = () => {
         <WithTooltip tooltip={<Tooltip>{t("statusBar.langButton.tooltip")}</Tooltip>}>
             <StatusBarButtonElement onClick={() => setLangModalIsOpen(!langModalIsOpen)}>
                 <IoLanguage />
+            </StatusBarButtonElement>
+        </WithTooltip>
+        <WithTooltip tooltip={<Tooltip>{t("statusBar.notificationButton.tooltip")}</Tooltip>}>
+            <StatusBarButtonElement>
+                <IoNotifications />
             </StatusBarButtonElement>
         </WithTooltip>
         <StatusBarUserAvatar name='V' onClick={signOut} />
