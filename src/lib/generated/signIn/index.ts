@@ -5,7 +5,9 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { suspend } from 'suspend-react'
 import { Admin, teo, User, std } from '../teo'
 
-type AccountModel = "Admin" | "User"
+export type AccountModel = "Admin" | "User"
+
+export const accountModels: AccountModel[] = ["Admin", "User"]
 
 type Account = { 
     "Admin": std.DataMeta<Admin, std.identity.TokenInfo>

@@ -7,6 +7,7 @@ import cleanSet from 'clean-set'
 import { Dispatch, SetStateAction } from 'react'
 import { get } from 'object-path'
 import { Language } from '../../extended/language'
+import { AccountModel } from '../signIn'
 
 export interface NavPreferences {
     navCollapsed: boolean
@@ -15,6 +16,7 @@ export interface NavPreferences {
 export interface Preferences {
     lang: Language
     nav: NavPreferences
+    signInDefaultModel: AccountModel
 }
 
 export const usePreferences = () => {
@@ -37,3 +39,4 @@ const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Disp
 export const useNavPreferences = makePathedPreferencesHook<NavPreferences>(["nav"])
 export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "navCollapsed"])
 export const useLang = makePathedPreferencesHook<Language>(["lang"])
+export const useSignInDefaultModel = makePathedPreferencesHook<AccountModel>(["signInDefaultModel"])

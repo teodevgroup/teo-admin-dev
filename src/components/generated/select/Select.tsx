@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, PropsWithRef, ReactElement, useEffect, useRef, useState } from 'react'
+import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useEffect, useRef, useState } from 'react'
 import SelectElement from "../../extended/select/SelectElement"
 import { inner, SideObject, useFloating, autoUpdate, offset, shift, flip, size, useInteractions, useClick, useDismiss, useRole, useInnerOffset, useListNavigation, useTypeahead, useMergeRefs, FloatingPortal, FloatingOverlay, FloatingFocusManager, FloatingList } from '@floating-ui/react'
 import { flushSync } from 'react-dom'
@@ -8,12 +8,12 @@ import SelectScrollArrow from './SelectScrollArrow'
 import SelectPanelElement from '../../extended/select/SelectPanelElement'
 import SelectContext from './selectContext'
 
-type SelectProps<T> = PropsWithRef<HTMLButtonElement> & {
+type SelectProps<T> = Partial<ComponentPropsWithRef<'button'>> & {
     value: T
     onChange: (newValue: T) => void
     allowsNull?: boolean
     valueFormatter?: (value: T) => string
-    children: ReactElement | ReactElement[]
+    children: ReactNode | ReactNode[]
 }
 
 const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChange, allowsNull, children, valueFormatter = String, ...props }: SelectProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
@@ -171,6 +171,7 @@ const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChang
                 allowSelectRef,
                 allowMouseUpRef,
                 selectTimeoutRef,
+                onChange,
             }}>
                 <FloatingPortal>
                     <FloatingOverlay lockScroll={!touch} style={{ zIndex: 1 }}>

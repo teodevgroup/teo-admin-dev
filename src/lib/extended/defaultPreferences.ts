@@ -3,13 +3,14 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { Preferences } from "../generated/hooks/preferences";
+import { Preferences } from "../generated/hooks/preferences"
 
 const defaultPreferences: Preferences = {
     lang: "enUs",
     nav: {
         navCollapsed: false
-    }
+    },
+    "signInDefaultModel": "Admin"
 }
 
 export default defaultPreferences

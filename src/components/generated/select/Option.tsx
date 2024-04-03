@@ -1,12 +1,12 @@
-import React, { ForwardedRef, forwardRef, PropsWithRef, ReactNode, useContext } from 'react'
+import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useContext } from 'react'
 import OptionElement from '../../extended/select/OptionElement'
 import SelectContext from './selectContext'
 import { useListItem, useMergeRefs } from '@floating-ui/react'
 
-export type OptionProps<T> = PropsWithRef<HTMLButtonElement> & {
+export type OptionProps<T> = ComponentPropsWithRef<'button'> & {
     value: T
     valueFormatter?: (value: any) => string
-    children: ReactNode
+    children: any
 }
 
 const Option = forwardRef(({ value, valueFormatter = String, children, ...props }: OptionProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
@@ -41,6 +41,7 @@ const Option = forwardRef(({ value, valueFormatter = String, children, ...props 
         onClick() {
             if (context.allowSelectRef.current) {
             context.setSelectedIndex(index)
+            context.onChange(value)
             context.setIsOpen(false)
             }
         },
@@ -51,6 +52,7 @@ const Option = forwardRef(({ value, valueFormatter = String, children, ...props 
 
             if (context.allowSelectRef.current) {
                 context.setSelectedIndex(index)
+                context.onChange(value)
                 context.setIsOpen(false)
             }
 

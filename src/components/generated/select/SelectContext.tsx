@@ -1,6 +1,6 @@
 import { createContext, Dispatch, HTMLProps, MutableRefObject, SetStateAction } from "react"
 
-export type SelectContextProps = {
+export type SelectContextProps<T> = {
     isOpen: boolean
     setIsOpen: Dispatch<SetStateAction<boolean>>
     blockSelection: boolean
@@ -13,8 +13,9 @@ export type SelectContextProps = {
     allowSelectRef: MutableRefObject<boolean>
     allowMouseUpRef: MutableRefObject<boolean>
     selectTimeoutRef: MutableRefObject<any>
+    onChange: (value: T) => void
 }
 
-const SelectContext = createContext<SelectContextProps>({} as any)
+const SelectContext = createContext<SelectContextProps<any>>({} as any)
 
 export default SelectContext
