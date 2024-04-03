@@ -18,7 +18,6 @@ const SelectListItem = forwardRef<HTMLButtonElement, SelectListItemProps>(({ chi
     }, [context])
     const highlighted = context.activeIndex === index
     const selected = context.selectedIndex === index
-    console.log(context.activeIndex, context.selectedIndex)
     return <SelectListItemElement highlighted={highlighted} selected={selected} {...props} ref={useMergeRefs([(r) => context.refs.current.push(r), forwardedRef, ref])} 
     onMouseEnter={(e) => {
         context.setActiveIndex(index)

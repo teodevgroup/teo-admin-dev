@@ -53,7 +53,6 @@ const fetchAccount: () => Promise<Account> = () => {
 }
 
 const flushAccountSetters = () => {
-    console.log("see this:", accountSetters, account)
     accountSetters.forEach((setter) => {
         setter(account)
     })
@@ -89,7 +88,6 @@ export const useAccountAvailable: () => boolean = () => {
             accountSetters.splice(accountSetters.indexOf(setCurrentAccount), 1)
         }
     }, [])
-    console.log("see available:", !!currentAccount)
     return !!currentAccount
 }
 
