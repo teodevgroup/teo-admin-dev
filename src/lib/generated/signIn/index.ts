@@ -76,7 +76,9 @@ export const useAccount: () => Account = () => {
 
 export const signIn = async (model: AccountModel, data: any) => {
     if (model === "Admin") {
-        const signInResult = await teo.admin.signIn(data)
+        const signInResult = await teo.admin.signIn({
+            "credentials": data
+        })
         const accountLocalVariable = { "Admin": signInResult }
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any
@@ -85,7 +87,9 @@ export const signIn = async (model: AccountModel, data: any) => {
         }
     }
     if (model === "User") {
-        const signInResult = await teo.user.signIn(data)
+        const signInResult = await teo.user.signIn({
+            "credentials": data
+        })
         const accountLocalVariable = { "User": signInResult }
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any

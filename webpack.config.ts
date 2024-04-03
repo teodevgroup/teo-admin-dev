@@ -1,5 +1,5 @@
 import path from "path"
-import { Configuration, EnvironmentPlugin, HotModuleReplacementPlugin } from "webpack"
+import { Configuration, DefinePlugin, EnvironmentPlugin, HotModuleReplacementPlugin, ProvidePlugin } from "webpack"
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import "webpack-dev-server"
@@ -60,6 +60,9 @@ const config: Configuration = {
         publicPath: '/'
     },
     plugins: [
+        new DefinePlugin({
+            'process.env': JSON.stringify(process.env)
+        }),
         new HtmlWebpackPlugin({
             title: 'Teo Admin Dashboard',
             meta: {
@@ -83,7 +86,7 @@ const config: Configuration = {
         new HotModuleReplacementPlugin(),
         new EnvironmentPlugin({
             NODE_ENV: 'development',
-            HOST: 'http://localhost:5800/api/'
+            TEO_HOST: 'http://localhost:5052/'
         })
     ],
     devServer: {
