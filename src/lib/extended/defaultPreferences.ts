@@ -10,7 +10,17 @@ const defaultPreferences: Preferences = {
     nav: {
         navCollapsed: false
     },
-    "signInDefaultModel": "Admin"
+    signIn: {
+        defaultModel: "Admin",
+        user: {
+            defaultIdKey: "email",
+            defaultCheckerKey: "password"
+        },
+        admin: {
+            defaultIdKey: "email",
+            defaultCheckerKey: "password"
+        }
+    }
 }
 
 export default defaultPreferences

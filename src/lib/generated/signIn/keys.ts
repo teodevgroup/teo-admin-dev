@@ -33,3 +33,36 @@ export const idFieldsForModel: (model: AccountModel) => Field[] = (model: Accoun
     return []
 }
 
+export const checkerFieldsForModel: (model: AccountModel) => Field[] = (model: AccountModel) => {
+    if (model === "Admin") {
+        return [
+            {
+                key: "password",
+                name: "models.admin.password.title",
+                desc: "models.admin.password.desc",
+            },
+        ]
+    }
+    if (model === "User") {
+        return [
+            {
+                key: "password",
+                name: "models.admin.password.title",
+                desc: "models.admin.password.desc",
+            },          
+        ]
+    }
+    return []
+}
+
+export const companionFieldsForModel: (model: AccountModel) => Field[] = (model: AccountModel) => {
+    if (model === "Admin") {
+        return [
+        ]
+    }
+    if (model === "User") {
+        return [
+        ]
+    }
+    return []
+}
