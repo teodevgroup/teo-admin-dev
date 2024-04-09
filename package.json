@@ -17,6 +17,7 @@
         "@babel/register": "^7.23.7",
         "@babel/runtime": "^7.23.8",
         "@floating-ui/react": "^0.26.9",
+        "@hello-pangea/dnd": "^16.6.0",
         "@linaria/babel-preset": "^5.0.4",
         "@linaria/core": "6.0.0",
         "@linaria/react": "6.0.0",
