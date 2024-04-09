@@ -4,15 +4,15 @@
 import React from 'react'
 import AppRootElement from '../../extended/app/AppRootElement'
 import AppNavLayout from '../../extended/app/AppNavLayout'
-import Nav from '../../generated/nav/Nav'
 import AppContentLayout from '../../extended/app/AppContentLayout'
 import StatusBar from '../statusBar/StatusBar'
 import SignInModal from '../../generated/signInModal/SignInModal'
+import NavWithShimmer from '../nav/NavWithShimmer'
 
 const App = () => {
     return <AppRootElement>
         <AppNavLayout>
-            <Nav />
+            <NavWithShimmer />
             <AppContentLayout>
                 <StatusBar />
             </AppContentLayout>

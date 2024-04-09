@@ -13,8 +13,11 @@ import WithContextMenu from '../menu/WithContextMenu'
 import Menu from '../menu/Menu'
 import ContextMenuItem from '../menu/MenuItem'
 import { useTranslation } from 'react-i18next'
+import { useAccount } from '../../../lib/generated/signIn'
 
 const Nav = () => {
+    const account = useAccount()
+    console.log("See account from nav", account)
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
     const { t } = useTranslation("translations")
     return <WithContextMenu contextMenu={

@@ -77,7 +77,13 @@ export const useAccount: () => Account = () => {
             accountSetters.splice(accountSetters.indexOf(setCurrentAccount), 1)
         }
     }, [])
-    return suspend(fetchAccount, [currentAccount])
+    return suspend(fetchAccount, [currentAccount], { equal: (a, b) => {
+        if (a === null && b === null) {
+            return false
+        } else {
+            return a === b
+        }
+    }})
 }
 
 export const useAccountAvailable: () => boolean = () => {
@@ -94,8 +100,8 @@ export const useAccountAvailable: () => boolean = () => {
 export const signOut = () => {
     account = null
     saveAccountIntoLocalStorage(null)
-    flushAccountResolves()
     flushAccountSetters()
+    flushAccountResolves()
 }
 
 export const signIn = async (model: AccountModel, data: any) => {
@@ -107,8 +113,8 @@ export const signIn = async (model: AccountModel, data: any) => {
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
+            flushAccountSetters()            
             flushAccountResolves()
-            flushAccountSetters()
             return 
         }
     }
@@ -120,8 +126,8 @@ export const signIn = async (model: AccountModel, data: any) => {
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
-            flushAccountResolves()
             flushAccountSetters()
+            flushAccountResolves()
             return
         }
     }
