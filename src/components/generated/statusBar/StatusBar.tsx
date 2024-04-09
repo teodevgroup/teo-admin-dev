@@ -19,9 +19,10 @@ import StatusBarLanguageListCell from '../../generated/statusBar/StatusBarLangua
 import SelectListVerticalLayout from '../../generated/selectList/SelectListVerticalLayout'
 import { useTranslation } from 'react-i18next'
 import { languageNamesArray, languageNamesMap } from '../../../lib/extended/language'
-import { signOut } from '../../../lib/generated/signIn'
+import { signOut, useAccount } from '../../../lib/generated/signIn'
 
 const StatusBar = () => {
+    const _ = useAccount()
     const [langModalIsOpen, setLangModalIsOpen] = useState(false)
     const [lang, setLang] = useLang()
     const [selectedLang, setSelectedLang] = useState(lang)
