@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { flexContainer } from "../../../lib/generated/theme"
+import { dark, flexContainer, light } from "../../../lib/generated/theme"
 import { margin } from "../../../lib/extended/theme"
 
 const StatusBarElement = styled.div`
@@ -13,6 +13,12 @@ const StatusBarElement = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
+    ${light} {
+        background-color: white;
+    }
+    ${dark} {
+        background-color: black;
+    }
 `
 
 export default StatusBarElement
