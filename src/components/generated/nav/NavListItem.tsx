@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IconCode, iconsMap } from '../../../lib/extended/icons'
 import NavListItemElement from "../../extended/nav/NavListItemElement"
@@ -9,14 +9,14 @@ export type NavListItemProps = {
     isDragging?: boolean
     text: string
     iconCode: IconCode
-}
+} & ComponentPropsWithoutRef<'div'>
 
-const NavListItem = (props: NavListItemProps) => {
+const NavListItem = forwardRef(({ isDragging, text, iconCode, ...props }: NavListItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { t } = useTranslation("translations")
-    return <NavListItemElement isDragging={props.isDragging}>
-        <NavListItemIconElement>{iconsMap[props.iconCode]}</NavListItemIconElement>
-        <NavListItemTextElement>{t(props.text)}</NavListItemTextElement>
+    return <NavListItemElement isDragging={isDragging} ref={ref} {...props}>
+        <NavListItemIconElement>{iconsMap[iconCode]}</NavListItemIconElement>
+        <NavListItemTextElement>{t(text)}</NavListItemTextElement>
     </NavListItemElement>
-}
+})
 
 export default NavListItem

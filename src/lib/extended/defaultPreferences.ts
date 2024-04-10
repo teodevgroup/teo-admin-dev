@@ -8,7 +8,12 @@ import { Preferences } from "../generated/hooks/preferences"
 const defaultPreferences: Preferences = {
     lang: "enUs",
     nav: {
-        navCollapsed: false
+        collapsed: false,
+        items: [
+            { id: "Admin", name: "Admin", icon: "RiAlarmLine", path: "/admin" },
+            { id: "User", name: "User", icon: "RiAlarmWarningLine", path: "/user" },
+            { id: "Third", name: "Third", icon: "RiAlarmWarningLine", path: "/third" },
+        ]
     },
     signIn: {
         defaultModel: "Admin",

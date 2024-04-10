@@ -8,9 +8,21 @@ import { Dispatch, SetStateAction } from 'react'
 import { get } from 'object-path'
 import { Language } from '../../extended/language'
 import { AccountModel } from '../signIn'
+import { IconCode } from '../../extended/icons'
+import { Translatable } from '../lang/tr'
+
+export type NavItem = {
+    id: string
+    name: Translatable
+    icon: IconCode
+    folder?: boolean
+    childItems?: NavItem[]
+    path?: string
+}
 
 export interface NavPreferences {
-    navCollapsed: boolean
+    collapsed: boolean
+    items: NavItem[]
 }
 
 export interface SignInUserPreferences {
@@ -53,7 +65,9 @@ const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Disp
 }
 
 export const useNavPreferences = makePathedPreferencesHook<NavPreferences>(["nav"])
-export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "navCollapsed"])
+export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "collapsed"])
+export const useNavItems = makePathedPreferencesHook<NavItem[]>(["nav", "items"])
+
 export const useLang = makePathedPreferencesHook<Language>(["lang"])
 
 export const useSignInDefaultModel = makePathedPreferencesHook<AccountModel>(["signIn", "defaultModel"])
