@@ -68,34 +68,6 @@ export const useNavPreferences = makePathedPreferencesHook<NavPreferences>(["nav
 export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "collapsed"])
 export const useNavItems = makePathedPreferencesHook<NavItem[]>(["nav", "items"])
 
-export const useNavItemsAtPath = (path: string[]) => {
-    const [navItems, setNavItems] = useNavItems()
-    let getSetPath: (string | number)[] = []
-    let lastChildren: NavItem[] | undefined = navItems
-    let count = 0
-    for (let p of path) {
-        if (lastChildren) {
-            const index = lastChildren.findIndex((item) => item.id === p)
-            getSetPath.push(index)
-            const newItem: NavItem = lastChildren[index]
-            if (newItem) {
-                if (count !== 0) {
-                    path.push("childItems")
-                    lastChildren = newItem.childItems
-                }    
-            }
-        }
-    }
-    const items = get(navItems, getSetPath)
-    const setItems = (newItems: NavItem[]) => {
-        setNavItems(set(navItems, getSetPath as any, newItems))
-    }
-    const moveItem = (fromPath: string[], toPath: string[]) => {
-
-    }
-    return [items, setItems, moveItem]
-}
-
 export const useLang = makePathedPreferencesHook<Language>(["lang"])
 
 export const useSignInDefaultModel = makePathedPreferencesHook<AccountModel>(["signIn", "defaultModel"])
