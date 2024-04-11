@@ -4,7 +4,7 @@
 import React from 'react'
 import NavElement from '../../extended/nav/NavElement'
 import NavCollapseButton from '../../extended/nav/NavCollapseButton'
-import { useNavCollapsed } from '../../../lib/generated/hooks/preferences'
+import { useNavCollapsed } from '../../../lib/generated/preferences'
 import NavLogo from '../../extended/nav/NavLogo'
 import WithTooltip from '../tooltip/WithTooltip'
 import Tooltip from '../../extended/tooltip/Tooltip'

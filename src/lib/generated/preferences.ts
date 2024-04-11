@@ -2,14 +2,13 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import useLocalStorage from 'use-local-storage'
-import defaultPreferences from '../../extended/defaultPreferences'
+import defaultPreferences from '../extended/defaultPreferences'
 import cleanSet from 'clean-set'
 import { Dispatch, SetStateAction } from 'react'
-import { get } from 'object-path'
-import { Language } from '../../extended/language'
-import { AccountModel } from '../signIn'
-import { IconCode } from '../../extended/icons'
-import { Translatable } from '../lang/tr'
+import { Language } from '../extended/language'
+import { AccountModel } from './signIn'
+import { IconCode } from '../extended/icons'
+import { Translatable } from './lang/tr'
 
 export type NavItem = {
     id: string
@@ -67,6 +66,34 @@ const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Disp
 export const useNavPreferences = makePathedPreferencesHook<NavPreferences>(["nav"])
 export const useNavCollapsed = makePathedPreferencesHook<boolean>(["nav", "collapsed"])
 export const useNavItems = makePathedPreferencesHook<NavItem[]>(["nav", "items"])
+
+export const useNavItemsAtPath = (path: string[]) => {
+    const [navItems, setNavItems] = useNavItems()
+    let getSetPath: (string | number)[] = []
+    let lastChildren: NavItem[] | undefined = navItems
+    let count = 0
+    for (let p of path) {
+        if (lastChildren) {
+            const index = lastChildren.findIndex((item) => item.id === p)
+            getSetPath.push(index)
+            const newItem: NavItem = lastChildren[index]
+            if (newItem) {
+                if (count !== 0) {
+                    path.push("childItems")
+                    lastChildren = newItem.childItems
+                }    
+            }
+        }
+    }
+    const items = get(navItems, getSetPath)
+    const setItems = (newItems: NavItem[]) => {
+        setNavItems(cleanSet(navItems, getSetPath as any, newItems))
+    }
+    const moveItem = (fromPath: string[], toPath: string[]) => {
+
+    }
+    return [items, setItems, moveItem]
+}
 
 export const useLang = makePathedPreferencesHook<Language>(["lang"])
 

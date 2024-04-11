@@ -3,7 +3,7 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { Preferences } from "../generated/hooks/preferences"
+import { Preferences } from "../generated/preferences"
 
 const defaultPreferences: Preferences = {
     lang: "enUs",

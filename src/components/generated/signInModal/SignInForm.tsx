@@ -6,7 +6,7 @@ import SignInFormElement from "../../extended/signInModal/SignInFormElement"
 import Select from '../select/Select'
 import Option from '../select/Option'
 import { useForm } from 'react-hook-form'
-import { useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInDefaultModel, useSignInUserDefaultCheckerKey, useSignInUserDefaultIdKey } from '../../../lib/generated/hooks/preferences'
+import { useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInDefaultModel, useSignInUserDefaultCheckerKey, useSignInUserDefaultIdKey } from '../../../lib/generated/preferences'
 import { accountModels, signIn } from '../../../lib/generated/signIn'
 import SignInLineGroup from './SignInLineGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'

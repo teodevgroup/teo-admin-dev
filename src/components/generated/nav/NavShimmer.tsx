@@ -1,6 +1,6 @@
 import React from 'react'
 import NavElement from '../../extended/nav/NavElement'
-import { useNavCollapsed } from '../../../lib/generated/hooks/preferences'
+import { useNavCollapsed } from '../../../lib/generated/preferences'
 import Shimmer from '../shimmer/Shimmer'
 
 const NavShimmer = () => {
