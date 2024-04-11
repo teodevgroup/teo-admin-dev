@@ -3,12 +3,13 @@
 
 import useLocalStorage from 'use-local-storage'
 import defaultPreferences from '../extended/defaultPreferences'
-import cleanSet from 'clean-set'
 import { Dispatch, SetStateAction } from 'react'
 import { Language } from '../extended/language'
 import { AccountModel } from './signIn'
 import { IconCode } from '../extended/icons'
 import { Translatable } from './lang/tr'
+import set from './utilities/set'
+import get from './utilities/get'
 
 export type NavItem = {
     id: string
@@ -56,8 +57,8 @@ export const usePreferences = () => {
 const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Dispatch<SetStateAction<T>>] => {
     const result = () => {
         const [preferences, setPreferences] = usePreferences()
-        return [get(preferences, path), (newValue: NavPreferences) => {
-            setPreferences(cleanSet(preferences, path as any, newValue))
+        return [get(preferences, path), (newValue: T) => {
+            setPreferences(set(preferences, path as any, newValue))
         }]
     }
     return result as any
@@ -87,7 +88,7 @@ export const useNavItemsAtPath = (path: string[]) => {
     }
     const items = get(navItems, getSetPath)
     const setItems = (newItems: NavItem[]) => {
-        setNavItems(cleanSet(navItems, getSetPath as any, newItems))
+        setNavItems(set(navItems, getSetPath as any, newItems))
     }
     const moveItem = (fromPath: string[], toPath: string[]) => {
 
