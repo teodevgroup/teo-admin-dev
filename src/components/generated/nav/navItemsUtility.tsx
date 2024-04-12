@@ -63,3 +63,23 @@ export const moveNavItemFromPathToPath = (navItems: NavItem[], fromPath: string[
     const [newNavItems, navItem] = removeNavItemAtPath(navItems, fromPath)
     return insertNavItemAtPath(newNavItems, toPath, toIndex, navItem!)
 }
+
+export const droppableIdForNavItemAtPath = (path: string[]) => {
+    return ["nav", ...path].join("/")
+}
+
+export const navItemPathFromDroppableId = (droppableId: string) => {
+    return droppableId.split("/").slice(1)
+}
+
+export const isNavItemDroppableId = (droppableId: string) => {
+    return droppableId.startsWith("nav")
+}
+
+export const moveNavItemWithSourceAndDestInfo = (navItems: NavItem[], sourceId: string, sourceIndex: number, destId: string, destIndex: number) => {
+    const sourcePath = navItemPathFromDroppableId(sourceId)
+    const destPath = navItemPathFromDroppableId(destId)
+    const item = navItemsAtPath(navItems, sourcePath)[sourceIndex]
+    const sourcePathWithItem = [...sourcePath, item.id]
+    return moveNavItemFromPathToPath(navItems, sourcePathWithItem, destPath, destIndex)
+}

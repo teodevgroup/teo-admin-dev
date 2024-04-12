@@ -5,6 +5,7 @@ import { useNavItems } from '../../../lib/generated/preferences'
 import NavListItem from './NavListItem'
 import { useTranslation } from 'react-i18next'
 import { tr } from '../../../lib/generated/lang/tr'
+import { isNavItemDroppableId } from './navItemsUtility'
 
 const NavItems = () => {
     const [items, setItems] = useNavItems()
@@ -13,11 +14,14 @@ const NavItems = () => {
         if (!result.destination) {
             return;
         }
-        setItems(dragReordered(
-            items,
-            result.source.index,
-            result.destination.index
-        ))
+        const sourceId = result.source.droppableId
+        const sourceIndex = result.source.index
+        const destId = result.destination.droppableId
+        const destIndex = result.destination.index
+        if (!isNavItemDroppableId(sourceId) || !isNavItemDroppableId(destId)) {
+            return
+        }
+        setItems(moveNavItemWithSourceAndDestInfo(items, sourceId, sourceIndex, destId, destIndex))
     }}>
         <Droppable key="-nav-items" droppableId="-nav-items">
             {(provided, snapshot) => (
