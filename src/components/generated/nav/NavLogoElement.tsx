@@ -7,6 +7,7 @@ import { dark, light } from '../../../lib/generated/theme'
 
 const NavLogoElement = styled.div`
     margin-top: ${margin};
+    margin-bottom: ${margin};
     ${light} {
         color: ${tintColorLight};
     }

@@ -37,7 +37,7 @@ export const appNavBackgroundColorDark = "#212A3D"
 
 export const spacing = "8px"
 
-export const margin = "20px"
+export const margin = "16px"
 
 export const radius = "4px"
 
