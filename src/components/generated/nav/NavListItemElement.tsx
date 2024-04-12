@@ -15,6 +15,8 @@ const NavListItemElement = styled.div<NavListItemElementProps>`
     opacity: ${({ isDragging }) => isDragging ? 0.5 : 1};
     margin-bottom: ${spacing};
     cursor: default !important;
+    top: auto !important;
+    left: auto !important;
 `
 
 export default NavListItemElement
