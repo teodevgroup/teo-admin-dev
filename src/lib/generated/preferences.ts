@@ -57,7 +57,6 @@ export const usePreferences = () => {
 const makePathedPreferencesHook = <T>(path: (string | number)[]): () => [T, Dispatch<SetStateAction<T>>] => {
     const result = () => {
         const [preferences, setPreferences] = usePreferences()
-        console.log("see path", path, get(preferences, path))
         return [get(preferences, path), (newValue: T) => {
             setPreferences(set(preferences, path as any, newValue))
         }]
