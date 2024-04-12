@@ -5,6 +5,7 @@ export default function set<T>(value: T, path: (string|number)[], item: any): T 
     if (path.length === 0) {
         return value
     }
+    path = [...path]
     const _set = (node: any): any => {
         const newNode = Array.isArray(node) ? [...node] : { ...node }
         if (path.length > 1) {

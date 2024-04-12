@@ -16,8 +16,7 @@ import { useAccount } from '../../../lib/generated/signIn'
 import NavItems from './NavItems'
 
 const Nav = () => {
-    const account = useAccount()
-    console.log("See account from nav", account)
+    const _ = useAccount()
     const [navCollapsed, setNavCollapsed] = useNavCollapsed()
     const { t } = useTranslation("translations")
     return <WithContextMenu contextMenu={

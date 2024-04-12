@@ -5,6 +5,7 @@ export default function removed<T, U>(value: T, path: (string|number)[]): [T, U 
     if (path.length === 0) {
         return [value, undefined]
     }
+    path = [...path]
     let removedItem = undefined
     const _removed = (node: any): any => {
         const newNode = Array.isArray(node) ? [...node] : { ...node }

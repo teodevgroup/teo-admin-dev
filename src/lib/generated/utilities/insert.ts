@@ -5,6 +5,7 @@ export default function insert<T>(value: T, path: (string|number)[], item: any):
     if (path.length === 0) {
         return value
     }
+    path = [...path]
     const _insert = (node: any): any => {
         const newNode = Array.isArray(node) ? [...node] : { ...node }
         if (path.length > 1) {

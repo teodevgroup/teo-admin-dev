@@ -5,6 +5,7 @@ export default function remove<T>(value: T, path: (string|number)[]): T {
     if (path.length === 0) {
         return value
     }
+    path = [...path]
     const _remove = (node: any): any => {
         const newNode = Array.isArray(node) ? [...node] : { ...node }
         if (path.length > 1) {

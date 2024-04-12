@@ -40,9 +40,6 @@ export const removeNavItemAtPath = (navItems: NavItem[], itemsPath: string[]): [
 }
 
 export const insertNavItemAtPath = (navItems: NavItem[], itemsPath: string[], index: number, navItem: NavItem): NavItem[] => {
-    if (itemsPath.length === 0) {
-        return navItems
-    }
     const _inserted = (nestedNavItems: NavItem[]): NavItem[] => {
         const newNestedNavItems = [...nestedNavItems]
         if (itemsPath.length > 1) {

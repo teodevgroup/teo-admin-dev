@@ -5,14 +5,14 @@ import { useNavItems } from '../../../lib/generated/preferences'
 import NavListItem from './NavListItem'
 import { useTranslation } from 'react-i18next'
 import { tr } from '../../../lib/generated/lang/tr'
-import { isNavItemDroppableId } from './navItemsUtility'
+import { droppableIdForNavItemAtPath, isNavItemDroppableId, moveNavItemWithSourceAndDestInfo } from './navItemsUtility'
 
 const NavItems = () => {
     const [items, setItems] = useNavItems()
     const { t, i18n } = useTranslation("translations")
     return <DragDropContext onDragEnd={(result) => {
         if (!result.destination) {
-            return;
+            return
         }
         const sourceId = result.source.droppableId
         const sourceIndex = result.source.index
@@ -23,7 +23,7 @@ const NavItems = () => {
         }
         setItems(moveNavItemWithSourceAndDestInfo(items, sourceId, sourceIndex, destId, destIndex))
     }}>
-        <Droppable key="-nav-items" droppableId="-nav-items">
+        <Droppable key={droppableIdForNavItemAtPath([])} droppableId={droppableIdForNavItemAtPath([])}>
             {(provided, snapshot) => (
                 <NavItemsElement ref={provided.innerRef} {...provided.droppableProps}>
                     {items.map((item, index) => {
