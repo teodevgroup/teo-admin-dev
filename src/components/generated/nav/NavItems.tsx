@@ -6,6 +6,7 @@ import NavListItem from './NavListItem'
 import { useTranslation } from 'react-i18next'
 import { tr } from '../../../lib/generated/lang/tr'
 import { droppableIdForNavItemAtPath, isNavItemDroppableId, moveNavItemWithSourceAndDestInfo } from './navItemsUtility'
+import NavListFolderItem from './NavListFolderItem'
 
 const NavItems = () => {
     const [items, setItems] = useNavItems()
@@ -30,7 +31,9 @@ const NavItems = () => {
                         return <Draggable key={item.id} draggableId={item.id} index={index}>
                             {(provided, snapshot) => (
                                 item.folder
-                                ? null
+                                ? <NavListFolderItem folderPath={[item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                    {}
+                                </NavListFolderItem>
                                 : <NavListItem text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             )}
                         </Draggable>
