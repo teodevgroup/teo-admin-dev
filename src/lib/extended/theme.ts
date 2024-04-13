@@ -27,7 +27,7 @@ export const tintColorContrastLight = "#0052FF"
 
 export const tintColorContrastDark = "#0052FF"
 
-export const appBackgroundColorLight = "#F6F6F8"
+export const appBackgroundColorLight = "#FBFBFD"
 
 export const appBackgroundColorDark = "#090C13"
 
@@ -35,9 +35,29 @@ export const appNavBackgroundColorLight = "#FFFFFF"
 
 export const appNavBackgroundColorDark = "#212A3D"
 
+export const appStatusBarBackgroundColorLight = "#FFFFFF"
+
+export const appStatusBarBackgroundColorDark = "#212A3D"
+
+export const controlBackgroundColorLight = "#F6F6F8"
+
+export const controlBackgroundColorDark = "#F6F6F8"
+
+export const controlBorderColorLight = "#EBEBED"
+
+export const controlBorderColorDark = "#EBEBED"
+
+export const controlTextColorLight = "#404040"
+
+export const controlTextColorDark = "#404040"
+
 export const spacing = "8px"
 
 export const margin = "16px"
+
+export const controlHeight = `calc(1.25rem + ${margin})`
+
+export const controlRadius = `calc((1.25rem + ${margin}) / 2)`
 
 export const radius = "4px"
 

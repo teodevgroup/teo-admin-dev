@@ -2,7 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { clearButton, transitionAll } from "../../../lib/generated/theme"
+import { clearButton, dark, flexContainer, light, transitionAll } from "../../../lib/generated/theme"
+import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
 
 export type NavCollapseButtonElementProps = {
     collapsed: boolean
@@ -10,10 +11,24 @@ export type NavCollapseButtonElementProps = {
 
 const NavCollapseButtonElement = styled.button<NavCollapseButtonElementProps>`
     ${clearButton}
+    ${flexContainer("row", "center", "center")}
     line-height: 0;
+    font-size: 1.25rem;
     align-self: ${({ collapsed }) => collapsed ? `center` : `flex-end`};
-    font-size: 1.5rem;
     ${transitionAll}
+    width: ${controlHeight};
+    height: ${controlHeight};
+    border-radius: ${controlRadius};
+    ${light} {
+        background-color: ${controlBackgroundColorLight};
+        color: ${controlTextColorLight};
+        border: 0.5px solid ${controlBorderColorLight};
+    }
+    ${dark} {
+        background-color: ${controlBackgroundColorDark};
+        color: ${controlTextColorDark};
+        border: 0.5px solid ${controlBorderColorDark};
+    }
 `
 
 export default NavCollapseButtonElement

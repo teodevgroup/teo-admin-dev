@@ -35,7 +35,7 @@ const Nav = () => {
             <WithTooltip tooltip={<Tooltip>{navCollapsed ? t("nav.expandButton.tooltip") : t("nav.collapseButton.tooltip")}</Tooltip>}>
                 <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
             </WithTooltip>
-            <NavLogo />
+            <NavLogo collapsed={navCollapsed} />
             <NavItems />
         </NavElement>
     </WithContextMenu>

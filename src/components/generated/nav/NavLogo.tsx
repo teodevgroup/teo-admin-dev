@@ -5,7 +5,11 @@ import React from 'react'
 import NavLogoElement from './NavLogoElement'
 import Logo from '../../extended/logo/Logo'
 
-const NavLogo = () => <NavLogoElement>
+type NavLogoProps = {
+    collapsed: boolean
+}
+
+const NavLogo = ({ collapsed }: NavLogoProps) => <NavLogoElement collapsed={collapsed}>
     <Logo />
 </NavLogoElement>
 

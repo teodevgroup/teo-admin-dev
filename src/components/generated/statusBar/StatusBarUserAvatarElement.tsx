@@ -3,23 +3,25 @@
 
 import { styled } from "@linaria/react"
 import { clearButton, dark, flexContainer, light, size } from "../../../lib/generated/theme"
-import { spacing } from "../../../lib/extended/theme"
+import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, spacing } from "../../../lib/extended/theme"
 
 const StatusBarUserAvatarElement = styled.button`
     ${clearButton}
     ${flexContainer("row", "center", "center")}
-    ${size(`calc(1.5rem + 2 * ${spacing})`)}
-    border-radius: ${`calc((1.5rem + 2 * ${spacing}) / 2)`};
+    ${size(controlHeight)}
+    border-radius: ${controlRadius};
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
     font-size: 1.25rem;
     ${light} {
-        background-color: gray;
+        background-color: ${controlBackgroundColorLight};
+        border: 0.5px solid ${controlBorderColorLight};
     }
     ${dark} {
-        background-color: gray;
+        background-color: ${controlBackgroundColorDark};
+        border: 0.5px solid ${controlBorderColorDark};
     }
 `
 

@@ -3,7 +3,7 @@
 
 import { styled } from "@linaria/react"
 import { dark, flexContainer, light } from "../../../lib/generated/theme"
-import { margin } from "../../../lib/extended/theme"
+import { appStatusBarBackgroundColorDark, appStatusBarBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, margin } from "../../../lib/extended/theme"
 
 const StatusBarElement = styled.div`
     ${flexContainer("row", "center", "flex-end")}
@@ -14,10 +14,12 @@ const StatusBarElement = styled.div`
     overflow: hidden;
     text-overflow: clip;
     ${light} {
-        background-color: white;
+        background-color: ${appStatusBarBackgroundColorLight};
+        border-bottom: 0.5px solid ${controlBorderColorLight};
     }
     ${dark} {
-        background-color: black;
+        background-color: ${appStatusBarBackgroundColorDark};
+        border-bottom: 0.5px solid ${controlBorderColorDark};
     }
 `
 
