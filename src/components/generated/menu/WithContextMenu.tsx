@@ -5,6 +5,7 @@ import React, { ReactElement, cloneElement, useEffect } from 'react'
 import { FloatingPortal, FloatingTree } from '@floating-ui/react'
 import ContextMenuContext from './MenuContext'
 import useMenuOwner from './useMenuOwner'
+import { setShouldDisplay, shouldDisplay } from './shouldDisplayContextMenu'
 
 type WithContextMenuProps = {
     children: ReactElement,
@@ -16,6 +17,10 @@ const WithContextMenu = (props: WithContextMenuProps) => {
     const menuContext = useMenuOwner()
     const handleContextMenu = (e: MouseEvent) => {
         e.preventDefault()
+        if (!shouldDisplay()) {
+            return
+        }
+        setShouldDisplay(false)
         menuContext.refs.setPositionReference({
             getBoundingClientRect() {
                 return {

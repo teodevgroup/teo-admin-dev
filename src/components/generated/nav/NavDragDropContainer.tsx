@@ -8,6 +8,7 @@ import NavListItem from './NavListItem'
 import { useTranslation } from 'react-i18next'
 import { tr } from '../../../lib/generated/lang/tr'
 import untransform from '../../../lib/generated/modal/untransform'
+import NavListItemMenuWrapper from './NavListItemMenuWrapper'
 
 export type NavDragDropContainerProps = {
     displayingItems: NavItem[]
@@ -31,8 +32,12 @@ const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: 
                                 }
                             }
                             return item.folder
-                            ? <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
-                            : <NavListItem text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                            ? <NavListItemMenuWrapper>
+                                <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                            </NavListItemMenuWrapper>
+                            : <NavListItemMenuWrapper>
+                                <NavListItem text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                            </NavListItemMenuWrapper>
                         }}
                     </Draggable>
                 })}

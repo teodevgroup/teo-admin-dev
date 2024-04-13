@@ -10,7 +10,7 @@ import WithTooltip from '../tooltip/WithTooltip'
 import Tooltip from '../../extended/tooltip/Tooltip'
 import WithContextMenu from '../menu/WithContextMenu'
 import Menu from '../menu/Menu'
-import ContextMenuItem from '../menu/MenuItem'
+import MenuItem from '../menu/MenuItem'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from '../../../lib/generated/signIn'
 import NavItems from './NavItems'
@@ -21,14 +21,14 @@ const Nav = () => {
     const { t } = useTranslation("translations")
     return <WithContextMenu contextMenu={
         <Menu>
-            <ContextMenuItem disabled={true} label="Menu A" />
-            <ContextMenuItem label="Menu B" action={() => console.log("action B")} />
-            <ContextMenuItem label="Download">
+            <MenuItem disabled={true} label="Menu A" />
+            <MenuItem label="Menu B" action={() => console.log("action B")} />
+            <MenuItem label="Download">
                 <Menu>
-                    <ContextMenuItem label="JSON" />
-                    <ContextMenuItem label="CSV" />
+                    <MenuItem label="JSON" />
+                    <MenuItem label="CSV" />
                 </Menu>
-            </ContextMenuItem>
+            </MenuItem>
         </Menu>
     }>
         <NavElement collapsed={navCollapsed}>

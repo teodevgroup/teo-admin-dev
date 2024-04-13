@@ -4,9 +4,16 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import MenuContext, { MenuContextProps } from "./MenuContext"
 import { autoUpdate, flip, offset, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, shift, useHover, safePolygon, useDismiss, useRole, useListNavigation, useTypeahead, useInteractions, useClick } from "@floating-ui/react"
+import { setShouldDisplay } from "./shouldDisplayContextMenu"
 
 const useMenuOwner: () => MenuContextProps = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, rawSetIsOpen] = useState(false)
+    const setIsOpen = (value: boolean) => {
+        if (!value) {
+            setShouldDisplay(true)
+        }
+        rawSetIsOpen(value)
+    }
     const [hasFocusInside, setHasFocusInside] = useState(false)
     const parentMenuContext = useContext(MenuContext)
     const tree = useFloatingTree()

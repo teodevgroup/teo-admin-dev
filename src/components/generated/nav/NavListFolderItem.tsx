@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, ForwardedRef, forwardRef, useState } from 'react'
-import { flip, offset, useFloating, useHover, useInteractions, shift, useMergeRefs, FloatingPortal, safePolygon, useClick, useTransitionStyles } from "@floating-ui/react"
+import { flip, offset, useFloating, useHover, useInteractions, shift, useMergeRefs, FloatingPortal, safePolygon, useClick, useTransitionStyles, useDismiss } from "@floating-ui/react"
 
 import { useTranslation } from 'react-i18next'
 import { IconCode, iconsMap } from '../../../lib/extended/icons'
@@ -10,7 +10,6 @@ import NavListFolderModalElement from '../../extended/nav/NavListFolderModalElem
 import { useNavItems } from '../../../lib/generated/preferences'
 import { navItemsAtPath } from './navItemsUtility'
 import NavDragDropContainer from './NavDragDropContainer'
-import untransform from '../../../lib/generated/modal/untransform'
 
 export type NavListFolderItemProps = ComponentPropsWithoutRef<'div'> & {
     isDragging?: boolean
@@ -38,13 +37,15 @@ const NavListFolderItem = forwardRef(({ isDragging, isReceivingDragging, text, i
         strategy: "fixed",
     })
     const click = useClick(context, {})
-    // const hover = useHover(context, {
-    //     enabled: true,
-    //     handleClose: safePolygon({ blockPointerEvents: true }),
-    // })
+    const dismiss = useDismiss(context)
+    const hover = useHover(context, {
+        enabled: true,
+        handleClose: safePolygon({ blockPointerEvents: true }),
+    })
     const { getReferenceProps, getFloatingProps } = useInteractions([
-        //hover,
-        click
+        hover,
+        click,
+        dismiss
     ])
     // nav items
     const [navItems] = useNavItems()
