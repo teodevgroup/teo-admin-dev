@@ -8,7 +8,6 @@ const NavItems = () => {
     const [items, setItems] = useNavItems()
     return <>
         <DragDropContext onDragEnd={(result) => {
-            console.log("see drop destination", result.destination)
             if (!result.destination) {
                 return
             }

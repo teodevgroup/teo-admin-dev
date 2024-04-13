@@ -1,7 +1,7 @@
-import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd'
-import React, { Dispatch, SetStateAction } from 'react'
-import { droppableIdForNavItemAtPath, isNavItemDroppableId, moveNavItemWithSourceAndDestInfo } from './navItemsUtility'
-import { NavItem, useNavItems } from '../../../lib/generated/preferences'
+import { Draggable, Droppable } from '@hello-pangea/dnd'
+import React from 'react'
+import { droppableIdForNavItemAtPath } from './navItemsUtility'
+import { NavItem } from '../../../lib/generated/preferences'
 import NavItemsElement from './NavItemsElement'
 import NavListFolderItem from './NavListFolderItem'
 import NavListItem from './NavListItem'
@@ -16,7 +16,6 @@ export type NavDragDropContainerProps = {
 }
 
 const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: NavDragDropContainerProps) => {
-    const [items, setItems] = useNavItems()
     const { t, i18n } = useTranslation("translations")
     return <Droppable key={droppableIdForNavItemAtPath(folderPath)} droppableId={droppableIdForNavItemAtPath(folderPath)}>
         {(provided, snapshot) => (
