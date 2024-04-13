@@ -42,7 +42,7 @@ export const removeNavItemAtPath = (navItems: NavItem[], itemsPath: string[]): [
 export const insertNavItemAtPath = (navItems: NavItem[], itemsPath: string[], index: number, navItem: NavItem): NavItem[] => {
     const _inserted = (nestedNavItems: NavItem[]): NavItem[] => {
         const newNestedNavItems = [...nestedNavItems]
-        if (itemsPath.length > 1) {
+        if (itemsPath.length >= 1) {
             const key = itemsPath.shift()
             const index = newNestedNavItems.findIndex((item) => item.id === key)
             newNestedNavItems[index] = { ...newNestedNavItems[index] }

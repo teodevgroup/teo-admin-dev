@@ -3,8 +3,8 @@ import { useNavItems } from '../../../lib/generated/preferences'
 import NavDragDropContainer from './NavDragDropContainer'
 
 const NavItems = () => {
-    const [items, setItems] = useNavItems()
-    return <NavDragDropContainer displayingItems={items} folderPath={[]} />
+    const [items] = useNavItems()
+    return <NavDragDropContainer displayingItems={items} folderPath={[]} portalTransform={undefined} />
 }
 
 export default NavItems
