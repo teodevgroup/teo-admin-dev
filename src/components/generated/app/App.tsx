@@ -8,13 +8,18 @@ import AppContentLayout from '../../extended/app/AppContentLayout'
 import SignInModal from '../../generated/signInModal/SignInModal'
 import NavWithShimmer from '../nav/NavWithShimmer'
 import StatusBarWithShimmer from '../statusBar/StatusBarWithShimmer'
+import PageStack from '../pageStack/PageStack'
+import { StatusBarItemsContext } from '../../extended/statusBar/statusBarItems'
 
 const App = () => {
     return <AppRootElement>
         <AppNavLayout>
             <NavWithShimmer />
             <AppContentLayout>
-                <StatusBarWithShimmer />
+                <StatusBarItemsContext.Provider>
+                    <StatusBarWithShimmer />
+                    <PageStack />
+                </StatusBarItemsContext.Provider>
             </AppContentLayout>
         </AppNavLayout>
         <SignInModal />

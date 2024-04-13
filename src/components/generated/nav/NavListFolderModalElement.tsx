@@ -1,18 +1,19 @@
 import { styled } from "@linaria/react"
 import { dark, light } from "../../../lib/generated/theme"
-import { margin, radius, spacing } from "../../../lib/extended/theme"
+import { appNavBackgroundColorDark, appNavBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, margin, radius, spacing } from "../../../lib/extended/theme"
 
 const NavListFolderModalElement = styled.div`
     position: relative;
-    border: 0.5px solid gray;
-    border-radius: ${radius};
+    border-radius: 1.5rem;
     padding: ${spacing} ${margin} 0 ${margin};
-    width: 12rem;
+    width: 16rem;
     ${light} {
-        background-color: white;
+        background-color: ${appNavBackgroundColorLight};
+        border: 0.5px solid ${controlBackgroundColorLight};
     }
     ${dark} {
-        background-color: black;
+        background-color: ${appNavBackgroundColorDark};
+        border: 0.5px solid ${controlBackgroundColorDark};
     }
 `
 
