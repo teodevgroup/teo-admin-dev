@@ -59,6 +59,10 @@ export const controlHintBackgroundColorLight = "#FAFAFC"
 
 export const controlHintBackgroundColorDark = "#FAFAFC"
 
+export const controlActiveBackgroundColorLight = "#EFEFF2"
+
+export const controlActiveBackGroundColorDark = "#EFEFF2"
+
 export const controlTextColorLight = "#404040"
 
 export const controlTextColorDark = "#404040"

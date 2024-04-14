@@ -1,28 +1,27 @@
 import { styled } from "@linaria/react"
-import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, controlTintColorLight } from "../../../lib/extended/theme"
+import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, controlTintColorLight, margin } from "../../../lib/extended/theme"
 import { dark, light, transitionShort } from "../../../lib/generated/theme"
 
-const InputElement = styled.input`
+const ButtonElement = styled.button`
     margin: 20px 0 0 20px;
     flex-grow: 1;
     height: ${controlHeight};
     border-radius: ${controlRadius};
     padding: 0 ${controlRadius};
-    &:focus {
-        outline: ${controlTintColorLight} solid 2px;
-        ${light} {
-            background-color: ${controlHintBackgroundColorLight};
-        }
-        ${dark} {
-            background-color: ${controlHintBackgroundColorDark};
-        }        
-    }
     &:hover {
         ${light} {
             background-color: ${controlHintBackgroundColorLight};
         }
         ${dark} {
             background-color: ${controlHintBackgroundColorDark};
+        }
+    }
+    &:active {
+        ${light} {
+            background-color: ${controlActiveBackgroundColorLight};
+        }
+        ${dark} {
+            background-color: ${controlActiveBackGroundColorDark};
         }
     }
     ${light} {   
@@ -36,6 +35,7 @@ const InputElement = styled.input`
         color: ${controlTextColorDark};
     }
     ${transitionShort('border-color,background-color')}
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
 `
 
-export default InputElement
+export default ButtonElement

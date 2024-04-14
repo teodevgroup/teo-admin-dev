@@ -1,11 +1,14 @@
 import React, { ReactElement } from 'react'
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import Input from '../../extended/input/Input'
+import Button from '../../extended/button/Button'
 
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
     switch (item.key) {
         case "Admin":
-            return <div key="Admin"><Input /></div>
+            return <div key="Admin" style={{background: "white", paddingBottom: "20px"}}>
+                <Input /><Button>Button</Button>
+            </div>
         case "User":
             return <div key="User">User</div>
         case "Admin.Variant":
