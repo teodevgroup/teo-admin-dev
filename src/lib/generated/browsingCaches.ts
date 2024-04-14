@@ -1,7 +1,7 @@
 import useLocalStorage from "use-local-storage"
 import { PageStackItemKey } from "../../components/extended/pageStack/PageStackItemKeys"
 import { PageStackItem } from "../../components/generated/pageStack/PageStackItem"
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction, useCallback } from "react"
 import set from "./utilities/set"
 import get from "./utilities/get"
 
@@ -34,4 +34,18 @@ const makePathedBrowsingCachesHook = <T>(path: (string | number)[]): () => [T, D
     return result as any
 }
 
-export const useCachedStacks = makePathedBrowsingCachesHook<StacksMap>(["stacks"])
+const _useCachedStacks = makePathedBrowsingCachesHook<StacksMap>(["stacks"])
+
+export const useCachedStacks = () => {
+    const [cachedStacks, setCachedStacks] = _useCachedStacks()
+    const getCachedStack = useCallback((key: PageStackItemKey) => {
+        if (cachedStacks[key]) {
+            return cachedStacks[key]
+        }
+        setCachedStacks(set(cachedStacks, [key], { key } as PageStackItem))
+    }, [cachedStacks])
+    const setCachedStack = useCallback((key: PageStackItemKey, value: PageStackItem[]) => {
+        setCachedStacks(set(cachedStacks, [key], value))
+    }, [cachedStacks])
+    return { cachedStacks, setCachedStacks, getCachedStack, setCachedStack }
+}
