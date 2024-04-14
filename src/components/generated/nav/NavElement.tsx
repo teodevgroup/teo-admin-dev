@@ -3,7 +3,7 @@
 
 import { styled } from '@linaria/react'
 import { dark, flexContainer, light, transitionAll } from '../../../lib/generated/theme'
-import { appNavBackgroundColorDark, appNavBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, margin, spacing } from '../../../lib/extended/theme'
+import { appNavBackgroundColorDark, appNavBackgroundColorLight, borderThin, controlBorderColorDark, controlBorderColorLight, margin, spacing } from '../../../lib/extended/theme'
 
 type NavElementProps = {
     collapsed: boolean
@@ -13,11 +13,11 @@ const NavElement = styled.div<NavElementProps>`
     ${flexContainer("column", "center", "flex-start")}
     ${light} {
         background-color: ${appNavBackgroundColorLight};
-        border-right: 0.5px solid ${controlBorderColorLight};
+        border-right: ${borderThin} solid ${controlBorderColorLight};
     }
     ${dark} {
         background-color: ${appNavBackgroundColorDark};
-        border-right: 0.5px solid ${controlBorderColorDark};
+        border-right: ${borderThin} solid ${controlBorderColorDark};
     }
     padding: ${margin};
     width: ${({ collapsed }) => collapsed ? `calc(5rem + ${margin})` : `calc(16rem)`};

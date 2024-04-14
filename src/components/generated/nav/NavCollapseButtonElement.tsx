@@ -3,7 +3,7 @@
 
 import { styled } from "@linaria/react"
 import { clearButton, dark, flexContainer, light, transitionAll } from "../../../lib/generated/theme"
-import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
+import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
 
 export type NavCollapseButtonElementProps = {
     collapsed: boolean
@@ -22,12 +22,12 @@ const NavCollapseButtonElement = styled.button<NavCollapseButtonElementProps>`
     ${light} {
         background-color: ${controlBackgroundColorLight};
         color: ${controlTextColorLight};
-        border: 0.5px solid ${controlBorderColorLight};
+        border: ${borderThin} solid ${controlBorderColorLight};
     }
     ${dark} {
         background-color: ${controlBackgroundColorDark};
         color: ${controlTextColorDark};
-        border: 0.5px solid ${controlBorderColorDark};
+        border: ${borderThin} solid ${controlBorderColorDark};
     }
 `
 

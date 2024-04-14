@@ -3,7 +3,7 @@
 
 import { styled } from "@linaria/react"
 import { clearButton, dark, flexContainer, light, size } from "../../../lib/generated/theme"
-import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, spacing } from "../../../lib/extended/theme"
+import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, spacing } from "../../../lib/extended/theme"
 
 const StatusBarUserAvatarElement = styled.button`
     ${clearButton}
@@ -17,11 +17,11 @@ const StatusBarUserAvatarElement = styled.button`
     font-size: 1.25rem;
     ${light} {
         background-color: ${controlBackgroundColorLight};
-        border: 0.5px solid ${controlBorderColorLight};
+        border: ${borderThin} solid ${controlBorderColorLight};
     }
     ${dark} {
         background-color: ${controlBackgroundColorDark};
-        border: 0.5px solid ${controlBorderColorDark};
+        border: ${borderThin} solid ${controlBorderColorDark};
     }
 `
 
