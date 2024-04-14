@@ -4,6 +4,7 @@ import { PageStackItemKey } from "../../extended/pageStack/PageStackItemKeys"
 import PageStacksContainerElement from "./PageStacksContainerElement"
 import renderStack from "./renderStack"
 import { StacksProps } from "./usePageStackOwner"
+import PageStackContainerElement from "./PageStackContainerElement"
 
 type PageStackCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
@@ -22,9 +23,9 @@ const PageStacksCache = ({ stackProps }: { stackProps: StacksProps }) => {
     }, [stackProps.stack])
     const activeKey = stackProps.stack[0]?.key
     return <PageStacksContainerElement>
-        {Object.entries(stackMap).map(([key, items]) => <PageStacksContainerElement key={key} isHidden={activeKey !== key}>
+        {Object.entries(stackMap).map(([key, items]) => <PageStackContainerElement key={key} isHidden={activeKey !== key}>
             {renderStack(items)}
-        </PageStacksContainerElement>)}
+        </PageStackContainerElement>)}
     </PageStacksContainerElement>
 }
 
