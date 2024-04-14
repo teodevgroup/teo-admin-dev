@@ -55,6 +55,10 @@ export const controlBorderColorLight = "#EBEBED"
 
 export const controlBorderColorDark = "#EBEBED"
 
+export const controlHintBackgroundColorLight = "#FAFAFC"
+
+export const controlHintBackgroundColorDark = "#FAFAFC"
+
 export const controlTextColorLight = "#404040"
 
 export const controlTextColorDark = "#404040"
@@ -74,5 +78,7 @@ export const paperRadius = "8px"
 export const borderThin = "0.5px"
 
 export const defaultTransitionTimeInterval = '0.2s'
+
+export const shortTransitionTimeInterval = '0.1s'
 
 export const defaultTransitionCurve = 'ease-in-out'

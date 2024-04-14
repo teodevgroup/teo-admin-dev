@@ -1,7 +1,7 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, tabletMax, tabletMin } from "../extended/theme"
+import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, shortTransitionTimeInterval, tabletMax, tabletMin } from "../extended/theme"
 import { Property } from 'csstype'
 
 export const light = '@media (prefers-color-scheme: light)'
@@ -41,6 +41,10 @@ export const clearButton = `background: none; border: none; outline: none; box-s
 export const clearHeading = `padding: 0; margin: 0; line-height: 1;`
 
 export const transitionAll = `transition: all ${defaultTransitionTimeInterval} ${defaultTransitionCurve};`
+
+export const transitionShort = (keys: string) => {
+    return `transition: ${keys} ${shortTransitionTimeInterval} ${defaultTransitionCurve};`
+}
 
 export const size = (width: string, height?: string) => {
     if (height) {

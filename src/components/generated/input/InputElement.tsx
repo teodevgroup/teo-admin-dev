@@ -1,13 +1,31 @@
 import { styled } from "@linaria/react"
-import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
-import { dark, light } from "../../../lib/generated/theme"
+import { appBackgroundColorLight, borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, controlTintColorLight } from "../../../lib/extended/theme"
+import { dark, light, transitionAll, transitionShort } from "../../../lib/generated/theme"
 
 const InputElement = styled.input`
+    margin: 20px 0 0 20px;
     flex-grow: 1;
     height: ${controlHeight};
     border-radius: ${controlRadius};
     padding: 0 ${controlRadius};
-    ${light} {
+    &:focus {
+        outline: ${controlTintColorLight} solid 2px;
+        ${light} {
+            background-color: ${controlHintBackgroundColorLight};
+        }
+        ${dark} {
+            background-color: ${controlHintBackgroundColorDark};
+        }        
+    }
+    &:hover {
+        ${light} {
+            background-color: ${controlHintBackgroundColorLight};
+        }
+        ${dark} {
+            background-color: ${controlHintBackgroundColorDark};
+        }
+    }
+    ${light} {   
         border: ${borderThin} solid ${controlBorderColorLight};
         background-color: ${controlBackgroundColorLight};
         color: ${controlTextColorLight};
@@ -17,6 +35,7 @@ const InputElement = styled.input`
         border: ${borderThin} solid ${controlBorderColorDark};
         color: ${controlTextColorDark};
     }
+    ${transitionShort('border-color,background-color')}
 `
 
 export default InputElement
