@@ -6,7 +6,7 @@ import renderStack from "./renderStack"
 import { StacksProps } from "./usePageStackOwner"
 import PageStackContainerElement from "./PageStackContainerElement"
 
-type PageStackCacheMap = { [key in PageStackItemKey]?: PageStackData }
+export type PageStackCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
 const mergeStackData: (map: PageStackCacheMap, stackData: PageStackData) => PageStackCacheMap = (map: PageStackCacheMap, stackData: PageStackData) => {
     if (stackData[0]) {
