@@ -18,7 +18,7 @@ const defaultBrowsingCaches: BrowsingCaches = {
 }
 
 export const useBrowsingCaches = () => {
-    return useLocalStorage<BrowsingCaches>("__teo_admin_preferences__", defaultBrowsingCaches, {
+    return useLocalStorage<BrowsingCaches>("__teo_admin_browsing_caches__", defaultBrowsingCaches, {
         serializer: JSON.stringify,
         parser: JSON.parse,
     })
