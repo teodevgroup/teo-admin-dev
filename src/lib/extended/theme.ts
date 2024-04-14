@@ -27,6 +27,14 @@ export const tintColorContrastLight = "#0052FF"
 
 export const tintColorContrastDark = "#0052FF"
 
+export const controlTintColorLight = "#015ECC"
+
+export const controlTintColorDark = "#015ECC"
+
+export const controlTintColorContrastLight = "#015ECC"
+
+export const controlTintColorContrastDark = "#015ECC"
+
 export const appBackgroundColorLight = "#FBFBFD"
 
 export const appBackgroundColorDark = "#090C13"
