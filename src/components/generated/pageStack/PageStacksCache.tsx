@@ -9,7 +9,7 @@ import PageStackContainerElement from "./PageStackContainerElement"
 export type PageStackCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
 const mergeStackData: (map: PageStackCacheMap, stackData: PageStackData) => PageStackCacheMap = (map: PageStackCacheMap, stackData: PageStackData) => {
-    if (stackData[0]) {
+    if (stackData.length > 0) {
         return { ...map, [stackData[0].key]: stackData }
     } else {
         return map

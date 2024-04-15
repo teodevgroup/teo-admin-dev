@@ -10,6 +10,7 @@ import { IconCode } from '../extended/icons'
 import { Translatable } from './lang/tr'
 import set from './utilities/set'
 import get from './utilities/get'
+import { PageStackItemKey } from '../../components/extended/pageStack/PageStackItemKeys'
 
 export type NavItem = {
     id: string
@@ -17,7 +18,7 @@ export type NavItem = {
     icon: IconCode
     folder?: boolean
     childItems?: NavItem[]
-    path?: string
+    path?: PageStackItemKey
 }
 
 export interface NavPreferences {

@@ -12,19 +12,22 @@ import StatusBarWithShimmer from '../statusBar/StatusBarWithShimmer'
 import pageStackDataFromPath from '../pageStack/pageStackDataFromPath'
 import usePageStackOwner from '../pageStack/usePageStackOwner'
 import PageStacksCache from '../pageStack/PageStacksCache'
+import PageStackContext from '../pageStack/PageStackContext'
 
 const App = () => {
     const [{ path }] = usePath()
     const initialPageStack = pageStackDataFromPath(path)
     const stackProps = usePageStackOwner(initialPageStack)
     return <AppRootElement>
-        <AppNavLayout>
-            <NavWithShimmer />
-            <AppContentLayout>
-                <StatusBarWithShimmer />
-                <PageStacksCache stackProps={stackProps} />
-            </AppContentLayout>
-        </AppNavLayout>
+        <PageStackContext.Provider value={stackProps}>
+            <AppNavLayout>
+                <NavWithShimmer />
+                <AppContentLayout>
+                    <StatusBarWithShimmer />
+                    <PageStacksCache stackProps={stackProps} />
+                </AppContentLayout>
+            </AppNavLayout>
+        </PageStackContext.Provider>
         <SignInModal />
     </AppRootElement>
 }

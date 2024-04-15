@@ -36,7 +36,7 @@ const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: 
                                 <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                             : <NavListItemMenuWrapper>
-                                <NavListItem text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                                <NavListItem path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                         }}
                     </Draggable>

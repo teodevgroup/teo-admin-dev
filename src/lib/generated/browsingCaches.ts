@@ -42,7 +42,9 @@ export const useCachedStacks = () => {
         if (cachedStacks[key]) {
             return cachedStacks[key]
         }
-        setCachedStacks(set(cachedStacks, [key], { key } as PageStackItem))
+        const newCachedStack = set(cachedStacks, [key], { key } as PageStackItem)
+        setCachedStacks(newCachedStack)
+        return newCachedStack[key]
     }, [cachedStacks])
     const setCachedStack = useCallback((key: PageStackItemKey, value: PageStackItem[]) => {
         setCachedStacks(set(cachedStacks, [key], value))

@@ -4,16 +4,24 @@ import { IconCode, iconsMap } from '../../../lib/extended/icons'
 import NavListItemElement from "../../extended/nav/NavListItemElement"
 import NavListItemIconElement from '../../extended/nav/NavListItemIconElement'
 import NavListItemTextElement from '../../extended/nav/NavListItemTextElement'
+import { PageStackItemKey } from '../../extended/pageStack/PageStackItemKeys'
+import usePageStackPage from '../pageStack/usePageStackPage'
 
 export type NavListItemProps = {
     isDragging?: boolean
     text: string
     iconCode: IconCode
+    path?: PageStackItemKey
 } & ComponentPropsWithoutRef<'div'>
 
-const NavListItem = forwardRef(({ isDragging, text, iconCode, ...props }: NavListItemProps, ref: ForwardedRef<HTMLDivElement>) => {
+const NavListItem = forwardRef(({ isDragging, text, iconCode, path, ...props }: NavListItemProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const { alterStackWithRootKey } = usePageStackPage()
     const { t } = useTranslation("translations")
-    return <NavListItemElement isDragging={isDragging} ref={ref} {...props}>
+    return <NavListItemElement isDragging={isDragging} ref={ref} {...props} onClick={() => {
+        if (path) {
+            alterStackWithRootKey(path)
+        }
+    }}>
         <NavListItemIconElement>{iconsMap[iconCode]}</NavListItemIconElement>
         <NavListItemTextElement>{t(text)}</NavListItemTextElement>
     </NavListItemElement>
