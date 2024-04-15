@@ -1,10 +1,11 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"
 import { useCachedStacks } from "../../../lib/generated/browsingCaches"
 import { PageStackItemKey } from "../../extended/pageStack/PageStackItemKeys"
 import usePath from "react-use-path"
 import pageStackDataToPath from "./pageStackDataToPath"
+import pageStackDataFromPath from "./pageStackDataFromPath"
 
 export type StacksProps = {
     stack: PageStackData
@@ -18,6 +19,16 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
     const [stack, setStack] = useState(data)
     const [_, setPath] = usePath()
     const { getCachedStack, setCachedStack } = useCachedStacks()
+    useEffect(() => {
+        const onPopSyncStack = () => {
+            const newStackData = pageStackDataFromPath(window.location.pathname)
+            setStack(newStackData)
+        }
+        window.addEventListener('popstate', onPopSyncStack)
+        return () => {
+            window.removeEventListener('popstate', onPopSyncStack)
+        }
+    }, [])
     const syncPath = useCallback((stack: PageStackData) => {
         setPath(pageStackDataToPath(stack))
     }, [])
