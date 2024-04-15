@@ -20,6 +20,7 @@ import SelectListVerticalLayout from '../../generated/selectList/SelectListVerti
 import { useTranslation } from 'react-i18next'
 import { languageNamesArray, languageNamesMap } from '../../../lib/extended/language'
 import { signOut, useAccount } from '../../../lib/generated/signIn'
+import Button from '../../extended/button/Button'
 
 const StatusBar = () => {
     const _ = useAccount()
@@ -52,11 +53,11 @@ const StatusBar = () => {
                         </SelectListItem>)}
                     </SelectListVerticalLayout>
                 </SelectList>
-                <button onClick={() => {
+                <Button onClick={() => {
                     setLang(selectedLang)
                     setLangModalIsOpen(false)
                     i18n.changeLanguage(selectedLang)
-                }}>{t("confirm")}</button>
+                }}>{t("confirm")}</Button>
             </ModalSheet>
         </Modal>
     </StatusBarElement>

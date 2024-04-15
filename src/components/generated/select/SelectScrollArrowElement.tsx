@@ -11,7 +11,7 @@ const SelectScrollArrowElement = styled.div`
     height: 25px;
     user-select: none;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
 `
 

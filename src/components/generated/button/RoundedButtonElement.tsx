@@ -1,13 +1,16 @@
-import { styled } from "@linaria/react"
-import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, controlTintColorLight, margin } from "../../../lib/extended/theme"
-import { dark, light, shallowShadow, transitionShort } from "../../../lib/generated/theme"
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
 
-const ButtonElement = styled.button`
-    margin: 20px 0 0 20px;
-    flex-grow: 1;
-    height: ${controlHeight};
+import { styled } from "@linaria/react"
+import { dark, flexContainer, light, shallowShadow, size, transitionShort } from "../../../lib/generated/theme"
+import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
+
+const RoundedButtonElement = styled.button`
+    ${flexContainer("row", "center", "center")}
+    line-height: 0;
+    font-size: 1.25rem;
+    ${size(controlHeight)}
     border-radius: ${controlRadius};
-    padding: 0 ${controlRadius};
     &:hover {
         ${light} {
             background-color: ${controlHintBackgroundColorLight};
@@ -38,4 +41,4 @@ const ButtonElement = styled.button`
     box-shadow: ${shallowShadow};
 `
 
-export default ButtonElement
+export default RoundedButtonElement

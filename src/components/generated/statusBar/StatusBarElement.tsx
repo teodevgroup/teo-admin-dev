@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { dark, flexContainer, light } from "../../../lib/generated/theme"
+import { dark, flexContainer, light, zIndexStatusBar } from "../../../lib/generated/theme"
 import { appStatusBarBackgroundColorDark, appStatusBarBackgroundColorLight, borderThin, controlBorderColorDark, controlBorderColorLight, margin } from "../../../lib/extended/theme"
 
 const StatusBarElement = styled.div`
@@ -21,6 +21,8 @@ const StatusBarElement = styled.div`
         background-color: ${appStatusBarBackgroundColorDark};
         border-bottom: ${borderThin} solid ${controlBorderColorDark};
     }
+    z-index: ${zIndexStatusBar};
+    box-shadow: rgba(0, 0, 0, .05) 0 1px 4px;
 `
 
 export default StatusBarElement

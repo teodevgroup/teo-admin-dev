@@ -3,7 +3,7 @@
 
 import { styled } from "@linaria/react"
 import { borderThin, radius } from "../../../lib/extended/theme"
-import { dark, flexContainer, light } from "../../../lib/generated/theme"
+import { dark, flexContainer, light, zIndexMenu } from "../../../lib/generated/theme"
 
 const MenuElement = styled.div`
     padding: ${radius};
@@ -18,6 +18,7 @@ const MenuElement = styled.div`
         background-color: black;
         border: ${borderThin} solid gray;
     }
+    z-index: ${zIndexMenu};
 `
 
 export default MenuElement

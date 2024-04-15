@@ -42,6 +42,10 @@ export const clearHeading = `padding: 0; margin: 0; line-height: 1;`
 
 export const transitionAll = `transition: all ${defaultTransitionTimeInterval} ${defaultTransitionCurve};`
 
+export const shallowShadow = `rgba(0, 0, 0, .1) 0 1px 1px`
+
+export const shallowShadowX = `rgba(0, 0, 0, .1) 1px 0 1px`
+
 export const transitionShort = (keys: string) => {
     return `transition: ${keys} ${shortTransitionTimeInterval} ${defaultTransitionCurve};`
 }
@@ -53,3 +57,8 @@ export const size = (width: string, height?: string) => {
         return `width: ${width}; height: ${width};`
     }
 }
+
+export const zIndexTooltip = 11
+export const zIndexMenu = 10
+export const zIndexNav = 2
+export const zIndexStatusBar = 1

@@ -14,6 +14,7 @@ import MenuItem from '../menu/MenuItem'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from '../../../lib/generated/signIn'
 import NavItems from './NavItems'
+import NavCollapseButtonContainerElement from './NavCollapseButtonContainerElement'
 
 const Nav = () => {
     const _ = useAccount()
@@ -32,9 +33,11 @@ const Nav = () => {
         </Menu>
     }>
         <NavElement collapsed={navCollapsed}>
-            <WithTooltip tooltip={<Tooltip>{navCollapsed ? t("nav.expandButton.tooltip") : t("nav.collapseButton.tooltip")}</Tooltip>}>
-                <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
-            </WithTooltip>
+            <NavCollapseButtonContainerElement collapsed={navCollapsed}>
+                <WithTooltip tooltip={<Tooltip>{navCollapsed ? t("nav.expandButton.tooltip") : t("nav.collapseButton.tooltip")}</Tooltip>}>
+                    <NavCollapseButton collapsed={navCollapsed} onClick={() => setNavCollapsed(!navCollapsed)} />
+                </WithTooltip>
+            </NavCollapseButtonContainerElement>
             <NavLogo collapsed={navCollapsed} />
             <NavItems />
         </NavElement>
