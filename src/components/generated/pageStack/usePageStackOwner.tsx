@@ -3,6 +3,8 @@ import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"
 import { useCachedStacks } from "../../../lib/generated/browsingCaches"
 import { PageStackItemKey } from "../../extended/pageStack/PageStackItemKeys"
+import usePath from "react-use-path"
+import pageStackDataToPath from "./pageStackDataToPath"
 
 export type StacksProps = {
     stack: PageStackData
@@ -14,12 +16,16 @@ export type StacksProps = {
 
 const usePageStackOwner = (data: PageStackData): StacksProps => {
     const [stack, setStack] = useState(data)
+    const [_, setPath] = usePath()
     const { getCachedStack, setCachedStack } = useCachedStacks()
+    const syncPath = useCallback((stack: PageStackData) => {
+        setPath(pageStackDataToPath(stack))
+    }, [])
     const pushStack = useCallback((item: PageStackItem) => {
         const newStack = [...stack, item]
         setCachedStack(stack[0].key, newStack)
         setStack(newStack)
-        
+        syncPath(newStack)
     }, [stack])
     const popStack = useCallback(() => {
         const newStack = [...stack]
@@ -27,11 +33,13 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
             setCachedStack(stack[0].key, newStack)
         }
         newStack.pop()
+        syncPath(newStack)
         return newStack
     }, [stack])
     const alterStackWithRootKey = (key: PageStackItemKey) => {
         const stack = getCachedStack(key)
         setStack(stack!)
+        syncPath(stack!)
     }
     return { stack, setStack, pushStack, popStack, alterStackWithRootKey }
 }

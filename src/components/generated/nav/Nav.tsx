@@ -15,7 +15,6 @@ import { useTranslation } from 'react-i18next'
 import { useAccount } from '../../../lib/generated/signIn'
 import NavItems from './NavItems'
 import { NavCollapseButtonInnerContainerElement, NavCollapseButtonOuterContainerElement } from './NavCollapseButtonContainerElement'
-import NavLogoContainerElement from './NavLogoContainerElement'
 
 const Nav = () => {
     const _ = useAccount()
@@ -24,7 +23,7 @@ const Nav = () => {
     return <WithContextMenu contextMenu={
         <Menu>
             <MenuItem disabled={true} label="Menu A" />
-            <MenuItem label="Menu B" action={() => console.log("action B")} />
+            <MenuItem label="Menu B" action={() => {}} />
             <MenuItem label="Download">
                 <Menu>
                     <MenuItem label="JSON" />
