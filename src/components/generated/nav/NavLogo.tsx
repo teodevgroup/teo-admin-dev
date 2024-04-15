@@ -4,13 +4,16 @@
 import React from 'react'
 import NavLogoElement from './NavLogoElement'
 import Logo from '../../extended/logo/Logo'
+import NavLogoContainerElement from './NavLogoContainerElement'
 
 type NavLogoProps = {
     collapsed: boolean
 }
 
-const NavLogo = ({ collapsed }: NavLogoProps) => <NavLogoElement collapsed={collapsed}>
-    <Logo />
-</NavLogoElement>
+const NavLogo = ({ collapsed }: NavLogoProps) => <NavLogoContainerElement>
+    <NavLogoElement collapsed={collapsed}>
+        <Logo />
+    </NavLogoElement>
+</NavLogoContainerElement>
 
 export default NavLogo

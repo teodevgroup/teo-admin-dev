@@ -3,7 +3,7 @@
 
 import { styled } from "@linaria/react"
 import { margin, tintColorDark, tintColorLight } from '../../../lib/extended/theme'
-import { dark, light } from '../../../lib/generated/theme'
+import { dark, flexContainer, light, transitionAll } from '../../../lib/generated/theme'
 
 type NavLogoElementProps = {
     collapsed: boolean
@@ -12,13 +12,15 @@ type NavLogoElementProps = {
 const NavLogoElement = styled.div<NavLogoElementProps>`
     margin-top: ${margin};
     margin-bottom: ${margin};
+    ${flexContainer("row", "flex-start", "flex-start")}
     ${light} {
         color: ${tintColorLight};
     }
     ${dark} {
         color: ${tintColorDark};
     }
-    align-self: ${({ collapsed }) => collapsed ? "center" : "flex-start"}
+    flex: ${({ collapsed }) => collapsed ? "0" : "1"};
+    ${transitionAll}
 `
 
 export default NavLogoElement
