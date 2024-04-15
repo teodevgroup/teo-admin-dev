@@ -42,7 +42,7 @@ export const useCachedStacks = () => {
         if (cachedStacks[key]) {
             return cachedStacks[key]
         }
-        const newCachedStack = set(cachedStacks, [key], { key } as PageStackItem)
+        const newCachedStack = set(cachedStacks, [key], [{ key } as PageStackItem])
         setCachedStacks(newCachedStack)
         return newCachedStack[key]
     }, [cachedStacks])
