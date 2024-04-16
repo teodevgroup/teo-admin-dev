@@ -40,12 +40,13 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
     }, [stack])
     const popStack = useCallback(() => {
         const newStack = [...stack]
-        if (newStack.length) {
+        if (newStack.length >= 1) {
             setCachedStack(stack[0].key, newStack)
+            newStack.pop()
+            syncPath(newStack)
+            return newStack    
         }
-        newStack.pop()
-        syncPath(newStack)
-        return newStack
+        return stack
     }, [stack])
     const alterStackWithRootKey = (key: PageStackItemKey) => {
         const stack = getCachedStack(key)

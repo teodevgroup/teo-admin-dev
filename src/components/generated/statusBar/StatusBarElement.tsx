@@ -6,8 +6,7 @@ import { dark, flexContainer, light, zIndexStatusBar } from "../../../lib/genera
 import { appStatusBarBackgroundColorDark, appStatusBarBackgroundColorLight, borderThin, controlBorderColorDark, controlBorderColorLight, margin } from "../../../lib/extended/theme"
 
 const StatusBarElement = styled.div`
-    ${flexContainer("row", "center", "flex-end")}
-    gap: ${margin};
+    ${flexContainer("row", "center", "space-between")}
     padding: ${margin};
     text-align: center;
     white-space: nowrap;
