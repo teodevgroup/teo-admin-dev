@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { ReactNode, useCallback, useEffect, useState } from "react"
 import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"
 import { useCachedStacks } from "../../../lib/generated/browsingCaches"
@@ -6,6 +6,8 @@ import { PageStackItemKey } from "../../extended/pageStack/PageStackItemKeys"
 import usePath from "react-use-path"
 import pageStackDataToPath from "./pageStackDataToPath"
 import pageStackDataFromPath from "./pageStackDataFromPath"
+import { StatusBarItemsOwner } from "../statusBar/useStatusBarItemsOwner"
+import set from "../../../lib/generated/utilities/set"
 
 export type StacksProps = {
     stack: PageStackData
@@ -13,12 +15,23 @@ export type StacksProps = {
     pushStack: (item: PageStackItem) => void
     popStack: () => void
     alterStackWithRootKey: (key: PageStackItemKey) => void
+    useLeadingItems: (elements: ReactNode[]) => void
+    useTitleItems: (elements: ReactNode[]) => void
 }
 
-const usePageStackOwner = (data: PageStackData): StacksProps => {
+const usePageStackOwner = (
+    data: PageStackData, {
+        leadingItems,
+        centerItems,
+        setLeadingItems,
+        setCenterItems,
+        stackItemIndexRef,
+    }: StatusBarItemsOwner
+): StacksProps => {
     const [stack, setStack] = useState(data)
     const [_, setPath] = usePath()
     const { getCachedStack, setCachedStack } = useCachedStacks()
+
     useEffect(() => {
         const onPopSyncStack = () => {
             const newStackData = pageStackDataFromPath(window.location.pathname)
@@ -53,7 +66,27 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
         setStack(stack!)
         syncPath(stack!)
     }
-    return { stack, setStack, pushStack, popStack, alterStackWithRootKey }
+    const useLeadingItems = (elements: ReactNode[]) => {
+        const index = stackItemIndexRef.current
+        useEffect(() => {
+            setLeadingItems(set(leadingItems, [index], elements))
+        })
+    }
+    const useTitleItems = (elements: ReactNode[]) => {
+        const index = stackItemIndexRef.current
+        useEffect(() => {
+            setLeadingItems(set(leadingItems, [index], elements))
+        })
+    }
+    return { 
+        stack,
+        setStack,
+        pushStack,
+        popStack,
+        alterStackWithRootKey,
+        useLeadingItems,
+        useTitleItems,
+    }
 }
 
 export default usePageStackOwner

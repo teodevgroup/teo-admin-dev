@@ -6,6 +6,7 @@ const StatusBarItemsContext = createContext<StatusBarItemsOwner>({
     centerItems: [],
     setLeadingItems: () => {},
     setCenterItems: () => {},
+    stackItemIndexRef: {} as any,
 })
 
 export default StatusBarItemsContext

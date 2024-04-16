@@ -3,9 +3,12 @@ import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import Input from '../../extended/input/Input'
 import Button from '../../extended/button/Button'
 import usePath from 'react-use-path'
+import usePageStackPage from './usePageStackPage'
 
 const AdminPage = () => {
+    const { useTitleItems } = usePageStackPage()
     const [_, setPath] = usePath()
+    useTitleItems([<div>SBVC</div>])
     return <div key="Admin" style={{
         background: "white", 
         paddingBottom: "20px",

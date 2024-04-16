@@ -5,7 +5,10 @@ const PageStackContext = createContext<StacksProps>({
     stack: [],
     setStack: () => {},
     pushStack: () => {},
-    popStack: () => {}
+    popStack: () => {},
+    alterStackWithRootKey: () => {},
+    useLeadingItems: () => {},
+    useTitleItems: () => {}
 })
 
 export default PageStackContext

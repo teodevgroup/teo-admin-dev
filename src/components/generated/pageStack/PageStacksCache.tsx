@@ -5,6 +5,7 @@ import PageStacksContainerElement from "./PageStacksContainerElement"
 import renderStack from "./renderStack"
 import { StacksProps } from "./usePageStackOwner"
 import PageStackContainerElement from "./PageStackContainerElement"
+import useStatusBarRenderer from "../statusBar/useStatusBarRenderer"
 
 export type PageStackCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
@@ -22,9 +23,10 @@ const PageStacksCache = ({ stackProps }: { stackProps: StacksProps }) => {
         setStackMap(mergeStackData(stackMap, stackProps.stack))
     }, [stackProps.stack])
     const activeKey = stackProps.stack[0]?.key
+    const { stackItemIndexRef } = useStatusBarRenderer()
     return <PageStacksContainerElement>
         {Object.entries(stackMap).map(([key, items]) => <PageStackContainerElement key={key} isHidden={activeKey !== key}>
-            {renderStack(items)}
+            {renderStack(items, stackItemIndexRef)}
         </PageStackContainerElement>)}
     </PageStacksContainerElement>
 }

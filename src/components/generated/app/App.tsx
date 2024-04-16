@@ -19,8 +19,8 @@ import StatusBarItemsContext from '../statusBar/StatusBarItemsContext'
 const App = () => {
     const [{ path }] = usePath()
     const initialPageStack = pageStackDataFromPath(path)
-    const stackProps = usePageStackOwner(initialPageStack)
     const statusBarOwnerProps = useStatusBarItemsOwner()
+    const stackProps = usePageStackOwner(initialPageStack, statusBarOwnerProps)
     return <AppRootElement>
         <PageStackContext.Provider value={stackProps}>
             <AppNavLayout>
