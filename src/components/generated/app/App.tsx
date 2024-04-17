@@ -15,6 +15,8 @@ import PageStacksCache from '../pageStack/PageStacksCache'
 import PageStackContext from '../pageStack/PageStackContext'
 import useStatusBarItemsOwner from '../statusBar/useStatusBarItemsOwner'
 import StatusBarItemsContext from '../statusBar/StatusBarItemsContext'
+import RootStackView from '../pageStack/RootStackView'
+import ContentTabsCache from '../contentTabs/ContentTabsCache'
 
 const App = () => {
     const [{ path }] = usePath()
@@ -22,17 +24,18 @@ const App = () => {
     const statusBarOwnerProps = useStatusBarItemsOwner()
     const stackProps = usePageStackOwner(initialPageStack, statusBarOwnerProps)
     return <AppRootElement>
-        <PageStackContext.Provider value={stackProps}>
-            <AppNavLayout>
-                <NavWithShimmer />
-                <AppContentLayout>
-                    <StatusBarItemsContext.Provider value={statusBarOwnerProps}>
+        <StatusBarItemsContext.Provider value={statusBarOwnerProps}>
+            <PageStackContext.Provider value={stackProps}>
+                <AppNavLayout>
+                    <NavWithShimmer />
+                    <ContentTabsCache stackProps={stackProps} />
+                    <AppContentLayout>
                         <StatusBarWithShimmer />
                         <PageStacksCache stackProps={stackProps} />
-                    </StatusBarItemsContext.Provider>
-                </AppContentLayout>
-            </AppNavLayout>
-        </PageStackContext.Provider>
+                    </AppContentLayout>
+                </AppNavLayout>
+            </PageStackContext.Provider>
+        </StatusBarItemsContext.Provider>
         <SignInModal />
     </AppRootElement>
 }

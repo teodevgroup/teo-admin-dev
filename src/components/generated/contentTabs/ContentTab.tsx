@@ -1,10 +1,10 @@
 import { styled } from "@linaria/react"
 
-export type PageStackContainerElementProps = {
+export type ContentTabProps = {
     isHidden: boolean
 }
 
-const PageStackContainerElement = styled.div<PageStackContainerElementProps>`
+const ContentTab = styled.div<ContentTabProps>`
     position: absolute;
     left: 0;
     top: 0;
@@ -13,4 +13,4 @@ const PageStackContainerElement = styled.div<PageStackContainerElementProps>`
     display: ${({ isHidden }) => isHidden ? "none" : "block"};
 `
 
-export default PageStackContainerElement
+export default ContentTab

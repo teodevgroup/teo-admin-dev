@@ -3,13 +3,11 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { MutableRefObject } from "react"
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import renderDefaultStackItem from "../../generated/pageStack/renderDefaultStackItem"
 import renderNotFound from "../../generated/pageStack/renderNotFound"
 
-export default function renderStackItem(item: PageStackItem, currentIndex: MutableRefObject<number>) {
-    currentIndex.current += 1
+export default function renderStackItem(item: PageStackItem) {
     const element = renderDefaultStackItem(item)
     if (element) {
         return element

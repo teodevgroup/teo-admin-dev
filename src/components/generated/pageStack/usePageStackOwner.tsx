@@ -15,8 +15,6 @@ export type StacksProps = {
     pushStack: (item: PageStackItem) => void
     popStack: () => void
     alterStackWithRootKey: (key: PageStackItemKey) => void
-    useLeadingItems: (elements: ReactNode[]) => void
-    useTitleItems: (elements: ReactNode[]) => void
 }
 
 const usePageStackOwner = (
@@ -25,7 +23,6 @@ const usePageStackOwner = (
         centerItems,
         setLeadingItems,
         setCenterItems,
-        stackItemIndexRef,
     }: StatusBarItemsOwner
 ): StacksProps => {
     const [stack, setStack] = useState(data)
@@ -63,20 +60,28 @@ const usePageStackOwner = (
     }, [stack])
     const alterStackWithRootKey = (key: PageStackItemKey) => {
         const stack = getCachedStack(key)
+        setLeadingItems([])
+        setCenterItems([])
         setStack(stack!)
         syncPath(stack!)
     }
     const useLeadingItems = (elements: ReactNode[]) => {
+        console.log("see refs: ", stackItemIndexRef.current, isActiveStackRef.current)
         const index = stackItemIndexRef.current
         useEffect(() => {
-            setLeadingItems(set(leadingItems, [index], elements))
-        })
+            if (isActiveStackRef.current) {
+                setLeadingItems(set(leadingItems, [index], elements))
+            }
+        }, [])
     }
     const useTitleItems = (elements: ReactNode[]) => {
+        console.log("see refs: ", stackItemIndexRef.current, isActiveStackRef.current)
         const index = stackItemIndexRef.current
         useEffect(() => {
-            setLeadingItems(set(leadingItems, [index], elements))
-        })
+            if (isActiveStackRef.current) {
+                setCenterItems(set(centerItems, [index], elements))
+            }
+        }, [])
     }
     return { 
         stack,

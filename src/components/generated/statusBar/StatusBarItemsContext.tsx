@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react"
+import { createContext } from "react"
 import { StatusBarItemsOwner } from "./useStatusBarItemsOwner"
 
 const StatusBarItemsContext = createContext<StatusBarItemsOwner>({
@@ -6,7 +6,8 @@ const StatusBarItemsContext = createContext<StatusBarItemsOwner>({
     centerItems: [],
     setLeadingItems: () => {},
     setCenterItems: () => {},
-    stackItemIndexRef: {} as any,
+    stackItemIndexRef: { current: 0 },
+    isActiveStackRef: { current: false },
 })
 
 export default StatusBarItemsContext
