@@ -2,16 +2,16 @@ import React, { ReactNode, useContext } from "react"
 import NavBarItemsContainerElement from "./NavBarItemsContainerElement"
 import { NavBarRenderStateContext } from "./NavBar"
 
-type NavBarTitleItemsProps = {
+type NavBarLeadingItemsProps = {
     children: ReactNode | ReactNode[]
 }
 
-const NavBarTitleItems = ({ children }: NavBarTitleItemsProps) => {
+const NavBarLeadingItems = ({ children }: NavBarLeadingItemsProps) => {
     const context = useContext(NavBarRenderStateContext)
-    context.title = true
+    context.leading = true
     return <NavBarItemsContainerElement>
         {children}
     </NavBarItemsContainerElement>
 }
 
-export default NavBarTitleItems
+export default NavBarLeadingItems

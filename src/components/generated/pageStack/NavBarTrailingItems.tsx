@@ -2,16 +2,16 @@ import React, { ReactNode, useContext } from "react"
 import NavBarItemsContainerElement from "./NavBarItemsContainerElement"
 import { NavBarRenderStateContext } from "./NavBar"
 
-type NavBarTitleItemsProps = {
+type NavBarTrailingItemsProps = {
     children: ReactNode | ReactNode[]
 }
 
-const NavBarTitleItems = ({ children }: NavBarTitleItemsProps) => {
+const NavBarTrailingItems = ({ children }: NavBarTrailingItemsProps) => {
     const context = useContext(NavBarRenderStateContext)
-    context.title = true
+    context.trailing = true
     return <NavBarItemsContainerElement>
         {children}
     </NavBarItemsContainerElement>
 }
 
-export default NavBarTitleItems
+export default NavBarTrailingItems
