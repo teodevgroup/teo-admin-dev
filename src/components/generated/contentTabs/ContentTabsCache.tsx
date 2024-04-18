@@ -5,6 +5,7 @@ import { StacksProps } from "../pageStack/usePageStackOwner"
 import ContentTabsContainer from "./ContentTabsContainer"
 import ContentTab from "./ContentTab"
 import renderStack from "../pageStack/renderStack"
+import NavBarBackgroundElement from "../pageStack/NavBarBackgroundElement"
 
 export type ContentTabsCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
@@ -25,6 +26,7 @@ const ContentTabsCache = ({ stackProps }: { stackProps: StacksProps }) => {
     return <ContentTabsContainer>
         {Object.entries(stackMap).map(([key, items]) => (
             <ContentTab key={key} isHidden={activeKey !== key}>
+                <NavBarBackgroundElement />
                 {renderStack(items)}
             </ContentTab>
         ))}

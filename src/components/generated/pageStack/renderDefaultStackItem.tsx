@@ -2,21 +2,45 @@ import React, { ReactElement } from 'react'
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import Input from '../../extended/input/Input'
 import Button from '../../extended/button/Button'
-import usePath from 'react-use-path'
-import usePageStackPage from './usePageStackPage'
+import Page from './Page'
+import NavBar from './NavBar'
+import NavBarTitleItems from './NavBarTitleItems'
+import Main from './Main'
 
 const AdminPage = () => {
-    const { useTitleItems } = usePageStackPage()
-    const [_, setPath] = usePath()
-    useTitleItems([<div>SBVC</div>])
-    return <div key="Admin" style={{
-        background: "white", 
-        paddingBottom: "20px",
-        margin: "20px",
-        borderRadius: 10,
-    }}>
-        <Input /><Button onClick={() => setPath("/abc")}>Button</Button>
-    </div>
+    return <Page>
+        <NavBar>
+            <NavBarTitleItems>Admin Page Title</NavBarTitleItems>
+        </NavBar>
+        <Main>
+            <div style={{
+                background: "white", 
+                paddingBottom: "20px",
+                margin: "20px",
+                borderRadius: 10,
+            }}>
+                <Input /><Button onClick={() => {}}>Button</Button>
+            </div>
+        </Main>
+    </Page>
+}
+
+const UserPage = () => {
+    return <Page>
+        <NavBar>
+            <NavBarTitleItems>User Page Title</NavBarTitleItems>
+        </NavBar>
+        <Main>
+            <div style={{
+                background: "white", 
+                paddingBottom: "20px",
+                margin: "20px",
+                borderRadius: 10,
+            }}>
+                <Input /><Button onClick={() => {}}>Button</Button>
+            </div>
+        </Main>
+    </Page>
 }
 
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
@@ -24,7 +48,7 @@ export default function renderDefaultStackItem(item: PageStackItem): ReactElemen
         case "Admin":
             return <AdminPage />
         case "User":
-            return <div key="User">User</div>
+            return <UserPage />
         case "Admin.Variant":
             return <div key="Admin.Variant">Admin.Variant</div>
         case "User.Variant":

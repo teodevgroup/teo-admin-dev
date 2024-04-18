@@ -1,7 +1,7 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, shortTransitionTimeInterval, tabletMax, tabletMin } from "../extended/theme"
+import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, margin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, shortTransitionTimeInterval, tabletMax, tabletMin } from "../extended/theme"
 import { Property } from 'csstype'
 
 export const light = '@media (prefers-color-scheme: light)'
@@ -57,6 +57,8 @@ export const size = (width: string, height?: string) => {
         return `width: ${width}; height: ${width};`
     }
 }
+
+export const navBarHeight = `calc(3 * ${margin} + 1.25rem)`
 
 export const zIndexTooltip = 11
 export const zIndexMenu = 10
