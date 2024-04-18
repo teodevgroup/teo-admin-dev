@@ -31,14 +31,7 @@ const UserPage = () => {
             <NavBarTitleItems>User Page Title</NavBarTitleItems>
         </NavBar>
         <Main>
-            <div style={{
-                background: "white", 
-                paddingBottom: "20px",
-                margin: "20px",
-                borderRadius: 10,
-            }}>
-                <Input /><Button onClick={() => {}}>Button</Button>
-            </div>
+            <div style={{height: 50}}>User Page Content</div>
         </Main>
     </Page>
 }

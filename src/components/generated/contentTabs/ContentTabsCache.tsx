@@ -26,7 +26,6 @@ const ContentTabsCache = ({ stackProps }: { stackProps: StacksProps }) => {
     return <ContentTabsContainer>
         {Object.entries(stackMap).map(([key, items]) => (
             <ContentTab key={key} isHidden={activeKey !== key}>
-                <NavBarBackgroundElement />
                 {renderStack(items)}
             </ContentTab>
         ))}

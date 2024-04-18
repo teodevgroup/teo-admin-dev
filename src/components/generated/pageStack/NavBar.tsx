@@ -1,6 +1,8 @@
 import React, { Children, createContext, ReactElement, useContext } from 'react'
 import NavBarElement from "./NavBarElement"
-import NavBarItemsContainerElement from './NavBarItemsContainerElement'
+import NavBarLeadingItems from './NavBarLeadingItems'
+import NavBarTrailingItems from './NavBarTrailingItems'
+import StackItemIndexContext from './stackItemIndexContext'
 
 export type NavBarRenderState = {
     leading: boolean
@@ -19,15 +21,16 @@ export const NavBarRenderStateContext = createContext<NavBarRenderState>({
 })
 
 const NavBarInner = ({ children }: NavBarProps) => {
-    const context = useContext(NavBarRenderStateContext)
+    const navBarContext = useContext(NavBarRenderStateContext)
+    const { topMost } = useContext(StackItemIndexContext)
     const childrenArray = Children.toArray(children)
-    if (!context.leading) {
-        childrenArray.splice(0, 0, <NavBarItemsContainerElement key="__leading" />)
+    if (!navBarContext.leading) {
+        childrenArray.splice(0, 0, <NavBarLeadingItems key="__leading" />)
     }
-    if (!context.trailing) {
-        childrenArray.push(<NavBarItemsContainerElement key="__trailing" />)
+    if (!navBarContext.trailing) {
+        childrenArray.push(<NavBarTrailingItems key="__trailing" />)
     }
-    return <NavBarElement>
+    return <NavBarElement topMost={topMost}>
         {childrenArray}
     </NavBarElement>
 }

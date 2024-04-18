@@ -3,12 +3,17 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
+import React from 'react'
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import renderDefaultStackItem from "../../generated/pageStack/renderDefaultStackItem"
 import renderNotFound from "../../generated/pageStack/renderNotFound"
+import StackItemIndexContext from "../../generated/pageStack/stackItemIndexContext"
 
-export default function renderStackItem(item: PageStackItem) {
-    const element = renderDefaultStackItem(item)
+export default function renderStackItem(item: PageStackItem, index: number, topMost: boolean) {
+    const element = <StackItemIndexContext.Provider value={{ index, topMost }}>
+        {renderDefaultStackItem(item)}
+    </StackItemIndexContext.Provider>
+    
     if (element) {
         return element
     }

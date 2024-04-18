@@ -3,10 +3,13 @@
 
 import { styled } from "@linaria/react"
 import { flexContainer, zIndexStatusBar } from "../../../lib/generated/theme"
+import { margin } from "../../../lib/extended/theme"
 
 const NavBarItemsContainerElement = styled.div`
     ${flexContainer("row", "center", "center")}
     z-index: ${zIndexStatusBar};
+    gap: ${margin};
+    padding: 0 ${margin};
 `
 
 export default NavBarItemsContainerElement
