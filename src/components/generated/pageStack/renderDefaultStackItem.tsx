@@ -6,8 +6,10 @@ import Page from './Page'
 import NavBar from './NavBar'
 import NavBarTitleItems from './NavBarTitleItems'
 import Main from './Main'
+import usePageStackPage from './usePageStackPage'
 
 const AdminPage = () => {
+    const { pushStack } = usePageStackPage()
     return <Page>
         <NavBar>
             <NavBarTitleItems>Admin Page Title</NavBarTitleItems>
@@ -19,7 +21,11 @@ const AdminPage = () => {
                 margin: "20px",
                 borderRadius: 10,
             }}>
-                <Input /><Button onClick={() => {}}>Button</Button>
+                <Input /><Button onClick={() => pushStack({
+                    key: "User",
+                    variant: undefined,
+                    "query": undefined,
+                })}>Button</Button>
             </div>
         </Main>
     </Page>
