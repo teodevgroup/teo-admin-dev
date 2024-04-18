@@ -19,7 +19,6 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
     const [stack, setStack] = useState(data)
     const [_, setPath] = usePath()
     const { getCachedStack, setCachedStack } = useCachedStacks()
-
     useEffect(() => {
         const onPopSyncStack = () => {
             const newStackData = pageStackDataFromPath(window.location.pathname)
@@ -41,9 +40,10 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
     }, [stack])
     const popStack = useCallback(() => {
         const newStack = [...stack]
-        if (newStack.length >= 1) {
-            setCachedStack(stack[0].key, newStack)
+        if (newStack.length >= 2) {
             newStack.pop()
+            setCachedStack(stack[0].key, newStack)
+            setStack(newStack)
             syncPath(newStack)
             return newStack    
         }

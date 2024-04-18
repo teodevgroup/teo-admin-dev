@@ -5,7 +5,6 @@ import { StacksProps } from "../pageStack/usePageStackOwner"
 import ContentTabsContainer from "./ContentTabsContainer"
 import ContentTab from "./ContentTab"
 import renderStack from "../pageStack/renderStack"
-import NavBarBackgroundElement from "../pageStack/NavBarBackgroundElement"
 
 export type ContentTabsCacheMap = { [key in PageStackItemKey]?: PageStackData }
 
