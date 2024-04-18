@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"
 import { useCachedStacks } from "../../../lib/generated/browsingCaches"
@@ -6,8 +6,6 @@ import { PageStackItemKey } from "../../extended/pageStack/PageStackItemKeys"
 import usePath from "react-use-path"
 import pageStackDataToPath from "./pageStackDataToPath"
 import pageStackDataFromPath from "./pageStackDataFromPath"
-import { StatusBarItemsOwner } from "../statusBar/useStatusBarItemsOwner"
-import set from "../../../lib/generated/utilities/set"
 
 export type StacksProps = {
     stack: PageStackData
@@ -17,14 +15,7 @@ export type StacksProps = {
     alterStackWithRootKey: (key: PageStackItemKey) => void
 }
 
-const usePageStackOwner = (
-    data: PageStackData, {
-        leadingItems,
-        centerItems,
-        setLeadingItems,
-        setCenterItems,
-    }: StatusBarItemsOwner
-): StacksProps => {
+const usePageStackOwner = (data: PageStackData): StacksProps => {
     const [stack, setStack] = useState(data)
     const [_, setPath] = usePath()
     const { getCachedStack, setCachedStack } = useCachedStacks()
@@ -60,28 +51,8 @@ const usePageStackOwner = (
     }, [stack])
     const alterStackWithRootKey = (key: PageStackItemKey) => {
         const stack = getCachedStack(key)
-        setLeadingItems([])
-        setCenterItems([])
         setStack(stack!)
         syncPath(stack!)
-    }
-    const useLeadingItems = (elements: ReactNode[]) => {
-        console.log("see refs: ", stackItemIndexRef.current, isActiveStackRef.current)
-        const index = stackItemIndexRef.current
-        useEffect(() => {
-            if (isActiveStackRef.current) {
-                setLeadingItems(set(leadingItems, [index], elements))
-            }
-        }, [])
-    }
-    const useTitleItems = (elements: ReactNode[]) => {
-        console.log("see refs: ", stackItemIndexRef.current, isActiveStackRef.current)
-        const index = stackItemIndexRef.current
-        useEffect(() => {
-            if (isActiveStackRef.current) {
-                setCenterItems(set(centerItems, [index], elements))
-            }
-        }, [])
     }
     return { 
         stack,
@@ -89,8 +60,6 @@ const usePageStackOwner = (
         pushStack,
         popStack,
         alterStackWithRootKey,
-        useLeadingItems,
-        useTitleItems,
     }
 }
 

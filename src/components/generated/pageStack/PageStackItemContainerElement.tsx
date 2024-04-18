@@ -1,13 +1,10 @@
 import { styled } from "@linaria/react"
-import { dark, light } from "../../../lib/generated/theme"
+import { dark, flexContainer, light } from "../../../lib/generated/theme"
 import { appBackgroundColorDark, appBackgroundColorLight } from "../../../lib/extended/theme"
 
 const PageStackItemContainerElement = styled.div`
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    ${flexContainer("column", "stretch", "stretch")}
+    flex-grow: 1;
     ${light} {
         background-color: ${appBackgroundColorLight};
     }
