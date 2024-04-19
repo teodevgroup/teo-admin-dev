@@ -7,12 +7,17 @@ import NavBar from './NavBar'
 import NavBarTitleItems from './NavBarTitleItems'
 import Main from './Main'
 import usePageStackPage from './usePageStackPage'
+import HideContentShimmerIfNotSignedIn from '../shimmer/HideContentShimmerIfNotSignedIn'
 
 const AdminPage = () => {
     const { pushStack } = usePageStackPage()
     return <Page>
         <NavBar>
-            <NavBarTitleItems>Admin Page Title</NavBarTitleItems>
+            <NavBarTitleItems>
+                <HideContentShimmerIfNotSignedIn>
+                    Admin Page Title
+                </HideContentShimmerIfNotSignedIn>
+            </NavBarTitleItems>
         </NavBar>
         <Main>
             <div style={{

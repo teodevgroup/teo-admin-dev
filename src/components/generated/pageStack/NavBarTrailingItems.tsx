@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useState } from "react"
+import React, { ReactNode, Suspense, useContext, useState } from "react"
 import NavBarItemsContainerElement from "./NavBarItemsContainerElement"
 import { NavBarRenderStateContext } from "./NavBar"
 import { useLang } from "../../../lib/generated/preferences"
@@ -8,7 +8,7 @@ import Tooltip from "../tooltip/Tooltip"
 import RoundedButtonElement from "../button/RoundedButtonElement"
 import { IoLanguage, IoNotifications } from "react-icons/io5"
 import StatusBarUserAvatar from "../statusBar/StatusBarUserAvatar"
-import { signOut } from "../../../lib/generated/signIn"
+import { signOut, useAccount } from "../../../lib/generated/signIn"
 import Modal from "../modal/Modal"
 import ModalSheet from "../modal/ModalSheet"
 import ModalSheetTitle from "../modal/ModalSheetTitle"
@@ -19,6 +19,7 @@ import SelectListVerticalLayout from "../selectList/SelectListVerticalLayout"
 import SelectListItem from "../selectList/SelectListItem"
 import StatusBarLanguageListCell from "../statusBar/StatusBarLanguageListCell"
 import Button from "../../extended/button/Button"
+import StatusBarDefaultTrailingItemsShimmer from "../statusBar/StatusBarDefaultTrailingItemsShimmer"
 
 type NavBarTrailingItemsProps = {
     children?: ReactNode | ReactNode[]
@@ -31,11 +32,14 @@ const NavBarTrailingItems = ({ children }: NavBarTrailingItemsProps) => {
 
     return <NavBarItemsContainerElement>
         {children}
-        <NavBarTrailingGlobalItems />
+        <Suspense fallback={<StatusBarDefaultTrailingItemsShimmer />}>
+            <NavBarTrailingGlobalItems />
+        </Suspense>
     </NavBarItemsContainerElement>
 }
 
 const NavBarTrailingGlobalItems = () => {
+    const _ = useAccount()
     const [langModalIsOpen, setLangModalIsOpen] = useState(false)
     const [lang, setLang] = useLang()
     const [selectedLang, setSelectedLang] = useState(lang)
