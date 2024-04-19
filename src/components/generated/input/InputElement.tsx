@@ -3,7 +3,6 @@ import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, co
 import { dark, light, transitionShort } from "../../../lib/generated/theme"
 
 const InputElement = styled.input`
-    margin: 20px 0 0 20px;
     flex-grow: 1;
     height: ${controlHeight};
     border-radius: ${controlRadius};

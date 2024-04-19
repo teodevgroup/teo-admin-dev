@@ -8,6 +8,7 @@ const ModalSheetTitle = styled.h1`
     ${clearHeading}
     font-size: 1rem;
     line-height: 2;
+    font-weight: bold;
 `
 
 export default ModalSheetTitle

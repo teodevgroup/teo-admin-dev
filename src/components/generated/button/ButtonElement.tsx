@@ -3,7 +3,6 @@ import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundCo
 import { dark, light, shallowShadow, transitionShort } from "../../../lib/generated/theme"
 
 const ButtonElement = styled.button`
-    margin: 20px 0 0 20px;
     flex-grow: 1;
     height: ${controlHeight};
     border-radius: ${controlRadius};

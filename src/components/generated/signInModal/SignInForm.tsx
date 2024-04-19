@@ -13,6 +13,13 @@ import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/
 import { useTranslation } from 'react-i18next'
 import Button from '../../extended/button/Button'
 import Input from '../../extended/input/Input'
+import SignInTitle from './SignInTitle'
+import ModalSheetDescription from '../modal/ModalSheetDescription'
+import ModalSheetTitle from '../modal/ModalSheetTitle'
+import SignInSplitElement from './SignInSplitElement'
+import SignInFormWrapper from './SignInFormWrapper'
+import SignInLogoContainer from './SignInLogoContainer'
+import Logo from '../../extended/logo/Logo'
 
 const SignInForm = () => {
     const { t } = useTranslation("translations")
@@ -74,40 +81,50 @@ const SignInForm = () => {
             reset()
         }
     }
-    return <SignInFormElement onSubmit={handleSubmit(submit)}>
-        <div>Sign In</div>
-        <Select value={signInModel} onChange={(v) => {
-            setSignInModel(v)
-            reset()
-        }} allowsNull={false}>
-            {accountModels.map((value) => <Option value={value} key={value}>
-                <span>{value}</span>
-            </Option>)}
-        </Select>
-        <SignInLineGroup>
-            <Select value={idKey()} onChange={(v) => {
-                setIdKey(v)
-                reset()
-            }}>
-                {idFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
-                    <span>{v.name}</span>
-                </Option>)}
-            </Select>
-            <Input {...register("id")} disabled={isLoading} />
-        </SignInLineGroup>
-        <SignInLineGroup>
-            <Select value={checkerKey()} onChange={(v) => {
-                setCheckerKey(v)
-                reset()
-            }}>
-                {checkerFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
-                    <span>{v.name}</span>
-                </Option>)}
-            </Select>
-            <Input {...register("checker")} disabled={isLoading} />
-        </SignInLineGroup>
-        <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
-    </SignInFormElement>
+    return <>
+        <SignInSplitElement>
+            <SignInLogoContainer>
+                <Logo />
+            </SignInLogoContainer>
+            <SignInFormWrapper>
+                <ModalSheetTitle>Sign In</ModalSheetTitle>
+                <ModalSheetDescription>Please sign in with your identity.</ModalSheetDescription>
+                <SignInFormElement onSubmit={handleSubmit(submit)}>
+                    <Select value={signInModel} onChange={(v) => {
+                        setSignInModel(v)
+                        reset()
+                    }} allowsNull={false}>
+                        {accountModels.map((value) => <Option value={value} key={value}>
+                            <span>{value}</span>
+                        </Option>)}
+                    </Select>
+                    <SignInLineGroup>
+                        <Select value={idKey()} onChange={(v) => {
+                            setIdKey(v)
+                            reset()
+                        }}>
+                            {idFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
+                                <span>{v.name}</span>
+                            </Option>)}
+                        </Select>
+                        <Input {...register("id")} disabled={isLoading} />
+                    </SignInLineGroup>
+                    <SignInLineGroup>
+                        <Select value={checkerKey()} onChange={(v) => {
+                            setCheckerKey(v)
+                            reset()
+                        }}>
+                            {checkerFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
+                                <span>{v.name}</span>
+                            </Option>)}
+                        </Select>
+                        <Input {...register("checker")} disabled={isLoading} />
+                    </SignInLineGroup>
+                    <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
+                </SignInFormElement>
+            </SignInFormWrapper>
+        </SignInSplitElement>
+    </>
 }
 
 export default SignInForm

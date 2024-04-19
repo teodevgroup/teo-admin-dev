@@ -7,6 +7,8 @@ import SelectContentElement from '../../extended/select/SelectContentElement'
 import SelectScrollArrow from './SelectScrollArrow'
 import SelectPanelElement from '../../extended/select/SelectPanelElement'
 import SelectContext from './SelectContext'
+import { HiSelector } from "react-icons/hi"
+import SelectIndicatorElement from './SelectIndicatorElement'
 
 type SelectProps<T> = Partial<ComponentPropsWithRef<'button'>> & {
     value: T
@@ -145,7 +147,7 @@ const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChang
     }
     
     return <>
-        <SelectElement ref={useMergeRefs([forwardedRef, refs.setReference])} {...getReferenceProps(mergeProps(props, {
+        <SelectElement onContextMenu={(e) => e.preventDefault()} ref={useMergeRefs([forwardedRef, refs.setReference])} {...getReferenceProps(mergeProps(props, {
             onTouchStart() {
                 setTouch(true)
             },
@@ -156,6 +158,9 @@ const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChang
             }
         }) as any)}>
             <span>{valueFormatter(value)}</span>
+            <SelectIndicatorElement>
+                <HiSelector />
+            </SelectIndicatorElement>
         </SelectElement>
         {isOpen && <FloatingList elementsRef={listRef} labelsRef={listContentRef}>
             <SelectContext.Provider value={{
