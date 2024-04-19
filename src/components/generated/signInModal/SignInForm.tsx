@@ -11,6 +11,8 @@ import { accountModels, signIn } from '../../../lib/generated/signIn'
 import SignInLineGroup from './SignInLineGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'
 import { useTranslation } from 'react-i18next'
+import Button from '../../extended/button/Button'
+import Input from '../../extended/input/Input'
 
 const SignInForm = () => {
     const { t } = useTranslation("translations")
@@ -91,7 +93,7 @@ const SignInForm = () => {
                     <span>{v.name}</span>
                 </Option>)}
             </Select>
-            <input {...register("id")} disabled={isLoading} />
+            <Input {...register("id")} disabled={isLoading} />
         </SignInLineGroup>
         <SignInLineGroup>
             <Select value={checkerKey()} onChange={(v) => {
@@ -102,9 +104,9 @@ const SignInForm = () => {
                     <span>{v.name}</span>
                 </Option>)}
             </Select>
-            <input {...register("checker")} disabled={isLoading} />
+            <Input {...register("checker")} disabled={isLoading} />
         </SignInLineGroup>
-        <button type='submit' disabled={isLoading}>{t("signIn.signIn")}</button>
+        <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
     </SignInFormElement>
 }
 
