@@ -6,7 +6,7 @@ import mergeProps from 'merge-props'
 import SelectContentElement from '../../extended/select/SelectContentElement'
 import SelectScrollArrow from './SelectScrollArrow'
 import SelectPanelElement from '../../extended/select/SelectPanelElement'
-import SelectContext from './selectContext'
+import SelectContext from './SelectContext'
 
 type SelectProps<T> = Partial<ComponentPropsWithRef<'button'>> & {
     value: T

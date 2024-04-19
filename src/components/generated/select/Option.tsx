@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useContext } from 'react'
 import OptionElement from '../../extended/select/OptionElement'
-import SelectContext from './selectContext'
+import SelectContext from './SelectContext'
 import { useListItem, useMergeRefs } from '@floating-ui/react'
 
 export type OptionProps<T> = ComponentPropsWithRef<'button'> & {

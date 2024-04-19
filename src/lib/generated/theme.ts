@@ -62,5 +62,6 @@ export const navBarHeight = `calc(3 * ${margin} + 1.25rem)`
 
 export const zIndexTooltip = 11
 export const zIndexMenu = 10
+export const zIndexModal = 3
 export const zIndexNav = 2
 export const zIndexStatusBar = 1
