@@ -1,5 +1,28 @@
-const _IndexPage = () => {
+import React from 'react'
+import NavBar from "../../pageStack/NavBar"
+import Page from "../../pageStack/Page"
+import NavBarTitleItems from '../../pageStack/NavBarTitleItems'
+import Main from '../../pageStack/Main'
+import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfNotSignedIn'
+import PaddedMainContent from '../../pageStack/PaddedMainContent'
 
+const _IndexPage = () => {
+    return <Page>
+        <NavBar>            
+            <NavBarTitleItems>
+                <HideContentShimmerIfNotSignedIn>
+                    Welcome
+                </HideContentShimmerIfNotSignedIn>
+            </NavBarTitleItems>
+        </NavBar>
+        <Main>
+            <PaddedMainContent>
+                <HideContentShimmerIfNotSignedIn>
+                    Welcome
+                </HideContentShimmerIfNotSignedIn>
+            </PaddedMainContent>
+        </Main>
+    </Page>
 }
 
 export default _IndexPage

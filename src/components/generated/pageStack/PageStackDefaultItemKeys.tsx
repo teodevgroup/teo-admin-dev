@@ -1,1 +1,1 @@
-export type PageStackItemDefaultKey = "Admin" | "User" | "Admin.Variant" | "User.Variant"
+export type PageStackItemDefaultKey = "_Index" | "Admin" | "User" | "Admin.Variant" | "User.Variant"

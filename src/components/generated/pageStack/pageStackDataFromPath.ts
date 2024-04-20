@@ -20,6 +20,9 @@ const pageStackDataFromPath: (path: string) => PageStackData = (path: string) =>
             query
         })
     }
+    if (stack.length === 0) {
+        stack.push({ key: "_Index" })
+    }
     return stack
 }
 
