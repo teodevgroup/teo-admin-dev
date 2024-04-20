@@ -6,7 +6,7 @@ import { clearHeading } from "../../../lib/generated/theme"
 
 const ModalSheetTitle = styled.h1`
     ${clearHeading}
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 2;
     font-weight: bold;
 `

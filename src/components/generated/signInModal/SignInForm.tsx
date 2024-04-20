@@ -1,7 +1,7 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import SignInFormElement from "../../extended/signInModal/SignInFormElement"
 import Select from '../select/Select'
 import Option from '../select/Option'
@@ -13,13 +13,14 @@ import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/
 import { useTranslation } from 'react-i18next'
 import Button from '../../extended/button/Button'
 import Input from '../../extended/input/Input'
-import SignInTitle from './SignInTitle'
 import ModalSheetDescription from '../modal/ModalSheetDescription'
 import ModalSheetTitle from '../modal/ModalSheetTitle'
 import SignInSplitElement from './SignInSplitElement'
 import SignInFormWrapper from './SignInFormWrapper'
 import SignInLogoContainer from './SignInLogoContainer'
 import Logo from '../../extended/logo/Logo'
+import Caption from '../caption/Caption'
+import Link from '../link/Link'
 
 const SignInForm = () => {
     const { t } = useTranslation("translations")
@@ -122,6 +123,7 @@ const SignInForm = () => {
                     </SignInLineGroup>
                     <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
                 </SignInFormElement>
+                <Caption>This admin dashboard is powered by <Link href="https://teocloud.io" target='_blank'>Teo</Link>.</Caption>
             </SignInFormWrapper>
         </SignInSplitElement>
     </>

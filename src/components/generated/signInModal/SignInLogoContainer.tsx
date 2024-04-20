@@ -4,7 +4,7 @@ import { tintColorDark, tintColorLight } from "../../../lib/extended/theme"
 
 const SignInLogoContainer = styled.div`
     ${flexContainer("column", "center", "center")}
-    width: 240px;
+    width: 280px;
     ${light} {
         color: ${tintColorLight};
     }

@@ -9,6 +9,7 @@ const SignInFormElement = styled.form`
     ${flexContainer("column", "stretch", "center")}
     gap: ${spacing};
     margin-top: ${margin};
+    margin-bottom: ${margin};
 `
 
 export default SignInFormElement

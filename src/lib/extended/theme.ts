@@ -67,6 +67,14 @@ export const controlTextColorLight = "#404040"
 
 export const controlTextColorDark = "#404040"
 
+export const subtitleTextColorLight = "#4A4A4C"
+
+export const subtitleTextColorDark = "#4A4A4C"
+
+export const captionTextColorLight = "#ACACAE"
+
+export const captionTextColorDark = "#ACACAE"
+
 export const spacing = "8px"
 
 export const margin = "16px"
