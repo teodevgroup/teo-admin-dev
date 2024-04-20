@@ -96,7 +96,7 @@ const SignInForm = () => {
                         reset()
                     }} allowsNull={false}>
                         {accountModels.map((value) => <Option value={value} key={value}>
-                            <span>{value}</span>
+                            <span>{t(value)}</span>
                         </Option>)}
                     </Select>
                     <SignInLineGroup>
@@ -116,7 +116,7 @@ const SignInForm = () => {
                             reset()
                         }}>
                             {checkerFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
-                                <span>{v.name}</span>
+                                <span>{t(v.name)}</span>
                             </Option>)}
                         </Select>
                         <Input {...register("checker")} disabled={isLoading} />

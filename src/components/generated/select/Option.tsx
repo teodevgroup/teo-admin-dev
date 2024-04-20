@@ -2,6 +2,7 @@ import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useC
 import OptionElement from '../../extended/select/OptionElement'
 import SelectContext from './SelectContext'
 import { useListItem, useMergeRefs } from '@floating-ui/react'
+import { controlTintColorLight } from '../../../lib/extended/theme'
 
 export type OptionProps<T> = ComponentPropsWithRef<'button'> & {
     value: T
@@ -12,7 +13,9 @@ export type OptionProps<T> = ComponentPropsWithRef<'button'> & {
 const Option = forwardRef(({ value, valueFormatter = String, children, ...props }: OptionProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
     const context = useContext(SelectContext)
     const { ref, index } = useListItem({ label: valueFormatter(value) })
-    return <OptionElement 
+    return <OptionElement
+        selected={context.selectedIndex === index}
+        active={context.activeIndex === index}
         {...props}
         // Prevent immediate selection on touch devices when
         // pressing the ScrollArrows
@@ -20,15 +23,6 @@ const Option = forwardRef(({ value, valueFormatter = String, children, ...props 
         aria-selected={context.selectedIndex === index}
         role="option"
         tabIndex={context.activeIndex === index ? 0 : -1}
-        style={{
-        background:
-            context.activeIndex === index
-            ? "rgba(0,200,255,0.2)"
-            : index === context.selectedIndex
-            ? "rgba(0,0,50,0.05)"
-            : "transparent",
-        fontWeight: index === context.selectedIndex ? "bold" : "normal"
-        }}
         ref={useMergeRefs([ref, forwardedRef])}
         {...context.getItemProps({
         onTouchStart() {
