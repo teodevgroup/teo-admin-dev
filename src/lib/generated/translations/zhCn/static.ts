@@ -10,6 +10,7 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "statusBar.lang.language": "语言",
     "statusBar.lang.selectALanguage": "选择一个语言。",
     "signIn.signIn": "登录",
+    "signIn.pleaseSignIn": "请使用您的身份登录。",
     "confirm": "确认",
 }
 

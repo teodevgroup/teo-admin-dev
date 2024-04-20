@@ -88,8 +88,8 @@ const SignInForm = () => {
                 <Logo />
             </SignInLogoContainer>
             <SignInFormWrapper>
-                <ModalSheetTitle>Sign In</ModalSheetTitle>
-                <ModalSheetDescription>Please sign in with your identity.</ModalSheetDescription>
+                <ModalSheetTitle>{t("signIn.signIn")}</ModalSheetTitle>
+                <ModalSheetDescription>{t("signIn.pleaseSignIn")}</ModalSheetDescription>
                 <SignInFormElement onSubmit={handleSubmit(submit)}>
                     <Select value={signInModel} onChange={(v) => {
                         setSignInModel(v)
