@@ -12,17 +12,6 @@ const defaultPreferences: Preferences = {
         items: [
             { id: "Admin", name: "Admin", icon: "RiAlarmLine", path: "Admin" },
             { id: "User", name: "User", icon: "RiAlarmWarningLine", path: "User" },
-            { id: "Third", name: "Third", icon: "RiAlarmWarningLine", path: "Admin" },
-            {
-                id: "Folder", name: "Folder", icon: "RiAlarmWarningLine", folder: true, childItems: [
-                    {
-                        id: "Folder item 1", name: "Folder item 1", icon: "RiAlarmLine", path: "User"
-                    },
-                    {
-                        id: "Folder item 2", name: "Folder item 2", icon: "RiAlarmLine", path: "Admin"
-                    },
-                ]
-            }
         ]
     },
     signIn: {

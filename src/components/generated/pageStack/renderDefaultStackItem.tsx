@@ -1,51 +1,7 @@
 import React, { ReactElement } from 'react'
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
-import Input from '../../extended/input/Input'
-import Button from '../../extended/button/Button'
-import Page from './Page'
-import NavBar from './NavBar'
-import NavBarTitleItems from './NavBarTitleItems'
-import Main from './Main'
-import usePageStackPage from './usePageStackPage'
-import HideContentShimmerIfNotSignedIn from '../shimmer/HideContentShimmerIfNotSignedIn'
-
-const AdminPage = () => {
-    const { pushStack } = usePageStackPage()
-    return <Page>
-        <NavBar>
-            <NavBarTitleItems>
-                <HideContentShimmerIfNotSignedIn>
-                    Admin Page Title
-                </HideContentShimmerIfNotSignedIn>
-            </NavBarTitleItems>
-        </NavBar>
-        <Main>
-            <div style={{
-                background: "white", 
-                paddingBottom: "20px",
-                margin: "20px",
-                borderRadius: 10,
-            }}>
-                <Input /><Button onClick={() => pushStack({
-                    key: "User",
-                    variant: undefined,
-                    "query": undefined,
-                })}>Button</Button>
-            </div>
-        </Main>
-    </Page>
-}
-
-const UserPage = () => {
-    return <Page>
-        <NavBar>
-            <NavBarTitleItems>User Page Title</NavBarTitleItems>
-        </NavBar>
-        <Main>
-            <div style={{height: 50}}>User Page Content</div>
-        </Main>
-    </Page>
-}
+import AdminPage from '../pages/Admin'
+import UserPage from '../pages/User'
 
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
     switch (item.key) {
