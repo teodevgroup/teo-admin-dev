@@ -3,8 +3,9 @@ import Page from '../../pageStack/Page'
 import NavBar from '../../pageStack/NavBar'
 import NavBarTitleItems from '../../pageStack/NavBarTitleItems'
 import Main from '../../pageStack/Main'
+import PageProps from '../PageProps'
 
-const UserPage = () => {
+const UserPage = ({ item }: PageProps) => {
     return <Page>
         <NavBar>
             <NavBarTitleItems>User Page Title</NavBarTitleItems>

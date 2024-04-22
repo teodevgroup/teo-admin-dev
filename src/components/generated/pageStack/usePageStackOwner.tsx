@@ -13,6 +13,7 @@ export type StacksProps = {
     pushStack: (item: PageStackItem) => void
     popStack: () => void
     alterStackWithRootKey: (key: PageStackItemKey) => void
+    updateCurrentStackItem: (item: PageStackItem) => void
 }
 
 const usePageStackOwner = (data: PageStackData): StacksProps => {
@@ -54,12 +55,21 @@ const usePageStackOwner = (data: PageStackData): StacksProps => {
         setStack(stack!)
         syncPath(stack!)
     }
+    const updateCurrentStackItem = useCallback((item: PageStackItem) => {
+        const newStack = [...stack]
+        newStack.splice(newStack.length - 1, 1, item)
+        setCachedStack(stack[0].key, newStack)
+        setStack(newStack)
+        syncPath(newStack)
+    }, [stack])
+
     return { 
         stack,
         setStack,
         pushStack,
         popStack,
         alterStackWithRootKey,
+        updateCurrentStackItem
     }
 }
 

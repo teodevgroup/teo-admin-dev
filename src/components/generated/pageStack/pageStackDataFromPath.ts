@@ -12,7 +12,7 @@ const pageStackDataFromPath: (path: string) => PageStackData = (path: string) =>
         }
         const parts = component.split("-")
         const variant = parts[1]
-        const key = variant ? `${parts[0]}.Variant` : parts[0]
+        const key = parts[0]
         const query = parts[2] ? fromQuery(parts.slice(2).join("-")) : undefined
         stack.push({
             key: key as PageStackItemKey,

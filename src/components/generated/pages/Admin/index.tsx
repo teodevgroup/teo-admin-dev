@@ -7,14 +7,28 @@ import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfN
 import Main from '../../pageStack/Main'
 import Input from '../../../extended/input/Input'
 import Button from '../../../extended/button/Button'
+import SegmentedControl from '../../segmentedControl/SegmentedControl'
+import SegmentedControlButton from '../../segmentedControl/SegmentedControlButton'
+import PageProps from '../PageProps'
 
-const AdminPage = () => {
-    const { pushStack } = usePageStackPage()
+
+
+const AdminPage = ({ item }: PageProps) => {
+    const { pushStack, updateCurrentStackItem } = usePageStackPage()
     return <Page>
         <NavBar>
             <NavBarTitleItems>
                 <HideContentShimmerIfNotSignedIn>
-                    Admin Page Title
+                    <SegmentedControl index={item.variant === "records" ? 1 : 0} setIndex={(index) => {
+                        if (index === 0) {
+                            updateCurrentStackItem({ ...item, variant: "dashboard" })
+                        } else {
+                            updateCurrentStackItem({ ...item, variant: "records" })
+                        }
+                    }}>
+                        <SegmentedControlButton>Dashboard</SegmentedControlButton>
+                        <SegmentedControlButton>Records</SegmentedControlButton>
+                    </SegmentedControl>
                 </HideContentShimmerIfNotSignedIn>
             </NavBarTitleItems>
         </NavBar>

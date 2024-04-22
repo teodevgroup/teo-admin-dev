@@ -7,14 +7,14 @@ import _IndexPage from '../pages/_Index'
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
     switch (item.key) {
         case "_Index": 
-            return <_IndexPage />
+            return <_IndexPage item={item} />
         case "Admin":
-            return <AdminPage />
+            return <AdminPage item={item} />
         case "User":
-            return <UserPage />
-        case "Admin.Variant":
-            return <div key="Admin.Variant">Admin.Variant</div>
-        case "User.Variant":
-            return <div key="User.Variant">User.Variant</div>
+            return <UserPage item={item} />
+        case "AdminForm":
+            return <div>AdminForm</div>
+        case "UserForm":
+            return <div>UserForm</div>
     }
 }

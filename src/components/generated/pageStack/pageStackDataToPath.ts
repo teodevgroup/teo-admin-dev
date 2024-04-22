@@ -6,7 +6,7 @@ const pageStackItemToPath = (item: PageStackItem) => {
     if (item.key === "_Index") {
         return ""
     }
-    return item.key.replace(".Variant", "") + 
+    return item.key + 
     (item.variant ? "-" + item.variant : "") +
     (item.query ? (item.variant ? "-" : "--") + toQuery(item.query!) : "")
 }
