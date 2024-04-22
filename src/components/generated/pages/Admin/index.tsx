@@ -10,6 +10,8 @@ import Button from '../../../extended/button/Button'
 import SegmentedControl from '../../segmentedControl/SegmentedControl'
 import SegmentedControlButton from '../../segmentedControl/SegmentedControlButton'
 import PageProps from '../PageProps'
+import AdminRecords from './Records'
+import AdminDashboard from './Dashboard'
 
 
 
@@ -33,18 +35,7 @@ const AdminPage = ({ item }: PageProps) => {
             </NavBarTitleItems>
         </NavBar>
         <Main>
-            <div style={{
-                background: "white", 
-                paddingBottom: "20px",
-                margin: "20px",
-                borderRadius: 10,
-            }}>
-                <Input /><Button onClick={() => pushStack({
-                    key: "User",
-                    variant: undefined,
-                    "query": undefined,
-                })}>Button</Button>
-            </div>
+            {item.variant === "records" ? <AdminRecords item={item} /> : <AdminDashboard item={item} />}
         </Main>
     </Page>
 }
