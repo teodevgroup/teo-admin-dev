@@ -2,10 +2,14 @@ import Decimal from 'decimal.js'
 
 let groupDelegateMap = [
     "Admin",
+    "Category",
+    "Item",
+    "Product",
     "User",
     "std",
     "std.DataSetRecord",
     "std.DataSetRelation",
+    "std.admin",
     "std.bcrypt",
     "std.identity"
 ]
@@ -17,7 +21,7 @@ let customHandlerMap = {
 }
 
 async function request(method, path, body = undefined, headers = undefined, queryString = undefined) {
-    let url = process.env.TEO_HOST + path
+    let url = "/" + path
     if (queryString) {
         url = url + "?" + queryString
     }
