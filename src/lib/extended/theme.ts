@@ -47,6 +47,10 @@ export const appStatusBarBackgroundColorLight = "#FFFFFF"
 
 export const appStatusBarBackgroundColorDark = "#212A3D"
 
+export const appContentBackgroundColorLight = "#FFFFFF"
+
+export const appContentBackgroundColorDark = "#000000"
+
 export const controlBackgroundColorLight = "#F6F6F8"
 
 export const controlBackgroundColorDark = "#F6F6F8"
