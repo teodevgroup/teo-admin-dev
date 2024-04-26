@@ -11,9 +11,11 @@ import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
+import useRefreshToken from '../../../../lib/generated/refreshToken'
 
 const AdminForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
+    const { refresh } = useRefreshToken("models.admin")
     const data: Partial<Admin & AdminCreateInput & AdminUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -33,6 +35,7 @@ const AdminForm = ({ item }: PageProps) => {
                     "create": data
                 })
                 setLoading(false)
+                refresh()
                 popStack()
             } else {
                 const _ = await teo.admin.update({
@@ -40,6 +43,7 @@ const AdminForm = ({ item }: PageProps) => {
                     "update": data
                 })
                 setLoading(false)
+                refresh()
                 popStack()
             }
         } catch {
@@ -58,6 +62,7 @@ const AdminForm = ({ item }: PageProps) => {
                 "where": item.query!
             })
             setLoading(false)
+            refresh()
             popStack()
         } catch {
             alert("Cannot delete.")

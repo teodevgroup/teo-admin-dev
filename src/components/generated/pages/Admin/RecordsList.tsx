@@ -6,6 +6,7 @@ import { teo } from '../../../../lib/generated/teo'
 import { pick } from 'radash'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
+import useRefreshToken from '../../../../lib/generated/refreshToken'
 
 type RecordsListProps = {
     filter: any
@@ -13,9 +14,10 @@ type RecordsListProps = {
 
 const RecordsList = ({ filter }: RecordsListProps) => {
     const { pushStack } = usePageStackPage()
+    const { token } = useRefreshToken("models.admin")
     const { data, meta } = suspend(async () => {
         return await teo.admin.findMany(filter)
-    }, [filter])
+    }, [filter, token])
     return <RecordsContainer>
         <PaddedMainContent>
             <TableVirtuoso
