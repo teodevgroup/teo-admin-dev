@@ -1,6 +1,6 @@
-# {{}}
+# Teo admin development
 
-This admin dashboard is generated with Teo.
+This repository contains the Teo admin dashboard development files.
 
 ## Installation
 
@@ -12,4 +12,10 @@ npm install
 
 ```sh
 npm start
+```
+
+## Generate file list
+
+```sh
+npx ts-node .generator/scripts/generate.ts
 ```
