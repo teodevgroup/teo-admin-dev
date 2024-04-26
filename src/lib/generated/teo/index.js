@@ -21,7 +21,7 @@ let customHandlerMap = {
 }
 
 async function request(method, path, body = undefined, headers = undefined, queryString = undefined) {
-    let url = "/" + path
+    let url = "http://localhost:5052/" + path
     if (queryString) {
         url = url + "?" + queryString
     }

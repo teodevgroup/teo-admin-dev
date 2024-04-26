@@ -9,7 +9,7 @@ import RecordsList from './RecordsList'
 import RecordsListShimmer from '../../records/RecordsListShimmer'
 
 const AdminRecords = ({ item }: PageProps) => {
-    const filter = useState({})
+    const [filter, setFilter] = useState({})
     return <PaddedMainContent>
         <ButtonsContainer>
             <FilterAndSortContainer>
@@ -21,7 +21,7 @@ const AdminRecords = ({ item }: PageProps) => {
             </CreateContainer>
         </ButtonsContainer>
         <Suspense fallback={<RecordsListShimmer />}>
-            <RecordsList />
+            <RecordsList filter={filter} />
         </Suspense>
     </PaddedMainContent>
 }

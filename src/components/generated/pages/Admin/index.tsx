@@ -28,8 +28,8 @@ const AdminPage = ({ item }: PageProps) => {
                             updateCurrentStackItem({ ...item, variant: "records" })
                         }
                     }}>
-                        <SegmentedControlButton>Dashboard</SegmentedControlButton>
-                        <SegmentedControlButton>Records</SegmentedControlButton>
+                        <SegmentedControlButton key="dashboard">Dashboard</SegmentedControlButton>
+                        <SegmentedControlButton key="records">Records</SegmentedControlButton>
                     </SegmentedControl>
                 </HideContentShimmerIfNotSignedIn>
             </NavBarTitleItems>
