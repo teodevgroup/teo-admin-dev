@@ -15,6 +15,7 @@ const AdminRecords = ({ item }: PageProps) => {
             <FilterAndSortContainer>
                 <Button>Filters</Button>
                 <Button>Sort</Button>
+                <Button>Select</Button>
             </FilterAndSortContainer>
             <CreateContainer>
                 <Button>Create</Button>

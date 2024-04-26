@@ -14,7 +14,7 @@ const RecordsList = ({ filter }: RecordsListProps) => {
     }, [filter])
     return <RecordsContainer>
         <TableVirtuoso
-            fixedHeaderContent={(index, item) => {
+            fixedHeaderContent={() => {
                 return <tr>
                     <th>Id</th>
                     <th>Email</th>
@@ -23,9 +23,9 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             style={{ height: 400 }}
             data={data}
             totalCount={data.length}
-            itemContent={(index, item) => (
+            itemContent={(_, item) => (
                 <>
-                    <td style={{ width: 150 }}>{item.id}</td>
+                    <td>{item.id}</td>
                     <td>{item.email}</td>
                 </>
             )}

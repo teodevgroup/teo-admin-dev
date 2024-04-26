@@ -10,30 +10,24 @@ import SegmentedControlButton from '../../segmentedControl/SegmentedControlButto
 import PageProps from '../PageProps'
 import AdminRecords from './Records'
 import AdminDashboard from './Dashboard'
+import PaddedMainContent from '../../pageStack/PaddedMainContent'
 
-const AdminPage = ({ item }: PageProps) => {
+const AdminFormPage = ({ item }: PageProps) => {
     const { updateCurrentStackItem } = usePageStackPage()
     return <Page>
         <NavBar>
             <NavBarTitleItems>
                 <HideContentShimmerIfNotSignedIn>
-                    <SegmentedControl index={item.variant === "records" ? 1 : 0} setIndex={(index) => {
-                        if (index === 0) {
-                            updateCurrentStackItem({ ...item, variant: "dashboard" })
-                        } else {
-                            updateCurrentStackItem({ ...item, variant: "records" })
-                        }
-                    }}>
-                        <SegmentedControlButton key="dashboard">Dashboard</SegmentedControlButton>
-                        <SegmentedControlButton key="records">Records</SegmentedControlButton>
-                    </SegmentedControl>
+                    Create a new record
                 </HideContentShimmerIfNotSignedIn>
             </NavBarTitleItems>
         </NavBar>
         <Main>
-            {item.variant === "records" ? <AdminRecords item={item} /> : <AdminDashboard item={item} />}
+            <PaddedMainContent>
+                Form Page
+            </PaddedMainContent>
         </Main>
     </Page>
 }
 
-export default AdminPage
+export default AdminFormPage

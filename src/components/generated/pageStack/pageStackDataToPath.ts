@@ -1,6 +1,6 @@
-import { toQuery } from 'query-string-parser'
 import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"
+import { encode } from 'js-base64'
 
 const pageStackItemToPath = (item: PageStackItem) => {
     if (item.key === "_Index") {
@@ -8,7 +8,7 @@ const pageStackItemToPath = (item: PageStackItem) => {
     }
     return item.key + 
     (item.variant ? "-" + item.variant : "") +
-    (item.query ? (item.variant ? "-" : "--") + toQuery(item.query!) : "")
+    (item.query ? (item.variant ? "-" : "--") + encode(JSON.stringify(item.query!)) : "")
 }
 
 const pageStackDataToPath: (stack: PageStackData) => string = (stack: PageStackData) => {
