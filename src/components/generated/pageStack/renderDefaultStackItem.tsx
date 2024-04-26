@@ -3,6 +3,7 @@ import { PageStackItem } from "../../generated/pageStack/PageStackItem"
 import AdminPage from '../pages/Admin'
 import UserPage from '../pages/User'
 import _IndexPage from '../pages/_Index'
+import AdminFormPage from '../pages/Admin/FormPage'
 
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
     switch (item.key) {
@@ -13,8 +14,8 @@ export default function renderDefaultStackItem(item: PageStackItem): ReactElemen
         case "User":
             return <UserPage item={item} />
         case "AdminForm":
-            return <div>AdminForm</div>
+            return <AdminFormPage item={item} />
         case "UserForm":
-            return <div>UserForm</div>
+            return <AdminFormPage item={item} />
     }
 }

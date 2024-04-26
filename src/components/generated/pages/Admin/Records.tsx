@@ -7,9 +7,11 @@ import CreateContainer from '../../records/CreateContainer'
 import Button from '../../../extended/button/Button'
 import RecordsList from './RecordsList'
 import RecordsListShimmer from '../../records/RecordsListShimmer'
+import usePageStackPage from '../../pageStack/usePageStackPage'
 
 const AdminRecords = ({ item }: PageProps) => {
     const [filter, setFilter] = useState({})
+    const { pushStack } = usePageStackPage()
     return <PaddedMainContent>
         <ButtonsContainer>
             <FilterAndSortContainer>
@@ -18,7 +20,13 @@ const AdminRecords = ({ item }: PageProps) => {
                 <Button>Select</Button>
             </FilterAndSortContainer>
             <CreateContainer>
-                <Button>Create</Button>
+                <Button onClick={() => {
+                    pushStack({
+                        "key": "AdminForm",
+                        "variant": undefined,
+                        "query": {}
+                    })
+                }}>Create</Button>
             </CreateContainer>
         </ButtonsContainer>
         <Suspense fallback={<RecordsListShimmer />}>

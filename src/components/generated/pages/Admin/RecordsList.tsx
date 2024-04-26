@@ -14,6 +14,9 @@ const RecordsList = ({ filter }: RecordsListProps) => {
     }, [filter])
     return <RecordsContainer>
         <TableVirtuoso
+            components={{TableHead: ({ style, ...props }) => {
+                return <thead {...props} />
+            }}}
             fixedHeaderContent={() => {
                 return <tr>
                     <th>Id</th>
