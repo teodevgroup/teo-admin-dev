@@ -34,7 +34,6 @@ const AdminForm = ({ item }: PageProps) => {
                 })
                 setLoading(false)
                 popStack()
-                setLoading(false)
             } else {
                 const _ = await teo.admin.update({
                     "where": item.query,
@@ -42,7 +41,6 @@ const AdminForm = ({ item }: PageProps) => {
                 })
                 setLoading(false)
                 popStack()
-                setLoading(false)
             }
         } catch {
             if (isEqual(item.query, {}) || !item.query) {
@@ -50,6 +48,19 @@ const AdminForm = ({ item }: PageProps) => {
             } else {
                 alert("Cannot update this record.")
             }
+            setLoading(false)
+        }
+    }
+    const onDelete = async () => {
+        setLoading(true)
+        try {
+            const _ = await teo.admin.delete({
+                "where": item.query!
+            })
+            setLoading(false)
+            popStack()
+        } catch {
+            alert("Cannot delete.")
             setLoading(false)
         }
     }
@@ -63,7 +74,12 @@ const AdminForm = ({ item }: PageProps) => {
                 <Label>Password</Label>
                 <Input disabled={loading} {...register("password")} />
             </LabeledGroup>
-            <Button disabled={loading}>Submit</Button>
+            <LabeledGroup>
+                <Button disabled={loading} type='submit'>Submit</Button>
+            </LabeledGroup>
+            {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
+                <Button disabled={loading} type="button" onClick={onDelete}>Delete</Button>
+            </LabeledGroup> : null}
         </PaddedMainContent>
     </FormContainer>
 }
