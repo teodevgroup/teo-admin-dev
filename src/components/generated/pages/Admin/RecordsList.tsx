@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import RecordsContainer from '../../records/RecordsContainer'
 import { TableVirtuoso } from 'react-virtuoso'
 import { suspend } from 'suspend-react'
@@ -14,9 +14,9 @@ const RecordsList = ({ filter }: RecordsListProps) => {
     }, [filter])
     return <RecordsContainer>
         <TableVirtuoso
-            components={{TableHead: ({ style, ...props }) => {
-                return <thead {...props} />
-            }}}
+            components={{TableHead: forwardRef(({ style, ...props }, ref) => {
+                return <thead {...props} ref={ref} />
+            })}}
             fixedHeaderContent={() => {
                 return <tr>
                     <th>Id</th>
