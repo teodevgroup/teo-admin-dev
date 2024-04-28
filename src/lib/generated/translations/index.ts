@@ -3,7 +3,7 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { StaticGeneratedTranslation } from "./static";
+import { StaticGeneratedTranslation } from "./static"
 
 export type GeneratedTranslation = StaticGeneratedTranslation & {
     "model.user.name": string
