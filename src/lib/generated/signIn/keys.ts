@@ -11,8 +11,8 @@ export const idFieldsForModel: (model: AccountModel) => Field[] = (model: Accoun
         return [
             {
                 key: "email",
-                name: "models.admin.email.title",
-                desc: "models.admin.email.desc",
+                name: "model.admin.email.name",
+                desc: "model.admin.email.desc",
             },
         ]
     }
@@ -20,13 +20,13 @@ export const idFieldsForModel: (model: AccountModel) => Field[] = (model: Accoun
         return [
             {
                 key: "email",
-                name: "models.admin.email.title",
-                desc: "models.admin.email.desc",
+                name: "model.admin.email.name",
+                desc: "model.admin.email.desc",
             },
             {
                 key: "phoneNo",
-                name: "models.admin.phoneNo.title",
-                desc: "models.admin.phoneNo.desc",
+                name: "model.admin.phoneNo.name",
+                desc: "model.admin.phoneNo.desc",
             },            
         ]
     }
@@ -38,8 +38,8 @@ export const checkerFieldsForModel: (model: AccountModel) => Field[] = (model: A
         return [
             {
                 key: "password",
-                name: "models.admin.password.title",
-                desc: "models.admin.password.desc",
+                name: "model.admin.password.name",
+                desc: "model.admin.password.desc",
             },
         ]
     }
@@ -47,8 +47,8 @@ export const checkerFieldsForModel: (model: AccountModel) => Field[] = (model: A
         return [
             {
                 key: "password",
-                name: "models.admin.password.title",
-                desc: "models.admin.password.desc",
+                name: "model.admin.password.name",
+                desc: "model.admin.password.desc",
             },          
         ]
     }

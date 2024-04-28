@@ -31,10 +31,10 @@ function shouldIgnoreGenerate(fileLocation: string) {
     if (generatedExcludes.includes(fileLocation)) {
         return true
     }
-    if (fileLocation.includes("generated/pages")) {
+    if (fileLocation.includes("components/generated/pages")) {
         return true
     }
-    if (fileLocation.includes("lib/translations")) {
+    if (fileLocation.includes("lib/generated/translations")) {
         return true
     }
     return false

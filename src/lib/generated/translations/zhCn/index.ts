@@ -1,6 +1,6 @@
 
 import { GeneratedTranslation } from ".."
-import staticGeneratedTranslation from "../zhCn/static"
+import staticGeneratedTranslation from "./static"
 
 const zhCn: GeneratedTranslation = {
     ...staticGeneratedTranslation,
