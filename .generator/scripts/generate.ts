@@ -5,6 +5,10 @@ const generatedExcludes = [
     "src/lib/generated/teo/index.js",
     "src/lib/generated/teo/index.d.ts",
     "src/lib/generated/signIn/index.ts",
+    "src/components/generated/signInModal/SignInForm.tsx",
+    "src/lib/generated/singIn/index.ts",
+    "src/lib/generated/signIn/keys.ts",
+    "src/lib/generated/preferences.ts",
 ]
 
 const generatedFiles = [
@@ -24,16 +28,29 @@ function fixWindowsPath(path: string) {
     return path.replace(/\\/g, '/')
 }
 
+function shouldIgnoreGenerate(fileLocation: string) {
+    if (generatedExcludes.includes(fileLocation)) {
+        return true
+    }
+    if (fileLocation.includes("generated/pages")) {
+        return true
+    }
+    if (fileLocation.includes("lib/translations")) {
+        return true
+    }
+    return false
+}
+
 globSync("./src/components/generated/**/*", { nodir: true }).forEach((fileLocation) => {
     fileLocation = fixWindowsPath(fileLocation)
-    if (!generatedExcludes.includes(fileLocation)) {
+    if (!shouldIgnoreGenerate(fileLocation)) {
         generatedFiles.push(fileLocation)
     }
 })
 
 globSync("./src/lib/generated/**/*", { nodir: true }).forEach((fileLocation) => {
     fileLocation = fixWindowsPath(fileLocation)
-    if (!generatedExcludes.includes(fileLocation)) {
+    if (!shouldIgnoreGenerate(fileLocation)) {
         generatedFiles.push(fileLocation)
     }
 })
