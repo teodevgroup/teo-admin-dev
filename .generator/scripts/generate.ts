@@ -5,9 +5,8 @@ const generatedExcludes = [
     "src/lib/generated/teo/index.js",
     "src/lib/generated/teo/index.d.ts",
     "src/lib/generated/signIn/index.ts",
-    "src/components/generated/signInModal/SignInForm.tsx",
-    "src/lib/generated/singIn/index.ts",
     "src/lib/generated/signIn/keys.ts",
+    "src/components/generated/signInModal/SignInForm.tsx",
     "src/lib/generated/preferences.ts",
 ]
 
