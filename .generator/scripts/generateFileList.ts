@@ -8,6 +8,7 @@ const generatedExcludes = [
     "src/lib/generated/signIn/keys.ts",
     "src/components/generated/signInModal/SignInForm.tsx",
     "src/lib/generated/preferences.ts",
+    "src/lib/generated/defaultPreferences.ts",
 ]
 
 const generatedFiles = [
