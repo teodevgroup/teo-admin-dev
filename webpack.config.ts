@@ -1,5 +1,5 @@
 import path from "path"
-import { Configuration, DefinePlugin, EnvironmentPlugin, HotModuleReplacementPlugin, ProvidePlugin } from "webpack"
+import { Configuration, DefinePlugin, EnvironmentPlugin, HotModuleReplacementPlugin } from "webpack"
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import "webpack-dev-server"
