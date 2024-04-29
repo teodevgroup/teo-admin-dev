@@ -4,7 +4,7 @@ import NavBarTitleItems from "../../pageStack/NavBarTitleItems"
 import Page from "../../pageStack/Page"
 import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfNotSignedIn'
 import Main from '../../pageStack/Main'
-import PageProps from '../PageProps'
+import PageProps from '../../pageStack/PageProps'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import { isEqual } from 'radash'
 import AdminForm from './Form'

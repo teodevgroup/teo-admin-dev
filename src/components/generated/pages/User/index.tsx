@@ -3,7 +3,7 @@ import Page from '../../pageStack/Page'
 import NavBar from '../../pageStack/NavBar'
 import NavBarTitleItems from '../../pageStack/NavBarTitleItems'
 import Main from '../../pageStack/Main'
-import PageProps from '../PageProps'
+import PageProps from '../../pageStack/PageProps'
 
 const UserPage = ({ item }: PageProps) => {
     return <Page>

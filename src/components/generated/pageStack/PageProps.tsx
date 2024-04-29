@@ -1,4 +1,4 @@
-import { PageStackItem } from "../pageStack/PageStackItem"
+import { PageStackItem } from "./PageStackItem"
 
 export type PageProps = {
     item: PageStackItem

@@ -5,7 +5,7 @@ import NavBarTitleItems from '../../pageStack/NavBarTitleItems'
 import Main from '../../pageStack/Main'
 import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfNotSignedIn'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
-import PageProps from '../PageProps'
+import PageProps from '../../pageStack/PageProps'
 
 const _IndexPage = ({ item }: PageProps) => {
     return <Page>

@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { PageStackItem } from "../../generated/pageStack/PageStackItem"
-import renderDefaultStackItem from "../../generated/pageStack/renderDefaultStackItem"
+import renderDefaultStackItem from "../../generated/pages/renderDefaultStackItem"
 import renderNotFound from "../../generated/pageStack/renderNotFound"
 import StackItemIndexContext from "../../generated/pageStack/stackItemIndexContext"
 

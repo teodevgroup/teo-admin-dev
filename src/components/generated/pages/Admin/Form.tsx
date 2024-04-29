@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PageProps from "../PageProps"
+import PageProps from "../../pageStack/PageProps"
 import { suspend } from 'suspend-react'
 import { isEqual, omit } from 'radash'
 import { Admin, AdminCreateInput, AdminUpdateInput, teo } from '../../../../lib/generated/teo'

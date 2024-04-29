@@ -3,10 +3,11 @@ import { StacksProps } from "./usePageStackOwner"
 
 const PageStackContext = createContext<StacksProps>({
     stack: [],
-    setStack: () => {},
-    pushStack: () => {},
-    popStack: () => {},
-    alterStackWithRootKey: () => {},
+    setStack: () => { },
+    pushStack: () => { },
+    popStack: () => { },
+    alterStackWithRootKey: () => { },
+    updateCurrentStackItem: () => { },
 })
 
 export default PageStackContext

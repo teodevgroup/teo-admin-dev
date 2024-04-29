@@ -7,7 +7,7 @@ import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfN
 import Main from '../../pageStack/Main'
 import SegmentedControl from '../../segmentedControl/SegmentedControl'
 import SegmentedControlButton from '../../segmentedControl/SegmentedControlButton'
-import PageProps from '../PageProps'
+import PageProps from '../../pageStack/PageProps'
 import AdminRecords from './Records'
 import AdminDashboard from './Dashboard'
 

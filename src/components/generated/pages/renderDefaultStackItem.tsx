@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
-import { PageStackItem } from "../../generated/pageStack/PageStackItem"
-import AdminPage from '../pages/Admin'
-import UserPage from '../pages/User'
-import _IndexPage from '../pages/_Index'
-import AdminFormPage from '../pages/Admin/FormPage'
+import { PageStackItem } from "../pageStack/PageStackItem"
+import AdminPage from './Admin'
+import UserPage from './User'
+import _IndexPage from './_Index'
+import AdminFormPage from './Admin/FormPage'
 
 export default function renderDefaultStackItem(item: PageStackItem): ReactElement | undefined {
     switch (item.key) {
