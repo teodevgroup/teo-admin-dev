@@ -3,6 +3,6 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import { PageStackItemDefaultKey } from "../../generated/pageStack/PageStackDefaultItemKeys"
+import { PageStackItemDefaultKey } from "../../generated/pages/PageStackDefaultItemKeys"
 
 export type PageStackItemKey = PageStackItemDefaultKey
