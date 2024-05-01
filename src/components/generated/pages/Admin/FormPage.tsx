@@ -8,13 +8,15 @@ import PageProps from '../../pageStack/PageProps'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import { isEqual } from 'radash'
 import AdminForm from './Form'
+import { useTranslation } from 'react-i18next'
 
 const AdminFormPage = ({ item }: PageProps) => {
+    const { t } = useTranslation("translations")
     return <Page>
         <NavBar>
             <NavBarTitleItems>
                 <HideContentShimmerIfNotSignedIn>
-                    {isEqual(item.query, {}) ? "Create a new record" : "Update a record"}
+                    {isEqual(item.query, {}) ? t("form.createARecord") : t("form.updateARecord")}
                 </HideContentShimmerIfNotSignedIn>
             </NavBarTitleItems>
         </NavBar>

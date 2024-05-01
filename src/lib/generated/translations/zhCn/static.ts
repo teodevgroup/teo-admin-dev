@@ -13,6 +13,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "signIn.pleaseSignIn": "请使用您的身份登录。",
     "signIn.pleaseCheckYourInput": "请检查你的输入",
     "confirm": "确认",
+    "form.createARecord": "创建一条记录",
+    "form.updateARecord": "更新一条记录",
 }
 
 export default staticGeneratedTranslation
