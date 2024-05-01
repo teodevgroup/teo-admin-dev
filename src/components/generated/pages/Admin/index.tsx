@@ -16,7 +16,7 @@ const AdminPage = ({ item }: PageProps) => {
     return <Page>
         <NavBar>
             <NavBarTitleItems>
-                <HideContentShimmerIfNotSignedIn>
+                <HideContentShimmerIfNotSignedIn rounded={true}>
                     <SegmentedControl index={item.variant === "records" ? 1 : 0} setIndex={(index) => {
                         if (index === 0) {
                             updateCurrentStackItem({ ...item, variant: "dashboard" })

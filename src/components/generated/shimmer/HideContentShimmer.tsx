@@ -4,10 +4,11 @@ import HideContentZeroOpacityElement from "./HideContentZeroOpacityElement"
 
 type HideContentShimmerProps = {
     children?: ReactNode | ReactNode[]
+    rounded?: boolean
 }
 
-const HideContentShimmer = ({ children }: HideContentShimmerProps) => {
-    return <HideContentShimmerElement>
+const HideContentShimmer = ({ children, rounded }: HideContentShimmerProps) => {
+    return <HideContentShimmerElement rounded={rounded}>
         <HideContentZeroOpacityElement>
             {children}
         </HideContentZeroOpacityElement>
