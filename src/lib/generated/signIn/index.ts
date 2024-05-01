@@ -9,6 +9,11 @@ export type AccountModel = "Admin" | "User"
 
 export const accountModels: AccountModel[] = ["Admin", "User"]
 
+export const accountModelNames: { [key in AccountModel]: string } = {
+    "Admin": "model.admin.name",
+    "User": "model.user.name",
+}
+
 type Account = { 
     "Admin": std.DataMeta<Admin, std.identity.TokenInfo>
 } | { 

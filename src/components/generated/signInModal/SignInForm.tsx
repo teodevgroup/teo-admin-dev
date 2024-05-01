@@ -7,7 +7,7 @@ import Select from '../select/Select'
 import Option from '../select/Option'
 import { useForm } from 'react-hook-form'
 import { useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInDefaultModel, useSignInUserDefaultCheckerKey, useSignInUserDefaultIdKey } from '../../../lib/generated/preferences'
-import { accountModels, signIn } from '../../../lib/generated/signIn'
+import { accountModelNames, accountModels, signIn } from '../../../lib/generated/signIn'
 import SignInLineGroup from './SignInLineGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'
 import { useTranslation } from 'react-i18next'
@@ -100,16 +100,16 @@ const SignInForm = () => {
                 <ModalSheetTitle>{t("signIn.signIn")}</ModalSheetTitle>
                 <ModalSheetDescription>{t("signIn.pleaseSignIn")}</ModalSheetDescription>
                 <SignInFormElement onSubmit={handleSubmit(submit)}>
-                    <Select value={signInModel} onChange={(v) => {
+                    <Select value={t(accountModelNames[signInModel])} onChange={(v) => {
                         setSignInModel(v)
                         reset()
                     }} allowsNull={false}>
                         {accountModels.map((value) => <Option value={value} key={value}>
-                            <span>{t(value)}</span>
+                            <span>{t(accountModelNames[value])}</span>
                         </Option>)}
                     </Select>
                     <SignInLineGroup>
-                        <Select value={idKey()} onChange={(v) => {
+                        <Select value={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || "")} onChange={(v) => {
                             setIdKey(v)
                             reset()
                         }}>
@@ -120,7 +120,7 @@ const SignInForm = () => {
                         <Input {...register("id")} disabled={isLoading} />
                     </SignInLineGroup>
                     <SignInLineGroup>
-                        <Select value={checkerKey()} onChange={(v) => {
+                        <Select value={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || "")} onChange={(v) => {
                             setCheckerKey(v)
                             reset()
                         }}>
