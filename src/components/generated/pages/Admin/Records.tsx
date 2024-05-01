@@ -9,6 +9,7 @@ import RecordsList from './RecordsList'
 import RecordsListShimmer from '../../records/RecordsListShimmer'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import { useTranslation } from 'react-i18next'
+import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfNotSignedIn'
 
 const AdminRecords = ({ item }: PageProps) => {
     const [filter, setFilter] = useState({})
@@ -17,17 +18,23 @@ const AdminRecords = ({ item }: PageProps) => {
     return <PaddedMainContent>
         <ButtonsContainer>
             <FilterAndSortContainer>
-                <Button>{t("records.filters")}</Button>
-                <Button>{t("records.orders")}</Button>
+                <HideContentShimmerIfNotSignedIn rounded={true}>
+                    <Button>{t("records.filters")}</Button>
+                </HideContentShimmerIfNotSignedIn>
+                <HideContentShimmerIfNotSignedIn rounded={true}>
+                    <Button>{t("records.orders")}</Button>
+                </HideContentShimmerIfNotSignedIn>
             </FilterAndSortContainer>
             <CreateContainer>
-                <Button onClick={() => {
-                    pushStack({
-                        "key": "AdminForm",
-                        "variant": undefined,
-                        "query": {}
-                    })
-                }}>{t("records.create")}</Button>
+                <HideContentShimmerIfNotSignedIn rounded={true}>
+                    <Button onClick={() => {
+                        pushStack({
+                            "key": "AdminForm",
+                            "variant": undefined,
+                            "query": {}
+                        })
+                    }}>{t("records.create")}</Button>
+                </HideContentShimmerIfNotSignedIn>
             </CreateContainer>
         </ButtonsContainer>
         <Suspense fallback={<RecordsListShimmer />}>
