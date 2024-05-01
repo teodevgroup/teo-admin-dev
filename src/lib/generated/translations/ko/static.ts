@@ -15,6 +15,9 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "confirm": "Confirm",
     "form.createARecord": "Create a record",
     "form.updateARecord": "Update a record",
+    "records.filters": "Filters",
+    "records.orders": "Orders",
+    "records.create": "Create",
 }
 
 export default staticGeneratedTranslation

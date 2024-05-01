@@ -15,6 +15,9 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "confirm": "確認",
     "form.createARecord": "創建一條紀錄",
     "form.updateARecord": "更新一條紀錄",
+    "records.filters": "過濾",
+    "records.orders": "順序",
+    "records.create": "創建",    
 }
 
 export default staticGeneratedTranslation

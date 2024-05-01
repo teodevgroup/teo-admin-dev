@@ -8,16 +8,17 @@ import Button from '../../../extended/button/Button'
 import RecordsList from './RecordsList'
 import RecordsListShimmer from '../../records/RecordsListShimmer'
 import usePageStackPage from '../../pageStack/usePageStackPage'
+import { useTranslation } from 'react-i18next'
 
 const AdminRecords = ({ item }: PageProps) => {
     const [filter, setFilter] = useState({})
+    const { t } = useTranslation("translations")
     const { pushStack } = usePageStackPage()
     return <PaddedMainContent>
         <ButtonsContainer>
             <FilterAndSortContainer>
-                <Button>Filters</Button>
-                <Button>Sort</Button>
-                <Button>Select</Button>
+                <Button>{t("records.filters")}</Button>
+                <Button>{t("records.orders")}</Button>
             </FilterAndSortContainer>
             <CreateContainer>
                 <Button onClick={() => {
@@ -26,7 +27,7 @@ const AdminRecords = ({ item }: PageProps) => {
                         "variant": undefined,
                         "query": {}
                     })
-                }}>Create</Button>
+                }}>{t("records.create")}</Button>
             </CreateContainer>
         </ButtonsContainer>
         <Suspense fallback={<RecordsListShimmer />}>

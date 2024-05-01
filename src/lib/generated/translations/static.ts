@@ -12,4 +12,7 @@ export type StaticGeneratedTranslation = {
     "confirm": string
     "form.createARecord": string
     "form.updateARecord": string
+    "records.filters": string
+    "records.orders": string
+    "records.create": string
 }
