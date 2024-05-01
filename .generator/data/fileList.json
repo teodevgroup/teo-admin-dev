@@ -44,6 +44,7 @@
         "src/components/generated/segmentedControl/SegmentedControlElement.tsx",
         "src/components/generated/segmentedControl/SegmentedControlButton.tsx",
         "src/components/generated/segmentedControl/SegmentedControl.tsx",
+        "src/components/generated/records/TableRowShimmer.tsx",
         "src/components/generated/records/RecordsListShimmer.tsx",
         "src/components/generated/records/RecordsContainer.tsx",
         "src/components/generated/records/FilterAndSortContainer.tsx",
