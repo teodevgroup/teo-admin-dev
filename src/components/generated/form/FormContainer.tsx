@@ -6,7 +6,6 @@ const FormContainer = styled.form`
     display: block;
     flex-grow: 1;
     border-radius: ${paperRadius};
-    margin-top: ${margin};
     ${light} {
         background-color: ${appContentBackgroundColorLight};
     }

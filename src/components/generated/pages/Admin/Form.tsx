@@ -12,8 +12,10 @@ import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
+import { useAccount } from '../../../../lib/generated/signIn'
 
 const AdminForm = ({ item }: PageProps) => {
+    const _ = useAccount()
     const { popStack } = usePageStackPage()
     const { refresh } = useRefreshToken("models.admin")
     const data: Partial<Admin & AdminCreateInput & AdminUpdateInput> = suspend(async () => {
