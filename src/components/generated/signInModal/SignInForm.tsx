@@ -63,6 +63,15 @@ const SignInForm = () => {
             setUserCheckerKey(newValue)
         }
     }
+    const checkerInputType = () => {
+        if (signInModel === "Admin") {
+            return "password"
+        }
+        if (signInModel === "User") {
+            return "password"
+        }
+        return "text"
+    }
     const { reset, register, handleSubmit } = useForm()
     const [isLoading, setIsLoading] = useState(false)
     const submit = async (data: any) => {
@@ -75,7 +84,7 @@ const SignInForm = () => {
             })    
         } catch(e) {
             error = true
-            alert("Please check your input")
+            alert(t("signIn.pleaseCheckYourInput"))
         }
         setIsLoading(false)
         if (!error) {
@@ -105,7 +114,7 @@ const SignInForm = () => {
                             reset()
                         }}>
                             {idFieldsForModel(signInModel).map((v) => <Option key={v.key} value={v.key}>
-                                <span>{v.name}</span>
+                                <span>{t(v.name)}</span>
                             </Option>)}
                         </Select>
                         <Input {...register("id")} disabled={isLoading} />
@@ -119,7 +128,7 @@ const SignInForm = () => {
                                 <span>{t(v.name)}</span>
                             </Option>)}
                         </Select>
-                        <Input {...register("checker")} disabled={isLoading} />
+                        <Input type={checkerInputType()} {...register("checker")} disabled={isLoading} />
                     </SignInLineGroup>
                     <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
                 </SignInFormElement>

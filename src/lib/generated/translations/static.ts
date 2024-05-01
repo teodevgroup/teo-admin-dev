@@ -8,5 +8,6 @@ export type StaticGeneratedTranslation = {
     "statusBar.lang.selectALanguage": string
     "signIn.signIn": string
     "signIn.pleaseSignIn": string
+    "signIn.pleaseCheckYourInput": string
     "confirm": string
 }
