@@ -19,8 +19,8 @@ import SignInSplitElement from './SignInSplitElement'
 import SignInFormWrapper from './SignInFormWrapper'
 import SignInLogoContainer from './SignInLogoContainer'
 import Logo from '../../extended/logo/Logo'
-import Caption from '../caption/Caption'
-import Link from '../link/Link'
+import SignInCaption from '../../extended/signInModal/SignInCaption'
+import SignInAdditionals from '../../extended/signInModal/SignInAdditionals'
 
 const SignInForm = () => {
     const { t } = useTranslation("translations")
@@ -132,7 +132,8 @@ const SignInForm = () => {
                     </SignInLineGroup>
                     <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
                 </SignInFormElement>
-                <Caption>This admin dashboard is powered by <Link href="https://teocloud.io" target='_blank'>Teo</Link>.</Caption>
+                <SignInAdditionals />
+                <SignInCaption />
             </SignInFormWrapper>
         </SignInSplitElement>
     </>
