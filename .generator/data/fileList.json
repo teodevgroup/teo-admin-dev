@@ -217,18 +217,6 @@
         "src/components/extended/app/App.tsx",
         "src/lib/extended/theme.ts",
         "src/lib/extended/icons.ts",
-        "src/lib/extended/defaultPreferences.ts",
-        "src/lib/extended/transalations/zhTw.ts",
-        "src/lib/extended/transalations/zhCn.ts",
-        "src/lib/extended/transalations/ko.ts",
-        "src/lib/extended/transalations/ja.ts",
-        "src/lib/extended/transalations/index.ts",
-        "src/lib/extended/transalations/hi.ts",
-        "src/lib/extended/transalations/he.ts",
-        "src/lib/extended/transalations/fr.ts",
-        "src/lib/extended/transalations/es.ts",
-        "src/lib/extended/transalations/enUs.ts",
-        "src/lib/extended/transalations/enUk.ts",
-        "src/lib/extended/transalations/de.ts"
+        "src/lib/extended/defaultPreferences.ts"
     ]
 }

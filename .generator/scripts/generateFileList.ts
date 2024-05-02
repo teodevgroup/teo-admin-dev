@@ -28,6 +28,13 @@ function fixWindowsPath(path: string) {
     return path.replace(/\\/g, '/')
 }
 
+function shouldIgnoreExtended(fileLocation: string) {
+    if (fileLocation.includes("lib/extended/translations")) {
+        return true
+    }
+    return false
+}
+
 function shouldIgnoreGenerate(fileLocation: string) {
     if (generatedExcludes.includes(fileLocation)) {
         return true
@@ -57,12 +64,16 @@ globSync("./src/lib/generated/**/*", { nodir: true }).forEach((fileLocation) => 
 
 globSync("./src/components/extended/**/*", { nodir: true }).forEach((fileLocation) => {
     fileLocation = fixWindowsPath(fileLocation)
-    extendedFiles.push(fileLocation)
+    if (!shouldIgnoreExtended(fileLocation)) {
+        extendedFiles.push(fileLocation)
+    }
 })
 
 globSync("./src/lib/extended/**/*", { nodir: true }).forEach((fileLocation) => {
     fileLocation = fixWindowsPath(fileLocation)
-    extendedFiles.push(fileLocation)
+    if (!shouldIgnoreExtended(fileLocation)) {
+        extendedFiles.push(fileLocation)
+    }
 })
 
 writeFileSync(".generator/data/fileList.json", JSON.stringify({
