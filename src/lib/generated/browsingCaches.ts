@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import useLocalStorage from "use-local-storage"
 import { PageStackItemKey } from "../../components/extended/pageStack/PageStackItemKeys"
 import { PageStackItem } from "../../components/generated/pageStack/PageStackItem"

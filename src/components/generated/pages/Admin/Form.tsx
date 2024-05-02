@@ -79,7 +79,7 @@ const AdminForm = ({ item }: PageProps) => {
             </LabeledGroup>
             <LabeledGroup>
                 <Label>Password</Label>
-                <Input disabled={loading} {...register("password")} />
+                <Input disabled={loading} type="password" {...register("password")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>Submit</Button>

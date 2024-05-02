@@ -1,5 +1,5 @@
 import { i18n, TFunction } from "i18next"
-import { Language } from "../../extended/language"
+import { Language } from "../translations/language"
 
 export type Translatable = string | { [key in Language]: string }
 

@@ -4,7 +4,7 @@
 import useLocalStorage from 'use-local-storage'
 import defaultPreferences from '../extended/defaultPreferences'
 import { Dispatch, SetStateAction } from 'react'
-import { Language } from '../extended/language'
+import { Language } from './translations/language'
 import { AccountModel } from './signIn'
 import { IconCode } from '../extended/icons'
 import { Translatable } from './lang/tr'
