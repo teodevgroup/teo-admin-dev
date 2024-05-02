@@ -12,10 +12,25 @@ import ko from './ko'
 import zhCn from './zhCn'
 import zhTw from './zhTw'
 
+const defaultLang = "enUs"
+
+const getDefaultLanguageCode = () => {
+    const localStorageItemString = localStorage.getItem("__teo_admin_preferences__")
+    if (!localStorageItemString) {
+        return defaultLang
+    }
+    const localStorageItem = JSON.parse(localStorageItemString)
+    if (localStorageItem.lang) {
+        return localStorageItem.lang
+    }
+    return defaultLang
+}
+
 export default function i18nInit() {
+    const defaultLanguageCode = getDefaultLanguageCode()
     i18n.use(initReactI18next).init({
-        lng: "enUs",
-        fallbackLng: "enUs",
+        lng: defaultLanguageCode,
+        fallbackLng: defaultLanguageCode,
         resources: {
             "enUs": {
                 "translations": enUs
