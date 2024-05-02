@@ -12,6 +12,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "signIn.signIn": "登录",
     "signIn.pleaseSignIn": "请使用您的身份登录。",
     "signIn.pleaseCheckYourInput": "请检查你的输入",
+    "signIn.poweredByBefore": "本管理端由",
+    "signIn.poweredByAfter": "提供技术支持。",
     "confirm": "确认",
     "form.createARecord": "创建一条记录",
     "form.updateARecord": "更新一条记录",

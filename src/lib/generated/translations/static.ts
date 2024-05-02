@@ -9,6 +9,8 @@ export type StaticGeneratedTranslation = {
     "signIn.signIn": string
     "signIn.pleaseSignIn": string
     "signIn.pleaseCheckYourInput": string
+    "signIn.poweredByBefore": string
+    "signIn.poweredByAfter": string
     "confirm": string
     "form.createARecord": string
     "form.updateARecord": string

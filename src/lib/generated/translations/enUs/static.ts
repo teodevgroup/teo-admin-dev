@@ -12,6 +12,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "signIn.signIn": "Sign In",
     "signIn.pleaseSignIn": "Please sign in with your identity.",
     "signIn.pleaseCheckYourInput": "Please check your input",
+    "signIn.poweredByBefore": "This admin dashboard is powered by ",
+    "signIn.poweredByAfter": ".",
     "confirm": "Confirm",
     "form.createARecord": "Create a record",
     "form.updateARecord": "Update a record",
