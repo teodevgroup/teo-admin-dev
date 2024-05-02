@@ -12,6 +12,8 @@ export type StaticGeneratedTranslation = {
     "signIn.poweredByBefore": string
     "signIn.poweredByAfter": string
     "confirm": string
+    "page.dashboard": string
+    "page.records": string
     "form.createARecord": string
     "form.updateARecord": string
     "form.submit": string

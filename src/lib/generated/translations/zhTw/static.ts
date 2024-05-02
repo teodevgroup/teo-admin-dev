@@ -15,6 +15,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "signIn.poweredByBefore": "本管理儀錶盤由",
     "signIn.poweredByAfter": "提供技術支援。",
     "confirm": "確認",
+    "page.dashboard": "儀錶盤",
+    "page.records": "數據記錄",
     "form.createARecord": "創建一條紀錄",
     "form.updateARecord": "更新一條紀錄",
     "form.submit": "提交",

@@ -15,6 +15,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "signIn.poweredByBefore": "本管理端由",
     "signIn.poweredByAfter": "提供技术支持。",
     "confirm": "确认",
+    "page.dashboard": "仪表盘",
+    "page.records": "数据记录",
     "form.createARecord": "创建一条记录",
     "form.updateARecord": "更新一条记录",
     "form.submit": "提交",

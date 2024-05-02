@@ -10,8 +10,10 @@ import SegmentedControlButton from '../../segmentedControl/SegmentedControlButto
 import PageProps from '../../pageStack/PageProps'
 import AdminRecords from './Records'
 import AdminDashboard from './Dashboard'
+import { useTranslation } from 'react-i18next'
 
 const AdminPage = ({ item }: PageProps) => {
+    const { t } = useTranslation("translations")
     const { updateCurrentStackItem } = usePageStackPage()
     return <Page>
         <NavBar>
@@ -24,8 +26,8 @@ const AdminPage = ({ item }: PageProps) => {
                             updateCurrentStackItem({ ...item, variant: "records" })
                         }
                     }}>
-                        <SegmentedControlButton key="dashboard">Dashboard</SegmentedControlButton>
-                        <SegmentedControlButton key="records">Records</SegmentedControlButton>
+                        <SegmentedControlButton key="dashboard">{t("page.dashboard")}</SegmentedControlButton>
+                        <SegmentedControlButton key="records">{t("page.records")}</SegmentedControlButton>
                     </SegmentedControl>
                 </HideContentShimmerIfNotSignedIn>
             </NavBarTitleItems>
