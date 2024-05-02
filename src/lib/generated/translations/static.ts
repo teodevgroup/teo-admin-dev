@@ -12,6 +12,8 @@ export type StaticGeneratedTranslation = {
     "confirm": string
     "form.createARecord": string
     "form.updateARecord": string
+    "form.submit": string
+    "form.delete": string
     "records.filters": string
     "records.orders": string
     "records.create": string

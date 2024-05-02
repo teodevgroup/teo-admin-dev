@@ -13,11 +13,13 @@ import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useAccount } from '../../../../lib/generated/signIn'
+import { useTranslation } from 'react-i18next'
 
 const AdminForm = ({ item }: PageProps) => {
     const _ = useAccount()
     const { popStack } = usePageStackPage()
     const { refresh } = useRefreshToken("models.admin")
+    const { t } = useTranslation("translations")
     const data: Partial<Admin & AdminCreateInput & AdminUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -82,10 +84,10 @@ const AdminForm = ({ item }: PageProps) => {
                 <Input disabled={loading} type="password" {...register("password")} />
             </LabeledGroup>
             <LabeledGroup>
-                <Button disabled={loading} type='submit'>Submit</Button>
+                <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>
             {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
-                <Button disabled={loading} type="button" onClick={onDelete}>Delete</Button>
+                <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
             </LabeledGroup> : null}
         </PaddedMainContent>
     </FormContainer>

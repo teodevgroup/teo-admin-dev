@@ -212,7 +212,6 @@
         "src/components/extended/app/AppContentLayout.tsx",
         "src/components/extended/app/App.tsx",
         "src/lib/extended/theme.ts",
-        "src/lib/extended/language.ts",
         "src/lib/extended/icons.ts",
         "src/lib/extended/defaultPreferences.ts",
         "src/lib/extended/transalations/zhTw.ts",
