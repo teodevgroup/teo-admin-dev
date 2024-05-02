@@ -12,6 +12,7 @@ const RecordsContainer = styled.div`
     ${dark} {
         background-color: ${appContentBackgroundColorDark};
     }
+    overflow: scroll;
 `
 
 export default RecordsContainer

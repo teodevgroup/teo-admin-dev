@@ -5,9 +5,12 @@ import { suspend } from 'suspend-react'
 import { teo } from '../../../../lib/generated/teo'
 import { pick } from 'radash'
 import usePageStackPage from '../../pageStack/usePageStackPage'
-import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useAccount } from '../../../../lib/generated/signIn'
+import Table from '../../records/Table'
+import Td from '../../records/Td'
+import Th from '../../records/Th'
+import Tr from '../../records/Tr'
 
 type RecordsListProps = {
     filter: any
@@ -21,39 +24,40 @@ const RecordsList = ({ filter }: RecordsListProps) => {
         return await teo.admin.findMany(filter)
     }, [filter, token])
     return <RecordsContainer>
-        <PaddedMainContent>
-            <TableVirtuoso
-                components={{
-                    TableHead: forwardRef(({ style, ...props }, ref) => {
-                        return <thead {...props} ref={ref} />
-                    }),
-                    TableRow: ({ ...props }) => {
-                        return <tr {...props} onDoubleClick={() => {
-                            const item = data[props["data-index"]]
-                            pushStack({
-                                key: "AdminForm",
-                                query: pick(item, ["id"])
-                            })
-                        }} />
-                    }
-                }}
-                fixedHeaderContent={() => {
-                    return <tr>
-                        <th>Id</th>
-                        <th>Email</th>
-                    </tr>
-                }}
-                style={{ height: 400 }}
-                data={data}
-                totalCount={data.length}
-                itemContent={(_, item) => (
-                    <>
-                        <td>{item.id}</td>
-                        <td>{item.email}</td>
-                    </>
-                )}
-            />
-        </PaddedMainContent>
+        <TableVirtuoso
+            components={{
+                Table: ({ ...props }) => {
+                    return <Table {...props} />
+                },
+                TableHead: forwardRef(({ style, ...props }, ref) => {
+                    return <thead {...props} ref={ref} />
+                }),
+                TableRow: ({ ...props }) => {
+                    return <Tr {...props} onDoubleClick={() => {
+                        const item = data[props["data-index"]]
+                        pushStack({
+                            key: "AdminForm",
+                            query: pick(item, ["id"])
+                        })
+                    }} />
+                },
+            }}
+            fixedHeaderContent={() => {
+                return <tr>
+                    <Th>Id</Th>
+                    <Th>Email</Th>
+                </tr>
+            }}
+            style={{ height: 400 }}
+            data={data}
+            totalCount={data.length}
+            itemContent={(_, item) => (
+                <>
+                    <Td>{item.id}</Td>
+                    <Td>{item.email}</Td>
+                </>
+            )}
+        />
     </RecordsContainer>
 }
 
