@@ -12,10 +12,8 @@ export type MenuItemElementProps = {
 const MenuItemElement = styled.button<MenuItemElementProps>`
     ${clearButton}
     line-height: 1;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    padding-left: .75rem;
-    padding-right: .75rem;
+    padding: .5rem;
+    font-size: 0.75rem;
     border-radius: ${radius};
     ${flexContainer("row", "center", "space-between")}
     user-select: none;
