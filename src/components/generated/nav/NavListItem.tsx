@@ -8,6 +8,7 @@ import { PageStackItemKey } from '../../extended/pageStack/PageStackItemKeys'
 import usePageStackPage from '../pageStack/usePageStackPage'
 
 export type NavListItemProps = {
+    collapsed: boolean
     isSelected: boolean
     isDragging?: boolean
     text: string
@@ -15,10 +16,10 @@ export type NavListItemProps = {
     path?: PageStackItemKey
 } & ComponentPropsWithoutRef<'div'>
 
-const NavListItem = forwardRef(({ isSelected, isDragging, text, iconCode, path, ...props }: NavListItemProps, ref: ForwardedRef<HTMLDivElement>) => {
+const NavListItem = forwardRef(({ collapsed, isSelected, isDragging, text, iconCode, path, ...props }: NavListItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { alterStackWithRootKey } = usePageStackPage()
     const { t } = useTranslation("translations")
-    return <NavListItemElement isSelected={isSelected} isDragging={isDragging} ref={ref} {...props} onClick={() => {
+    return <NavListItemElement collapsed={collapsed} isSelected={isSelected} isDragging={isDragging} ref={ref} {...props} onClick={() => {
         if (path) {
             alterStackWithRootKey(path)
         }

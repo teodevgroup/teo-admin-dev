@@ -1,8 +1,9 @@
 import { styled } from "@linaria/react"
 import { dark, flexContainer, light } from "../../../lib/generated/theme"
-import { borderThin, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlTextColorDark, controlTextColorLight, radius, spacing, textColorOnTintedBackgroundDark, textColorOnTintedBackgroundLight, tintColorDark, tintColorLight } from "../../../lib/extended/theme"
+import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlTextColorDark, controlTextColorLight, radius, spacing, textColorOnTintedBackgroundDark, textColorOnTintedBackgroundLight, tintColorDark, tintColorLight } from "../../../lib/extended/theme"
 
 type NavListItemElementProps = {
+    collapsed: boolean
     isDragging?: boolean
     isSelected?: boolean
 }

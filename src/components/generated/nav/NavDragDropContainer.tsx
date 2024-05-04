@@ -12,12 +12,13 @@ import NavListItemMenuWrapper from './NavListItemMenuWrapper'
 import usePageStackPage from '../pageStack/usePageStackPage'
 
 export type NavDragDropContainerProps = {
+    collapsed: boolean
     displayingItems: NavItem[]
     folderPath: string[]
     portalTransform: string | undefined
 }
 
-const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: NavDragDropContainerProps) => {
+const NavDragDropContainer = ({ collapsed, displayingItems, folderPath, portalTransform }: NavDragDropContainerProps) => {
     const { t, i18n } = useTranslation("translations")
     const { stack } = usePageStackPage()
     return <Droppable key={droppableIdForNavItemAtPath(folderPath)} droppableId={droppableIdForNavItemAtPath(folderPath)}>
@@ -39,7 +40,7 @@ const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: 
                                 <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                             : <NavListItemMenuWrapper>
-                                <NavListItem isSelected={isSelected} path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                                <NavListItem collapsed={collapsed} isSelected={isSelected} path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                         }}
                     </Draggable>

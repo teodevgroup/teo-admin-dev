@@ -4,7 +4,11 @@ import NavDragDropContainer from './NavDragDropContainer'
 import { isNavItemDroppableId, moveNavItemWithSourceAndDestInfo, navItemsAtPath } from './navItemsUtility'
 import { DragDropContext } from '@hello-pangea/dnd'
 
-const NavItems = () => {
+type NavItemsProps = {
+    collapsed: boolean
+}
+
+const NavItems = ({ collapsed }: NavItemsProps) => {
     const [items, setItems] = useNavItems()
     return <>
         <DragDropContext onDragEnd={(result) => {
@@ -20,7 +24,7 @@ const NavItems = () => {
             }
             setItems(moveNavItemWithSourceAndDestInfo(items, sourceId, sourceIndex, destId, destIndex))
         }}>
-            <NavDragDropContainer displayingItems={items} folderPath={[]} portalTransform={undefined} />
+            <NavDragDropContainer collapsed={collapsed} displayingItems={items} folderPath={[]} portalTransform={undefined} />
         </DragDropContext>
     </>
 }
