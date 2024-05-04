@@ -26,7 +26,7 @@ const useRefreshToken = (key: string) => {
             let index = setters[key].indexOf(setter)
             setters[key].splice(index, 1)
         }
-    }, [])
+    }, [token])
     const refresh = () => {
         setters[key].forEach((setter) => {
             setter()
