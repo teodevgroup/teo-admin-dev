@@ -21,7 +21,6 @@ const extendedFiles = [
     "modules.d.ts",
     "tsconfig.json",
     "tslint.json",
-    "webpack.config.ts",
 ]
 
 function fixWindowsPath(path: string) {

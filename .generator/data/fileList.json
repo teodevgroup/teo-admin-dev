@@ -159,7 +159,6 @@
         "modules.d.ts",
         "tsconfig.json",
         "tslint.json",
-        "webpack.config.ts",
         "src/components/extended/tooltip/Tooltip.tsx",
         "src/components/extended/statusBar/statusBarItems.tsx",
         "src/components/extended/statusBar/StatusBarUserAvatarElement.tsx",
