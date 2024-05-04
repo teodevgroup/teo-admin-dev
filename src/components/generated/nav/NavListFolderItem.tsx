@@ -12,6 +12,7 @@ import { navItemsAtPath } from './navItemsUtility'
 import NavDragDropContainer from './NavDragDropContainer'
 
 export type NavListFolderItemProps = ComponentPropsWithoutRef<'div'> & {
+    collapsed: boolean
     isDragging?: boolean
     isReceivingDragging?: boolean
     text: string
@@ -19,7 +20,7 @@ export type NavListFolderItemProps = ComponentPropsWithoutRef<'div'> & {
     folderPath: string[]
 }
 
-const NavListFolderItem = forwardRef(({ isDragging, isReceivingDragging, text, iconCode, folderPath, ...props }: NavListFolderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
+const NavListFolderItem = forwardRef(({ collapsed, isDragging, isReceivingDragging, text, iconCode, folderPath, ...props }: NavListFolderItemProps, ref: ForwardedRef<HTMLDivElement>) => {
     // floating model
     const { t } = useTranslation("translations")
     const [isOpen, setIsOpen] = useState(false)
@@ -52,13 +53,13 @@ const NavListFolderItem = forwardRef(({ isDragging, isReceivingDragging, text, i
     const items = navItemsAtPath(navItems, folderPath)
     const portalTransform = floatingStyles.transform
     return <>
-        <NavListFolderItemElement isDragging={isDragging} isReceivingDragging={isReceivingDragging} ref={useMergeRefs([ref, refs.setReference])} {...getReferenceProps(props)}>
-            <NavListItemIconElement>{iconsMap[iconCode]}</NavListItemIconElement>
-            <NavListItemTextElement>{t(text)}</NavListItemTextElement>
+        <NavListFolderItemElement collapsed={collapsed} isDragging={isDragging} isReceivingDragging={isReceivingDragging} ref={useMergeRefs([ref, refs.setReference])} {...getReferenceProps(props)}>
+            <NavListItemIconElement collapsed={collapsed}>{iconsMap[iconCode]}</NavListItemIconElement>
+            <NavListItemTextElement collapsed={collapsed}>{t(text)}</NavListItemTextElement>
         </NavListFolderItemElement>
         <FloatingPortal>
             {isOpen && <NavListFolderModalElement ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
-                <NavDragDropContainer displayingItems={items} folderPath={folderPath} portalTransform={portalTransform as string} />
+                <NavDragDropContainer collapsed={collapsed} displayingItems={items} folderPath={folderPath} portalTransform={portalTransform as string} />
             </NavListFolderModalElement>}
         </FloatingPortal>
     </>

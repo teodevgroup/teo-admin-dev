@@ -24,8 +24,8 @@ const NavListItem = forwardRef(({ collapsed, isSelected, isDragging, text, iconC
             alterStackWithRootKey(path)
         }
     }}>
-        <NavListItemIconElement>{iconsMap[iconCode]}</NavListItemIconElement>
-        <NavListItemTextElement>{t(text)}</NavListItemTextElement>
+        <NavListItemIconElement collapsed={collapsed}>{iconsMap[iconCode]}</NavListItemIconElement>
+        <NavListItemTextElement collapsed={collapsed}>{t(text)}</NavListItemTextElement>
     </NavListItemElement>
 })
 

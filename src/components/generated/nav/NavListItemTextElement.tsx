@@ -1,7 +1,13 @@
 import { styled } from "@linaria/react"
 
-const NavListItemTextElement = styled.div`
+type NavListItemTextElementProps = {
+    collapsed: boolean
+}
 
+const NavListItemTextElement = styled.div<NavListItemTextElementProps>`
+    font-size: ${({ collapsed }) => collapsed ? "0.6rem" : "0.875rem"};
+    font-weight: ${({ collapsed }) => collapsed ? "bold" : "bold"};
+    margin-top: ${({ collapsed }) => collapsed ? "3px" : "0"};
 `
 
 export default NavListItemTextElement

@@ -37,7 +37,7 @@ const NavDragDropContainer = ({ collapsed, displayingItems, folderPath, portalTr
                             }
                             return item.folder
                             ? <NavListItemMenuWrapper>
-                                <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                                <NavListFolderItem collapsed={collapsed} folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                             : <NavListItemMenuWrapper>
                                 <NavListItem collapsed={collapsed} isSelected={isSelected} path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />

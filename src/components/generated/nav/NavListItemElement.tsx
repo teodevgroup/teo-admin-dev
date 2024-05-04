@@ -1,6 +1,6 @@
 import { styled } from "@linaria/react"
-import { dark, flexContainer, light } from "../../../lib/generated/theme"
-import { controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlTextColorDark, controlTextColorLight, radius, spacing, textColorOnTintedBackgroundDark, textColorOnTintedBackgroundLight, tintColorDark, tintColorLight } from "../../../lib/extended/theme"
+import { dark, light } from "../../../lib/generated/theme"
+import { controlBackgroundColorDark, controlBackgroundColorLight, controlTextColorDark, controlTextColorLight, radius, spacing, textColorOnTintedBackgroundDark, textColorOnTintedBackgroundLight, tintColorDark, tintColorLight } from "../../../lib/extended/theme"
 
 type NavListItemElementProps = {
     collapsed: boolean
@@ -9,9 +9,12 @@ type NavListItemElementProps = {
 }
 
 const NavListItemElement = styled.div<NavListItemElementProps>`
-    ${flexContainer("row", "center", "flex-start")}
+    display: flex;
+    flex-direction: ${({ collapsed }) => collapsed ? "column": "row"};
+    align-items: center;
+    justify-content: ${({ collapsed }) => collapsed ? "center": "flex-start"};
     padding: 1rem;
-    height: 3rem;
+    height: ${({ collapsed }) => collapsed ? "3.5rem" : "3rem"};
     &:hover {
         ${light} {
             background-color: ${({ isSelected}) => isSelected ? tintColorLight : controlBackgroundColorLight};

@@ -41,7 +41,7 @@ const Nav = () => {
                 </NavCollapseButtonInnerContainerElement>
             </NavCollapseButtonOuterContainerElement>
             <NavLogo collapsed={navCollapsed} />
-            <NavItems />
+            <NavItems collapsed={navCollapsed} />
         </NavElement>
     </WithContextMenu>
 }
