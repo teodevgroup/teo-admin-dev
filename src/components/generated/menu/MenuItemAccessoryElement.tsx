@@ -3,9 +3,11 @@
 
 import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
+import { margin } from "../../../lib/extended/theme"
 
 const MenuItemAccessoryElement = styled.div`
     ${flexContainer("row", "center", "center")}
+    margin-left: ${margin};
 `
 
 export default MenuItemAccessoryElement

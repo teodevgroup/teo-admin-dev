@@ -24,10 +24,10 @@ const Nav = () => {
         <Menu>
             <MenuItem disabled={true} label="Menu A" />
             <MenuItem label="Menu B" action={() => {}} />
-            <MenuItem label="Download">
+            <MenuItem label="Submenu">
                 <Menu>
-                    <MenuItem label="JSON" />
-                    <MenuItem label="CSV" />
+                    <MenuItem label="Menu 1" />
+                    <MenuItem label="Menu 2" />
                 </Menu>
             </MenuItem>
         </Menu>

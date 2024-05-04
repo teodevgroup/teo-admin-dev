@@ -9,7 +9,7 @@ export type NavListItemMenuWrapperProps = {
 
 const NavListItemMenuWrapper = ({ children }: NavListItemMenuWrapperProps) => {
     return <WithContextMenu contextMenu={<Menu>
-        <MenuItem label="Customize nav item" />
+        <MenuItem label="Customize Nav Item" />
     </Menu>}>
         {children}
     </WithContextMenu>

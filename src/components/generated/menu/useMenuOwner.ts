@@ -32,7 +32,7 @@ const useMenuOwner: () => MenuContextProps = () => {
         open: isOpen,
         onOpenChange: setIsOpen,
         middleware: [
-            offset({ mainAxis: 0, alignmentAxis: -8 }),
+            offset(isNested ? { mainAxis: 0, alignmentAxis: -4 } : { mainAxis: -8, alignmentAxis: 0 }),
             flip({
               fallbackPlacements: ["left-start"]
             }),

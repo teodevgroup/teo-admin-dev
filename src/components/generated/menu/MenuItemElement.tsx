@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { radius } from "../../../lib/extended/theme"
+import { controlTextColorDark, controlTextColorLight, radius, textColorOnTintedBackgroundDark, textColorOnTintedBackgroundLight, tintColorDark, tintColorLight } from "../../../lib/extended/theme"
 import { clearButton, dark, flexContainer, light } from "../../../lib/generated/theme"
 
 export type MenuItemElementProps = {
@@ -12,18 +12,21 @@ export type MenuItemElementProps = {
 const MenuItemElement = styled.button<MenuItemElementProps>`
     ${clearButton}
     line-height: 1;
-    padding: ${radius};
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
     border-radius: ${radius};
     ${flexContainer("row", "center", "space-between")}
     user-select: none;
     cursor: default;
     ${light} {
-        background-color: ${({ highlighted }) => highlighted ? `blue` : `white`};
-        color: ${({ disabled }) => disabled ? `gray` : `black`}
+        background-color: ${({ highlighted }) => highlighted ? tintColorLight : `transparent`};
+        color: ${({ disabled, highlighted }) => disabled ? `gray` : (highlighted ? textColorOnTintedBackgroundLight : controlTextColorLight)}
     }
     ${dark} {
-        background-color: ${({ highlighted }) => highlighted ? `blue` : `black`};
-        color: ${({ disabled }) => disabled ? `gray` : `white`}
+        background-color: ${({ highlighted }) => highlighted ? tintColorDark : `transparent`};
+        color: ${({ disabled, highlighted }) => disabled ? `gray` : (highlighted ? textColorOnTintedBackgroundDark : controlTextColorDark)}
     }
 `
 
