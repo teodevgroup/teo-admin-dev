@@ -99,6 +99,10 @@ export const shortTransitionTimeInterval = '0.1s'
 
 export const defaultTransitionCurve = 'ease-in-out'
 
+export const textColorOnTintedBackgroundLight = 'white'
+
+export const textColorOnTintedBackgroundDark = 'black'
+
 export const panelBoxShadow = `
 rgb(0 0 0 / 50%) 0px 0px 1px, rgb(0 0 0 / 3%) 0px 100px 80px,
 rgb(0 0 0 / 2%) 0px 41.7776px 33.4221px,

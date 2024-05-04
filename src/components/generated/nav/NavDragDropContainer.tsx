@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { tr } from '../../../lib/generated/lang/tr'
 import untransform from '../../../lib/generated/modal/untransform'
 import NavListItemMenuWrapper from './NavListItemMenuWrapper'
+import usePageStackPage from '../pageStack/usePageStackPage'
 
 export type NavDragDropContainerProps = {
     displayingItems: NavItem[]
@@ -18,10 +19,12 @@ export type NavDragDropContainerProps = {
 
 const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: NavDragDropContainerProps) => {
     const { t, i18n } = useTranslation("translations")
+    const { stack } = usePageStackPage()
     return <Droppable key={droppableIdForNavItemAtPath(folderPath)} droppableId={droppableIdForNavItemAtPath(folderPath)}>
         {(provided, snapshot) => (
             <NavItemsElement ref={provided.innerRef} {...provided.droppableProps}>
                 {displayingItems.map((item, index) => {
+                    const isSelected = stack[0] ? item.path === stack[0].key : false
                     return <Draggable key={item.id} draggableId={item.id} index={index}>
                         {(provided, snapshot) => {
                             if (provided.draggableProps.style) {
@@ -36,7 +39,7 @@ const NavDragDropContainer = ({ displayingItems, folderPath, portalTransform }: 
                                 <NavListFolderItem folderPath={[...folderPath, item.id]} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                             : <NavListItemMenuWrapper>
-                                <NavListItem path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+                                <NavListItem isSelected={isSelected} path={item.path} text={tr(item.name, t, i18n)} iconCode={item.icon} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
                             </NavListItemMenuWrapper>
                         }}
                     </Draggable>
