@@ -6,7 +6,7 @@ import SignInFormElement from "../../extended/signInModal/SignInFormElement"
 import Select from '../select/Select'
 import Option from '../select/Option'
 import { useForm } from 'react-hook-form'
-import { useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInDefaultModel, useSignInUserDefaultCheckerKey, useSignInUserDefaultIdKey } from '../../../lib/generated/preferences'
+import { useSignInDefaultModel, useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInRootDefaultCheckerKey, useSignInRootDefaultIdKey } from '../../../lib/generated/preferences'
 import { accountModelNames, accountModels, signIn } from '../../../lib/generated/signIn'
 import SignInLineGroup from './SignInLineGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'
@@ -25,16 +25,16 @@ import SignInAdditionals from '../../extended/signInModal/SignInAdditionals'
 const SignInForm = () => {
     const { t } = useTranslation("translations")
     const [signInModel, setSignInModel] = useSignInDefaultModel()
-    const [userIdKey, setUserIdKey] = useSignInUserDefaultIdKey()
-    const [userCheckerKey, setUserCheckerKey] = useSignInUserDefaultCheckerKey()
     const [adminIdKey, setAdminIdKey] = useSignInAdminDefaultIdKey()
     const [adminCheckerKey, setAdminCheckerKey] = useSignInAdminDefaultCheckerKey()
+    const [rootIdKey, setRootIdKey] = useSignInRootDefaultIdKey()
+    const [rootCheckerKey, setRootCheckerKey] = useSignInRootDefaultCheckerKey()
     const idKey = () => {
         if (signInModel === "Admin") {
             return adminIdKey
         }
-        if (signInModel === "User") {
-            return userIdKey
+        if (signInModel === "Root") {
+            return rootIdKey
         }
         return ""
     }
@@ -42,16 +42,16 @@ const SignInForm = () => {
         if (signInModel === "Admin") {
             setAdminIdKey(newValue)
         }
-        if (signInModel === "User") {
-            setUserIdKey(newValue)
+        if (signInModel === "Root") {
+            setRootIdKey(newValue)
         }
     }
     const checkerKey = () => {
         if (signInModel === "Admin") {
             return adminCheckerKey
         }
-        if (signInModel === "User") {
-            return userCheckerKey
+        if (signInModel === "Root") {
+            return rootCheckerKey
         }
         return ""
     }
@@ -59,16 +59,20 @@ const SignInForm = () => {
         if (signInModel === "Admin") {
             setAdminCheckerKey(newValue)
         }
-        if (signInModel === "User") {
-            setUserCheckerKey(newValue)
+        if (signInModel === "Root") {
+            setRootCheckerKey(newValue)
         }
     }
     const checkerInputType = () => {
         if (signInModel === "Admin") {
-            return "password"
+            if ((["password"] as string[]).includes(adminCheckerKey)) {
+                return "password"
+            }
         }
-        if (signInModel === "User") {
-            return "password"
+        if (signInModel === "Root") {
+            if ((["password"] as string[]).includes(rootCheckerKey)) {
+                return "password"
+            }
         }
         return "text"
     }
@@ -81,10 +85,10 @@ const SignInForm = () => {
             await signIn(signInModel, {
                 [idKey()]: data.id,
                 [checkerKey()]: data.checker,
-            })    
+            })
         } catch(e) {
             error = true
-            alert(t("signIn.pleaseCheckYourInput"))
+            alert("Please check your input")
         }
         setIsLoading(false)
         if (!error) {
@@ -109,7 +113,7 @@ const SignInForm = () => {
                         </Option>)}
                     </Select>
                     <SignInLineGroup>
-                        <Select value={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || "")} onChange={(v) => {
+                        <Select value={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || idKey())} onChange={(v) => {
                             setIdKey(v)
                             reset()
                         }}>
@@ -120,7 +124,7 @@ const SignInForm = () => {
                         <Input {...register("id")} disabled={isLoading} />
                     </SignInLineGroup>
                     <SignInLineGroup>
-                        <Select value={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || "")} onChange={(v) => {
+                        <Select value={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || checkerKey())} onChange={(v) => {
                             setCheckerKey(v)
                             reset()
                         }}>

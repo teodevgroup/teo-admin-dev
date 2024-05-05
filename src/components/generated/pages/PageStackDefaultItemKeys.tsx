@@ -1,1 +1,1 @@
-export type PageStackItemDefaultKey = "_Index" | "Admin" | "User" | "AdminForm" | "UserForm"
+export type PageStackItemDefaultKey = "_Index" | "Admin" | "AdminForm" | "Category" | "CategoryForm" | "Item" | "ItemForm" | "Product" | "ProductForm" | "Record" | "RecordForm" | "Root" | "RootForm"

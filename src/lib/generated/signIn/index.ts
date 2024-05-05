@@ -3,21 +3,21 @@
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { suspend } from 'suspend-react'
-import { Admin, teo, User, std } from '../teo'
+import { teo, std, Admin, Root } from '../teo'
 
-export type AccountModel = "Admin" | "User"
+export type AccountModel = "Admin" | "Root"
 
-export const accountModels: AccountModel[] = ["Admin", "User"]
+export const accountModels: AccountModel[] = ["Admin", "Root"]
 
 export const accountModelNames: { [key in AccountModel]: string } = {
     "Admin": "model.admin.name",
-    "User": "model.user.name",
+    "Root": "model.root.name",
 }
 
-type Account = { 
+type Account = {
     "Admin": std.DataMeta<Admin, std.identity.TokenInfo>
-} | { 
-    "User": std.DataMeta<User, std.identity.TokenInfo>
+} | {
+    "Root": std.DataMeta<Root, std.identity.TokenInfo>
 }
 
 let account: Account | null = loadAccountFromLocalStorage()
@@ -118,16 +118,16 @@ export const signIn = async (model: AccountModel, data: any) => {
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)
-            flushAccountSetters()            
+            flushAccountSetters()
             flushAccountResolves()
-            return 
+            return
         }
     }
-    if (model === "User") {
-        const signInResult = await teo.user.signIn({
+    if (model === "Root") {
+        const signInResult = await teo.root.signIn({
             "credentials": data
         })
-        const accountLocalVariable = { "User": signInResult }
+        const accountLocalVariable = { "Root": signInResult }
         if (accountLocalVariable !== null) {
             account = accountLocalVariable as any
             saveAccountIntoLocalStorage(account)

@@ -1,12 +1,15 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { initReactI18next } from "react-i18next"
 import i18n from "i18next"
 import enUs from './enUs'
 import enUk from './enUk'
 import de from './de'
-import fr from './fr'
 import es from './es'
-import hi from './hi'
+import fr from './fr'
 import he from './he'
+import hi from './hi'
 import ja from './ja'
 import ko from './ko'
 import zhCn from './zhCn'
@@ -41,17 +44,17 @@ export default function i18nInit() {
             "de": {
                 "translations": de
             },
-            "fr": {
-                "translations": fr
-            },
             "es": {
                 "translations": es
             },
-            "hi": {
-                "translations": hi
+            "fr": {
+                "translations": fr
             },
             "he": {
                 "translations": he
+            },
+            "hi": {
+                "translations": hi
             },
             "ja": {
                 "translations": ja
@@ -64,7 +67,7 @@ export default function i18nInit() {
             },
             "zhTw": {
                 "translations": zhTw
-            }
+            },
         },
         interpolation: {
             escapeValue: false

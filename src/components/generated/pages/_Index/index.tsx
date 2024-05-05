@@ -9,7 +9,7 @@ import PageProps from '../../pageStack/PageProps'
 
 const _IndexPage = ({ item }: PageProps) => {
     return <Page>
-        <NavBar>            
+        <NavBar>
             <NavBarTitleItems>
                 <HideContentShimmerIfNotSignedIn>
                     Welcome

@@ -25,21 +25,19 @@ export interface NavPreferences {
     collapsed: boolean
     items: NavItem[]
 }
-
-export interface SignInUserPreferences {
+export interface SignInAdminPreferences {
     defaultIdKey: string
     defaultCheckerKey: string
 }
-
-export interface SignInAdminPreferences {
+export interface SignInRootPreferences {
     defaultIdKey: string
     defaultCheckerKey: string
 }
 
 export interface SignInPreferences {
     defaultModel: AccountModel
-    user: SignInUserPreferences
     admin: SignInAdminPreferences
+    root: SignInRootPreferences
 }
 
 export interface Preferences {
@@ -72,7 +70,7 @@ export const useNavItems = makePathedPreferencesHook<NavItem[]>(["nav", "items"]
 export const useLang = makePathedPreferencesHook<Language>(["lang"])
 
 export const useSignInDefaultModel = makePathedPreferencesHook<AccountModel>(["signIn", "defaultModel"])
-export const useSignInUserDefaultIdKey = makePathedPreferencesHook<string>(["signIn", "user", "defaultIdKey"])
-export const useSignInUserDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "user", "defaultCheckerKey"])
 export const useSignInAdminDefaultIdKey = makePathedPreferencesHook<string>(["signIn", "admin", "defaultIdKey"])
 export const useSignInAdminDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "admin", "defaultCheckerKey"])
+export const useSignInRootDefaultIdKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultIdKey"])
+export const useSignInRootDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultCheckerKey"])

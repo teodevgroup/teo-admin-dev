@@ -14,20 +14,20 @@ export const idFieldsForModel: (model: AccountModel) => Field[] = (model: Accoun
                 name: "model.admin.email.name",
                 desc: "model.admin.email.desc",
             },
-        ]
-    }
-    if (model === "User") {
-        return [
-            {
-                key: "email",
-                name: "model.admin.email.name",
-                desc: "model.admin.email.desc",
-            },
             {
                 key: "phoneNo",
                 name: "model.admin.phoneNo.name",
                 desc: "model.admin.phoneNo.desc",
-            },            
+            },
+        ]
+    }
+    if (model === "Root") {
+        return [
+            {
+                key: "email",
+                name: "model.root.email.name",
+                desc: "model.root.email.desc",
+            },
         ]
     }
     return []
@@ -43,13 +43,13 @@ export const checkerFieldsForModel: (model: AccountModel) => Field[] = (model: A
             },
         ]
     }
-    if (model === "User") {
+    if (model === "Root") {
         return [
             {
                 key: "password",
-                name: "model.admin.password.name",
-                desc: "model.admin.password.desc",
-            },          
+                name: "model.root.password.name",
+                desc: "model.root.password.desc",
+            },
         ]
     }
     return []
@@ -60,7 +60,7 @@ export const companionFieldsForModel: (model: AccountModel) => Field[] = (model:
         return [
         ]
     }
-    if (model === "User") {
+    if (model === "Root") {
         return [
         ]
     }

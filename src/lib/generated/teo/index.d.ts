@@ -187,14 +187,14 @@ export declare class TeoError extends Error {
  *
  * This synthesized enum doesn't have a description.
  */
-export type AdminScalarFields = "email" | "id" | "password"
+export type AdminScalarFields = "email" | "id" | "password" | "phoneNo"
 
 /**
  * **Admin serializable scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type AdminSerializableScalarFields = "email" | "id"
+export type AdminSerializableScalarFields = "email" | "id" | "phoneNo"
 
 /**
  * **Admin relations**
@@ -323,39 +323,74 @@ export type ProductDirectRelations = "category"
 export type ProductIndirectRelations = undefined
 
 /**
- * **User scalar fields**
+ * **Record scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserScalarFields = "email" | "id" | "password" | "phoneNo"
+export type RecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "string"
 
 /**
- * **User serializable scalar fields**
+ * **Record serializable scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserSerializableScalarFields = "email" | "id" | "phoneNo"
+export type RecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "string"
 
 /**
- * **User relations**
+ * **Record relations**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserRelations = undefined
+export type RecordRelations = undefined
 
 /**
- * **User direct relations**
+ * **Record direct relations**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserDirectRelations = undefined
+export type RecordDirectRelations = undefined
 
 /**
- * **User indirect relations**
+ * **Record indirect relations**
  *
  * This synthesized enum doesn't have a description.
  */
-export type UserIndirectRelations = undefined
+export type RecordIndirectRelations = undefined
+
+/**
+ * **Root scalar fields**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type RootScalarFields = "email" | "id" | "password"
+
+/**
+ * **Root serializable scalar fields**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type RootSerializableScalarFields = "email" | "id"
+
+/**
+ * **Root relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type RootRelations = undefined
+
+/**
+ * **Root direct relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type RootDirectRelations = undefined
+
+/**
+ * **Root indirect relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type RootIndirectRelations = undefined
 
 /// ## Admin scalar fields
 ///
@@ -376,6 +411,11 @@ export const enum AdminScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     password = "password",
+
+    /// ### Phone no
+    ///
+    /// This synthesized enum member doesn't have a description.
+    phoneNo = "phoneNo",
 }
 
 /// ## Admin serializable scalar fields
@@ -392,6 +432,11 @@ export const enum AdminSerializableScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     id = "id",
+
+    /// ### Phone no
+    ///
+    /// This synthesized enum member doesn't have a description.
+    phoneNo = "phoneNo",
 }
 
 /// ## Admin relations
@@ -602,10 +647,120 @@ export const enum ProductDirectRelationsEnumType {
 export const enum ProductIndirectRelationsEnumType {
 }
 
-/// ## User scalar fields
+/// ## Record scalar fields
 ///
 /// This synthesized enum doesn't have a description.
-export const enum UserScalarFieldsEnumType {
+export const enum RecordScalarFieldsEnumType {
+
+    /// ### Bool
+    ///
+    /// This synthesized enum member doesn't have a description.
+    bool = "bool",
+
+    /// ### Date
+    ///
+    /// This synthesized enum member doesn't have a description.
+    date = "date",
+
+    /// ### Date time
+    ///
+    /// This synthesized enum member doesn't have a description.
+    dateTime = "dateTime",
+
+    /// ### Decimal
+    ///
+    /// This synthesized enum member doesn't have a description.
+    decimal = "decimal",
+
+    /// ### Float
+    ///
+    /// This synthesized enum member doesn't have a description.
+    float = "float",
+
+    /// ### Id
+    ///
+    /// This synthesized enum member doesn't have a description.
+    id = "id",
+
+    /// ### Int
+    ///
+    /// This synthesized enum member doesn't have a description.
+    int = "int",
+
+    /// ### String
+    ///
+    /// This synthesized enum member doesn't have a description.
+    string = "string",
+}
+
+/// ## Record serializable scalar fields
+///
+/// This synthesized enum doesn't have a description.
+export const enum RecordSerializableScalarFieldsEnumType {
+
+    /// ### Bool
+    ///
+    /// This synthesized enum member doesn't have a description.
+    bool = "bool",
+
+    /// ### Date
+    ///
+    /// This synthesized enum member doesn't have a description.
+    date = "date",
+
+    /// ### Date time
+    ///
+    /// This synthesized enum member doesn't have a description.
+    dateTime = "dateTime",
+
+    /// ### Decimal
+    ///
+    /// This synthesized enum member doesn't have a description.
+    decimal = "decimal",
+
+    /// ### Float
+    ///
+    /// This synthesized enum member doesn't have a description.
+    float = "float",
+
+    /// ### Id
+    ///
+    /// This synthesized enum member doesn't have a description.
+    id = "id",
+
+    /// ### Int
+    ///
+    /// This synthesized enum member doesn't have a description.
+    int = "int",
+
+    /// ### String
+    ///
+    /// This synthesized enum member doesn't have a description.
+    string = "string",
+}
+
+/// ## Record relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum RecordRelationsEnumType {
+}
+
+/// ## Record direct relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum RecordDirectRelationsEnumType {
+}
+
+/// ## Record indirect relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum RecordIndirectRelationsEnumType {
+}
+
+/// ## Root scalar fields
+///
+/// This synthesized enum doesn't have a description.
+export const enum RootScalarFieldsEnumType {
 
     /// ### Email
     ///
@@ -621,17 +776,12 @@ export const enum UserScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     password = "password",
-
-    /// ### Phone no
-    ///
-    /// This synthesized enum member doesn't have a description.
-    phoneNo = "phoneNo",
 }
 
-/// ## User serializable scalar fields
+/// ## Root serializable scalar fields
 ///
 /// This synthesized enum doesn't have a description.
-export const enum UserSerializableScalarFieldsEnumType {
+export const enum RootSerializableScalarFieldsEnumType {
 
     /// ### Email
     ///
@@ -642,29 +792,24 @@ export const enum UserSerializableScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     id = "id",
-
-    /// ### Phone no
-    ///
-    /// This synthesized enum member doesn't have a description.
-    phoneNo = "phoneNo",
 }
 
-/// ## User relations
+/// ## Root relations
 ///
 /// This synthesized enum doesn't have a description.
-export const enum UserRelationsEnumType {
+export const enum RootRelationsEnumType {
 }
 
-/// ## User direct relations
+/// ## Root direct relations
 ///
 /// This synthesized enum doesn't have a description.
-export const enum UserDirectRelationsEnumType {
+export const enum RootDirectRelationsEnumType {
 }
 
-/// ## User indirect relations
+/// ## Root indirect relations
 ///
 /// This synthesized enum doesn't have a description.
-export const enum UserIndirectRelationsEnumType {
+export const enum RootIndirectRelationsEnumType {
 }
 
 
@@ -688,6 +833,13 @@ export type AdminSelect = {
      * This synthesized field doesn't have a description.
      */
      id?: boolean
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
     
 }
 
@@ -744,6 +896,13 @@ export type AdminWhereInput = {
      */
      id?: number | std.Filter<number>
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string | std.StringFilter
+    
 }
 
 
@@ -767,6 +926,13 @@ export type AdminWhereUniqueInput = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -812,6 +978,13 @@ export type AdminScalarWhereWithAggregatesInput = {
      * This synthesized field doesn't have a description.
      */
      id?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string | std.StringWithAggregatesFilter
     
 }
 
@@ -892,6 +1065,13 @@ export type AdminOrderByInput = {
      */
      id?: std.Sort
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: std.Sort
+    
 }
 
 
@@ -922,6 +1102,13 @@ export type AdminCountAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      id?: boolean
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
     
 }
 
@@ -981,6 +1168,13 @@ export type AdminMinAggregateInputType = {
      */
      id?: boolean
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
+    
 }
 
 
@@ -1004,6 +1198,13 @@ export type AdminMaxAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      id?: boolean
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: boolean
     
 }
 
@@ -1029,6 +1230,13 @@ export type AdminCreateInput = {
      */
      password: string
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo: string
+    
 }
 
 
@@ -1052,6 +1260,13 @@ export type AdminUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      password?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -1381,6 +1596,13 @@ export type Admin = {
      */
      id: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo: string
+    
 }
 export type AdminGetPayload<S extends boolean | null | undefined | AdminArgs, U = keyof S> = S extends true
     ? Admin
@@ -1444,6 +1666,13 @@ export type AdminCountAggregateResult = {
      */
      id?: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: number
+    
 }
 
 
@@ -1502,6 +1731,13 @@ export type AdminMinAggregateResult = {
      */
      id?: number
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
+    
 }
 
 
@@ -1525,6 +1761,13 @@ export type AdminMaxAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -1629,6 +1872,13 @@ export type AdminGroupByResult = {
      * This synthesized field doesn't have a description.
      */
      id?: number
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -2486,6 +2736,13 @@ export type AdminScalarUpdateInput = {
      */
      password?: string
     
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
+    
 }
 
 
@@ -2502,6 +2759,13 @@ export type AdminSignInCheckerIds = {
      * This synthesized field doesn't have a description.
      */
      email?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -2567,6 +2831,13 @@ export type AdminSignInArgs = {
      * This synthesized field doesn't have a description.
      */
      password?: string
+    
+    /**
+     * **Phone No**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     phoneNo?: string
     
 }
 
@@ -9176,11 +9447,2579 @@ export type ProductSignInArgs = {
 
 
 /**
- * **User select**
+ * **Record select**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSelect = {
+export type RecordSelect = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+}
+
+
+/**
+ * **Record include**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordInclude = {
+    
+}
+
+
+/**
+ * **Record where input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordWhereInput = {
+    
+    /**
+     * **And**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     AND?: RecordWhereInput[]
+    
+    /**
+     * **Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     NOT?: RecordWhereInput
+    
+    /**
+     * **Or**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     OR?: RecordWhereInput[]
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean | std.BoolFilter
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string | std.Filter<string>
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date | std.Filter<Date>
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal | std.Filter<Decimal>
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number | std.Filter<number>
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number | std.Filter<number>
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number | std.Filter<number>
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string | std.StringFilter
+    
+}
+
+
+/**
+ * **Record where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordWhereUniqueInput = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id: number
+    
+}
+
+
+/**
+ * **Record scalar where with aggregates input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordScalarWhereWithAggregatesInput = {
+    
+    /**
+     * **And**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     AND?: RecordWhereInput[]
+    
+    /**
+     * **Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     NOT?: RecordWhereInput
+    
+    /**
+     * **Or**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     OR?: RecordWhereInput[]
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean | std.BoolWithAggregatesFilter
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string | std.AggregatesFilter<string>
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date | std.AggregatesFilter<Date>
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal | std.DecimalWithAggregatesFilter<Decimal>
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number | std.FloatNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string | std.StringWithAggregatesFilter
+    
+}
+
+
+/**
+ * **Record relation filter**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordRelationFilter = {
+    
+    /**
+     * **Is**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     is?: RecordWhereInput
+    
+    /**
+     * **Is Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     isNot?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record list relation filter**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordListRelationFilter = {
+    
+    /**
+     * **Every**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     every?: RecordWhereInput
+    
+    /**
+     * **None**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     none?: RecordWhereInput
+    
+    /**
+     * **Some**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     some?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record order by input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordOrderByInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: std.Sort
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: std.Sort
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: std.Sort
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: std.Sort
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: std.Sort
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: std.Sort
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: std.Sort
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: std.Sort
+    
+}
+
+
+/**
+ * **Record count aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCountAggregateInputType = {
+    
+    /**
+     * **All**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _all?: boolean
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+}
+
+
+/**
+ * **Record sum aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSumAggregateInputType = {
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+}
+
+
+/**
+ * **Record avg aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordAvgAggregateInputType = {
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+}
+
+
+/**
+ * **Record min aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordMinAggregateInputType = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+}
+
+
+/**
+ * **Record max aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordMaxAggregateInputType = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+}
+
+
+/**
+ * **Record create input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCreateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string: string
+    
+}
+
+
+/**
+ * **Record update input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+}
+
+
+/**
+ * **Record create nested one input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCreateNestedOneInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: RecordWhereUniqueInput
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: RecordConnectOrCreateInput
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: RecordCreateInput
+    
+}
+
+
+/**
+ * **Record create nested many input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCreateNestedManyInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: Enumerable<RecordWhereUniqueInput>
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: Enumerable<RecordConnectOrCreateInput>
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: Enumerable<RecordCreateInput>
+    
+}
+
+
+/**
+ * **Record update nested one input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateNestedOneInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: RecordWhereUniqueInput
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: RecordConnectOrCreateInput
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: RecordCreateInput
+    
+    /**
+     * **Delete**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     delete?: boolean
+    
+    /**
+     * **Disconnect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     disconnect?: boolean
+    
+    /**
+     * **Set**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     set?: RecordWhereUniqueInput
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update?: RecordUpdateWithWhereUniqueInput
+    
+    /**
+     * **Upsert**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     upsert?: RecordUpsertWithWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record update nested many input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateNestedManyInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: Enumerable<RecordWhereUniqueInput>
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: Enumerable<RecordConnectOrCreateInput>
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: Enumerable<RecordCreateInput>
+    
+    /**
+     * **Delete**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     delete?: Enumerable<RecordWhereUniqueInput>
+    
+    /**
+     * **Delete Many**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     deleteMany?: Enumerable<RecordWhereInput>
+    
+    /**
+     * **Disconnect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     disconnect?: Enumerable<RecordWhereUniqueInput>
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update?: Enumerable<RecordUpdateWithWhereUniqueInput>
+    
+    /**
+     * **Update Many**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     updateMany?: Enumerable<RecordUpdateManyWithWhereInput>
+    
+    /**
+     * **Upsert**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     upsert?: Enumerable<RecordUpsertWithWhereUniqueInput>
+    
+}
+
+
+/**
+ * **Record connect or create input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordConnectOrCreateInput = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: RecordCreateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record update with where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateWithWhereUniqueInput = {
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record upsert with where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpsertWithWhereUniqueInput = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: RecordCreateInput
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record update many with where input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateManyWithWhereInput = {
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type Record = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string: string
+    
+}
+export type RecordGetPayload<S extends boolean | null | undefined | RecordArgs, U = keyof S> = S extends true
+    ? Record
+    : S extends undefined
+        ? never
+        : S extends RecordArgs | RecordFindManyArgs
+            ? 'include' extends U
+                ? SelectSubset<Record, S> & {
+                    [P in ExistKeys<S['include']>]:
+                    never
+                }
+                : SelectSubset<Record, S>
+            : Record
+
+export type GetRecordAggregateType<T extends RecordAggregateArgs> = {
+    [P in keyof T & keyof RecordAggregateResult]: P extends '_count' | 'count'
+  ? T[P] extends true
+    ? number
+    : GetScalarType<T[P], RecordAggregateResult[P]>
+  : GetScalarType<T[P], RecordAggregateResult[P]>
+}
+
+export type GetRecordGroupByPayload<T extends RecordGroupByArgs> =
+  Array<
+    PickEnumerable<RecordGroupByResult, T['by']> &
+      {
+        [P in ((keyof T) & (keyof RecordGroupByResult))]: P extends '_count'
+          ? T[P] extends boolean
+            ? number
+            : GetScalarType<T[P], RecordGroupByResult[P]>
+          : GetScalarType<T[P], RecordGroupByResult[P]>
+      }
+    >
+
+
+/**
+ * **Record count aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCountAggregateResult = {
+    
+    /**
+     * **All**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _all?: number
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: number
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: number
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: number
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: number
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: number
+    
+}
+
+
+/**
+ * **Record sum aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSumAggregateResult = {
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+}
+
+
+/**
+ * **Record avg aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordAvgAggregateResult = {
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+}
+
+
+/**
+ * **Record min aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordMinAggregateResult = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+}
+
+
+/**
+ * **Record max aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordMaxAggregateResult = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+}
+
+
+/**
+ * **Record aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordAggregateResult = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: RecordAvgAggregateResult
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: RecordCountAggregateResult
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: RecordMaxAggregateResult
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: RecordMinAggregateResult
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: RecordSumAggregateResult
+    
+}
+
+
+/**
+ * **Record group by result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordGroupByResult = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: RecordAvgAggregateResult
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: RecordCountAggregateResult
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: RecordMaxAggregateResult
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: RecordMinAggregateResult
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: RecordSumAggregateResult
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+}
+
+
+/**
+ * **Record args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+}
+
+
+/**
+ * **Record find many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordFindManyArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: RecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: RecordSerializableScalarFields
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<RecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record find first args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordFindFirstArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: RecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: RecordSerializableScalarFields
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<RecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record find unique args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordFindUniqueArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record create args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCreateArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: RecordCreateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+}
+
+
+/**
+ * **Record update args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record upsert args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpsertArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: RecordCreateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record copy args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCopyArgs = {
+    
+    /**
+     * **Copy**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     copy: RecordUpdateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record delete args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordDeleteArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Record create many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCreateManyArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: Enumerable<RecordCreateInput>
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+}
+
+
+/**
+ * **Record update many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordUpdateManyArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: RecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record delete many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordDeleteManyArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record copy many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCopyManyArgs = {
+    
+    /**
+     * **Copy**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     copy: RecordUpdateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record count args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordCountArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: RecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: RecordSerializableScalarFields
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<RecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordCountAggregateInputType
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record aggregate args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordAggregateArgs = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: RecordAvgAggregateInputType
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: RecordCountAggregateInputType
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: RecordMaxAggregateInputType
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: RecordMinAggregateInputType
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: RecordSumAggregateInputType
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: RecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: RecordSerializableScalarFields
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<RecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record group by args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordGroupByArgs = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: RecordAvgAggregateInputType
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: RecordCountAggregateInputType
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: RecordMaxAggregateInputType
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: RecordMinAggregateInputType
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: RecordSumAggregateInputType
+    
+    /**
+     * **By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     by: Enumerable<RecordSerializableScalarFields>
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: RecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: RecordSerializableScalarFields
+    
+    /**
+     * **Having**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     having?: RecordScalarWhereWithAggregatesInput
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<RecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: RecordWhereInput
+    
+}
+
+
+/**
+ * **Record scalar update input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordScalarUpdateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+}
+
+
+/**
+ * **Record sign in checker ids**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSignInCheckerIds = {
+    
+}
+
+
+/**
+ * **Record sign in checker companions**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSignInCheckerCompanions = {
+    
+}
+
+
+/**
+ * **Record sign in input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSignInInput = {
+    
+    /**
+     * **Credentials**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     credentials: RecordSignInArgs
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: RecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: RecordSelect
+    
+}
+
+
+/**
+ * **Record sign in args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RecordSignInArgs = {
+    
+}
+
+
+/**
+ * **Root select**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RootSelect = {
     
     /**
      * **Email**
@@ -9196,53 +12035,46 @@ export type UserSelect = {
      */
      id?: boolean
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: boolean
+}
+
+
+/**
+ * **Root include**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RootInclude = {
     
 }
 
 
 /**
- * **User include**
+ * **Root where input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserInclude = {
-    
-}
-
-
-/**
- * **User where input**
- *
- * This synthesized interface doesn't have a description
- */
-export type UserWhereInput = {
+export type RootWhereInput = {
     
     /**
      * **And**
      *
      * This synthesized field doesn't have a description.
      */
-     AND?: UserWhereInput[]
+     AND?: RootWhereInput[]
     
     /**
      * **Not**
      *
      * This synthesized field doesn't have a description.
      */
-     NOT?: UserWhereInput
+     NOT?: RootWhereInput
     
     /**
      * **Or**
      *
      * This synthesized field doesn't have a description.
      */
-     OR?: UserWhereInput[]
+     OR?: RootWhereInput[]
     
     /**
      * **Email**
@@ -9258,22 +12090,15 @@ export type UserWhereInput = {
      */
      id?: number | std.Filter<number>
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string | std.StringFilter
-    
 }
 
 
 /**
- * **User where unique input**
+ * **Root where unique input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserWhereUniqueInput = {
+export type RootWhereUniqueInput = {
     
     /**
      * **Email**
@@ -9289,43 +12114,36 @@ export type UserWhereUniqueInput = {
      */
      id?: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User scalar where with aggregates input**
+ * **Root scalar where with aggregates input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserScalarWhereWithAggregatesInput = {
+export type RootScalarWhereWithAggregatesInput = {
     
     /**
      * **And**
      *
      * This synthesized field doesn't have a description.
      */
-     AND?: UserWhereInput[]
+     AND?: RootWhereInput[]
     
     /**
      * **Not**
      *
      * This synthesized field doesn't have a description.
      */
-     NOT?: UserWhereInput
+     NOT?: RootWhereInput
     
     /**
      * **Or**
      *
      * This synthesized field doesn't have a description.
      */
-     OR?: UserWhereInput[]
+     OR?: RootWhereInput[]
     
     /**
      * **Email**
@@ -9341,77 +12159,70 @@ export type UserScalarWhereWithAggregatesInput = {
      */
      id?: number | std.IntNumberWithAggregatesFilter<number>
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string | std.StringWithAggregatesFilter
-    
 }
 
 
 /**
- * **User relation filter**
+ * **Root relation filter**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserRelationFilter = {
+export type RootRelationFilter = {
     
     /**
      * **Is**
      *
      * This synthesized field doesn't have a description.
      */
-     is?: UserWhereInput
+     is?: RootWhereInput
     
     /**
      * **Is Not**
      *
      * This synthesized field doesn't have a description.
      */
-     isNot?: UserWhereInput
+     isNot?: RootWhereInput
     
 }
 
 
 /**
- * **User list relation filter**
+ * **Root list relation filter**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserListRelationFilter = {
+export type RootListRelationFilter = {
     
     /**
      * **Every**
      *
      * This synthesized field doesn't have a description.
      */
-     every?: UserWhereInput
+     every?: RootWhereInput
     
     /**
      * **None**
      *
      * This synthesized field doesn't have a description.
      */
-     none?: UserWhereInput
+     none?: RootWhereInput
     
     /**
      * **Some**
      *
      * This synthesized field doesn't have a description.
      */
-     some?: UserWhereInput
+     some?: RootWhereInput
     
 }
 
 
 /**
- * **User order by input**
+ * **Root order by input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserOrderByInput = {
+export type RootOrderByInput = {
     
     /**
      * **Email**
@@ -9427,22 +12238,15 @@ export type UserOrderByInput = {
      */
      id?: std.Sort
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: std.Sort
-    
 }
 
 
 /**
- * **User count aggregate input type**
+ * **Root count aggregate input type**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCountAggregateInputType = {
+export type RootCountAggregateInputType = {
     
     /**
      * **All**
@@ -9465,22 +12269,15 @@ export type UserCountAggregateInputType = {
      */
      id?: boolean
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: boolean
-    
 }
 
 
 /**
- * **User sum aggregate input type**
+ * **Root sum aggregate input type**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSumAggregateInputType = {
+export type RootSumAggregateInputType = {
     
     /**
      * **Id**
@@ -9493,11 +12290,11 @@ export type UserSumAggregateInputType = {
 
 
 /**
- * **User avg aggregate input type**
+ * **Root avg aggregate input type**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserAvgAggregateInputType = {
+export type RootAvgAggregateInputType = {
     
     /**
      * **Id**
@@ -9510,11 +12307,11 @@ export type UserAvgAggregateInputType = {
 
 
 /**
- * **User min aggregate input type**
+ * **Root min aggregate input type**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserMinAggregateInputType = {
+export type RootMinAggregateInputType = {
     
     /**
      * **Email**
@@ -9530,22 +12327,15 @@ export type UserMinAggregateInputType = {
      */
      id?: boolean
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: boolean
-    
 }
 
 
 /**
- * **User max aggregate input type**
+ * **Root max aggregate input type**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserMaxAggregateInputType = {
+export type RootMaxAggregateInputType = {
     
     /**
      * **Email**
@@ -9561,22 +12351,15 @@ export type UserMaxAggregateInputType = {
      */
      id?: boolean
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: boolean
-    
 }
 
 
 /**
- * **User create input**
+ * **Root create input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCreateInput = {
+export type RootCreateInput = {
     
     /**
      * **Email**
@@ -9592,22 +12375,15 @@ export type UserCreateInput = {
      */
      password: string
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo: string
-    
 }
 
 
 /**
- * **User update input**
+ * **Root update input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateInput = {
+export type RootUpdateInput = {
     
     /**
      * **Email**
@@ -9623,105 +12399,98 @@ export type UserUpdateInput = {
      */
      password?: string
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User create nested one input**
+ * **Root create nested one input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCreateNestedOneInput = {
+export type RootCreateNestedOneInput = {
     
     /**
      * **Connect**
      *
      * This synthesized field doesn't have a description.
      */
-     connect?: UserWhereUniqueInput
+     connect?: RootWhereUniqueInput
     
     /**
      * **Connect Or Create**
      *
      * This synthesized field doesn't have a description.
      */
-     connectOrCreate?: UserConnectOrCreateInput
+     connectOrCreate?: RootConnectOrCreateInput
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create?: UserCreateInput
+     create?: RootCreateInput
     
 }
 
 
 /**
- * **User create nested many input**
+ * **Root create nested many input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCreateNestedManyInput = {
+export type RootCreateNestedManyInput = {
     
     /**
      * **Connect**
      *
      * This synthesized field doesn't have a description.
      */
-     connect?: Enumerable<UserWhereUniqueInput>
+     connect?: Enumerable<RootWhereUniqueInput>
     
     /**
      * **Connect Or Create**
      *
      * This synthesized field doesn't have a description.
      */
-     connectOrCreate?: Enumerable<UserConnectOrCreateInput>
+     connectOrCreate?: Enumerable<RootConnectOrCreateInput>
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create?: Enumerable<UserCreateInput>
+     create?: Enumerable<RootCreateInput>
     
 }
 
 
 /**
- * **User update nested one input**
+ * **Root update nested one input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateNestedOneInput = {
+export type RootUpdateNestedOneInput = {
     
     /**
      * **Connect**
      *
      * This synthesized field doesn't have a description.
      */
-     connect?: UserWhereUniqueInput
+     connect?: RootWhereUniqueInput
     
     /**
      * **Connect Or Create**
      *
      * This synthesized field doesn't have a description.
      */
-     connectOrCreate?: UserConnectOrCreateInput
+     connectOrCreate?: RootConnectOrCreateInput
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create?: UserCreateInput
+     create?: RootCreateInput
     
     /**
      * **Delete**
@@ -9742,207 +12511,207 @@ export type UserUpdateNestedOneInput = {
      *
      * This synthesized field doesn't have a description.
      */
-     set?: UserWhereUniqueInput
+     set?: RootWhereUniqueInput
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update?: UserUpdateWithWhereUniqueInput
+     update?: RootUpdateWithWhereUniqueInput
     
     /**
      * **Upsert**
      *
      * This synthesized field doesn't have a description.
      */
-     upsert?: UserUpsertWithWhereUniqueInput
+     upsert?: RootUpsertWithWhereUniqueInput
     
 }
 
 
 /**
- * **User update nested many input**
+ * **Root update nested many input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateNestedManyInput = {
+export type RootUpdateNestedManyInput = {
     
     /**
      * **Connect**
      *
      * This synthesized field doesn't have a description.
      */
-     connect?: Enumerable<UserWhereUniqueInput>
+     connect?: Enumerable<RootWhereUniqueInput>
     
     /**
      * **Connect Or Create**
      *
      * This synthesized field doesn't have a description.
      */
-     connectOrCreate?: Enumerable<UserConnectOrCreateInput>
+     connectOrCreate?: Enumerable<RootConnectOrCreateInput>
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create?: Enumerable<UserCreateInput>
+     create?: Enumerable<RootCreateInput>
     
     /**
      * **Delete**
      *
      * This synthesized field doesn't have a description.
      */
-     delete?: Enumerable<UserWhereUniqueInput>
+     delete?: Enumerable<RootWhereUniqueInput>
     
     /**
      * **Delete Many**
      *
      * This synthesized field doesn't have a description.
      */
-     deleteMany?: Enumerable<UserWhereInput>
+     deleteMany?: Enumerable<RootWhereInput>
     
     /**
      * **Disconnect**
      *
      * This synthesized field doesn't have a description.
      */
-     disconnect?: Enumerable<UserWhereUniqueInput>
+     disconnect?: Enumerable<RootWhereUniqueInput>
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update?: Enumerable<UserUpdateWithWhereUniqueInput>
+     update?: Enumerable<RootUpdateWithWhereUniqueInput>
     
     /**
      * **Update Many**
      *
      * This synthesized field doesn't have a description.
      */
-     updateMany?: Enumerable<UserUpdateManyWithWhereInput>
+     updateMany?: Enumerable<RootUpdateManyWithWhereInput>
     
     /**
      * **Upsert**
      *
      * This synthesized field doesn't have a description.
      */
-     upsert?: Enumerable<UserUpsertWithWhereUniqueInput>
+     upsert?: Enumerable<RootUpsertWithWhereUniqueInput>
     
 }
 
 
 /**
- * **User connect or create input**
+ * **Root connect or create input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserConnectOrCreateInput = {
+export type RootConnectOrCreateInput = {
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create: UserCreateInput
+     create: RootCreateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User update with where unique input**
+ * **Root update with where unique input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateWithWhereUniqueInput = {
+export type RootUpdateWithWhereUniqueInput = {
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User upsert with where unique input**
+ * **Root upsert with where unique input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpsertWithWhereUniqueInput = {
+export type RootUpsertWithWhereUniqueInput = {
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create: UserCreateInput
+     create: RootCreateInput
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User update many with where input**
+ * **Root update many with where input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateManyWithWhereInput = {
+export type RootUpdateManyWithWhereInput = {
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereInput
+     where: RootWhereInput
     
 }
 
 
 /**
- * **User**
+ * **Root**
  *
  * This synthesized interface doesn't have a description
  */
-export type User = {
+export type Root = {
     
     /**
      * **Email**
@@ -9958,54 +12727,47 @@ export type User = {
      */
      id: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo: string
-    
 }
-export type UserGetPayload<S extends boolean | null | undefined | UserArgs, U = keyof S> = S extends true
-    ? User
+export type RootGetPayload<S extends boolean | null | undefined | RootArgs, U = keyof S> = S extends true
+    ? Root
     : S extends undefined
         ? never
-        : S extends UserArgs | UserFindManyArgs
+        : S extends RootArgs | RootFindManyArgs
             ? 'include' extends U
-                ? SelectSubset<User, S> & {
+                ? SelectSubset<Root, S> & {
                     [P in ExistKeys<S['include']>]:
                     never
                 }
-                : SelectSubset<User, S>
-            : User
+                : SelectSubset<Root, S>
+            : Root
 
-export type GetUserAggregateType<T extends UserAggregateArgs> = {
-    [P in keyof T & keyof UserAggregateResult]: P extends '_count' | 'count'
+export type GetRootAggregateType<T extends RootAggregateArgs> = {
+    [P in keyof T & keyof RootAggregateResult]: P extends '_count' | 'count'
   ? T[P] extends true
     ? number
-    : GetScalarType<T[P], UserAggregateResult[P]>
-  : GetScalarType<T[P], UserAggregateResult[P]>
+    : GetScalarType<T[P], RootAggregateResult[P]>
+  : GetScalarType<T[P], RootAggregateResult[P]>
 }
 
-export type GetUserGroupByPayload<T extends UserGroupByArgs> =
+export type GetRootGroupByPayload<T extends RootGroupByArgs> =
   Array<
-    PickEnumerable<UserGroupByResult, T['by']> &
+    PickEnumerable<RootGroupByResult, T['by']> &
       {
-        [P in ((keyof T) & (keyof UserGroupByResult))]: P extends '_count'
+        [P in ((keyof T) & (keyof RootGroupByResult))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : GetScalarType<T[P], UserGroupByResult[P]>
-          : GetScalarType<T[P], UserGroupByResult[P]>
+            : GetScalarType<T[P], RootGroupByResult[P]>
+          : GetScalarType<T[P], RootGroupByResult[P]>
       }
     >
 
 
 /**
- * **User count aggregate result**
+ * **Root count aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCountAggregateResult = {
+export type RootCountAggregateResult = {
     
     /**
      * **All**
@@ -10028,22 +12790,15 @@ export type UserCountAggregateResult = {
      */
      id?: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: number
-    
 }
 
 
 /**
- * **User sum aggregate result**
+ * **Root sum aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSumAggregateResult = {
+export type RootSumAggregateResult = {
     
     /**
      * **Id**
@@ -10056,11 +12811,11 @@ export type UserSumAggregateResult = {
 
 
 /**
- * **User avg aggregate result**
+ * **Root avg aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserAvgAggregateResult = {
+export type RootAvgAggregateResult = {
     
     /**
      * **Id**
@@ -10073,11 +12828,11 @@ export type UserAvgAggregateResult = {
 
 
 /**
- * **User min aggregate result**
+ * **Root min aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserMinAggregateResult = {
+export type RootMinAggregateResult = {
     
     /**
      * **Email**
@@ -10093,22 +12848,15 @@ export type UserMinAggregateResult = {
      */
      id?: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User max aggregate result**
+ * **Root max aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserMaxAggregateResult = {
+export type RootMaxAggregateResult = {
     
     /**
      * **Email**
@@ -10124,102 +12872,95 @@ export type UserMaxAggregateResult = {
      */
      id?: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User aggregate result**
+ * **Root aggregate result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserAggregateResult = {
+export type RootAggregateResult = {
     
     /**
      * **Avg**
      *
      * This synthesized field doesn't have a description.
      */
-     _avg?: UserAvgAggregateResult
+     _avg?: RootAvgAggregateResult
     
     /**
      * **Count**
      *
      * This synthesized field doesn't have a description.
      */
-     _count?: UserCountAggregateResult
+     _count?: RootCountAggregateResult
     
     /**
      * **Max**
      *
      * This synthesized field doesn't have a description.
      */
-     _max?: UserMaxAggregateResult
+     _max?: RootMaxAggregateResult
     
     /**
      * **Min**
      *
      * This synthesized field doesn't have a description.
      */
-     _min?: UserMinAggregateResult
+     _min?: RootMinAggregateResult
     
     /**
      * **Sum**
      *
      * This synthesized field doesn't have a description.
      */
-     _sum?: UserSumAggregateResult
+     _sum?: RootSumAggregateResult
     
 }
 
 
 /**
- * **User group by result**
+ * **Root group by result**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserGroupByResult = {
+export type RootGroupByResult = {
     
     /**
      * **Avg**
      *
      * This synthesized field doesn't have a description.
      */
-     _avg?: UserAvgAggregateResult
+     _avg?: RootAvgAggregateResult
     
     /**
      * **Count**
      *
      * This synthesized field doesn't have a description.
      */
-     _count?: UserCountAggregateResult
+     _count?: RootCountAggregateResult
     
     /**
      * **Max**
      *
      * This synthesized field doesn't have a description.
      */
-     _max?: UserMaxAggregateResult
+     _max?: RootMaxAggregateResult
     
     /**
      * **Min**
      *
      * This synthesized field doesn't have a description.
      */
-     _min?: UserMinAggregateResult
+     _min?: RootMinAggregateResult
     
     /**
      * **Sum**
      *
      * This synthesized field doesn't have a description.
      */
-     _sum?: UserSumAggregateResult
+     _sum?: RootSumAggregateResult
     
     /**
      * **Email**
@@ -10235,74 +12976,67 @@ export type UserGroupByResult = {
      */
      id?: number
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User args**
+ * **Root args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserArgs = {
+export type RootArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
 }
 
 
 /**
- * **User find many args**
+ * **Root find many args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserFindManyArgs = {
+export type RootFindManyArgs = {
     
     /**
      * **Cursor**
      *
      * This synthesized field doesn't have a description.
      */
-     cursor?: UserWhereUniqueInput
+     cursor?: RootWhereUniqueInput
     
     /**
      * **Distinct**
      *
      * This synthesized field doesn't have a description.
      */
-     distinct?: UserSerializableScalarFields
+     distinct?: RootSerializableScalarFields
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Order By**
      *
      * This synthesized field doesn't have a description.
      */
-     orderBy?: Enumerable<UserOrderByInput>
+     orderBy?: Enumerable<RootOrderByInput>
     
     /**
      * **Page Number**
@@ -10323,7 +13057,7 @@ export type UserFindManyArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Skip**
@@ -10344,45 +13078,45 @@ export type UserFindManyArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     where?: UserWhereInput
+     where?: RootWhereInput
     
 }
 
 
 /**
- * **User find first args**
+ * **Root find first args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserFindFirstArgs = {
+export type RootFindFirstArgs = {
     
     /**
      * **Cursor**
      *
      * This synthesized field doesn't have a description.
      */
-     cursor?: UserWhereUniqueInput
+     cursor?: RootWhereUniqueInput
     
     /**
      * **Distinct**
      *
      * This synthesized field doesn't have a description.
      */
-     distinct?: UserSerializableScalarFields
+     distinct?: RootSerializableScalarFields
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Order By**
      *
      * This synthesized field doesn't have a description.
      */
-     orderBy?: Enumerable<UserOrderByInput>
+     orderBy?: Enumerable<RootOrderByInput>
     
     /**
      * **Page Number**
@@ -10403,7 +13137,7 @@ export type UserFindFirstArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Skip**
@@ -10424,390 +13158,390 @@ export type UserFindFirstArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     where?: UserWhereInput
+     where?: RootWhereInput
     
 }
 
 
 /**
- * **User find unique args**
+ * **Root find unique args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserFindUniqueArgs = {
+export type RootFindUniqueArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User create args**
+ * **Root create args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCreateArgs = {
+export type RootCreateArgs = {
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create: UserCreateInput
+     create: RootCreateInput
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
 }
 
 
 /**
- * **User update args**
+ * **Root update args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateArgs = {
+export type RootUpdateArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User upsert args**
+ * **Root upsert args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpsertArgs = {
+export type RootUpsertArgs = {
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create: UserCreateInput
+     create: RootCreateInput
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User copy args**
+ * **Root copy args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCopyArgs = {
+export type RootCopyArgs = {
     
     /**
      * **Copy**
      *
      * This synthesized field doesn't have a description.
      */
-     copy: UserUpdateInput
+     copy: RootUpdateInput
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User delete args**
+ * **Root delete args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserDeleteArgs = {
+export type RootDeleteArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereUniqueInput
+     where: RootWhereUniqueInput
     
 }
 
 
 /**
- * **User create many args**
+ * **Root create many args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCreateManyArgs = {
+export type RootCreateManyArgs = {
     
     /**
      * **Create**
      *
      * This synthesized field doesn't have a description.
      */
-     create: Enumerable<UserCreateInput>
+     create: Enumerable<RootCreateInput>
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
 }
 
 
 /**
- * **User update many args**
+ * **Root update many args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserUpdateManyArgs = {
+export type RootUpdateManyArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Update**
      *
      * This synthesized field doesn't have a description.
      */
-     update: UserUpdateInput
+     update: RootUpdateInput
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereInput
+     where: RootWhereInput
     
 }
 
 
 /**
- * **User delete many args**
+ * **Root delete many args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserDeleteManyArgs = {
+export type RootDeleteManyArgs = {
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereInput
+     where: RootWhereInput
     
 }
 
 
 /**
- * **User copy many args**
+ * **Root copy many args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCopyManyArgs = {
+export type RootCopyManyArgs = {
     
     /**
      * **Copy**
      *
      * This synthesized field doesn't have a description.
      */
-     copy: UserUpdateInput
+     copy: RootUpdateInput
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
     /**
      * **Where**
      *
      * This synthesized field doesn't have a description.
      */
-     where: UserWhereInput
+     where: RootWhereInput
     
 }
 
 
 /**
- * **User count args**
+ * **Root count args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserCountArgs = {
+export type RootCountArgs = {
     
     /**
      * **Cursor**
      *
      * This synthesized field doesn't have a description.
      */
-     cursor?: UserWhereUniqueInput
+     cursor?: RootWhereUniqueInput
     
     /**
      * **Distinct**
      *
      * This synthesized field doesn't have a description.
      */
-     distinct?: UserSerializableScalarFields
+     distinct?: RootSerializableScalarFields
     
     /**
      * **Order By**
      *
      * This synthesized field doesn't have a description.
      */
-     orderBy?: Enumerable<UserOrderByInput>
+     orderBy?: Enumerable<RootOrderByInput>
     
     /**
      * **Page Number**
@@ -10828,7 +13562,7 @@ export type UserCountArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserCountAggregateInputType
+     select?: RootCountAggregateInputType
     
     /**
      * **Skip**
@@ -10849,73 +13583,73 @@ export type UserCountArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     where?: UserWhereInput
+     where?: RootWhereInput
     
 }
 
 
 /**
- * **User aggregate args**
+ * **Root aggregate args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserAggregateArgs = {
+export type RootAggregateArgs = {
     
     /**
      * **Avg**
      *
      * This synthesized field doesn't have a description.
      */
-     _avg?: UserAvgAggregateInputType
+     _avg?: RootAvgAggregateInputType
     
     /**
      * **Count**
      *
      * This synthesized field doesn't have a description.
      */
-     _count?: UserCountAggregateInputType
+     _count?: RootCountAggregateInputType
     
     /**
      * **Max**
      *
      * This synthesized field doesn't have a description.
      */
-     _max?: UserMaxAggregateInputType
+     _max?: RootMaxAggregateInputType
     
     /**
      * **Min**
      *
      * This synthesized field doesn't have a description.
      */
-     _min?: UserMinAggregateInputType
+     _min?: RootMinAggregateInputType
     
     /**
      * **Sum**
      *
      * This synthesized field doesn't have a description.
      */
-     _sum?: UserSumAggregateInputType
+     _sum?: RootSumAggregateInputType
     
     /**
      * **Cursor**
      *
      * This synthesized field doesn't have a description.
      */
-     cursor?: UserWhereUniqueInput
+     cursor?: RootWhereUniqueInput
     
     /**
      * **Distinct**
      *
      * This synthesized field doesn't have a description.
      */
-     distinct?: UserSerializableScalarFields
+     distinct?: RootSerializableScalarFields
     
     /**
      * **Order By**
      *
      * This synthesized field doesn't have a description.
      */
-     orderBy?: Enumerable<UserOrderByInput>
+     orderBy?: Enumerable<RootOrderByInput>
     
     /**
      * **Page Number**
@@ -10950,87 +13684,87 @@ export type UserAggregateArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     where?: UserWhereInput
+     where?: RootWhereInput
     
 }
 
 
 /**
- * **User group by args**
+ * **Root group by args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserGroupByArgs = {
+export type RootGroupByArgs = {
     
     /**
      * **Avg**
      *
      * This synthesized field doesn't have a description.
      */
-     _avg?: UserAvgAggregateInputType
+     _avg?: RootAvgAggregateInputType
     
     /**
      * **Count**
      *
      * This synthesized field doesn't have a description.
      */
-     _count?: UserCountAggregateInputType
+     _count?: RootCountAggregateInputType
     
     /**
      * **Max**
      *
      * This synthesized field doesn't have a description.
      */
-     _max?: UserMaxAggregateInputType
+     _max?: RootMaxAggregateInputType
     
     /**
      * **Min**
      *
      * This synthesized field doesn't have a description.
      */
-     _min?: UserMinAggregateInputType
+     _min?: RootMinAggregateInputType
     
     /**
      * **Sum**
      *
      * This synthesized field doesn't have a description.
      */
-     _sum?: UserSumAggregateInputType
+     _sum?: RootSumAggregateInputType
     
     /**
      * **By**
      *
      * This synthesized field doesn't have a description.
      */
-     by: Enumerable<UserSerializableScalarFields>
+     by: Enumerable<RootSerializableScalarFields>
     
     /**
      * **Cursor**
      *
      * This synthesized field doesn't have a description.
      */
-     cursor?: UserWhereUniqueInput
+     cursor?: RootWhereUniqueInput
     
     /**
      * **Distinct**
      *
      * This synthesized field doesn't have a description.
      */
-     distinct?: UserSerializableScalarFields
+     distinct?: RootSerializableScalarFields
     
     /**
      * **Having**
      *
      * This synthesized field doesn't have a description.
      */
-     having?: UserScalarWhereWithAggregatesInput
+     having?: RootScalarWhereWithAggregatesInput
     
     /**
      * **Order By**
      *
      * This synthesized field doesn't have a description.
      */
-     orderBy?: Enumerable<UserOrderByInput>
+     orderBy?: Enumerable<RootOrderByInput>
     
     /**
      * **Page Number**
@@ -11065,17 +13799,17 @@ export type UserGroupByArgs = {
      *
      * This synthesized field doesn't have a description.
      */
-     where?: UserWhereInput
+     where?: RootWhereInput
     
 }
 
 
 /**
- * **User scalar update input**
+ * **Root scalar update input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserScalarUpdateInput = {
+export type RootScalarUpdateInput = {
     
     /**
      * **Email**
@@ -11098,22 +13832,15 @@ export type UserScalarUpdateInput = {
      */
      password?: string
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
-    
 }
 
 
 /**
- * **User sign in checker ids**
+ * **Root sign in checker ids**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSignInCheckerIds = {
+export type RootSignInCheckerIds = {
     
     /**
      * **Email**
@@ -11122,63 +13849,56 @@ export type UserSignInCheckerIds = {
      */
      email?: string
     
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
+}
+
+
+/**
+ * **Root sign in checker companions**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type RootSignInCheckerCompanions = {
     
 }
 
 
 /**
- * **User sign in checker companions**
+ * **Root sign in input**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSignInCheckerCompanions = {
-    
-}
-
-
-/**
- * **User sign in input**
- *
- * This synthesized interface doesn't have a description
- */
-export type UserSignInInput = {
+export type RootSignInInput = {
     
     /**
      * **Credentials**
      *
      * This synthesized field doesn't have a description.
      */
-     credentials: UserSignInArgs
+     credentials: RootSignInArgs
     
     /**
      * **Include**
      *
      * This synthesized field doesn't have a description.
      */
-     include?: UserInclude
+     include?: RootInclude
     
     /**
      * **Select**
      *
      * This synthesized field doesn't have a description.
      */
-     select?: UserSelect
+     select?: RootSelect
     
 }
 
 
 /**
- * **User sign in args**
+ * **Root sign in args**
  *
  * This synthesized interface doesn't have a description
  */
-export type UserSignInArgs = {
+export type RootSignInArgs = {
     
     /**
      * **Email**
@@ -11193,13 +13913,6 @@ export type UserSignInArgs = {
      * This synthesized field doesn't have a description.
      */
      password?: string
-    
-    /**
-     * **Phone No**
-     *
-     * This synthesized field doesn't have a description.
-     */
-     phoneNo?: string
     
 }
 
@@ -13116,49 +15829,49 @@ export interface ProductDelegate {
     $headers(headers?: {[key: string]: string} | undefined): Teo
 }
 
-export interface UserDelegate {
+export interface RecordDelegate {
 
     
-    findUnique<T extends UserFindUniqueArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    findUnique<T extends RecordFindUniqueArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    findFirst<T extends UserFindFirstArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    findFirst<T extends RecordFindFirstArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    findMany<T extends UserFindManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>[], std.PagingInfo>>
+    findMany<T extends RecordFindManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Record, RecordGetPayload<T>>[], std.PagingInfo>>
     
-    create<T extends UserCreateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    create<T extends RecordCreateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    update<T extends UserUpdateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    update<T extends RecordUpdateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    upsert<T extends UserUpsertArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    upsert<T extends RecordUpsertArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    copy<T extends UserCopyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    copy<T extends RecordCopyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    delete<T extends UserDeleteArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+    delete<T extends RecordDeleteArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Record, RecordGetPayload<T>>>>
     
-    createMany<T extends UserCreateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>[], std.PagingInfo>>
+    createMany<T extends RecordCreateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Record, RecordGetPayload<T>>[], std.PagingInfo>>
     
-    updateMany<T extends UserUpdateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>[], std.PagingInfo>>
+    updateMany<T extends RecordUpdateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Record, RecordGetPayload<T>>[], std.PagingInfo>>
     
-    copyMany<T extends UserCopyManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>[], std.PagingInfo>>
+    copyMany<T extends RecordCopyManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Record, RecordGetPayload<T>>[], std.PagingInfo>>
     
-    deleteMany<T extends UserDeleteManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>[], std.PagingInfo>>
+    deleteMany<T extends RecordDeleteManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Record, RecordGetPayload<T>>[], std.PagingInfo>>
     
-    count<T extends UserCountArgs>(body: Subset<T, UserCountArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<T extends Record<'select', any>
+    count<T extends RecordCountArgs>(body: Subset<T, RecordCountArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<T extends Record<'select', any>
        ? T['select'] extends true
          ? number
-         : GetScalarType<T['select'], UserCountAggregateResult>
+         : GetScalarType<T['select'], RecordCountAggregateResult>
        : number>>
     
-    aggregate<T extends UserAggregateArgs>(body: Subset<T, UserAggregateArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<GetUserAggregateType<T>>>
+    aggregate<T extends RecordAggregateArgs>(body: Subset<T, RecordAggregateArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<GetRecordAggregateType<T>>>
     
-    groupBy<T extends UserGroupByArgs,
+    groupBy<T extends RecordGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UserGroupByArgs['orderBy'] }
-        : { orderBy?: UserGroupByArgs['orderBy'] },
+        ? { orderBy: RecordGroupByArgs['orderBy'] }
+        : { orderBy?: RecordGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -13206,11 +15919,115 @@ export interface UserDelegate {
           [P in OrderFields]: P extends ByFields
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]>(body: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<{} extends InputErrors ? GetUserGroupByPayload<T> : InputErrors>>
+        }[OrderFields]>(body: SubsetIntersection<T, RecordGroupByArgs, OrderByArg> & InputErrors,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<{} extends InputErrors ? GetRecordGroupByPayload<T> : InputErrors>>
     
-    identity<T extends UserArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, User, UserGetPayload<T>>>>
+
     
-    signIn<T extends UserSignInInput>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, User, UserGetPayload<T>>, std.identity.TokenInfo>>
+
+    
+
+    /**
+     * Get a new client altered with `headers`.
+     * @param {headers?} headers - The new headers.
+     */
+    $headers(headers?: {[key: string]: string} | undefined): Teo
+}
+
+export interface RootDelegate {
+
+    
+    findUnique<T extends RootFindUniqueArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    findFirst<T extends RootFindFirstArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    findMany<T extends RootFindManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>[], std.PagingInfo>>
+    
+    create<T extends RootCreateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    update<T extends RootUpdateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    upsert<T extends RootUpsertArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    copy<T extends RootCopyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    delete<T extends RootDeleteArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    createMany<T extends RootCreateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>[], std.PagingInfo>>
+    
+    updateMany<T extends RootUpdateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>[], std.PagingInfo>>
+    
+    copyMany<T extends RootCopyManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>[], std.PagingInfo>>
+    
+    deleteMany<T extends RootDeleteManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>[], std.PagingInfo>>
+    
+    count<T extends RootCountArgs>(body: Subset<T, RootCountArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<T extends Record<'select', any>
+       ? T['select'] extends true
+         ? number
+         : GetScalarType<T['select'], RootCountAggregateResult>
+       : number>>
+    
+    aggregate<T extends RootAggregateArgs>(body: Subset<T, RootAggregateArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<GetRootAggregateType<T>>>
+    
+    groupBy<T extends RootGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RootGroupByArgs['orderBy'] }
+        : { orderBy?: RootGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]>(body: SubsetIntersection<T, RootGroupByArgs, OrderByArg> & InputErrors,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<{} extends InputErrors ? GetRootGroupByPayload<T> : InputErrors>>
+    
+    identity<T extends RootArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, Root, RootGetPayload<T>>>>
+    
+    signIn<T extends RootSignInInput>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, Root, RootGetPayload<T>>, std.identity.TokenInfo>>
     
 
     
@@ -13241,7 +16058,9 @@ export interface Teo {
     
     product: ProductDelegate
     
-    user: UserDelegate
+    record: RecordDelegate
+    
+    root: RootDelegate
     
 
     /**

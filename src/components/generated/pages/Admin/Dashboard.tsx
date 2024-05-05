@@ -6,7 +6,7 @@ import HideContentShimmerIfNotSignedIn from '../../shimmer/HideContentShimmerIfN
 const AdminDashboard = ({ item }: PageProps) => {
     return <PaddedMainContent>
         <HideContentShimmerIfNotSignedIn>
-            Admin dashboard is not implemented.
+            Dashboard is not implemented.
         </HideContentShimmerIfNotSignedIn>
     </PaddedMainContent>
 }

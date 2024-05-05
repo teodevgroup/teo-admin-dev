@@ -9,7 +9,6 @@ import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import { isEqual } from 'radash'
 import AdminForm from './Form'
 import { useTranslation } from 'react-i18next'
-import FakeFormShimmer from '../../form/FakeFormShimmer'
 
 const AdminFormPage = ({ item }: PageProps) => {
     const { t } = useTranslation("translations")
@@ -23,7 +22,7 @@ const AdminFormPage = ({ item }: PageProps) => {
         </NavBar>
         <Main>
             <PaddedMainContent>
-                <Suspense fallback={<FakeFormShimmer />}>
+                <Suspense fallback={<div>Loading...</div>}>
                     <AdminForm item={item} />
                 </Suspense>
             </PaddedMainContent>

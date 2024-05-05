@@ -11,15 +11,17 @@ import Table from '../../records/Table'
 import Td from '../../records/Td'
 import Th from '../../records/Th'
 import Tr from '../../records/Tr'
+import { useTranslation } from 'react-i18next'
 
 type RecordsListProps = {
     filter: any
 }
 
 const RecordsList = ({ filter }: RecordsListProps) => {
+    const _ = useAccount()
+    const { t } = useTranslation("translations")
     const { pushStack } = usePageStackPage()
     const { token } = useRefreshToken("models.admin")
-    const _ = useAccount()
     const { data, meta } = suspend(async () => {
         return await teo.admin.findMany(filter)
     }, [filter, token])
@@ -40,12 +42,14 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                             query: pick(item, ["id"])
                         })
                     }} />
-                },
+                }
             }}
             fixedHeaderContent={() => {
                 return <tr>
-                    <Th>Id</Th>
-                    <Th>Email</Th>
+                    <Th>{t('model.admin.id.name')}</Th>
+                    <Th>{t('model.admin.email.name')}</Th>
+                    <Th>{t('model.admin.phoneNo.name')}</Th>
+                    <Th>{t('model.admin.password.name')}</Th>
                 </tr>
             }}
             style={{ height: 400 }}
@@ -55,6 +59,8 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                 <>
                     <Td>{item.id}</Td>
                     <Td>{item.email}</Td>
+                    <Td>{item.phoneNo}</Td>
+                    <Td>{item.password}</Td>
                 </>
             )}
         />

@@ -8,20 +8,24 @@ const defaultPreferences: Preferences = {
     nav: {
         collapsed: false,
         items: [
-            { id: "Admin", name: "Admin", icon: "RiBox3Line", path: "Admin" },
-            { id: "User", name: "User", icon: "RiBox3Line", path: "User" },
+            { id: "Admin", name: "model.admin.name", icon: "RiBox3Line", path: "Admin"},
+            { id: "Category", name: "model.category.name", icon: "RiBox3Line", path: "Category"},
+            { id: "Item", name: "model.item.name", icon: "RiBox3Line", path: "Item"},
+            { id: "Product", name: "model.product.name", icon: "RiBox3Line", path: "Product"},
+            { id: "Record", name: "model.record.name", icon: "RiBox3Line", path: "Record"},
+            { id: "Root", name: "model.root.name", icon: "RiBox3Line", path: "Root"},
         ]
     },
     signIn: {
         defaultModel: "Admin",
-        user: {
-            defaultIdKey: "email",
-            defaultCheckerKey: "password"
-        },
         admin: {
             defaultIdKey: "email",
-            defaultCheckerKey: "password"
-        }
+            defaultCheckerKey: "password",
+        },
+        root: {
+            defaultIdKey: "email",
+            defaultCheckerKey: "password",
+        },
     }
 }
 

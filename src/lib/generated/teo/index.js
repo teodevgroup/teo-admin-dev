@@ -5,7 +5,8 @@ let groupDelegateMap = [
     "Category",
     "Item",
     "Product",
-    "User",
+    "Record",
+    "Root",
     "std",
     "std.DataSetRecord",
     "std.DataSetRelation",
@@ -16,12 +17,12 @@ let groupDelegateMap = [
 let customHandlerMap = {
     "Admin.identity":{ method: "POST", path: "Admin/identity", pathArguments: false },
     "Admin.signIn":{ method: "POST", path: "Admin/signIn", pathArguments: false },
-    "User.identity":{ method: "POST", path: "User/identity", pathArguments: false },
-    "User.signIn":{ method: "POST", path: "User/signIn", pathArguments: false }
+    "Root.identity":{ method: "POST", path: "Root/identity", pathArguments: false },
+    "Root.signIn":{ method: "POST", path: "Root/signIn", pathArguments: false }
 }
 
 async function request(method, path, body = undefined, headers = undefined, queryString = undefined) {
-    let url = "http://localhost:5052/" + path
+    let url = process.env.TEO_HOST + path
     if (queryString) {
         url = url + "?" + queryString
     }
