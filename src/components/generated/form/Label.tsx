@@ -7,6 +7,8 @@ const Label = styled.label`
     font-weight: bold;
     padding-left: ${controlRadius};
     margin-bottom: 4px;
+    cursor: default;
+    user-select: none;
 `
 
 export default Label

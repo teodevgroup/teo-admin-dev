@@ -1,17 +1,40 @@
-import React, { forwardRef } from 'react'
+import React, { ComponentPropsWithoutRef, forwardRef, useRef } from 'react'
 import CombinedFormControlGroup from '../../generated/combinedFormControlGroup/CombinedFormControlGroup'
 import Button from '../../extended/button/Button'
 import Input from '../../extended/input/Input'
 import { FaMinus } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa'
+import { useMergeRefs } from '@floating-ui/react'
+import Decimal from 'decimal.js'
 
-const NumberInput = forwardRef<HTMLInputElement>((props, ref) => {
+const nextNumberValue = (value: string, n: number) => {
+    const numberValue = Number(value)
+    if (!Number.isNaN(numberValue)) {
+        return (new Decimal(numberValue).add(n)).toString()
+    } else {
+        return value
+    }
+}
+
+const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input'>>((props, ref) => {
+    const inputRef = useRef<HTMLInputElement>()
+    inputRef.current
     return <CombinedFormControlGroup>
-        <Button>
+        <Button onClick={(e) => {
+            e.preventDefault()
+            if (inputRef.current) {
+                inputRef.current.value = nextNumberValue(inputRef.current.value, -1)
+            }
+        }}>
             <FaMinus />
         </Button>
-        <Input {...props} ref={ref} />
-        <Button>
+        <Input {...props} ref={useMergeRefs([ref, inputRef])} />
+        <Button onClick={(e) => {
+            e.preventDefault()
+            if (inputRef.current) {
+                inputRef.current.value = nextNumberValue(inputRef.current.value, 1)
+            }
+        }}>
             <FaPlus />
         </Button>
     </CombinedFormControlGroup>

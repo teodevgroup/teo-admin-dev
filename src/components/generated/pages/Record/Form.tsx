@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
+import NumberInput from '../../numberInput/NumberInput'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -83,15 +84,15 @@ const RecordForm = ({ item }: PageProps) => {
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.int.name')}</Label>
-                <Input disabled={loading} {...register("int")} />
+                <NumberInput type="number" disabled={loading} {...register("int", { valueAsNumber: true, validate: Number.isInteger })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.float.name')}</Label>
-                <Input disabled={loading} {...register("float")} />
+                <NumberInput type="number" disabled={loading} {...register("float", { valueAsNumber: true })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.decimal.name')}</Label>
-                <Input disabled={loading} {...register("decimal")} />
+                <NumberInput type="number" disabled={loading} {...register("decimal", { valueAsNumber: true })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.date.name')}</Label>

@@ -1,6 +1,7 @@
 import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
 import SelectElement from "../select/SelectElement"
+import { spacing } from "../../../lib/extended/theme"
 
 const CombinedFormControlGroup = styled.div`
     ${flexContainer("row", "center", "center")}
@@ -14,6 +15,12 @@ const CombinedFormControlGroup = styled.div`
     }
     input {
         z-index: 4;
+    }
+    input:not(:first-child) {
+        padding-left: ${spacing};
+    }
+    input:not(:last-child) {
+        padding-right: ${spacing};
     }
     ${SelectElement} {
         width: 40%;
