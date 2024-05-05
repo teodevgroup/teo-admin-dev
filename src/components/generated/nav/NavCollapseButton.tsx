@@ -4,13 +4,13 @@
 import React, { forwardRef } from 'react'
 import { ComponentPropsWithRef } from "react"
 import NavCollapseButtonElement from "../../extended/nav/NavCollapseButtonElement"
-import { RiMenuLine } from "react-icons/ri"
+import { LuMenu } from 'react-icons/lu'
 
 export type NavCollapseButtonProps = Omit<ComponentPropsWithRef<'button'>, 'children'> & { collapsed: boolean }
 
 const NavCollapseButton = forwardRef<HTMLButtonElement, NavCollapseButtonProps>(({ collapsed, ...props }: NavCollapseButtonProps, ref) => {
     return <NavCollapseButtonElement ref={ref} {...props}>
-        <RiMenuLine />
+        <LuMenu />
     </NavCollapseButtonElement>
 })
 

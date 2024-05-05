@@ -2,7 +2,7 @@ import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
 import SelectElement from "../select/SelectElement"
 
-const SignInLineGroup = styled.div`
+const CombinedFormControlGroup = styled.div`
     ${flexContainer("row", "center", "center")}
     & > *:not(:first-child) {
         border-top-left-radius: 0;
@@ -20,4 +20,4 @@ const SignInLineGroup = styled.div`
     }
 `
 
-export default SignInLineGroup
+export default CombinedFormControlGroup

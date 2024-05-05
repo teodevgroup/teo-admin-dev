@@ -8,7 +8,7 @@ import Option from '../select/Option'
 import { useForm } from 'react-hook-form'
 import { useSignInDefaultModel, useSignInAdminDefaultCheckerKey, useSignInAdminDefaultIdKey, useSignInRootDefaultCheckerKey, useSignInRootDefaultIdKey } from '../../../lib/generated/preferences'
 import { accountModelNames, accountModels, signIn } from '../../../lib/generated/signIn'
-import SignInLineGroup from './SignInLineGroup'
+import CombinedFormControlGroup from '../../generated/combinedFormControlGroup/CombinedFormControlGroup'
 import { checkerFieldsForModel, idFieldsForModel } from '../../../lib/generated/signIn/keys'
 import { useTranslation } from 'react-i18next'
 import Button from '../../extended/button/Button'
@@ -112,7 +112,7 @@ const SignInForm = () => {
                             <span>{t(accountModelNames[value])}</span>
                         </Option>)}
                     </Select>
-                    <SignInLineGroup>
+                    <CombinedFormControlGroup>
                         <Select value={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || idKey())} onChange={(v) => {
                             setIdKey(v)
                             reset()
@@ -122,8 +122,8 @@ const SignInForm = () => {
                             </Option>)}
                         </Select>
                         <Input {...register("id")} disabled={isLoading} />
-                    </SignInLineGroup>
-                    <SignInLineGroup>
+                    </CombinedFormControlGroup>
+                    <CombinedFormControlGroup>
                         <Select value={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || checkerKey())} onChange={(v) => {
                             setCheckerKey(v)
                             reset()
@@ -133,7 +133,7 @@ const SignInForm = () => {
                             </Option>)}
                         </Select>
                         <Input type={checkerInputType()} {...register("checker")} disabled={isLoading} />
-                    </SignInLineGroup>
+                    </CombinedFormControlGroup>
                     <Button type='submit' disabled={isLoading}>{t("signIn.signIn")}</Button>
                 </SignInFormElement>
                 <SignInAdditionals />
