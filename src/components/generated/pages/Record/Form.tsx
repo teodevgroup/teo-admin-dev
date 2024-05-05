@@ -31,6 +31,7 @@ const RecordForm = ({ item }: PageProps) => {
     const { register, handleSubmit } = useForm({ defaultValues: omit(data, ["id"]) })
     const [loading, setLoading] = useState(false)
     const onSubmit = async (data: any) => {
+        console.log(data)
         setLoading(true)
         try {
             if (isEqual(item.query, {}) || !item.query) {
@@ -88,11 +89,11 @@ const RecordForm = ({ item }: PageProps) => {
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.float.name')}</Label>
-                <NumberInput type="number" disabled={loading} {...register("float", { valueAsNumber: true })} />
+                <NumberInput type="number" step="any" disabled={loading} {...register("float", { valueAsNumber: true })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.decimal.name')}</Label>
-                <NumberInput type="number" disabled={loading} {...register("decimal", { valueAsNumber: true })} />
+                <NumberInput type="number" step="any" disabled={loading} {...register("decimal")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.date.name')}</Label>
