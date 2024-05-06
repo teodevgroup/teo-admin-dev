@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { forwardRef } from 'react'
 import RecordsContainer from '../../records/RecordsContainer'
 import { TableVirtuoso } from 'react-virtuoso'
@@ -12,6 +15,7 @@ import Td from '../../records/Td'
 import Th from '../../records/Th'
 import Tr from '../../records/Tr'
 import { useTranslation } from 'react-i18next'
+import displayValue from '../../../../lib/generated/displayValue'
 
 type RecordsListProps = {
     filter: any
@@ -57,10 +61,10 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             totalCount={data.length}
             itemContent={(_, item) => (
                 <>
-                    <Td>{item.id}</Td>
-                    <Td>{item.name}</Td>
-                    <Td>{item.stock}</Td>
-                    <Td>{item.categoryId}</Td>
+                    <Td>{displayValue(item.id)}</Td>
+                    <Td>{displayValue(item.name)}</Td>
+                    <Td>{displayValue(item.stock)}</Td>
+                    <Td>{displayValue(item.categoryId)}</Td>
                 </>
             )}
         />

@@ -1,6 +1,3 @@
-// This file is generated and managed by Teo generator internally.
-// It will be overwritten in next generation. Do not modify this file.
-
 import React from 'react'
 import NavBar from "../../pageStack/NavBar"
 import Page from "../../pageStack/Page"

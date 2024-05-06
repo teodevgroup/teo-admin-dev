@@ -1,18 +1,20 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { useState } from 'react'
 import PageProps from "../../pageStack/PageProps"
 import { suspend } from 'suspend-react'
 import { isEqual, omit } from 'radash'
 import { teo, Item, ItemCreateInput, ItemUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
-import Input from '../../../extended/input/Input'
 import LabeledGroup from '../../form/LabeledGroup'
-import Label from '../../form/Label'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
+import renderFormEntry from '../../form/renderFormEntry'
 
 const ItemForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -27,7 +29,7 @@ const ItemForm = ({ item }: PageProps) => {
             })).data
         }
     }, [item])
-    const { register, handleSubmit } = useForm({ defaultValues: omit(data, ["id"]) })
+    const form = useForm({ defaultValues: omit(data, ["id"]) })
     const [loading, setLoading] = useState(false)
     const onSubmit = async (data: any) => {
         setLoading(true)
@@ -71,12 +73,9 @@ const ItemForm = ({ item }: PageProps) => {
             setLoading(false)
         }
     }
-    return <FormContainer onSubmit={handleSubmit(onSubmit)}>
+    return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            <LabeledGroup>
-                <Label>{t('model.item.name.name')}</Label>
-                <Input disabled={loading} {...register("name")} />
-            </LabeledGroup>
+            {renderFormEntry(t('model.item.name.name'), "name", { type: "String", optional: false}, form, loading)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>
