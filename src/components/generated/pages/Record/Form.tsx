@@ -9,11 +9,12 @@ import LabeledGroup from '../../form/LabeledGroup'
 import Label from '../../form/Label'
 import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import Button from '../../../extended/button/Button'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import NumberInput from '../../numberInput/NumberInput'
+import Toggle from '../../toggle/Toggle'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -28,7 +29,7 @@ const RecordForm = ({ item }: PageProps) => {
             })).data
         }
     }, [item])
-    const { register, handleSubmit } = useForm({ defaultValues: omit(data, ["id"]) })
+    const form = useForm({ defaultValues: omit(data, ["id"]) })
     const [loading, setLoading] = useState(false)
     const onSubmit = async (data: any) => {
         console.log(data)
@@ -73,35 +74,37 @@ const RecordForm = ({ item }: PageProps) => {
             setLoading(false)
         }
     }
-    return <FormContainer onSubmit={handleSubmit(onSubmit)}>
+    return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
             <LabeledGroup>
                 <Label>{t('model.record.string.name')}</Label>
-                <Input disabled={loading} {...register("string")} />
+                <Input disabled={loading} {...form.register("string")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.bool.name')}</Label>
-                <Input disabled={loading} {...register("bool")} />
+                <Controller disabled={loading} control={form.control} name="bool" render={({ field }) => {
+                    return <Toggle disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } /> 
+                }} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.int.name')}</Label>
-                <NumberInput type="number" disabled={loading} {...register("int", { valueAsNumber: true, validate: Number.isInteger })} />
+                <NumberInput type="number" disabled={loading} {...form.register("int", { valueAsNumber: true, validate: Number.isInteger })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.float.name')}</Label>
-                <NumberInput type="number" step="any" disabled={loading} {...register("float", { valueAsNumber: true })} />
+                <NumberInput type="number" step="any" disabled={loading} {...form.register("float", { valueAsNumber: true })} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.decimal.name')}</Label>
-                <NumberInput type="number" step="any" disabled={loading} {...register("decimal")} />
+                <NumberInput type="number" step="any" disabled={loading} {...form.register("decimal")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.date.name')}</Label>
-                <Input disabled={loading} {...register("date")} />
+                <Input disabled={loading} {...form.register("date")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.dateTime.name')}</Label>
-                <Input disabled={loading} {...register("dateTime")} />
+                <Input disabled={loading} {...form.register("dateTime")} />
             </LabeledGroup>
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
