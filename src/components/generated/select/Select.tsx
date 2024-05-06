@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useEffect, useRef, useState } from 'react'
 import SelectElement from "../../extended/select/SelectElement"
 import { inner, SideObject, useFloating, autoUpdate, offset, shift, flip, size, useInteractions, useClick, useDismiss, useRole, useInnerOffset, useListNavigation, useTypeahead, useMergeRefs, FloatingPortal, FloatingOverlay, FloatingFocusManager, FloatingList } from '@floating-ui/react'

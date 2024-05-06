@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { ForwardedRef, forwardRef, ComponentPropsWithRef, ReactNode, useContext } from 'react'
 import OptionElement from '../../extended/select/OptionElement'
 import SelectContext from './SelectContext'

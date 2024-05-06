@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { ReactElement } from 'react'
 import { PageStackItem } from "../pageStack/PageStackItem"
 import _IndexPage from './_Index'
