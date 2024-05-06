@@ -12,6 +12,7 @@ import Td from '../../records/Td'
 import Th from '../../records/Th'
 import Tr from '../../records/Tr'
 import { useTranslation } from 'react-i18next'
+import displayValue from '../../../../lib/generated/displayValue'
 
 type RecordsListProps = {
     filter: any
@@ -61,14 +62,14 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             totalCount={data.length}
             itemContent={(_, item) => (
                 <>
-                    <Td>{item.id}</Td>
-                    <Td>{item.string}</Td>
-                    <Td>{item.bool}</Td>
-                    <Td>{item.int}</Td>
-                    <Td>{item.float}</Td>
-                    <Td>{item.decimal}</Td>
-                    <Td>{item.date}</Td>
-                    <Td>{item.dateTime}</Td>
+                    <Td>{displayValue(item.id)}</Td>
+                    <Td>{displayValue(item.string)}</Td>
+                    <Td>{displayValue(item.bool)}</Td>
+                    <Td>{displayValue(item.int)}</Td>
+                    <Td>{displayValue(item.float)}</Td>
+                    <Td>{displayValue(item.decimal)}</Td>
+                    <Td>{displayValue(item.date)}</Td>
+                    <Td>{displayValue(item.dateTime)}</Td>
                 </>
             )}
         />
