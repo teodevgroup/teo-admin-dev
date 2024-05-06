@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { styled } from "@linaria/react"
 import { clearButton, dark, light } from "../../../lib/generated/theme"
 import { controlTintColorDark, controlTintColorLight, spacing } from "../../../lib/extended/theme"

@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { useCallback, useEffect, useState } from "react"
 import { PageStackData } from "./PageStackData"
 import { PageStackItem } from "./PageStackItem"

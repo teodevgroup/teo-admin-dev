@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { ComponentPropsWithoutRef, ForwardedRef, forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IconCode, iconsMap } from '../../../lib/extended/icons'

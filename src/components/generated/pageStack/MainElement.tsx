@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { styled } from "@linaria/react"
 import { dark, light, navBarHeight } from "../../../lib/generated/theme"
 import { appBackgroundColorDark, appBackgroundColorLight } from "../../../lib/extended/theme"

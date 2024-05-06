@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { ComponentPropsWithoutRef, ForwardedRef, forwardRef, useState } from 'react'
 import { flip, offset, useFloating, useHover, useInteractions, shift, useMergeRefs, FloatingPortal, safePolygon, useClick, useTransitionStyles, useDismiss } from "@floating-ui/react"
 
