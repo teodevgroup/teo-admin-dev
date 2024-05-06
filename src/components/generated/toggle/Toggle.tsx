@@ -1,7 +1,6 @@
 import React from 'react'
 import ToggleElement from './ToggleElement'
 import ToggleDotElement from './ToggleDotElement'
-
 interface ToggleProps {
     isOn: boolean
     setIsOn?(on: boolean): void

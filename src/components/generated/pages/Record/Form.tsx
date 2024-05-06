@@ -15,6 +15,8 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import NumberInput from '../../numberInput/NumberInput'
 import Toggle from '../../toggle/Toggle'
+import DatePicker from "react-datepicker"
+import DateInput from '../../input/DateInput'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -100,11 +102,15 @@ const RecordForm = ({ item }: PageProps) => {
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.date.name')}</Label>
-                <Input disabled={loading} {...form.register("date")} />
+                <Controller disabled={loading} defaultValue={null as any} control={form.control} name="date" render={({ field }) => {
+                    return <DatePicker customInput={<DateInput />} dateFormat="yyyy/MM/dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
+                }} />
             </LabeledGroup>
             <LabeledGroup>
                 <Label>{t('model.record.dateTime.name')}</Label>
-                <Input disabled={loading} {...form.register("dateTime")} />
+                <Controller disabled={loading} defaultValue={null as any} control={form.control} name="dateTime" render={({ field }) => {
+                    return <DatePicker dateFormat="yyyy/MM/dd h:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
+                }} />
             </LabeledGroup>
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
