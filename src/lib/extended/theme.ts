@@ -85,6 +85,8 @@ export const margin = "16px"
 
 export const controlHeight = `calc(1.25rem + ${margin})`
 
+export const controlHeightDoubled = `calc((1.25rem + ${margin}) * 2)`
+
 export const controlRadius = `calc((1.25rem + ${margin}) / 2)`
 
 export const radius = "4px"
