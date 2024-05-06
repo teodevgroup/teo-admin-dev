@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import React, { useState } from 'react'
 import PageProps from "../../pageStack/PageProps"
 import { suspend } from 'suspend-react'
