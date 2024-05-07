@@ -26,6 +26,7 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "records.create": "创建",
     "bool.yes": "是",
     "bool.no": "否",  
+    "null.empty": "（空）",
 }
 
 export default staticGeneratedTranslation

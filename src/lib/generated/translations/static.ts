@@ -23,4 +23,5 @@ export type StaticGeneratedTranslation = {
     "records.create": string
     "bool.yes": string
     "bool.no": string
+    "null.empty": string
 }

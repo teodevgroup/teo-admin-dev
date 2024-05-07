@@ -51,7 +51,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
         }} />
     } else if (type.type === "Enum") {
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-            return <Select value={field.value} display={field.value === null ? "(Empty)" : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
+            return <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
                 {(enumDefinitions[type.enumName!]).members.map((m) => {
                     return <Option key={m.value} value={m.value}>
                         {t(m.name)}
