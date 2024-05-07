@@ -149,6 +149,7 @@
         "src/lib/generated/refreshToken.ts",
         "src/lib/generated/mergePreferences.ts",
         "src/lib/generated/icons.tsx",
+        "src/lib/generated/enumDefinitions.ts",
         "src/lib/generated/displayValue.ts",
         "src/lib/generated/browsingCaches.ts",
         "src/lib/generated/utilities/set.ts",

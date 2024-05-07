@@ -7,6 +7,8 @@ import Toggle from '../toggle/Toggle'
 import NumberInput from '../numberInput/NumberInput'
 import ReactDatePicker from 'react-datepicker'
 import DateInput from '../input/DateInput'
+import Select from '../select/Select'
+import Option from '../select/Option'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -28,24 +30,34 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     if (type.type === "String") {
         return <Input disabled={disabled} {...form.register(key)} {...(secure ? { type: "password" } : {})} />
     } else if (type.type === "Int" || type.type === "Int64") {
-        return <NumberInput type="number" disabled={disabled} {...form.register("int", { valueAsNumber: true, validate: Number.isInteger })} />
+        return <NumberInput type="number" disabled={disabled} {...form.register(key, { valueAsNumber: true, validate: Number.isInteger })} />
     } else if (type.type === "Float" || type.type === "Float32") {
-        return <NumberInput type="number" step="any" disabled={disabled} {...form.register("float", { valueAsNumber: true })} />
+        return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { valueAsNumber: true })} />
     } else if (type.type === "Bool") {
-        return <Controller disabled={disabled} control={form.control} name="bool" render={({ field }) => {
+        return <Controller disabled={disabled} control={form.control} name={key} render={({ field }) => {
             return <Toggle disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } /> 
         }} />
     } else if (type.type === "Decimal") {
         return <NumberInput type="number" step="any" disabled={disabled} {...form.register("decimal")} />
     } else if (type.type === "Date") {
-        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name="date" render={({ field }) => {
+        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
             return <ReactDatePicker customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
         }} />
     } else if (type.type === "DateTime") {
-        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name="dateTime" render={({ field }) => {
+        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
             return <ReactDatePicker dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
         }} />
     } else if (type.type === "Enum") {
+        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+            return <Select value={field.value} onChange={(v) => field.onChange(v)}>
+                <Option value="male">
+                    Male
+                </Option>
+                <Option value="female">
+                    Female
+                </Option>
+            </Select>
+        }} />
         return null
     } else {
         return null
