@@ -104,7 +104,7 @@ const SignInForm = () => {
                 <ModalSheetTitle>{t("signIn.signIn")}</ModalSheetTitle>
                 <ModalSheetDescription>{t("signIn.pleaseSignIn")}</ModalSheetDescription>
                 <SignInFormElement onSubmit={handleSubmit(submit)}>
-                    <Select value={t(accountModelNames[signInModel])} onChange={(v) => {
+                    <Select value={signInModel} display={t(accountModelNames[signInModel])} onChange={(v) => {
                         setSignInModel(v)
                         reset()
                     }} allowsNull={false}>
@@ -113,7 +113,7 @@ const SignInForm = () => {
                         </Option>)}
                     </Select>
                     <CombinedFormControlGroup>
-                        <Select value={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || idKey())} onChange={(v) => {
+                        <Select value={idKey()} display={t(idFieldsForModel(signInModel).find((f) => f.key === idKey())?.name || idKey())} onChange={(v) => {
                             setIdKey(v)
                             reset()
                         }}>
@@ -124,7 +124,7 @@ const SignInForm = () => {
                         <Input {...register("id")} disabled={isLoading} />
                     </CombinedFormControlGroup>
                     <CombinedFormControlGroup>
-                        <Select value={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || checkerKey())} onChange={(v) => {
+                        <Select value={checkerKey()} display={t(checkerFieldsForModel(signInModel).find((f) => f.key === checkerKey())?.name || checkerKey())} onChange={(v) => {
                             setCheckerKey(v)
                             reset()
                         }}>
