@@ -1,3 +1,4 @@
+import { format } from "date-fns"
 import Decimal from "decimal.js"
 
 const displayValue = (value: any) => {
@@ -8,7 +9,7 @@ const displayValue = (value: any) => {
         return value.toString()
     }
     if (value instanceof Date) {
-        return value.toLocaleString()
+        return format(value, "yyyy-MM-dd hh:mm aa")
     }
     if (typeof value === "boolean") {
         if (value) {

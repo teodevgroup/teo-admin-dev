@@ -38,11 +38,11 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
         return <NumberInput type="number" step="any" disabled={disabled} {...form.register("decimal")} />
     } else if (type.type === "Date") {
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name="date" render={({ field }) => {
-            return <ReactDatePicker customInput={<DateInput />} dateFormat="yyyy/MM/dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
+            return <ReactDatePicker customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
         }} />
     } else if (type.type === "DateTime") {
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name="dateTime" render={({ field }) => {
-            return <ReactDatePicker dateFormat="yyyy/MM/dd h:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
+            return <ReactDatePicker dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
         }} />
 } else {
         return null
