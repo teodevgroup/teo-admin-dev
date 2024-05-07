@@ -183,6 +183,13 @@ export declare class TeoError extends Error {
 }
 
 /**
+ * **Sex**
+ *
+ * This enum doesn't have a description.
+ */
+export type Sex = "male" | "female"
+
+/**
  * **Admin scalar fields**
  *
  * This synthesized enum doesn't have a description.
@@ -327,14 +334,14 @@ export type ProductIndirectRelations = undefined
  *
  * This synthesized enum doesn't have a description.
  */
-export type RecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "string"
+export type RecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "sex" | "string"
 
 /**
  * **Record serializable scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type RecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "string"
+export type RecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "sex" | "string"
 
 /**
  * **Record relations**
@@ -391,6 +398,22 @@ export type RootDirectRelations = undefined
  * This synthesized enum doesn't have a description.
  */
 export type RootIndirectRelations = undefined
+
+/// ## Sex
+///
+/// This enum doesn't have a description.
+export const enum SexEnumType {
+
+    /// ### Male
+    ///
+    /// This enum member doesn't have a description.
+    male = "male",
+
+    /// ### Female
+    ///
+    /// This enum member doesn't have a description.
+    female = "female",
+}
 
 /// ## Admin scalar fields
 ///
@@ -687,6 +710,11 @@ export const enum RecordScalarFieldsEnumType {
     /// This synthesized enum member doesn't have a description.
     int = "int",
 
+    /// ### Sex
+    ///
+    /// This synthesized enum member doesn't have a description.
+    sex = "sex",
+
     /// ### String
     ///
     /// This synthesized enum member doesn't have a description.
@@ -732,6 +760,11 @@ export const enum RecordSerializableScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     int = "int",
+
+    /// ### Sex
+    ///
+    /// This synthesized enum member doesn't have a description.
+    sex = "sex",
 
     /// ### String
     ///
@@ -9503,6 +9536,13 @@ export type RecordSelect = {
      int?: boolean
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -9598,6 +9638,13 @@ export type RecordWhereInput = {
      * This synthesized field doesn't have a description.
      */
      int?: number | std.Filter<number>
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex | std.EnumFilter<Sex>
     
     /**
      * **String**
@@ -9702,6 +9749,13 @@ export type RecordScalarWhereWithAggregatesInput = {
      * This synthesized field doesn't have a description.
      */
      int?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex | std.EnumWithAggregatesFilter<Sex>
     
     /**
      * **String**
@@ -9825,6 +9879,13 @@ export type RecordOrderByInput = {
      int?: std.Sort
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: std.Sort
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -9896,6 +9957,13 @@ export type RecordCountAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      int?: boolean
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
     
     /**
      * **String**
@@ -10040,6 +10108,13 @@ export type RecordMinAggregateInputType = {
      int?: boolean
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -10106,6 +10181,13 @@ export type RecordMaxAggregateInputType = {
      int?: boolean
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -10165,6 +10247,13 @@ export type RecordCreateInput = {
      int: number
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex: Sex
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -10222,6 +10311,13 @@ export type RecordUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
     
     /**
      * **String**
@@ -10594,6 +10690,13 @@ export type Record = {
      int: number
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex: Sex
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -10697,6 +10800,13 @@ export type RecordCountAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: number
     
     /**
      * **String**
@@ -10841,6 +10951,13 @@ export type RecordMinAggregateResult = {
      int?: number
     
     /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
      * **String**
      *
      * This synthesized field doesn't have a description.
@@ -10905,6 +11022,13 @@ export type RecordMaxAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
     
     /**
      * **String**
@@ -11051,6 +11175,13 @@ export type RecordGroupByResult = {
      * This synthesized field doesn't have a description.
      */
      int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
     
     /**
      * **String**
@@ -11942,6 +12073,13 @@ export type RecordScalarUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
     
     /**
      * **String**

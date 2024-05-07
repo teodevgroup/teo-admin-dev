@@ -8,12 +8,13 @@ import NumberInput from '../numberInput/NumberInput'
 import ReactDatePicker from 'react-datepicker'
 import DateInput from '../input/DateInput'
 
-export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array"
+export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
 export type FormType = {
     type: FormTypeName
     optional: boolean
     child?: FormType
+    enumName?: string
 }
 
 const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, secure?: boolean) => {
@@ -44,7 +45,9 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name="dateTime" render={({ field }) => {
             return <ReactDatePicker dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
         }} />
-} else {
+    } else if (type.type === "Enum") {
+        return null
+    } else {
         return null
     }
 }

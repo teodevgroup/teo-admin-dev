@@ -58,6 +58,7 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Th>{t('model.record.decimal.name')}</Th>
                     <Th>{t('model.record.date.name')}</Th>
                     <Th>{t('model.record.dateTime.name')}</Th>
+                    <Th>{t('model.record.sex.name')}</Th>
                 </tr>
             }}
             style={{ height: 400 }}
@@ -73,6 +74,7 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Td>{displayValue(item.decimal, t)}</Td>
                     <Td>{displayValue(item.date, t)}</Td>
                     <Td>{displayValue(item.dateTime, t)}</Td>
+                    <Td>{displayValue(item.sex, t)}</Td>
                 </>
             )}
         />
