@@ -14060,22 +14060,22 @@ export namespace std {
 
 
     /**
-     * **Sort**
+     * ** Sort Order**
      *
-     * @name Sort Order Represents the sort order
+     * Represents the sort order
      */
     export type Sort = "asc" | "desc"
 
     /**
-     * **String match mode**
+     * ** String Match Mode**
      *
-     * @name String Match Mode Whether the string query is case sensitive or not
+     * Whether the string query is case sensitive or not
      */
     export type StringMatchMode = "default" | "caseInsensitive"
 
-    /// ## Sort
+    /// ##  Sort Order
     ///
-    /// @name Sort Order Represents the sort order
+    /// Represents the sort order
     export const enum SortEnumType {
 
         /// ### Asc
@@ -14089,9 +14089,9 @@ export namespace std {
         desc = "desc",
     }
 
-    /// ## String match mode
+    /// ##  String Match Mode
     ///
-    /// @name String Match Mode Whether the string query is case sensitive or not
+    /// Whether the string query is case sensitive or not
     export const enum StringMatchModeEnumType {
 
         /// ### Default
@@ -14107,9 +14107,9 @@ export namespace std {
 
 
     /**
-     * **Empty**
+     * ** Empty**
      *
-     * @name Empty The empty interface
+     * The empty interface
      */
     export type Empty = {
         
@@ -14117,9 +14117,9 @@ export namespace std {
 
 
     /**
-     * **Data**
+     * ** Data**
      *
-     * @name Data This interface is common for action output
+     * This interface is common for action output
      */
     export type Data<T> = {
         
@@ -14134,9 +14134,9 @@ export namespace std {
 
 
     /**
-     * **Data meta**
+     * ** Data and Meta**
      *
-     * @name Data and Meta This interface is common for action output with meta information
+     * This interface is common for action output with meta information
      */
     export type DataMeta<T, U> = {
         

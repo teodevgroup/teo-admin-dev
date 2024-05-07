@@ -1,6 +1,6 @@
 {
   "name": "teo-admin-dev",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "this project is for developing teo admin dashboard",
   "private": true,
   "main": "index.js",
