@@ -76,13 +76,13 @@ const RecordForm = ({ item }: PageProps) => {
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
             {renderFormEntry(t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading)}
-            {renderFormEntry(t('model.record.bool.name'), "bool", { type: "Bool", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.int.name'), "int", { type: "Int", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.float.name'), "float", { type: "Float", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.decimal.name'), "decimal", { type: "Decimal", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.date.name'), "date", { type: "Date", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false}, form, loading)}
-            {renderFormEntry(t('model.record.sex.name'), "sex", { type: "Enum", optional: false}, form, loading)}
+            {renderFormEntry(t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.float.name'), "float", { type: "Float", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.decimal.name'), "decimal", { type: "Decimal", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.date.name'), "date", { type: "Date", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false }, form, loading)}
+            {renderFormEntry(t('model.record.sex.name'), "sex", { type: "Enum", optional: false, enumName: "Sex" }, form, loading)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>
