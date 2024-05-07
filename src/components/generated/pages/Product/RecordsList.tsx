@@ -61,10 +61,10 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             totalCount={data.length}
             itemContent={(_, item) => (
                 <>
-                    <Td>{displayValue(item.id)}</Td>
-                    <Td>{displayValue(item.name)}</Td>
-                    <Td>{displayValue(item.stock)}</Td>
-                    <Td>{displayValue(item.categoryId)}</Td>
+                    <Td>{displayValue(item.id, t)}</Td>
+                    <Td>{displayValue(item.name, t)}</Td>
+                    <Td>{displayValue(item.stock, t)}</Td>
+                    <Td>{displayValue(item.categoryId, t)}</Td>
                 </>
             )}
         />

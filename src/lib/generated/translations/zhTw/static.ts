@@ -23,7 +23,9 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "form.delete": "刪除",
     "records.filters": "過濾",
     "records.orders": "順序",
-    "records.create": "創建",    
+    "records.create": "創建",
+    "bool.yes": "是",
+    "bool.no": "否",  
 }
 
 export default staticGeneratedTranslation

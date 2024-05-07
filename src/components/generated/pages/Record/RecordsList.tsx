@@ -65,14 +65,14 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             totalCount={data.length}
             itemContent={(_, item) => (
                 <>
-                    <Td>{displayValue(item.id)}</Td>
-                    <Td>{displayValue(item.string)}</Td>
-                    <Td>{displayValue(item.bool)}</Td>
-                    <Td>{displayValue(item.int)}</Td>
-                    <Td>{displayValue(item.float)}</Td>
-                    <Td>{displayValue(item.decimal)}</Td>
-                    <Td>{displayValue(item.date)}</Td>
-                    <Td>{displayValue(item.dateTime)}</Td>
+                    <Td>{displayValue(item.id, t)}</Td>
+                    <Td>{displayValue(item.string, t)}</Td>
+                    <Td>{displayValue(item.bool, t)}</Td>
+                    <Td>{displayValue(item.int, t)}</Td>
+                    <Td>{displayValue(item.float, t)}</Td>
+                    <Td>{displayValue(item.decimal, t)}</Td>
+                    <Td>{displayValue(item.date, t)}</Td>
+                    <Td>{displayValue(item.dateTime, t)}</Td>
                 </>
             )}
         />

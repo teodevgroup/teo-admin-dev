@@ -53,7 +53,6 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Th>{t('model.admin.id.name')}</Th>
                     <Th>{t('model.admin.email.name')}</Th>
                     <Th>{t('model.admin.phoneNo.name')}</Th>
-                    <Th>{t('model.admin.password.name')}</Th>
                 </tr>
             }}
             style={{ height: 400 }}
@@ -61,10 +60,9 @@ const RecordsList = ({ filter }: RecordsListProps) => {
             totalCount={data.length}
             itemContent={(_, item) => (
                 <>
-                    <Td>{displayValue(item.id)}</Td>
-                    <Td>{displayValue(item.email)}</Td>
-                    <Td>{displayValue(item.phoneNo)}</Td>
-                    <Td>{displayValue(item.password)}</Td>
+                    <Td>{displayValue(item.id, t)}</Td>
+                    <Td>{displayValue(item.email, t)}</Td>
+                    <Td>{displayValue(item.phoneNo, t)}</Td>
                 </>
             )}
         />

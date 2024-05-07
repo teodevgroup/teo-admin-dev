@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import Decimal from "decimal.js"
 
-const displayValue = (value: any) => {
+const displayValue = (value: any, t: any) => {
     if (value === undefined) {
         return ''
     }
@@ -13,9 +13,9 @@ const displayValue = (value: any) => {
     }
     if (typeof value === "boolean") {
         if (value) {
-            return "Yes"
+            return t("bool.yes")
         } else {
-            return "No"
+            return t("bool.no")
         }
     }
     if (typeof value === 'string') {

@@ -21,4 +21,6 @@ export type StaticGeneratedTranslation = {
     "records.filters": string
     "records.orders": string
     "records.create": string
+    "bool.yes": string
+    "bool.no": string
 }

@@ -24,6 +24,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "records.filters": "过滤",
     "records.orders": "顺序",
     "records.create": "创建",
+    "bool.yes": "是",
+    "bool.no": "否",  
 }
 
 export default staticGeneratedTranslation
