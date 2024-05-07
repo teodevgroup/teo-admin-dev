@@ -75,7 +75,7 @@ const CategoryForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.category.name.name'), "name", { type: "String", optional: false }, form, loading)}
+            {renderFormEntry(t('model.category.name.name'), "name", { type: "String", optional: false }, form, loading, t)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

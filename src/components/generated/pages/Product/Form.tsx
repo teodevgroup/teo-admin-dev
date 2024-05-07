@@ -75,9 +75,9 @@ const ProductForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.product.name.name'), "name", { type: "String", optional: false }, form, loading)}
-            {renderFormEntry(t('model.product.stock.name'), "stock", { type: "Int", optional: false }, form, loading)}
-            {renderFormEntry(t('model.product.categoryId.name'), "categoryId", { type: "Int", optional: false }, form, loading)}
+            {renderFormEntry(t('model.product.name.name'), "name", { type: "String", optional: false }, form, loading, t)}
+            {renderFormEntry(t('model.product.stock.name'), "stock", { type: "Int", optional: false }, form, loading, t)}
+            {renderFormEntry(t('model.product.categoryId.name'), "categoryId", { type: "Int", optional: false }, form, loading, t)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

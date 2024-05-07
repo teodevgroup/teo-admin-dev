@@ -1,18 +1,21 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-type EnumMemberDefinition = {
+export type EnumMemberDefinition = {
+    value: string
     name: string
     desc: string
 }
 
-type EnumDefinition = {
+export type EnumDefinition = {
     name: string
     desc: string
     members: EnumMemberDefinition[]
 }
 
-const enumDefinitions = {
+export type EnumNames = "Sex"
+
+const enumDefinitions: {[key in EnumNames]: EnumDefinition} = {
     "Sex": {
         "name": "enum.sex.name",
         "desc": "enum.sex.desc",
@@ -30,3 +33,5 @@ const enumDefinitions = {
         ],
     },
 }
+
+export default enumDefinitions

@@ -9,6 +9,7 @@ import ReactDatePicker from 'react-datepicker'
 import DateInput from '../input/DateInput'
 import Select from '../select/Select'
 import Option from '../select/Option'
+import enumDefinitions, { EnumNames } from '../../../lib/generated/enumDefinitions'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -16,17 +17,18 @@ export type FormType = {
     type: FormTypeName
     optional: boolean
     child?: FormType
-    enumName?: string
+    enumName?: EnumNames
+    enumNameCamelcase?: string
 }
 
-const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, secure?: boolean) => {
+const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, secure?: boolean) => {
     return <LabeledGroup>
         <Label>{readableName}</Label>
-        {renderFormInput(key, type, form, disabled, secure)}
+        {renderFormInput(key, type, form, disabled, t, secure)}
     </LabeledGroup>
 }
 
-const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, secure?: boolean) => {
+const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, t: any, secure?: boolean) => {
     if (type.type === "String") {
         return <Input disabled={disabled} {...form.register(key)} {...(secure ? { type: "password" } : {})} />
     } else if (type.type === "Int" || type.type === "Int64") {
@@ -49,13 +51,12 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
         }} />
     } else if (type.type === "Enum") {
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-            return <Select value={field.value} onChange={(v) => field.onChange(v)}>
-                <Option value="male">
-                    Male
-                </Option>
-                <Option value="female">
-                    Female
-                </Option>
+            return <Select value={field.value} display={field.value === null ? "(Empty)" : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
+                {(enumDefinitions[type.enumName!]).members.map((m) => {
+                    return <Option key={m.value} value={m.value}>
+                        {t(m.name)}
+                    </Option>
+                })}
             </Select>
         }} />
         return null

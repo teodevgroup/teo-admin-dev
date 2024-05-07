@@ -16,12 +16,13 @@ import SelectIndicatorElement from './SelectIndicatorElement'
 type SelectProps<T> = Partial<ComponentPropsWithRef<'button'>> & {
     value: T
     onChange: (newValue: T) => void
+    display: ReactNode
     allowsNull?: boolean
     valueFormatter?: (value: T) => string
     children: ReactNode | ReactNode[]
 }
 
-const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChange, allowsNull, children, valueFormatter = String, ...props }: SelectProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
+const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, display, onChange, allowsNull, children, valueFormatter = String, ...props }: SelectProps<any>, forwardedRef: ForwardedRef<HTMLButtonElement>) => {
     const listRef = useRef<Array<HTMLButtonElement | null>>([])
     const listContentRef = useRef<Array<string | null>>([])
     const overflowRef = useRef<SideObject>(null)
@@ -160,7 +161,7 @@ const Select = forwardRef<HTMLButtonElement, SelectProps<any>>(({ value, onChang
                 }
             }
         }) as any)}>
-            <span>{valueFormatter(value)}</span>
+            {display}
             <SelectIndicatorElement>
                 <HiSelector />
             </SelectIndicatorElement>

@@ -75,7 +75,7 @@ const RootForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading)}
+            {renderFormEntry(t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading, t)}
             {renderFormEntry(t('model.root.password.name'), "password", { type: "String", optional: false }, form, loading, true)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
