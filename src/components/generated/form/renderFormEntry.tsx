@@ -15,7 +15,7 @@ import insert from '../../../lib/generated/utilities/insert'
 import remove from '../../../lib/generated/utilities/remove'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import ArrayFieldContainer from './ArrayFieldContainer'
-import ControlGroup from './ControlGroup'
+import ControlGroup from '../controlGroup/ControlGroup'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
