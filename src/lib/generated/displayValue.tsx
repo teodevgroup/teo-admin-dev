@@ -15,7 +15,10 @@ const displayValue = (value: any, t: any, enumName?: string): ReactNode => {
     if (value === null) {
         return <DimmedText>{t("null.empty")}</DimmedText>
     }
-    if (enumName) {
+    if (Array.isArray(value)) {
+        return "items"
+    }
+    if (enumName && !Array.isArray(value)) {
         return t(enumDefinitions[enumName as string].members.find((m) => m.value === value)!.name)
     }
     if (value instanceof Decimal) {
