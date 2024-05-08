@@ -9,7 +9,7 @@ import ReactDatePicker from 'react-datepicker'
 import DateInput from '../input/DateInput'
 import Select from '../select/Select'
 import Option from '../select/Option'
-import enumDefinitions, { EnumNames } from '../../../lib/generated/enumDefinitions'
+import enumDefinitions from '../../../lib/generated/enumDefinitions'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -17,7 +17,7 @@ export type FormType = {
     type: FormTypeName
     optional: boolean
     child?: FormType
-    enumName?: EnumNames
+    enumName?: string
     enumNameCamelcase?: string
 }
 
