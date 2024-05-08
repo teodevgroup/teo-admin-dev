@@ -77,7 +77,7 @@ const AdminForm = ({ item }: PageProps) => {
         <PaddedMainContent>
             {renderFormEntry(t('model.admin.email.name'), "email", { type: "String", optional: false }, form, loading, t)}
             {renderFormEntry(t('model.admin.phoneNo.name'), "phoneNo", { type: "String", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.admin.password.name'), "password", { type: "String", optional: false }, form, loading, true)}
+            {renderFormEntry(t('model.admin.password.name'), "password", { type: "String", optional: false }, form, loading, t, true)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

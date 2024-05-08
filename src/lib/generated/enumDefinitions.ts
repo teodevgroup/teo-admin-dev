@@ -13,9 +13,7 @@ export type EnumDefinition = {
     members: EnumMemberDefinition[]
 }
 
-export type EnumNames = "Sex"
-
-const enumDefinitions: {[key in EnumNames]: EnumDefinition} = {
+const enumDefinitions = {
     "Sex": {
         "name": "enum.sex.name",
         "desc": "enum.sex.desc",
@@ -30,7 +28,39 @@ const enumDefinitions: {[key in EnumNames]: EnumDefinition} = {
                 "name": "enum.sex.female.name",
                 "desc": "enum.sex.female.desc",
             },
-        ],
+        ]
+    },
+    "std.Sort": {
+        "name": "enum.std.sort.name",
+        "desc": "enum.std.sort.desc",
+        "members": [
+            {
+                "value": "asc",
+                "name": "enum.std.sort.asc.name",
+                "desc": "enum.std.sort.asc.desc",
+            },
+            {
+                "value": "desc",
+                "name": "enum.std.sort.desc.name",
+                "desc": "enum.std.sort.desc.desc",
+            },
+        ]
+    },
+    "std.StringMatchMode": {
+        "name": "enum.std.stringMatchMode.name",
+        "desc": "enum.std.stringMatchMode.desc",
+        "members": [
+            {
+                "value": "default",
+                "name": "enum.std.stringMatchMode.default.name",
+                "desc": "enum.std.stringMatchMode.default.desc",
+            },
+            {
+                "value": "caseInsensitive",
+                "name": "enum.std.stringMatchMode.caseInsensitive.name",
+                "desc": "enum.std.stringMatchMode.caseInsensitive.desc",
+            },
+        ]
     },
 }
 
