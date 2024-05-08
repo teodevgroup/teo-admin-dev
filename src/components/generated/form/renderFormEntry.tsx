@@ -14,6 +14,8 @@ import Button from '../../extended/button/Button'
 import insert from '../../../lib/generated/utilities/insert'
 import remove from '../../../lib/generated/utilities/remove'
 import { FaMinus, FaPlus } from 'react-icons/fa'
+import ArrayFieldContainer from './ArrayFieldContainer'
+import ControlGroup from './ControlGroup'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -64,12 +66,12 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             </Select>
         }} />
     } else if (type.type === "Array") {
-        return <div>
+        return <ArrayFieldContainer>
             {(!form.getValues()[key] || form.getValues()[key]?.length === 0) ? <Button type="button" onClick={() => {
                 form.setValue(key, [null as any])
                 rerender()
             }}><FaPlus /></Button> : form.getValues()[key]?.map((v: any, i: number) => {
-                return <div key={i}>
+                return <ControlGroup key={i}>
                     {renderFormInput(`key.${i}`, type.child!, form, disabled, t, rerender, secure)}
                     <Button type="button" onClick={() => {
                         form.setValue(key, remove(form.getValues()[key], [i]))
@@ -83,9 +85,9 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                     }}>
                         <FaPlus />
                     </Button>
-                </div>
+                </ControlGroup>
             })}
-        </div>
+        </ArrayFieldContainer>
     } else {
         return null
     }
