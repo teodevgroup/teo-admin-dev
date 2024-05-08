@@ -74,7 +74,7 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Td>{displayValue(item.decimal, t)}</Td>
                     <Td>{displayValue(item.date, t)}</Td>
                     <Td>{displayValue(item.dateTime, t)}</Td>
-                    <Td>{displayValue(item.sex, t)}</Td>
+                    <Td>{displayValue(item.sex, t, "Sex")}</Td>
                 </>
             )}
         />
