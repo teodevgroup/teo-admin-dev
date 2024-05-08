@@ -84,7 +84,7 @@ const RecordForm = ({ item }: PageProps) => {
             {renderFormEntry(t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false }, form, loading, t)}
             {renderFormEntry(t('model.record.sex.name'), "sex", { type: "Enum", optional: false, enumName: "Sex", enumNameCamelcase: "sex" }, form, loading, t)}
             {renderFormEntry(t('model.record.strings.name'), "strings", { type: "Array", optional: false, child: { type: "String", optional: false } }, form, loading, t)}
-            {renderFormEntry(t('model.record.genders.name'), "genders", { type: "Array", optional: false, child: { type: "Enum", optional: false, enumName: "Sex", enumNameCamelcase: "sex" } }, form, loading, t)}
+            {renderFormEntry(t('model.record.genders.name'), "genders", { type: "Array", optional: false, child: { type: "Enum", optional: false , enumName: "Sex", enumNameCamelcase: "sex"} }, form, loading, t)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>
