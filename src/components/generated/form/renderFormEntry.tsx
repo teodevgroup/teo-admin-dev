@@ -10,6 +10,10 @@ import DateInput from '../input/DateInput'
 import Select from '../select/Select'
 import Option from '../select/Option'
 import enumDefinitions from '../../../lib/generated/enumDefinitions'
+import Button from '../../extended/button/Button'
+import insert from '../../../lib/generated/utilities/insert'
+import remove from '../../../lib/generated/utilities/remove'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -21,14 +25,14 @@ export type FormType = {
     enumNameCamelcase?: string
 }
 
-const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, secure?: boolean) => {
+const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
     return <LabeledGroup>
         <Label>{readableName}</Label>
-        {renderFormInput(key, type, form, disabled, t, secure)}
+        {renderFormInput(key, type, form, disabled, t, rerender, secure)}
     </LabeledGroup>
 }
 
-const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, t: any, secure?: boolean) => {
+const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
     if (type.type === "String") {
         return <Input disabled={disabled} {...form.register(key)} {...(secure ? { type: "password" } : {})} />
     } else if (type.type === "Int" || type.type === "Int64") {
@@ -59,6 +63,29 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                 })}
             </Select>
         }} />
+    } else if (type.type === "Array") {
+        return <div>
+            {(!form.getValues()[key] || form.getValues()[key]?.length === 0) ? <Button type="button" onClick={() => {
+                form.setValue(key, [null as any])
+                rerender()
+            }}><FaPlus /></Button> : form.getValues()[key]?.map((v: any, i: number) => {
+                return <div key={i}>
+                    {renderFormInput(`key.${i}`, type.child!, form, disabled, t, rerender, secure)}
+                    <Button type="button" onClick={() => {
+                        form.setValue("strings", remove(form.getValues()["strings"], [i]))
+                        rerender()
+                    }}>
+                        <FaMinus />
+                    </Button>
+                    <Button type="button" onClick={() => {
+                        form.setValue("strings", insert(form.getValues()["strings"], [i + 1], null))
+                        rerender()
+                    }}>
+                        <FaPlus />
+                    </Button>
+                </div>
+            })}
+        </div>
     } else {
         return null
     }

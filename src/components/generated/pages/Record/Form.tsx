@@ -15,9 +15,15 @@ import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
+import { FaPlus, FaMinus } from 'react-icons/fa'
+import Input from '../../../extended/input/Input'
+import useRerender from '../../../../lib/useRerender'
+import remove from '../../../../lib/generated/utilities/remove'
+import insert from '../../../../lib/generated/utilities/insert'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
+    const rerender = useRerender()
     const { refresh } = useRefreshToken("models.record")
     const { t } = useTranslation("translations")
     const data: Partial<Record & RecordCreateInput & RecordUpdateInput> = suspend(async () => {
@@ -75,10 +81,10 @@ const RecordForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.record.float.name'), "float", { type: "Float", optional: false }, form, loading, t)}
+            {renderFormEntry(t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(t('model.record.float.name'), "float", { type: "Float", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(t('model.record.decimal.name'), "decimal", { type: "Decimal", optional: false }, form, loading, t)}
             {renderFormEntry(t('model.record.date.name'), "date", { type: "Date", optional: false }, form, loading, t)}
             {renderFormEntry(t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false }, form, loading, t)}
