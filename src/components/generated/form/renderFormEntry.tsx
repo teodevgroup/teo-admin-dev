@@ -72,7 +72,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                 rerender()
             }}><FaPlus /></Button> : form.getValues()[key]?.map((v: any, i: number) => {
                 return <ControlGroup key={i}>
-                    {renderFormInput(`key.${i}`, type.child!, form, disabled, t, rerender, secure)}
+                    {renderFormInput(`${key}.${i}`, type.child!, form, disabled, t, rerender, secure)}
                     <Button type="button" onClick={() => {
                         form.setValue(key, remove(form.getValues()[key], [i]))
                         rerender()

@@ -4,6 +4,7 @@
 import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
 import { margin } from "../../../lib/extended/theme"
+import SelectElement from "../select/SelectElement"
 
 const ControlGroup = styled.div`
     &:not(:last-child) {
@@ -16,6 +17,10 @@ const ControlGroup = styled.div`
     flex-grow: 1;
     align-self: stretch;
     input {
+        flex-grow: 1;
+        align-self: stretch;
+    }
+    ${SelectElement} {
         flex-grow: 1;
         align-self: stretch;
     }
