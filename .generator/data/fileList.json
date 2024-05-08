@@ -132,7 +132,6 @@
         "src/components/generated/form/FormContainer.tsx",
         "src/components/generated/form/FakeFormShimmer.tsx",
         "src/components/generated/form/FakeControlShimmers.tsx",
-        "src/components/generated/form/ControlGroup.tsx",
         "src/components/generated/form/ArrayFieldContainer.tsx",
         "src/components/generated/dimmedText/DimmedText.tsx",
         "src/components/generated/controlGroup/ControlGroup.tsx",
