@@ -14,6 +14,7 @@ const Td = styled.td`
     }
     padding: ${spacing};
     font-size: 0.875rem;
+    white-space: nowrap;
 `
 
 export default Td

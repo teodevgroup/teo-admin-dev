@@ -7,6 +7,7 @@ const Table = styled.table`
     flex-grow: 1;
     width: 100%;
     border-collapse: collapse;
+    overflow-x: scroll;
     & th {
         border-top: none;
     }
