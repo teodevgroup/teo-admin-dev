@@ -24,4 +24,6 @@ export type StaticGeneratedTranslation = {
     "bool.yes": string
     "bool.no": string
     "null.empty": string
+    "count.item": string
+    "count.items": string
 }

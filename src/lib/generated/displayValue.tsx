@@ -16,7 +16,7 @@ const displayValue = (value: any, t: any, enumName?: string): ReactNode => {
         return <DimmedText>{t("null.empty")}</DimmedText>
     }
     if (Array.isArray(value)) {
-        return "items"
+        return <DimmedText>{value.length === 1 ? `1${t('count.item')}` : `${value.length}${t('count.items')}`}</DimmedText>
     }
     if (enumName && !Array.isArray(value)) {
         return t(enumDefinitions[enumName as string].members.find((m) => m.value === value)!.name)

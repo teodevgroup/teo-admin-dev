@@ -31,7 +31,6 @@ const RecordForm = ({ item }: PageProps) => {
             })).data
         }
     }, [item])
-    console.log("see data", data)
     const form = useForm({ defaultValues: omit(data, ["id"]) })
     const [loading, setLoading] = useState(false)
     const onSubmit = async (data: any) => {

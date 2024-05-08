@@ -27,6 +27,8 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "bool.yes": "是",
     "bool.no": "否",  
     "null.empty": "（空）",
+    "count.item": "個項目",
+    "count.items": "個項目",
 }
 
 export default staticGeneratedTranslation
