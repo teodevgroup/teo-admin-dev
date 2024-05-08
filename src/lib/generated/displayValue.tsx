@@ -1,12 +1,22 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
+import React from 'react'
 import { format } from "date-fns"
 import Decimal from "decimal.js"
+import { ReactNode } from "react"
+import enumDefinitions from './enumDefinitions'
+import DimmedText from '../../components/generated/dimmedText/DimmedText'
 
-const displayValue = (value: any, t: any) => {
+const displayValue = (value: any, t: any, enumName?: string): ReactNode => {
     if (value === undefined) {
         return ''
+    }
+    if (value === null) {
+        return <DimmedText>{t("null.empty")}</DimmedText>
+    }
+    if (enumName) {
+        return t(enumDefinitions[enumName as string].members[value].name)
     }
     if (value instanceof Decimal) {
         return value.toString()

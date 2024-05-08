@@ -13,7 +13,7 @@ export type EnumDefinition = {
     members: EnumMemberDefinition[]
 }
 
-const enumDefinitions = {
+const enumDefinitions: { [key: string]: EnumDefinition } = {
     "Sex": {
         "name": "enum.sex.name",
         "desc": "enum.sex.desc",
