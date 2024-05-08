@@ -334,14 +334,14 @@ export type ProductIndirectRelations = undefined
  *
  * This synthesized enum doesn't have a description.
  */
-export type RecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "sex" | "string"
+export type RecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "genders" | "id" | "int" | "sex" | "string" | "strings"
 
 /**
  * **Record serializable scalar fields**
  *
  * This synthesized enum doesn't have a description.
  */
-export type RecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "id" | "int" | "sex" | "string"
+export type RecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "genders" | "id" | "int" | "sex" | "string" | "strings"
 
 /**
  * **Record relations**
@@ -700,6 +700,11 @@ export const enum RecordScalarFieldsEnumType {
     /// This synthesized enum member doesn't have a description.
     float = "float",
 
+    /// ### Genders
+    ///
+    /// This synthesized enum member doesn't have a description.
+    genders = "genders",
+
     /// ### Id
     ///
     /// This synthesized enum member doesn't have a description.
@@ -719,6 +724,11 @@ export const enum RecordScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     string = "string",
+
+    /// ### Strings
+    ///
+    /// This synthesized enum member doesn't have a description.
+    strings = "strings",
 }
 
 /// ## Record serializable scalar fields
@@ -751,6 +761,11 @@ export const enum RecordSerializableScalarFieldsEnumType {
     /// This synthesized enum member doesn't have a description.
     float = "float",
 
+    /// ### Genders
+    ///
+    /// This synthesized enum member doesn't have a description.
+    genders = "genders",
+
     /// ### Id
     ///
     /// This synthesized enum member doesn't have a description.
@@ -770,6 +785,11 @@ export const enum RecordSerializableScalarFieldsEnumType {
     ///
     /// This synthesized enum member doesn't have a description.
     string = "string",
+
+    /// ### Strings
+    ///
+    /// This synthesized enum member doesn't have a description.
+    strings = "strings",
 }
 
 /// ## Record relations
@@ -9522,6 +9542,13 @@ export type RecordSelect = {
      float?: boolean
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -9548,6 +9575,13 @@ export type RecordSelect = {
      * This synthesized field doesn't have a description.
      */
      string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
     
 }
 
@@ -9626,6 +9660,13 @@ export type RecordWhereInput = {
      float?: number | std.Filter<number>
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[] | std.ArrayFilter<Sex>
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -9652,6 +9693,13 @@ export type RecordWhereInput = {
      * This synthesized field doesn't have a description.
      */
      string?: string | std.StringFilter
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[] | std.ArrayFilter<string>
     
 }
 
@@ -9737,6 +9785,13 @@ export type RecordScalarWhereWithAggregatesInput = {
      float?: number | std.FloatNumberWithAggregatesFilter<number>
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[] | std.ArrayWithAggregatesFilter<Sex>
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -9763,6 +9818,13 @@ export type RecordScalarWhereWithAggregatesInput = {
      * This synthesized field doesn't have a description.
      */
      string?: string | std.StringWithAggregatesFilter
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[] | std.ArrayWithAggregatesFilter<string>
     
 }
 
@@ -9865,6 +9927,13 @@ export type RecordOrderByInput = {
      float?: std.Sort
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: std.Sort
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -9891,6 +9960,13 @@ export type RecordOrderByInput = {
      * This synthesized field doesn't have a description.
      */
      string?: std.Sort
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: std.Sort
     
 }
 
@@ -9945,6 +10021,13 @@ export type RecordCountAggregateInputType = {
      float?: boolean
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -9971,6 +10054,13 @@ export type RecordCountAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
     
 }
 
@@ -10094,6 +10184,13 @@ export type RecordMinAggregateInputType = {
      float?: boolean
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -10120,6 +10217,13 @@ export type RecordMinAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
     
 }
 
@@ -10167,6 +10271,13 @@ export type RecordMaxAggregateInputType = {
      float?: boolean
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -10193,6 +10304,13 @@ export type RecordMaxAggregateInputType = {
      * This synthesized field doesn't have a description.
      */
      string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
     
 }
 
@@ -10240,6 +10358,13 @@ export type RecordCreateInput = {
      float: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders: Sex[]
+    
+    /**
      * **Int**
      *
      * This synthesized field doesn't have a description.
@@ -10259,6 +10384,13 @@ export type RecordCreateInput = {
      * This synthesized field doesn't have a description.
      */
      string: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings: string[]
     
 }
 
@@ -10306,6 +10438,13 @@ export type RecordUpdateInput = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[]
+    
+    /**
      * **Int**
      *
      * This synthesized field doesn't have a description.
@@ -10325,6 +10464,13 @@ export type RecordUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
     
 }
 
@@ -10676,6 +10822,13 @@ export type Record = {
      float: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders: Sex[]
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -10702,6 +10855,13 @@ export type Record = {
      * This synthesized field doesn't have a description.
      */
      string: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings: string[]
     
 }
 export type RecordGetPayload<S extends boolean | null | undefined | RecordArgs, U = keyof S> = S extends true
@@ -10788,6 +10948,13 @@ export type RecordCountAggregateResult = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: number
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -10814,6 +10981,13 @@ export type RecordCountAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      string?: number
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: number
     
 }
 
@@ -10937,6 +11111,13 @@ export type RecordMinAggregateResult = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[]
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -10963,6 +11144,13 @@ export type RecordMinAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
     
 }
 
@@ -11010,6 +11198,13 @@ export type RecordMaxAggregateResult = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[]
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -11036,6 +11231,13 @@ export type RecordMaxAggregateResult = {
      * This synthesized field doesn't have a description.
      */
      string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
     
 }
 
@@ -11163,6 +11365,13 @@ export type RecordGroupByResult = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[]
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -11189,6 +11398,13 @@ export type RecordGroupByResult = {
      * This synthesized field doesn't have a description.
      */
      string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
     
 }
 
@@ -12061,6 +12277,13 @@ export type RecordScalarUpdateInput = {
      float?: number
     
     /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex[]
+    
+    /**
      * **Id**
      *
      * This synthesized field doesn't have a description.
@@ -12087,6 +12310,13 @@ export type RecordScalarUpdateInput = {
      * This synthesized field doesn't have a description.
      */
      string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
     
 }
 

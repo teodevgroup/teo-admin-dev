@@ -60,6 +60,10 @@ export type GeneratedTranslation = StaticGeneratedTranslation & {
     "model.record.dateTime.desc": string
     "model.record.sex.name": string
     "model.record.sex.desc": string
+    "model.record.strings.name": string
+    "model.record.strings.desc": string
+    "model.record.genders.name": string
+    "model.record.genders.desc": string
     "model.root.name": string
     "model.root.desc": string
     "model.root.id.name": string

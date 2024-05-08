@@ -59,6 +59,8 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Th>{t('model.record.date.name')}</Th>
                     <Th>{t('model.record.dateTime.name')}</Th>
                     <Th>{t('model.record.sex.name')}</Th>
+                    <Th>{t('model.record.strings.name')}</Th>
+                    <Th>{t('model.record.genders.name')}</Th>
                 </tr>
             }}
             style={{ height: 400 }}
@@ -75,6 +77,8 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Td>{displayValue(item.date, t)}</Td>
                     <Td>{displayValue(item.dateTime, t)}</Td>
                     <Td>{displayValue(item.sex, t, "Sex")}</Td>
+                    <Td>{displayValue(item.strings, t)}</Td>
+                    <Td>{displayValue(item.genders, t)}</Td>
                 </>
             )}
         />
