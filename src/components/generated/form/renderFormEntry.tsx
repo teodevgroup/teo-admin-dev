@@ -72,13 +72,13 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                 return <div key={i}>
                     {renderFormInput(`key.${i}`, type.child!, form, disabled, t, rerender, secure)}
                     <Button type="button" onClick={() => {
-                        form.setValue("strings", remove(form.getValues()["strings"], [i]))
+                        form.setValue(key, remove(form.getValues()[key], [i]))
                         rerender()
                     }}>
                         <FaMinus />
                     </Button>
                     <Button type="button" onClick={() => {
-                        form.setValue("strings", insert(form.getValues()["strings"], [i + 1], null))
+                        form.setValue(key, insert(form.getValues()[key], [i + 1], null))
                         rerender()
                     }}>
                         <FaPlus />

@@ -15,9 +15,11 @@ import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
+import useRerender from '../../../../lib/useRerender'
 
 const AdminForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
+    const rerender = useRerender()
     const { refresh } = useRefreshToken("models.admin")
     const { t } = useTranslation("translations")
     const data: Partial<Admin & AdminCreateInput & AdminUpdateInput> = suspend(async () => {
@@ -75,9 +77,9 @@ const AdminForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.admin.email.name'), "email", { type: "String", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.admin.phoneNo.name'), "phoneNo", { type: "String", optional: false }, form, loading, t)}
-            {renderFormEntry(t('model.admin.password.name'), "password", { type: "String", optional: false }, form, loading, t, true)}
+            {renderFormEntry(t('model.admin.email.name'), "email", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(t('model.admin.phoneNo.name'), "phoneNo", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(t('model.admin.password.name'), "password", { type: "String", optional: false }, form, loading, t, rerender, true)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

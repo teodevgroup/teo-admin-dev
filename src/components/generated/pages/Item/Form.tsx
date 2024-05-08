@@ -15,9 +15,11 @@ import usePageStackPage from '../../pageStack/usePageStackPage'
 import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
+import useRerender from '../../../../lib/useRerender'
 
 const ItemForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
+    const rerender = useRerender()
     const { refresh } = useRefreshToken("models.item")
     const { t } = useTranslation("translations")
     const data: Partial<Item & ItemCreateInput & ItemUpdateInput> = suspend(async () => {
@@ -75,7 +77,7 @@ const ItemForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.item.name.name'), "name", { type: "String", optional: false }, form, loading, t)}
+            {renderFormEntry(t('model.item.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>
