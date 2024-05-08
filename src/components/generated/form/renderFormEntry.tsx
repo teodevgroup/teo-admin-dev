@@ -59,7 +59,6 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                 })}
             </Select>
         }} />
-        return null
     } else {
         return null
     }
