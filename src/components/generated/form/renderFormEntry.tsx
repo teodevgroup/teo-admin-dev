@@ -16,6 +16,9 @@ import remove from '../../../lib/generated/utilities/remove'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import ArrayFieldContainer from './ArrayFieldContainer'
 import ControlGroup from '../controlGroup/ControlGroup'
+import WithContextMenu from '../menu/WithContextMenu'
+import Menu from '../menu/Menu'
+import MenuItem from '../menu/MenuItem'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -28,10 +31,16 @@ export type FormType = {
 }
 
 const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
-    return <LabeledGroup>
-        <Label>{readableName}</Label>
-        {renderFormInput(key, type, form, disabled, t, rerender, secure)}
-    </LabeledGroup>
+    return <WithContextMenu contextMenu={<Menu>
+        <MenuItem label="1/1" />
+        <MenuItem label="1/2" />
+        <MenuItem label="1/3" />
+    </Menu>}>
+        <LabeledGroup>
+            <Label>{readableName}</Label>
+            {renderFormInput(key, type, form, disabled, t, rerender, secure)}
+        </LabeledGroup>
+    </WithContextMenu>
 }
 
 const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
