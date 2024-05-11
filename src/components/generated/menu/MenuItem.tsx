@@ -12,8 +12,13 @@ import MenuItemKeyboardShortcutElement from '../../extended/menu/MenuItemKeyboar
 import useMenuOwner from './useMenuOwner'
 import MenuItemAccessoryElement from '../../extended/menu/MenuItemAccessoryElement'
 import mergeProps from 'merge-props'
+import MenuItemChecker from './MenuItemChecker'
 
-type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { action?: () => void, label: string, keyboardShortcut?: string }
+type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & { 
+    action?: () => void, 
+    label: string, keyboardShortcut?: string,
+    checked?: boolean
+}
 
 const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemProps, forwardedRef) => {
     const parentMenuContext = useContext(MenuContext)
@@ -38,6 +43,7 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
             }
         },
         childMenuContext?.getReferenceProps({}) as any)}>
+        {props.checked === undefined ? null : <MenuItemChecker checked={props.checked} />}
         <MenuItemTextElement>
             {props.label}
         </MenuItemTextElement>
