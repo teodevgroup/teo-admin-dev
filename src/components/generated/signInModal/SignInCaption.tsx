@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 const SignInCaption = () => {
     const { t } = useTranslation("translations")
-    return <Caption>{t("signIn.poweredByBefore")}<Link href="https://teocloud.io" target='_blank'>Teo</Link>{t("signIn.poweredByAfter")}</Caption>
+    return <Caption>{t("signIn.poweredByBefore")}<Link href="https://teodev.io" target='_blank'>Teo</Link>{t("signIn.poweredByAfter")}</Caption>
 }
 
 export default SignInCaption
