@@ -19,6 +19,7 @@ import ControlGroup from '../controlGroup/ControlGroup'
 import WithContextMenu from '../menu/WithContextMenu'
 import Menu from '../menu/Menu'
 import MenuItem from '../menu/MenuItem'
+import set from '../../../lib/generated/utilities/set'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -34,9 +35,9 @@ const renderFormEntry = (formPreferences: any, setFormPreferences: any, readable
     return <WithContextMenu contextMenu={<Menu>
         <MenuItem label='Control Width'>
             <Menu>
-                <MenuItem checked={!formPreferences[key] || (formPreferences[key]?.width === 'full') || (!formPreferences[key]?.width)} label="Full Line Width" />
-                <MenuItem checked={formPreferences[key] && formPreferences[key].width === 'half'} label="Half Line Width" />
-                <MenuItem checked={formPreferences[key] && formPreferences[key].width === 'oneThird'} label="One-third Line Width" />
+                <MenuItem action={() => setFormPreferences(set(formPreferences, [key, "width"], "full"))} checked={!formPreferences[key] || (formPreferences[key]?.width === 'full') || (!formPreferences[key]?.width)} label="Full Line Width" />
+                <MenuItem action={() => setFormPreferences(set(formPreferences, [key, "width"], "half"))} checked={formPreferences[key] && formPreferences[key].width === 'half'} label="Half Line Width" />
+                <MenuItem action={() => setFormPreferences(set(formPreferences, [key, "width"], "oneThird"))} checked={formPreferences[key] && formPreferences[key].width === 'oneThird'} label="One-third Line Width" />
             </Menu>
         </MenuItem>
     </Menu>}>
