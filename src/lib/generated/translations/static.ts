@@ -18,6 +18,10 @@ export type StaticGeneratedTranslation = {
     "form.updateARecord": string
     "form.submit": string
     "form.delete": string
+    "form.control.width": string
+    "form.control.width.full": string
+    "form.control.width.half": string
+    "form.control.width.oneThird": string
     "records.filters": string
     "records.orders": string
     "records.create": string
