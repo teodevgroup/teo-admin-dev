@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelProductFormPreferences } from '../../../../lib/generated/preferences'
+import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 
 const ProductForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -81,13 +82,10 @@ const ProductForm = ({ item }: PageProps) => {
         <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.product.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.product.stock.name'), "stock", { type: "Int", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(formPreferences, setFormPreferences, t('model.product.categoryId.name'), "categoryId", { type: "Int", optional: false }, form, loading, t, rerender)}
-            <LabeledGroup>
+            <CenteredButtonGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
-            </LabeledGroup>
-            {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
-                <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
-            </LabeledGroup> : null}
+                {!(isEqual(item.query, {}) || !item.query) ? <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button> : null}
+            </CenteredButtonGroup>
         </FormPaddedMainContent>
     </FormContainer>
 }

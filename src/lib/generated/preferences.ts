@@ -71,7 +71,6 @@ export interface ItemModelPreferences {
 export interface ProductModelFormPreferences {
     "name": FormFieldPreferences
     "stock": FormFieldPreferences
-    "categoryId": FormFieldPreferences
 }
 
 export interface ProductModelPreferences {

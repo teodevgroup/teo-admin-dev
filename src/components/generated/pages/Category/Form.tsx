@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelCategoryFormPreferences } from '../../../../lib/generated/preferences'
+import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 
 const CategoryForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -80,12 +81,10 @@ const CategoryForm = ({ item }: PageProps) => {
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.category.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
-            <LabeledGroup>
+            <CenteredButtonGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
-            </LabeledGroup>
-            {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
-                <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
-            </LabeledGroup> : null}
+                {!(isEqual(item.query, {}) || !item.query) ? <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button> : null}
+            </CenteredButtonGroup>
         </FormPaddedMainContent>
     </FormContainer>
 }

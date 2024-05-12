@@ -49,7 +49,6 @@ const defaultPreferences: Preferences = {
             form: {
                 name: { width: "full" },
                 stock: { width: "full" },
-                categoryId: { width: "full" },
             },
         },
         "Record": {

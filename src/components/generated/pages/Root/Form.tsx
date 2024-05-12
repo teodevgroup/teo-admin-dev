@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelRootFormPreferences } from '../../../../lib/generated/preferences'
+import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 
 const RootForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -81,12 +82,10 @@ const RootForm = ({ item }: PageProps) => {
         <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.root.password.name'), "password", { type: "String", optional: false }, form, loading, t, rerender, true)}
-            <LabeledGroup>
+            <CenteredButtonGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
-            </LabeledGroup>
-            {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
-                <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
-            </LabeledGroup> : null}
+                {!(isEqual(item.query, {}) || !item.query) ? <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button> : null}
+            </CenteredButtonGroup>
         </FormPaddedMainContent>
     </FormContainer>
 }
