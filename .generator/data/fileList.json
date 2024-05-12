@@ -132,6 +132,7 @@
         "src/components/generated/form/renderFormEntry.tsx",
         "src/components/generated/form/LabeledGroup.tsx",
         "src/components/generated/form/Label.tsx",
+        "src/components/generated/form/FormPaddedMainContent.tsx",
         "src/components/generated/form/FormContainer.tsx",
         "src/components/generated/form/FakeFormShimmer.tsx",
         "src/components/generated/form/FakeControlShimmers.tsx",
