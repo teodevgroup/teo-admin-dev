@@ -34,8 +34,8 @@ const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemPr
                     event.stopPropagation()
                 } else if (props.action) {
                     props.action()
+                    tree?.events.emit("click")
                 }
-                tree?.events.emit("click")
             },
             onFocus(event: React.FocusEvent<HTMLButtonElement>) {
                 props.onFocus?.(event)

@@ -47,12 +47,7 @@ const useMenuOwner: () => MenuContextProps = () => {
         delay: { open: 75 },
         handleClose: safePolygon({ blockPointerEvents: true })
     })
-    const click = useClick(floatingContext, {
-        event: "mousedown",
-        toggle: true,
-        ignoreMouse: false
-    })
-    const dismiss = useDismiss(floatingContext, { referencePress: true })
+    const dismiss = useDismiss(floatingContext, { referencePress: true, bubbles: true })
     const role = useRole(floatingContext, { role: "menu" })
     const [activeIndex, setActiveIndex] = useState<number | null>(null)
     const listItemsRef = useRef<Array<HTMLButtonElement | null>>([])
