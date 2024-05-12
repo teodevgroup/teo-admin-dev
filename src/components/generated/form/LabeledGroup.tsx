@@ -13,6 +13,8 @@ export type LabeledGroupProps = {
 const LabeledGroup = styled.div<LabeledGroupProps>`
     ${flexContainer("column", "stretch", "stretch")}
     margin-bottom: ${margin};
+    padding-right: ${margin};
+    width: ${({ width }) => (width === 'full' || !width) ? '100%' : (width === 'half' ? '50%' : '33.333%')}
 `
 
 export default LabeledGroup

@@ -8,7 +8,6 @@ import { isEqual, omit } from 'radash'
 import { teo, Record, RecordCreateInput, RecordUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import LabeledGroup from '../../form/LabeledGroup'
-import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
@@ -17,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelRecordFormPreferences } from '../../../../lib/generated/preferences'
+import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -78,7 +78,7 @@ const RecordForm = ({ item }: PageProps) => {
         }
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
-        <PaddedMainContent>
+        <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading, t, rerender)}
@@ -95,7 +95,7 @@ const RecordForm = ({ item }: PageProps) => {
             {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
                 <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
             </LabeledGroup> : null}
-        </PaddedMainContent>
+        </FormPaddedMainContent>
     </FormContainer>
 }
 
