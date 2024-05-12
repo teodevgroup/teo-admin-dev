@@ -8,6 +8,7 @@ import { isEqual, omit } from 'radash'
 import { teo, Record, RecordCreateInput, RecordUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import LabeledGroup from '../../form/LabeledGroup'
+import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
@@ -16,7 +17,6 @@ import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelRecordFormPreferences } from '../../../../lib/generated/preferences'
-import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()

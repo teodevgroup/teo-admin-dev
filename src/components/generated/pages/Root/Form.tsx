@@ -8,7 +8,7 @@ import { isEqual, omit } from 'radash'
 import { teo, Root, RootCreateInput, RootUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import LabeledGroup from '../../form/LabeledGroup'
-import PaddedMainContent from '../../pageStack/PaddedMainContent'
+import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
@@ -23,7 +23,7 @@ const RootForm = ({ item }: PageProps) => {
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.root")
     const { t } = useTranslation("translations")
-    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
+    const [formPreferences, setFormPreferences] = useModelRootFormPreferences()
     const data: Partial<Root & RootCreateInput & RootUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -78,7 +78,7 @@ const RootForm = ({ item }: PageProps) => {
         }
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
-        <PaddedMainContent>
+        <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.root.password.name'), "password", { type: "String", optional: false }, form, loading, t, rerender, true)}
             <LabeledGroup>
@@ -87,7 +87,7 @@ const RootForm = ({ item }: PageProps) => {
             {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
                 <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
             </LabeledGroup> : null}
-        </PaddedMainContent>
+        </FormPaddedMainContent>
     </FormContainer>
 }
 

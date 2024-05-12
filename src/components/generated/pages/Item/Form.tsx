@@ -8,7 +8,7 @@ import { isEqual, omit } from 'radash'
 import { teo, Item, ItemCreateInput, ItemUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import LabeledGroup from '../../form/LabeledGroup'
-import PaddedMainContent from '../../pageStack/PaddedMainContent'
+import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
@@ -23,7 +23,7 @@ const ItemForm = ({ item }: PageProps) => {
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.item")
     const { t } = useTranslation("translations")
-    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
+    const [formPreferences, setFormPreferences] = useModelItemFormPreferences()
     const data: Partial<Item & ItemCreateInput & ItemUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -78,7 +78,7 @@ const ItemForm = ({ item }: PageProps) => {
         }
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
-        <PaddedMainContent>
+        <FormPaddedMainContent>
             {renderFormEntry(formPreferences, setFormPreferences, t('model.item.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
@@ -86,7 +86,7 @@ const ItemForm = ({ item }: PageProps) => {
             {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
                 <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
             </LabeledGroup> : null}
-        </PaddedMainContent>
+        </FormPaddedMainContent>
     </FormContainer>
 }
 
