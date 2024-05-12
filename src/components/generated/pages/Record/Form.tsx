@@ -16,12 +16,14 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
+import { useModelRecordFormPreferences } from '../../../../lib/generated/preferences'
 
 const RecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.record")
     const { t } = useTranslation("translations")
+    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
     const data: Partial<Record & RecordCreateInput & RecordUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -77,16 +79,16 @@ const RecordForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.float.name'), "float", { type: "Float", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.decimal.name'), "decimal", { type: "Decimal", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.date.name'), "date", { type: "Date", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.sex.name'), "sex", { type: "Enum", optional: false, enumName: "Sex", enumNameCamelcase: "sex" }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.strings.name'), "strings", { type: "Array", optional: false, child: { type: "String", optional: false } }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.record.genders.name'), "genders", { type: "Array", optional: false, child: { type: "Enum", optional: false , enumName: "Sex", enumNameCamelcase: "sex"} }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.string.name'), "string", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.bool.name'), "bool", { type: "Bool", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.int.name'), "int", { type: "Int", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.float.name'), "float", { type: "Float", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.decimal.name'), "decimal", { type: "Decimal", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.date.name'), "date", { type: "Date", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.dateTime.name'), "dateTime", { type: "DateTime", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.sex.name'), "sex", { type: "Enum", optional: false, enumName: "Sex", enumNameCamelcase: "sex" }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.strings.name'), "strings", { type: "Array", optional: false, child: { type: "String", optional: false } }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.record.genders.name'), "genders", { type: "Array", optional: false, child: { type: "Enum", optional: false , enumName: "Sex", enumNameCamelcase: "sex"} }, form, loading, t, rerender)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

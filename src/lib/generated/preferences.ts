@@ -93,3 +93,5 @@ export const useSignInAdminDefaultIdKey = makePathedPreferencesHook<string>(["si
 export const useSignInAdminDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "admin", "defaultCheckerKey"])
 export const useSignInRootDefaultIdKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultIdKey"])
 export const useSignInRootDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultCheckerKey"])
+
+export const useModelRecordFormPreferences = makePathedPreferencesHook<RecordModelFormPreferences>(["models", "Record", "form"])

@@ -30,17 +30,17 @@ export type FormType = {
     enumNameCamelcase?: string
 }
 
-const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
+const renderFormEntry = (formPreferences: any, setFormPreferences: any, readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
     return <WithContextMenu contextMenu={<Menu>
         <MenuItem label='Control Width'>
             <Menu>
-                <MenuItem checked label="Full Line Width" />
-                <MenuItem checked={false} label="Half Line Width" />
-                <MenuItem checked={false} label="One-third Line Width" />
+                <MenuItem checked={!formPreferences[key] || (formPreferences[key]?.width === 'full') || (!formPreferences[key]?.width)} label="Full Line Width" />
+                <MenuItem checked={formPreferences[key] && formPreferences[key].width === 'half'} label="Half Line Width" />
+                <MenuItem checked={formPreferences[key] && formPreferences[key].width === 'oneThird'} label="One-third Line Width" />
             </Menu>
         </MenuItem>
     </Menu>}>
-        <LabeledGroup>
+        <LabeledGroup width={formPreferences[key].width}>
             <Label>{readableName}</Label>
             {renderFormInput(key, type, form, disabled, t, rerender, secure)}
         </LabeledGroup>

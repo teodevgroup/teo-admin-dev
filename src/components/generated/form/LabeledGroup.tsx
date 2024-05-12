@@ -4,8 +4,13 @@
 import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
 import { margin } from "../../../lib/extended/theme"
+import { FormFieldWidth } from "../../../lib/generated/preferences"
 
-const LabeledGroup = styled.div`
+export type LabeledGroupProps = {
+    width?: FormFieldWidth
+}
+
+const LabeledGroup = styled.div<LabeledGroupProps>`
     ${flexContainer("column", "stretch", "stretch")}
     margin-bottom: ${margin};
 `
