@@ -26,6 +26,13 @@ const defaultPreferences: Preferences = {
             defaultIdKey: "email",
             defaultCheckerKey: "password",
         },
+    },
+    models: {
+        "Record": {
+            form: {
+                string: { width: "full" }
+            }
+        }
     }
 }
 
