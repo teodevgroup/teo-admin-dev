@@ -32,9 +32,13 @@ export type FormType = {
 
 const renderFormEntry = (readableName: string, key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
     return <WithContextMenu contextMenu={<Menu>
-        <MenuItem checked label="Full Line Width" />
-        <MenuItem checked={false} label="Half Line Width" />
-        <MenuItem checked={false} label="One-third Line Width" />
+        <MenuItem label='Control Width'>
+            <Menu>
+                <MenuItem checked label="Full Line Width" />
+                <MenuItem checked={false} label="Half Line Width" />
+                <MenuItem checked={false} label="One-third Line Width" />
+            </Menu>
+        </MenuItem>
     </Menu>}>
         <LabeledGroup>
             <Label>{readableName}</Label>

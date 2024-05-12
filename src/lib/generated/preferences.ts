@@ -40,10 +40,29 @@ export interface SignInPreferences {
     root: SignInRootPreferences
 }
 
+export type FormFieldWidth = "full" | "half" | "oneThird"
+
+export interface FormFieldPreferences {
+    width: FormFieldWidth
+}
+
+export interface RecordModelFormPreferences {
+    "string": FormFieldPreferences
+}
+
+export interface RecordModelPreferences {
+    form: RecordModelFormPreferences
+}
+
+export interface ModelPreferences {
+    "Record": RecordModelPreferences
+}
+
 export interface Preferences {
     lang: Language
     nav: NavPreferences
     signIn: SignInPreferences
+    models: ModelPreferences
 }
 
 export const usePreferences = () => {
