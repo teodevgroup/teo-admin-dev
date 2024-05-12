@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React, { ReactElement, cloneElement, useEffect } from 'react'
-import { FloatingPortal, FloatingTree } from '@floating-ui/react'
+import { FloatingOverlay, FloatingPortal, FloatingTree } from '@floating-ui/react'
 import ContextMenuContext from './MenuContext'
 import useMenuOwner from './useMenuOwner'
 import { setShouldDisplay, shouldDisplay } from './shouldDisplayContextMenu'
@@ -47,7 +47,9 @@ const WithContextMenuInner = (props: WithContextMenuProps) => {
         {cloneElement(props.children, { onContextMenu: handleContextMenu, ...menuContext.getReferenceProps() })}
         <FloatingPortal>
             <ContextMenuContext.Provider value={menuContext}>
-                {menuContext.isOpen ? props.contextMenu : null}
+                {menuContext.isOpen ? <FloatingOverlay lockScroll>
+                    {props.contextMenu}
+                </FloatingOverlay> : null}
             </ContextMenuContext.Provider>
         </FloatingPortal>
     </>
