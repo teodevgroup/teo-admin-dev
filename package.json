@@ -1,6 +1,6 @@
 {
   "name": "teo-admin-dev",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "description": "this project is for developing teo admin dashboard",
   "private": true,
   "main": "index.js",
@@ -16,7 +16,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@babel/register": "^7.23.7",
     "@babel/runtime": "^7.23.8",
-    "@floating-ui/react": "^0.26.9",
+    "@floating-ui/react": "^0.26.13",
     "@hello-pangea/dnd": "^16.6.0",
     "@linaria/babel-preset": "^5.0.4",
     "@linaria/core": "6.0.0",

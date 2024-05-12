@@ -5,7 +5,9 @@ import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './components/extended/app/App'
 import i18nInit from './lib/generated/translations/init'
+import { preferencesInit } from './lib/generated/mergePreferences'
 
+preferencesInit()
 i18nInit()
 
 const container = document.createElement('div')

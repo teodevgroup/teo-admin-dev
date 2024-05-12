@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import React, { ReactElement, cloneElement, useEffect } from 'react'
-import { FloatingPortal, FloatingTree } from '@floating-ui/react'
+import { FloatingList, FloatingNode, FloatingOverlay, FloatingPortal, FloatingTree } from '@floating-ui/react'
 import ContextMenuContext from './MenuContext'
 import useMenuOwner from './useMenuOwner'
 import { setShouldDisplay, shouldDisplay } from './shouldDisplayContextMenu'
@@ -14,6 +14,12 @@ type WithContextMenuProps = {
 
 /// Component passed into <WithContextMenu> must accept ref.
 const WithContextMenu = (props: WithContextMenuProps) => {
+    return <FloatingTree>
+        <WithContextMenuInner {...props} />
+    </FloatingTree>
+}
+
+const WithContextMenuInner = (props: WithContextMenuProps) => {
     const menuContext = useMenuOwner()
     const handleContextMenu = (e: MouseEvent) => {
         e.preventDefault()
@@ -37,22 +43,15 @@ const WithContextMenu = (props: WithContextMenuProps) => {
         })
         menuContext.setIsOpen(true)
     }
-    useEffect(() => {
-        const dismissMenu = () => menuContext.setIsOpen(false)
-        document.addEventListener("click", dismissMenu)
-        return () => {
-            document.removeEventListener("click", dismissMenu)
-        }
-    }, [])
     return <>
         {cloneElement(props.children, { onContextMenu: handleContextMenu, ...menuContext.getReferenceProps() })}
-        <FloatingPortal>
+        <FloatingNode id={menuContext.nodeId}>
             <ContextMenuContext.Provider value={menuContext}>
-                <FloatingTree>
+                <FloatingList elementsRef={menuContext.listItemsRef} labelsRef={menuContext.labelsRef}>
                     {menuContext.isOpen ? props.contextMenu : null}
-                </FloatingTree>
+                </FloatingList>
             </ContextMenuContext.Provider>
-        </FloatingPortal>
+        </FloatingNode>
     </>
 }
 

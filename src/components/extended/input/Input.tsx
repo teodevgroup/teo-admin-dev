@@ -3,8 +3,6 @@
 // modify this file. Do not modify export names and siganatures. Modify values 
 // with care.
 
-import InputElement from "../../generated/input/InputElement"
-
-const Input = InputElement
+import Input from "../../generated/input/Input"
 
 export default Input

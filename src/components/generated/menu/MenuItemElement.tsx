@@ -15,9 +15,10 @@ const MenuItemElement = styled.button<MenuItemElementProps>`
     padding: .5rem;
     font-size: 0.75rem;
     border-radius: ${radius};
-    ${flexContainer("row", "center", "space-between")}
+    ${flexContainer("row", "center", "flex-start")}
     user-select: none;
     cursor: default;
+    width: 100%;
     ${light} {
         background-color: ${({ highlighted }) => highlighted ? tintColorLight : `transparent`};
         color: ${({ disabled, highlighted }) => disabled ? `gray` : (highlighted ? textColorOnTintedBackgroundLight : controlTextColorLight)}

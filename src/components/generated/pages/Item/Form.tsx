@@ -8,7 +8,7 @@ import { isEqual, omit } from 'radash'
 import { teo, Item, ItemCreateInput, ItemUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import LabeledGroup from '../../form/LabeledGroup'
-import PaddedMainContent from '../../pageStack/PaddedMainContent'
+import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
 import { useForm } from 'react-hook-form'
 import usePageStackPage from '../../pageStack/usePageStackPage'
@@ -16,12 +16,15 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
+import { useModelItemFormPreferences } from '../../../../lib/generated/preferences'
+import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 
 const ItemForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.item")
     const { t } = useTranslation("translations")
+    const [formPreferences, setFormPreferences] = useModelItemFormPreferences()
     const data: Partial<Item & ItemCreateInput & ItemUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -76,15 +79,13 @@ const ItemForm = ({ item }: PageProps) => {
         }
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
-        <PaddedMainContent>
-            {renderFormEntry(t('model.item.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
-            <LabeledGroup>
+        <FormPaddedMainContent>
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.item.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
+            <CenteredButtonGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
-            </LabeledGroup>
-            {!(isEqual(item.query, {}) || !item.query) ? <LabeledGroup>
-                <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button>
-            </LabeledGroup> : null}
-        </PaddedMainContent>
+                {!(isEqual(item.query, {}) || !item.query) ? <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button> : null}
+            </CenteredButtonGroup>
+        </FormPaddedMainContent>
     </FormContainer>
 }
 

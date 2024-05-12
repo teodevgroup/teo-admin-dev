@@ -4,7 +4,7 @@
 import React, { forwardRef, useContext } from 'react'
 import { ComponentPropsWithRef } from "react"
 import MenuElement from '../../extended/menu/MenuElement'
-import { FloatingFocusManager, FloatingList, FloatingNode,  FloatingPortal,  useMergeRefs } from '@floating-ui/react'
+import { FloatingFocusManager, FloatingList, FloatingNode, FloatingPortal, useMergeRefs } from '@floating-ui/react'
 import { omit } from 'radash'
 import MenuContext from './MenuContext'
 
@@ -12,22 +12,21 @@ type MenuProps = ComponentPropsWithRef<'div'>
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, forwardedRef) => {
     const menuContext = useContext(MenuContext)
-    return <FloatingNode id={menuContext.nodeId}>
-        <FloatingList elementsRef={menuContext.listItemsRef} labelsRef={menuContext.labelsRef}>
-            <FloatingPortal>
-                <FloatingFocusManager
-                    context={menuContext.floatingContext}
-                    modal={false}
-                    initialFocus={menuContext.isNested ? -1 : 0}
-                    returnFocus={!menuContext.isNested}
-                >
-                    <MenuElement role="menu" ref={useMergeRefs([forwardedRef, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...menuContext.getFloatingProps(omit(props, ['children']))}>
-                        {props.children}
-                    </MenuElement>
-                </FloatingFocusManager>
-            </FloatingPortal>
-        </FloatingList>
-    </FloatingNode>
+    if (menuContext.listItemsRef.current.length === 3) {
+        console.log("see items ref", menuContext.listItemsRef)
+    }
+    return <FloatingPortal>
+        <FloatingFocusManager
+            context={menuContext.floatingContext}
+            modal={false}
+            initialFocus={menuContext.isNested ? -1 : 0}
+            returnFocus={!menuContext.isNested}
+        >
+            <MenuElement role="menu" ref={useMergeRefs([forwardedRef, menuContext.refs.setFloating])} style={menuContext.floatingStyles} {...menuContext.getFloatingProps(omit(props, ['children']))}>
+                {props.children}
+            </MenuElement>
+        </FloatingFocusManager>
+    </FloatingPortal>
 })
 
 export default Menu

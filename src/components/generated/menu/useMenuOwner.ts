@@ -1,8 +1,8 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import { useContext, useEffect, useRef, useState } from "react"
-import MenuContext, { MenuContextProps } from "./MenuContext"
+import { useEffect, useRef, useState } from "react"
+import { MenuContextProps } from "./MenuContext"
 import { autoUpdate, flip, offset, useFloating, useFloatingNodeId, useFloatingParentNodeId, useFloatingTree, shift, useHover, safePolygon, useDismiss, useRole, useListNavigation, useTypeahead, useInteractions, useClick } from "@floating-ui/react"
 import { setShouldDisplay } from "./shouldDisplayContextMenu"
 
@@ -15,7 +15,6 @@ const useMenuOwner: () => MenuContextProps = () => {
         rawSetIsOpen(value)
     }
     const [hasFocusInside, setHasFocusInside] = useState(false)
-    const parentMenuContext = useContext(MenuContext)
     const tree = useFloatingTree()
     const parentId = useFloatingParentNodeId()
     const nodeId = useFloatingNodeId()
@@ -47,12 +46,7 @@ const useMenuOwner: () => MenuContextProps = () => {
         delay: { open: 75 },
         handleClose: safePolygon({ blockPointerEvents: true })
     })
-    const click = useClick(floatingContext, {
-        event: "mousedown",
-        toggle: true,
-        ignoreMouse: false
-    })
-    const dismiss = useDismiss(floatingContext, { referencePress: true })
+    const dismiss = useDismiss(floatingContext, { referencePress: true, bubbles: true })
     const role = useRole(floatingContext, { role: "menu" })
     const [activeIndex, setActiveIndex] = useState<number | null>(null)
     const listItemsRef = useRef<Array<HTMLButtonElement | null>>([])
@@ -76,12 +70,16 @@ const useMenuOwner: () => MenuContextProps = () => {
     useEffect(() => {
         if (!tree) { return }
         function handleTreeClick() {
-            parentMenuContext.setIsOpen(false)
+            if (setIsOpen) {
+                setIsOpen(false)
+            }
         }
     
         function onSubMenuOpen(event: { nodeId: string; parentId: string }) {
             if (event.nodeId !== nodeId && event.parentId === parentId) {
-                parentMenuContext.setIsOpen(false)
+                if (setIsOpen) {
+                    setIsOpen(false)
+                }
             }
         }
     
@@ -94,10 +92,10 @@ const useMenuOwner: () => MenuContextProps = () => {
         };
     }, [tree, nodeId, parentId])
     useEffect(() => {
-        if (parentMenuContext.isOpen && tree) {
+        if (isOpen && tree) {
             tree.events.emit("menuopen", { parentId, nodeId })
         }
-    }, [tree, parentMenuContext.isOpen, nodeId, parentId])
+    }, [tree, isOpen, nodeId, parentId])
     return {
         isOpen,
         setIsOpen,

@@ -1,3 +1,6 @@
+// This file is generated and managed by Teo generator internally.
+// It will be overwritten in next generation. Do not modify this file.
+
 import { styled } from "@linaria/react"
 import Input from "../../extended/input/Input"
 import { appContentBackgroundColorDark, appContentBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlTintColorDark, controlTintColorLight, panelBoxShadow } from "../../../lib/extended/theme"

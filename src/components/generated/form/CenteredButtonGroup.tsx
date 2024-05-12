@@ -5,12 +5,15 @@ import { styled } from "@linaria/react"
 import { flexContainer } from "../../../lib/generated/theme"
 import { margin } from "../../../lib/extended/theme"
 
-const MenuItemAccessoryElement = styled.div`
-    ${flexContainer("row", "center", "flex-end")}
-    margin-left: ${margin};
-    align-self: flex-end;
-    justify-self: flex-end;
-    flex-grow: 2;
+const CenteredButtonGroup = styled.div`
+    ${flexContainer("row", "center", "center")}
+    margin-bottom: ${margin};
+    padding-right: ${margin};
+    button:not(:last-child) {
+        margin-right: ${margin};
+    }
+    width: 100%;
+    flex-grow: 1;
 `
 
-export default MenuItemAccessoryElement
+export default CenteredButtonGroup
