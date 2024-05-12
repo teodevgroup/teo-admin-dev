@@ -43,13 +43,6 @@ const WithContextMenuInner = (props: WithContextMenuProps) => {
         })
         menuContext.setIsOpen(true)
     }
-    useEffect(() => {
-        const dismissMenu = () => menuContext.setIsOpen(false)
-        document.addEventListener("click", dismissMenu)
-        return () => {
-            document.removeEventListener("click", dismissMenu)
-        }
-    }, [])
     return <>
         {cloneElement(props.children, { onContextMenu: handleContextMenu, ...menuContext.getReferenceProps() })}
         <FloatingPortal>

@@ -10,7 +10,7 @@ const MenuItemAccessoryElement = styled.div`
     margin-left: ${margin};
     align-self: flex-end;
     justify-self: flex-end;
-    flex-grow: 6;
+    flex-grow: 2;
 `
 
 export default MenuItemAccessoryElement

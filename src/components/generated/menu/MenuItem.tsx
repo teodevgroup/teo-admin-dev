@@ -22,8 +22,8 @@ type MenuItemProps = ComponentPropsWithRef<'button'> & MenuItemElementProps & {
 
 const MenuItem = forwardRef<HTMLButtonElement, MenuItemProps>((props: MenuItemProps, forwardedRef) => {
     const parentMenuContext = useContext(MenuContext)
-    const item = useListItem({ label: props.disabled ? null : props.label })
     const tree = useFloatingTree()
+    const item = useListItem({ label: props.disabled ? null : props.label })
     const isActive = item.index === parentMenuContext.activeIndex
     const childMenuContext = props.children ? useMenuOwner() : null
     const element = <MenuItemElement highlighted={isActive} type="button" role="menuitem" tabIndex={isActive ? 0 : -1} disabled={props.disabled} ref={useMergeRefs([forwardedRef, childMenuContext?.refs.setPositionReference, item.ref])} {...mergeProps(parentMenuContext.getItemProps(), 
