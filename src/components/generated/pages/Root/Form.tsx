@@ -16,12 +16,14 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
+import { useModelRootFormPreferences } from '../../../../lib/generated/preferences'
 
 const RootForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.root")
     const { t } = useTranslation("translations")
+    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
     const data: Partial<Root & RootCreateInput & RootUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -77,8 +79,8 @@ const RootForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.root.password.name'), "password", { type: "String", optional: false }, form, loading, t, rerender, true)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.root.email.name'), "email", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.root.password.name'), "password", { type: "String", optional: false }, form, loading, t, rerender, true)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

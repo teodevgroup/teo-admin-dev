@@ -16,12 +16,14 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
+import { useModelCategoryFormPreferences } from '../../../../lib/generated/preferences'
 
 const CategoryForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.category")
     const { t } = useTranslation("translations")
+    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
     const data: Partial<Category & CategoryCreateInput & CategoryUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -77,7 +79,7 @@ const CategoryForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.category.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.category.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

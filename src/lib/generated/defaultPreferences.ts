@@ -28,9 +28,48 @@ const defaultPreferences: Preferences = {
         },
     },
     models: {
+        "Admin": {
+            form: {
+                email: { width: "full" },
+                phoneNo: { width: "full" },
+                password: { width: "full" },
+            }
+        }
+        "Category": {
+            form: {
+                name: { width: "full" },
+            }
+        }
+        "Item": {
+            form: {
+                name: { width: "full" },
+            }
+        }
+        "Product": {
+            form: {
+                name: { width: "full" },
+                stock: { width: "full" },
+                categoryId: { width: "full" },
+            }
+        }
         "Record": {
             form: {
-                string: { width: "full" }
+                string: { width: "full" },
+                bool: { width: "full" },
+                int: { width: "full" },
+                float: { width: "full" },
+                decimal: { width: "full" },
+                date: { width: "full" },
+                dateTime: { width: "full" },
+                sex: { width: "full" },
+                strings: { width: "full" },
+                genders: { width: "full" },
+            }
+        }
+        "Root": {
+            form: {
+                email: { width: "full" },
+                password: { width: "full" },
             }
         }
     }

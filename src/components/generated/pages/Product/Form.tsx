@@ -16,12 +16,14 @@ import useRefreshToken from '../../../../lib/generated/refreshToken'
 import { useTranslation } from 'react-i18next'
 import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
+import { useModelProductFormPreferences } from '../../../../lib/generated/preferences'
 
 const ProductForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.product")
     const { t } = useTranslation("translations")
+    const [formPreferences, setFormPreferences] = useModelRecordFormPreferences()
     const data: Partial<Product & ProductCreateInput & ProductUpdateInput> = suspend(async () => {
         if (isEqual(item.query, {}) || !item.query) {
             return {}
@@ -77,9 +79,9 @@ const ProductForm = ({ item }: PageProps) => {
     }
     return <FormContainer onSubmit={form.handleSubmit(onSubmit)}>
         <PaddedMainContent>
-            {renderFormEntry(t('model.product.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.product.stock.name'), "stock", { type: "Int", optional: false }, form, loading, t, rerender)}
-            {renderFormEntry(t('model.product.categoryId.name'), "categoryId", { type: "Int", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.product.name.name'), "name", { type: "String", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.product.stock.name'), "stock", { type: "Int", optional: false }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.product.categoryId.name'), "categoryId", { type: "Int", optional: false }, form, loading, t, rerender)}
             <LabeledGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
             </LabeledGroup>

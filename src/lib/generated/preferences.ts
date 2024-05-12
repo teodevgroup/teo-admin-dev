@@ -45,17 +45,70 @@ export type FormFieldWidth = "full" | "half" | "oneThird"
 export interface FormFieldPreferences {
     width: FormFieldWidth
 }
+export interface AdminModelFormPreferences {
+    "email": FormFieldPreferences
+    "phoneNo": FormFieldPreferences
+    "password": FormFieldPreferences
+}
 
+export interface AdminModelPreferences {
+    form: AdminModelFormPreferences
+}
+export interface CategoryModelFormPreferences {
+    "name": FormFieldPreferences
+}
+
+export interface CategoryModelPreferences {
+    form: CategoryModelFormPreferences
+}
+export interface ItemModelFormPreferences {
+    "name": FormFieldPreferences
+}
+
+export interface ItemModelPreferences {
+    form: ItemModelFormPreferences
+}
+export interface ProductModelFormPreferences {
+    "name": FormFieldPreferences
+    "stock": FormFieldPreferences
+    "categoryId": FormFieldPreferences
+}
+
+export interface ProductModelPreferences {
+    form: ProductModelFormPreferences
+}
 export interface RecordModelFormPreferences {
     "string": FormFieldPreferences
+    "bool": FormFieldPreferences
+    "int": FormFieldPreferences
+    "float": FormFieldPreferences
+    "decimal": FormFieldPreferences
+    "date": FormFieldPreferences
+    "dateTime": FormFieldPreferences
+    "sex": FormFieldPreferences
+    "strings": FormFieldPreferences
+    "genders": FormFieldPreferences
 }
 
 export interface RecordModelPreferences {
     form: RecordModelFormPreferences
 }
+export interface RootModelFormPreferences {
+    "email": FormFieldPreferences
+    "password": FormFieldPreferences
+}
+
+export interface RootModelPreferences {
+    form: RootModelFormPreferences
+}
 
 export interface ModelPreferences {
+    "Admin": AdminModelPreferences
+    "Category": CategoryModelPreferences
+    "Item": ItemModelPreferences
+    "Product": ProductModelPreferences
     "Record": RecordModelPreferences
+    "Root": RootModelPreferences
 }
 
 export interface Preferences {
@@ -93,5 +146,9 @@ export const useSignInAdminDefaultIdKey = makePathedPreferencesHook<string>(["si
 export const useSignInAdminDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "admin", "defaultCheckerKey"])
 export const useSignInRootDefaultIdKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultIdKey"])
 export const useSignInRootDefaultCheckerKey = makePathedPreferencesHook<string>(["signIn", "root", "defaultCheckerKey"])
-
+export const useModelAdminFormPreferences = makePathedPreferencesHook<AdminModelFormPreferences>(["models", "Admin", "form"])
+export const useModelCategoryFormPreferences = makePathedPreferencesHook<CategoryModelFormPreferences>(["models", "Category", "form"])
+export const useModelItemFormPreferences = makePathedPreferencesHook<ItemModelFormPreferences>(["models", "Item", "form"])
+export const useModelProductFormPreferences = makePathedPreferencesHook<ProductModelFormPreferences>(["models", "Product", "form"])
 export const useModelRecordFormPreferences = makePathedPreferencesHook<RecordModelFormPreferences>(["models", "Record", "form"])
+export const useModelRootFormPreferences = makePathedPreferencesHook<RootModelFormPreferences>(["models", "Root", "form"])
