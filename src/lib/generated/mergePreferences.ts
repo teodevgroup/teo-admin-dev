@@ -3,7 +3,7 @@
 
 import { diff } from "radash"
 import defaultPreferences from "./defaultPreferences"
-import { NavItem, Preferences, SignInPreferences } from "./preferences"
+import { ModelPreferences, NavItem, Preferences, SignInPreferences } from "./preferences"
 
 const collectUserNavItemKeys = (user: NavItem[]) => {
     let keys = user.map((item) => item.id)
@@ -49,6 +49,38 @@ const mergeSignInEntry = (user: Partial<SignInPreferences> | undefined, generate
     return result as SignInPreferences
 }
 
+const mergeModelForm = (user: any, generated: any) => {
+    if (!user) {
+        return generated
+    }
+    let result: any = {}
+    for (let [k, v] of Object.entries(generated)) {
+        if (user && user[k]) {
+            result[k] = Object.assign({}, v, user[k])
+        } else {
+            result[k] = v
+        }
+    }
+    return result
+}
+
+const mergeModels = (user: Partial<ModelPreferences> | undefined, generated: ModelPreferences) => {
+    if (!user) {
+        return generated
+    }
+    let result: ModelPreferences = {} as ModelPreferences
+    for (let [k, v] of Object.entries(generated)) {
+        if (user && user[k as keyof ModelPreferences]) {
+            result[k as keyof ModelPreferences] = {
+                form: mergeModelForm(user[k as keyof ModelPreferences]!.form, v.form) as any
+            }
+        } else {
+            result[k as keyof ModelPreferences] = v
+        }
+    }
+    return result
+}
+
 const mergePreferences: (preferences: Partial<Preferences>) => Preferences = (preferences: Partial<Preferences>) => {
     return {
         lang: preferences.lang ?? defaultPreferences.lang,
@@ -57,6 +89,7 @@ const mergePreferences: (preferences: Partial<Preferences>) => Preferences = (pr
             items: mergeNavItems(preferences.nav?.items, defaultPreferences.nav.items),
         },
         signIn: mergeSignInEntry(preferences.signIn, defaultPreferences.signIn),
+        models: mergeModels(preferences.models, defaultPreferences.models),
     }
 }
 
