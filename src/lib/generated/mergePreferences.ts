@@ -93,4 +93,12 @@ const mergePreferences: (preferences: Partial<Preferences>) => Preferences = (pr
     }
 }
 
+export const preferencesInit = () => {
+    const preferencesString = localStorage.getItem("__teo_admin_preferences__")
+    if (preferencesString) {
+        const mergedPreferences = mergePreferences(JSON.parse(preferencesString))
+        localStorage.setItem("__teo_admin_preferences__", JSON.stringify(mergedPreferences))
+    }
+}
+
 export default mergePreferences

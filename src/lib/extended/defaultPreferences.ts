@@ -1,3 +1,3 @@
-import mergePreferences from "../generated/mergePreferences"
+import defaultPreferences from "../generated/defaultPreferences"
 
-export default mergePreferences({})
+export default defaultPreferences
