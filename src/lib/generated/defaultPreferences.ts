@@ -34,24 +34,24 @@ const defaultPreferences: Preferences = {
                 phoneNo: { width: "full" },
                 password: { width: "full" },
             }
-        }
+        },
         "Category": {
             form: {
                 name: { width: "full" },
             }
-        }
+        },
         "Item": {
             form: {
                 name: { width: "full" },
             }
-        }
+        },
         "Product": {
             form: {
                 name: { width: "full" },
                 stock: { width: "full" },
                 categoryId: { width: "full" },
             }
-        }
+        },
         "Record": {
             form: {
                 string: { width: "full" },
@@ -65,13 +65,13 @@ const defaultPreferences: Preferences = {
                 strings: { width: "full" },
                 genders: { width: "full" },
             }
-        }
+        },
         "Root": {
             form: {
                 email: { width: "full" },
                 password: { width: "full" },
             }
-        }
+        },
     }
 }
 
