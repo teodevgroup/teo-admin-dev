@@ -12,6 +12,9 @@ type MenuProps = ComponentPropsWithRef<'div'>
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>((props: MenuProps, forwardedRef) => {
     const menuContext = useContext(MenuContext)
+    if (menuContext.listItemsRef.current.length === 4) {
+        console.log("see items ref", menuContext.listItemsRef)
+    }
     return <FloatingNode id={menuContext.nodeId}>
         <FloatingList elementsRef={menuContext.listItemsRef} labelsRef={menuContext.labelsRef}>
             <FloatingPortal>

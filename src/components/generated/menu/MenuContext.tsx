@@ -6,7 +6,7 @@ import { createContext, CSSProperties, Dispatch, HTMLProps, MutableRefObject } f
 
 export interface MenuContextProps {
     isOpen: boolean
-    setIsOpen: Dispatch<React.SetStateAction<boolean>>
+    setIsOpen: (open: boolean) => void
     getReferenceProps: (userProps?: HTMLProps<Element>) => Record<string, unknown>
     getFloatingProps: (userProps?: HTMLProps<HTMLElement>) => Record<string, unknown>
     getItemProps: (userProps?: HTMLProps<HTMLElement>) => Record<string, unknown>

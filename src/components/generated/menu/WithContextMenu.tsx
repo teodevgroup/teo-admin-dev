@@ -14,6 +14,12 @@ type WithContextMenuProps = {
 
 /// Component passed into <WithContextMenu> must accept ref.
 const WithContextMenu = (props: WithContextMenuProps) => {
+    return <FloatingTree>
+        <WithContextMenuInner {...props} />
+    </FloatingTree>
+}
+
+const WithContextMenuInner = (props: WithContextMenuProps) => {
     const menuContext = useMenuOwner()
     const handleContextMenu = (e: MouseEvent) => {
         e.preventDefault()
@@ -48,9 +54,7 @@ const WithContextMenu = (props: WithContextMenuProps) => {
         {cloneElement(props.children, { onContextMenu: handleContextMenu, ...menuContext.getReferenceProps() })}
         <FloatingPortal>
             <ContextMenuContext.Provider value={menuContext}>
-                <FloatingTree>
-                    {menuContext.isOpen ? props.contextMenu : null}
-                </FloatingTree>
+                {menuContext.isOpen ? props.contextMenu : null}
             </ContextMenuContext.Provider>
         </FloatingPortal>
     </>

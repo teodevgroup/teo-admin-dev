@@ -18,6 +18,7 @@ const MenuItemElement = styled.button<MenuItemElementProps>`
     ${flexContainer("row", "center", "flex-start")}
     user-select: none;
     cursor: default;
+    width: 100%;
     ${light} {
         background-color: ${({ highlighted }) => highlighted ? tintColorLight : `transparent`};
         color: ${({ disabled, highlighted }) => disabled ? `gray` : (highlighted ? textColorOnTintedBackgroundLight : controlTextColorLight)}

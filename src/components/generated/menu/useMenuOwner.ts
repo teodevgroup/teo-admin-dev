@@ -76,12 +76,16 @@ const useMenuOwner: () => MenuContextProps = () => {
     useEffect(() => {
         if (!tree) { return }
         function handleTreeClick() {
-            parentMenuContext.setIsOpen(false)
+            if (parentMenuContext.setIsOpen) {
+                parentMenuContext.setIsOpen(false)
+            }
         }
     
         function onSubMenuOpen(event: { nodeId: string; parentId: string }) {
             if (event.nodeId !== nodeId && event.parentId === parentId) {
-                parentMenuContext.setIsOpen(false)
+                if (parentMenuContext.setIsOpen) {
+                    parentMenuContext.setIsOpen(false)
+                }
             }
         }
     

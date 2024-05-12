@@ -6,8 +6,11 @@ import { flexContainer } from "../../../lib/generated/theme"
 import { margin } from "../../../lib/extended/theme"
 
 const MenuItemAccessoryElement = styled.div`
-    ${flexContainer("row", "center", "center")}
+    ${flexContainer("row", "center", "flex-end")}
     margin-left: ${margin};
+    align-self: flex-end;
+    justify-self: flex-end;
+    flex-grow: 6;
 `
 
 export default MenuItemAccessoryElement
