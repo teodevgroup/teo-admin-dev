@@ -88,7 +88,7 @@ const NullableRecordForm = ({ item }: PageProps) => {
             {renderFormEntry(formPreferences, setFormPreferences, t('model.nullableRecord.dateTime.name'), "dateTime", { type: "DateTime", optional: true }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.nullableRecord.sex.name'), "sex", { type: "Enum", optional: true, enumName: "Sex", enumNameCamelcase: "sex" }, form, loading, t, rerender)}
             {renderFormEntry(formPreferences, setFormPreferences, t('model.nullableRecord.strings.name'), "strings", { type: "Array", optional: true, child: { type: "String", optional: false } }, form, loading, t, rerender)}
-            {renderFormEntry(formPreferences, setFormPreferences, t('model.nullableRecord.genders.name'), "genders", { type: "Array", optional: true, child: { type: "", optional: true , enumName: "Sex", enumNameCamelcase: "sex"} }, form, loading, t, rerender)}
+            {renderFormEntry(formPreferences, setFormPreferences, t('model.nullableRecord.genders.name'), "genders", { type: "Array", optional: true, child: { type: "Enum", optional: true , enumName: "Sex", enumNameCamelcase: "sex"} }, form, loading, t, rerender)}
             <CenteredButtonGroup>
                 <Button disabled={loading} type='submit'>{t("form.submit")}</Button>
                 {!(isEqual(item.query, {}) || !item.query) ? <Button disabled={loading} type="button" onClick={onDelete}>{t("form.delete")}</Button> : null}

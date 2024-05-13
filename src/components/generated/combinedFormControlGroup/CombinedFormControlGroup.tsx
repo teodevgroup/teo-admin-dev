@@ -16,6 +16,29 @@ const CombinedFormControlGroup = styled.div`
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
+    .react-datepicker-wrapper {
+        flex-grow: 1;
+    }
+    .react-datepicker-wrapper:not(:last-child) {
+        .react-datepicker__input-container {
+            input {
+                z-index: 4;
+                padding-right: ${spacing};
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+    .react-datepicker-wrapper:not(:first-child) {
+        .react-datepicker__input-container {
+            input {
+                z-index: 4;
+                padding-left: ${spacing};
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
     input {
         z-index: 4;
     }

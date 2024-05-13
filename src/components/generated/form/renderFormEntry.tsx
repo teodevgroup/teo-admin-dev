@@ -22,6 +22,8 @@ import MenuItem from '../menu/MenuItem'
 import set from '../../../lib/generated/utilities/set'
 import NullableInput from '../input/NullableInput'
 import NullableNumberInput from '../numberInput/NullableNumberInput'
+import CombinedFormControlGroup from '../combinedFormControlGroup/CombinedFormControlGroup'
+import { RxValueNone } from 'react-icons/rx'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -76,9 +78,19 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true })} />
         }
     } else if (type.type === "Bool") {
-        return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-            return <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } /> 
-        }} />
+        if (type.optional) {
+            return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <ControlGroup>
+                    <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } />
+                    <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
+                </ControlGroup> 
+            }} />
+    
+        } else {
+            return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } /> 
+            }} />    
+        }
     } else if (type.type === "Decimal") {
         if (type.optional) {
             return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
@@ -88,29 +100,69 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true })} />
         }
     } else if (type.type === "Date") {
-        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-            return <ReactDatePicker required customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
-        }} />
+        if (type.optional) {
+            return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <CombinedFormControlGroup>
+                    <ReactDatePicker customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
+                    <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
+                </CombinedFormControlGroup>
+            }} />    
+        } else {
+            return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <ReactDatePicker required customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
+            }} />    
+        }
     } else if (type.type === "DateTime") {
-        return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-            return <ReactDatePicker required dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
-        }} />
+        if (type.optional) {
+            return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <CombinedFormControlGroup>
+                    <ReactDatePicker dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
+                    <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
+                </CombinedFormControlGroup>
+            }} />    
+        } else {
+            return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <ReactDatePicker required dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
+            }} />    
+        }
     } else if (type.type === "Enum") {
-        return <Controller disabled={disabled} rules={{ required: true }} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-            return <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
-                {(enumDefinitions[type.enumName!]).members.map((m) => {
-                    return <Option key={m.value} value={m.value}>
-                        {t(m.name)}
-                    </Option>
-                })}
-            </Select>
-        }} />
+        if (type.optional) {
+            return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <ControlGroup>
+                    <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
+                        {(enumDefinitions[type.enumName!]).members.map((m) => {
+                            return <Option key={m.value} value={m.value}>
+                                {t(m.name)}
+                            </Option>
+                        })}
+                    </Select>
+                    <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
+                </ControlGroup>
+            }} />    
+        } else {
+            return <Controller disabled={disabled} rules={{ required: true }} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
+                return <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
+                    {(enumDefinitions[type.enumName!]).members.map((m) => {
+                        return <Option key={m.value} value={m.value}>
+                            {t(m.name)}
+                        </Option>
+                    })}
+                </Select>
+            }} />    
+        }
     } else if (type.type === "Array") {
         return <ArrayFieldContainer>
-            {(!form.getValues()[key] || form.getValues()[key]?.length === 0) ? <Button type="button" onClick={() => {
-                form.setValue(key, [null as any])
-                rerender()
-            }}><FaPlus /></Button> : form.getValues()[key]?.map((v: any, i: number) => {
+            {(!form.getValues()[key] || form.getValues()[key]?.length === 0) ? <ControlGroup>
+                <Button disabled={disabled} type="button" onClick={() => {
+                    form.setValue(key, [null as any])
+                    rerender()
+                }}><FaPlus /></Button>
+                {type.optional ? <Controller disabled={disabled} control={form.control} defaultValue={null} name={key} render={({ field }) => {
+                    return <Button type='button' disabled={disabled} onClick={() => field.onChange(null)} selected={field.value === null}>
+                    <RxValueNone />
+                </Button>
+                }} /> : null}
+            </ControlGroup> : form.getValues()[key]?.map((v: any, i: number) => {
                 return <ControlGroup key={i}>
                     {renderFormInput(`${key}.${i}`, type.child!, form, disabled, t, rerender, secure)}
                     <Button type="button" onClick={() => {
