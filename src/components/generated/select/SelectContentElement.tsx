@@ -2,12 +2,17 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { flexContainer } from "../../../lib/generated/theme"
-import { panelBoxShadow } from "../../../lib/extended/theme"
+import { dark, flexContainer, light } from "../../../lib/generated/theme"
+import { appContentBackgroundColorDark, appContentBackgroundColorLight, panelBoxShadow } from "../../../lib/extended/theme"
 
 const SelectContentElement = styled.div`
     ${flexContainer("column", "stretch", "center")}
-    background: white;
+    ${light} {
+        background: ${appContentBackgroundColorLight};
+    }
+    ${dark} {
+        background: ${appContentBackgroundColorDark};
+    }
     font-size: 15px;
     box-shadow: ${panelBoxShadow};
     border-radius: 8px;
