@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ForwardedRef, forwardRef } from 'react'
 import ToggleElement from './ToggleElement'
 import ToggleDotElement from './ToggleDotElement'
 interface ToggleProps {
@@ -7,8 +7,8 @@ interface ToggleProps {
     disabled?: boolean
 }
 
-const Toggle = ({ isOn, setIsOn, disabled }: ToggleProps) => {
-    return <ToggleElement isOn={isOn} disabled={disabled} onClick={(e) => {
+const Toggle = forwardRef(({ isOn, setIsOn, disabled }: ToggleProps, ref: ForwardedRef<HTMLDivElement>) => {
+    return <ToggleElement ref={ref} tabIndex={0} isOn={isOn} disabled={disabled} onClick={(e) => {
         e.stopPropagation()
         if (disabled) {
             return
@@ -19,6 +19,6 @@ const Toggle = ({ isOn, setIsOn, disabled }: ToggleProps) => {
     }}>
         <ToggleDotElement />
     </ToggleElement>
-}
+})
 
 export default Toggle
