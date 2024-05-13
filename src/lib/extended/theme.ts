@@ -41,15 +41,15 @@ export const controlTintColorContrastDark = "#015ECC"
 
 export const appBackgroundColorLight = "#FBFBFD"
 
-export const appBackgroundColorDark = "#090C13"
+export const appBackgroundColorDark = "#0a0a0c"
 
 export const appNavBackgroundColorLight = "#FFFFFF"
 
-export const appNavBackgroundColorDark = "#212A3D"
+export const appNavBackgroundColorDark = "#000000"
 
 export const appStatusBarBackgroundColorLight = "#FFFFFF"
 
-export const appStatusBarBackgroundColorDark = "#212A3D"
+export const appStatusBarBackgroundColorDark = "#000000"
 
 export const appContentBackgroundColorLight = "#FFFFFF"
 
@@ -57,31 +57,31 @@ export const appContentBackgroundColorDark = "#000000"
 
 export const controlBackgroundColorLight = "#F6F6F8"
 
-export const controlBackgroundColorDark = "#F6F6F8"
+export const controlBackgroundColorDark = "#1a1a1c"
 
 export const controlBorderColorLight = "#EBEBED"
 
-export const controlBorderColorDark = "#EBEBED"
+export const controlBorderColorDark = "#141416"
 
 export const controlHintBackgroundColorLight = "#FAFAFC"
 
-export const controlHintBackgroundColorDark = "#FAFAFC"
+export const controlHintBackgroundColorDark = "#1e1e21"
 
 export const controlActiveBackgroundColorLight = "#EFEFF2"
 
-export const controlActiveBackGroundColorDark = "#EFEFF2"
+export const controlActiveBackGroundColorDark = "#202022"
 
 export const controlTextColorLight = "#404040"
 
-export const controlTextColorDark = "#404040"
+export const controlTextColorDark = "#bfbfc2"
 
 export const subtitleTextColorLight = "#4A4A4C"
 
-export const subtitleTextColorDark = "#4A4A4C"
+export const subtitleTextColorDark = "#b5b5b7"
 
 export const captionTextColorLight = "#ACACAE"
 
-export const captionTextColorDark = "#ACACAE"
+export const captionTextColorDark = "#535355"
 
 export const spacing = "8px"
 
