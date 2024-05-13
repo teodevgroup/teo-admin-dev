@@ -5,18 +5,15 @@ import Input from '../../extended/input/Input'
 import { FaMinus } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa'
 import { useMergeRefs } from '@floating-ui/react'
-import Decimal from 'decimal.js'
+import { nextNumberValue } from './NumberInput'
+import { RxValueNone } from 'react-icons/rx'
 
-export const nextNumberValue = (value: string, n: number) => {
-    const numberValue = Number(value)
-    if (!Number.isNaN(numberValue)) {
-        return (new Decimal(numberValue).add(n)).toString()
-    } else {
-        return value
-    }
+type NullableNumberInputProps = ComponentPropsWithoutRef<'input'> & {
+    setValue: (value: number | null | string) => void
+    valueAsNumber?: boolean
 }
 
-const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input'>>((props, ref) => {
+const NullableNumberInput = forwardRef<HTMLInputElement, NullableNumberInputProps>(({ valueAsNumber, setValue, value, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>()
     return <CombinedFormControlGroup>
         <Button onClick={(e) => {
@@ -27,7 +24,13 @@ const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input
         }}>
             <FaMinus />
         </Button>
-        <Input {...props} ref={useMergeRefs([ref, inputRef])} />
+        <Input value={value || ''} onChange={(e) => {
+            if (valueAsNumber) {
+                setValue(+e.target.value)
+            } else {
+                setValue(e.target.value)
+            }
+        }} {...props} ref={useMergeRefs([ref, inputRef])} />
         <Button onClick={(e) => {
             e.preventDefault()
             if (inputRef.current) {
@@ -36,7 +39,10 @@ const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input
         }}>
             <FaPlus />
         </Button>
+        <Button type="button" selected={value === null} onClick={() => {
+            (setValue(null))
+        }}><RxValueNone /></Button>
     </CombinedFormControlGroup>
 })
 
-export default NumberInput
+export default NullableNumberInput

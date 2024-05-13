@@ -21,6 +21,7 @@ import Menu from '../menu/Menu'
 import MenuItem from '../menu/MenuItem'
 import set from '../../../lib/generated/utilities/set'
 import NullableInput from '../input/NullableInput'
+import NullableNumberInput from '../numberInput/NullableNumberInput'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -59,15 +60,33 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             return <Input disabled={disabled} {...form.register(key, { required: true })} {...(secure ? { type: "password" } : {})} />
         }
     } else if (type.type === "Int" || type.type === "Int64") {
-        return <NumberInput type="number" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true, validate: Number.isInteger })} />
+        if (type.optional) {
+            return <Controller defaultValue={null} rules={{ validate: (v) => Number.isInteger(v) || v === null }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <NullableNumberInput valueAsNumber type="number" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
+            }} />
+        } else {
+            return <NumberInput type="number" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true, validate: Number.isInteger })} />
+        }
     } else if (type.type === "Float" || type.type === "Float32") {
-        return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true })} />
+        if (type.optional) {
+            return <Controller defaultValue={null} rules={{ validate: (v) => !Number.isNaN(v) || v === null }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <NullableNumberInput valueAsNumber type="number" step="any" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
+            }} />
+        } else {
+            return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true })} />
+        }
     } else if (type.type === "Bool") {
         return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
             return <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } /> 
         }} />
     } else if (type.type === "Decimal") {
-        return <NumberInput type="number" step="any" disabled={disabled} {...form.register("decimal", { required: true })} />
+        if (type.optional) {
+            return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <NullableNumberInput type="number" step="any" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
+            }} />
+        } else {
+            return <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true })} />
+        }
     } else if (type.type === "Date") {
         return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
             return <ReactDatePicker required customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
