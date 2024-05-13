@@ -7,9 +7,6 @@ import { margin } from "../../../lib/extended/theme"
 import SelectElement from "../select/SelectElement"
 
 const ControlGroup = styled.div`
-    &:not(:last-child) {
-        margin-bottom: ${margin};
-    }
     ${flexContainer("row", "flex-start", "flex-start")}
     & > *:not(:last-child) {
         margin-right: ${margin};
