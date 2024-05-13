@@ -5,6 +5,7 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "nav.title": "Teo Admin Dashboard",
     "nav.collapseButton.tooltip": "Collapse navigation area",
     "nav.expandButton.tooltip": "Expand navigation area",
+    "statusBar.devButton.tooltip": "Open developer panel",
     "statusBar.langButton.tooltip": "Change the dashboard language",
     "statusBar.notificationButton.tooltip": "Show notifications",
     "statusBar.lang.language": "Language",

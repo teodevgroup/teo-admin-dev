@@ -5,6 +5,7 @@ const staticGeneratedTranslation: StaticGeneratedTranslation = {
     "nav.title": "张氏管理仪表盘",
     "nav.collapseButton.tooltip": "折叠导航区域",
     "nav.expandButton.tooltip": "展开导航区域",
+    "statusBar.devButton.tooltip": "打开开发者面板",
     "statusBar.langButton.tooltip": "更换仪表盘语言",
     "statusBar.notificationButton.tooltip": "显示通知",
     "statusBar.lang.language": "语言",

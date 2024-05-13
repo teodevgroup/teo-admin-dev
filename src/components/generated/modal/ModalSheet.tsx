@@ -9,6 +9,9 @@ const ModalSheet = styled.div`
     width: 640px;
     max-width: calc(100vw - 4rem);
     padding: ${margin};
+    max-height: calc(100vh - 40px);
+    overflow-y: scroll;
+    overflow-x: hidden;
     ${flexContainer("column", "flex-start", "flex-start")}
     border-radius: ${paperRadius};
     ${light} {

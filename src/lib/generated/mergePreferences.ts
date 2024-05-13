@@ -2,7 +2,7 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { diff } from "radash"
-import defaultPreferences from "./defaultPreferences"
+import defaultPreferences from "../generated/defaultPreferences"
 import { ModelPreferences, NavItem, Preferences, SignInPreferences } from "./preferences"
 
 const collectUserNavItemKeys = (user: NavItem[]) => {
