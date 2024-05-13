@@ -20,6 +20,7 @@ import WithContextMenu from '../menu/WithContextMenu'
 import Menu from '../menu/Menu'
 import MenuItem from '../menu/MenuItem'
 import set from '../../../lib/generated/utilities/set'
+import NullableInput from '../input/NullableInput'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -50,7 +51,13 @@ const renderFormEntry = (formPreferences: any, setFormPreferences: any, readable
 
 const renderFormInput = (key: string, type: FormType, form: any, disabled: boolean, t: any, rerender: () => void, secure?: boolean) => {
     if (type.type === "String") {
-        return <Input disabled={disabled} {...form.register(key, { required: true })} {...(secure ? { type: "password" } : {})} />
+        if (type.optional) {
+            return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+                return <NullableInput disabled={disabled} value={field.value} setValue={(v) => field.onChange(v)} {...(secure ? { type: "password" } : {})} />
+            }} />
+        } else {
+            return <Input disabled={disabled} {...form.register(key, { required: true })} {...(secure ? { type: "password" } : {})} />
+        }
     } else if (type.type === "Int" || type.type === "Int64") {
         return <NumberInput type="number" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true, validate: Number.isInteger })} />
     } else if (type.type === "Float" || type.type === "Float32") {

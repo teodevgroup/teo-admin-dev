@@ -2,10 +2,14 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { shallowShadow, borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, controlTintColorLight, margin } from "../../../lib/extended/theme"
+import { shallowShadow, borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight, innerShallowShadow } from "../../../lib/extended/theme"
 import { dark, light, transitionShort } from "../../../lib/generated/theme"
 
-const ButtonElement = styled.button`
+export type ButtonProps = {
+    selected?: boolean
+}
+
+const ButtonElement = styled.button<ButtonProps>`
     height: ${controlHeight};
     border-radius: ${controlRadius};
     padding: 0 ${controlRadius};
@@ -36,7 +40,7 @@ const ButtonElement = styled.button`
         color: ${controlTextColorDark};
     }
     ${transitionShort('border-color,background-color')}
-    box-shadow: ${shallowShadow};
+    box-shadow: ${({ selected }) => selected ? innerShallowShadow : shallowShadow};
 `
 
 export default ButtonElement

@@ -9,10 +9,7 @@ import enumDefinitions from './enumDefinitions'
 import DimmedText from '../../components/generated/dimmedText/DimmedText'
 
 const displayValue = (value: any, t: any, enumName?: string): ReactNode => {
-    if (value === undefined) {
-        return ''
-    }
-    if (value === null) {
+    if (value === undefined || value === null) {
         return <DimmedText>{t("null.empty")}</DimmedText>
     }
     if (Array.isArray(value)) {

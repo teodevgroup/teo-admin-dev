@@ -21,6 +21,8 @@ export const desktopHDMin = '1200px'
 
 export const shallowShadow = `rgba(0, 0, 0, .1) 0 1px 1px`
 
+export const innerShallowShadow = `inset rgba(0, 0, 0, .1) 0px 0px 6px -2px`
+
 export const shallowShadowX = `rgba(0, 0, 0, .1) 1px 0 1px`
 
 export const tintColorLight = "#0052FF"
