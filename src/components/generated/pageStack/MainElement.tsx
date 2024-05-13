@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { dark, light, navBarHeight } from "../../../lib/generated/theme"
-import { appBackgroundColorDark, appBackgroundColorLight } from "../../../lib/extended/theme"
+import { dark, light } from "../../../lib/generated/theme"
+import { appBackgroundColorDark, appBackgroundColorLight, navBarHeight } from "../../../lib/extended/theme"
 
 const MainElement = styled.div`
     margin-top: ${navBarHeight};

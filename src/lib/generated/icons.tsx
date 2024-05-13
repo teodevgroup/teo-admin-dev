@@ -1,8 +1,8 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in the next generation. Do not modify this file.
 
-import React, { ReactElement } from "react";
-import * as Ri from "react-icons/ri";
+import React, { ReactElement } from "react"
+import * as Ri from "react-icons/ri"
 
 export type DefaultIconCode = "RiArrowDownCircleFill2"
 | "RiArrowDownCircleFill"

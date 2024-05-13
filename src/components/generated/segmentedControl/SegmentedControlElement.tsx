@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { controlBackgroundColorDark, controlBackgroundColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
-import { dark, flexContainer, light, shallowShadow } from "../../../lib/generated/theme"
+import { shallowShadow, controlBackgroundColorDark, controlBackgroundColorLight, controlHeight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
+import { dark, flexContainer, light } from "../../../lib/generated/theme"
 
 const SegmentedControlElement = styled.div`
     ${flexContainer("row", "center", "center")}

@@ -19,6 +19,10 @@ export const desktopMax = '1199px'
 
 export const desktopHDMin = '1200px'
 
+export const shallowShadow = `rgba(0, 0, 0, .1) 0 1px 1px`
+
+export const shallowShadowX = `rgba(0, 0, 0, .1) 1px 0 1px`
+
 export const tintColorLight = "#0052FF"
 
 export const tintColorDark = "#0052FF"
@@ -93,6 +97,8 @@ export const radius = "4px"
 
 export const paperRadius = "8px"
 
+export const navBarHeight = `calc(3 * ${margin} + 1.25rem)`
+
 export const borderThin = "0.5px"
 
 export const defaultTransitionTimeInterval = '0.2s'
@@ -110,3 +116,9 @@ rgb(0 0 0 / 50%) 0px 0px 1px, rgb(0 0 0 / 3%) 0px 100px 80px,
 rgb(0 0 0 / 2%) 0px 41.7776px 33.4221px,
 rgb(0 0 0 / 2%) 0px 22.3363px 17.869px,
 rgb(0 0 0 / 4%) 0px 12.5216px 10.0172px`
+
+export const zIndexTooltip = 11
+export const zIndexMenu = 10
+export const zIndexModal = 3
+export const zIndexNav = 2
+export const zIndexStatusBar = 1

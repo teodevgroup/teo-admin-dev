@@ -1,7 +1,7 @@
 // This file is generated and managed by Teo generator internally.
 // It will be overwritten in next generation. Do not modify this file.
 
-import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, margin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, shortTransitionTimeInterval, tabletMax, tabletMin } from "../extended/theme"
+import { defaultTransitionCurve, defaultTransitionTimeInterval, desktopHDMin, desktopMax, desktopMin, phoneLandscapeMax, phoneLandscapeMin, phonePortraitMax, shortTransitionTimeInterval, tabletMax, tabletMin } from "../extended/theme"
 import { Property } from 'csstype'
 
 export const light = '@media (prefers-color-scheme: light)'
@@ -30,9 +30,7 @@ export const exceptPhonePortrait = `@media (min-width: ${phoneLandscapeMin})`
 
 export const exceptPhone = `@media (min-width: ${tabletMin})`
 
-type FlexDirection = "row" | "column"
-
-export const flexContainer = (direction: FlexDirection, alignItems: Property.AlignItems = "center", justifyContent: Property.JustifyContent = "center") => {
+export const flexContainer = (direction: Property.FlexDirection, alignItems: Property.AlignItems = "center", justifyContent: Property.JustifyContent = "center") => {
     return `display: flex; flex-direction: ${direction}; align-items: ${alignItems}; justify-content: ${justifyContent};`
 }
 
@@ -41,10 +39,6 @@ export const clearButton = `background: none; border: none; outline: none; box-s
 export const clearHeading = `padding: 0; margin: 0; line-height: 1;`
 
 export const transitionAll = `transition: all ${defaultTransitionTimeInterval} ${defaultTransitionCurve};`
-
-export const shallowShadow = `rgba(0, 0, 0, .1) 0 1px 1px`
-
-export const shallowShadowX = `rgba(0, 0, 0, .1) 1px 0 1px`
 
 export const transitionShort = (keys: string) => {
     return `transition: ${keys} ${shortTransitionTimeInterval} ${defaultTransitionCurve};`
@@ -57,11 +51,3 @@ export const size = (width: string, height?: string) => {
         return `width: ${width}; height: ${width};`
     }
 }
-
-export const navBarHeight = `calc(3 * ${margin} + 1.25rem)`
-
-export const zIndexTooltip = 11
-export const zIndexMenu = 10
-export const zIndexModal = 3
-export const zIndexNav = 2
-export const zIndexStatusBar = 1

@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from '@linaria/react'
-import { dark, flexContainer, light, transitionAll, zIndexNav } from '../../../lib/generated/theme'
-import { appNavBackgroundColorDark, appNavBackgroundColorLight, borderThin, controlBorderColorDark, controlBorderColorLight, margin, spacing } from '../../../lib/extended/theme'
+import { dark, flexContainer, light, transitionAll } from '../../../lib/generated/theme'
+import { zIndexNav, appNavBackgroundColorDark, appNavBackgroundColorLight, borderThin, controlBorderColorDark, controlBorderColorLight, margin, spacing } from '../../../lib/extended/theme'
 
 type NavElementProps = {
     collapsed: boolean

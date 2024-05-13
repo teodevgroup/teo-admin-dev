@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { dark, flexContainer, light, shallowShadow, size, transitionShort } from "../../../lib/generated/theme"
-import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
+import { dark, flexContainer, light, size, transitionShort } from "../../../lib/generated/theme"
+import { shallowShadow, borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHeight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlRadius, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
 
 const RoundedButtonElement = styled.button`
     ${flexContainer("row", "center", "center")}

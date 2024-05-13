@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { flexContainer, zIndexModal } from "../../../lib/generated/theme"
-import { panelBoxShadow, paperRadius } from "../../../lib/extended/theme"
+import { flexContainer } from "../../../lib/generated/theme"
+import { panelBoxShadow, paperRadius, zIndexModal } from "../../../lib/extended/theme"
 
 const ModalElement = styled.div`
     ${flexContainer("column", "flex-start", "center")}

@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { borderThin, radius } from "../../../lib/extended/theme"
-import { dark, light, zIndexTooltip } from "../../../lib/generated/theme"
+import { borderThin, radius, zIndexTooltip } from "../../../lib/extended/theme"
+import { dark, light } from "../../../lib/generated/theme"
 
 const Tooltip = styled.div`
     padding: ${radius};

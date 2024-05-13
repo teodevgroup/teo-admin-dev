@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { dark, light, shallowShadow, transitionShort } from "../../../lib/generated/theme"
-import { borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
+import { dark, light, transitionShort } from "../../../lib/generated/theme"
+import { shallowShadow, borderThin, controlActiveBackGroundColorDark, controlActiveBackgroundColorLight, controlBackgroundColorDark, controlBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, controlHintBackgroundColorDark, controlHintBackgroundColorLight, controlTextColorDark, controlTextColorLight } from "../../../lib/extended/theme"
 
 export type SegmentedControlButtonProps = {
     selected?: boolean

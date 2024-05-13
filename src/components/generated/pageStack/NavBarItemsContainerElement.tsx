@@ -2,8 +2,8 @@
 // It will be overwritten in next generation. Do not modify this file.
 
 import { styled } from "@linaria/react"
-import { flexContainer, zIndexStatusBar } from "../../../lib/generated/theme"
-import { margin } from "../../../lib/extended/theme"
+import { flexContainer } from "../../../lib/generated/theme"
+import { margin, zIndexStatusBar } from "../../../lib/extended/theme"
 
 const NavBarItemsContainerElement = styled.div`
     ${flexContainer("row", "center", "center")}
