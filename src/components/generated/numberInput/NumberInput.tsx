@@ -19,7 +19,7 @@ export const nextNumberValue = (value: string, n: number) => {
 const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input'>>((props, ref) => {
     const inputRef = useRef<HTMLInputElement>()
     return <CombinedFormControlGroup>
-        <Button onClick={(e) => {
+        <Button disabled={props.disabled} onClick={(e) => {
             e.preventDefault()
             if (inputRef.current) {
                 inputRef.current.value = nextNumberValue(inputRef.current.value, -1)
@@ -28,7 +28,7 @@ const NumberInput = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input
             <FaMinus />
         </Button>
         <Input {...props} ref={useMergeRefs([ref, inputRef])} />
-        <Button onClick={(e) => {
+        <Button disabled={props.disabled} onClick={(e) => {
             e.preventDefault()
             if (inputRef.current) {
                 inputRef.current.value = nextNumberValue(inputRef.current.value, 1)

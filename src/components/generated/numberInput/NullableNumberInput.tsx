@@ -16,10 +16,15 @@ type NullableNumberInputProps = ComponentPropsWithoutRef<'input'> & {
 const NullableNumberInput = forwardRef<HTMLInputElement, NullableNumberInputProps>(({ valueAsNumber, setValue, value, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>()
     return <CombinedFormControlGroup>
-        <Button onClick={(e) => {
+        <Button disabled={props.disabled} onClick={(e) => {
             e.preventDefault()
             if (inputRef.current) {
                 inputRef.current.value = nextNumberValue(inputRef.current.value, -1)
+                if (valueAsNumber) {
+                    setValue(+inputRef.current.value)
+                } else {
+                    setValue(inputRef.current.value)
+                }
             }
         }}>
             <FaMinus />
@@ -31,15 +36,20 @@ const NullableNumberInput = forwardRef<HTMLInputElement, NullableNumberInputProp
                 setValue(e.target.value)
             }
         }} {...props} ref={useMergeRefs([ref, inputRef])} />
-        <Button onClick={(e) => {
+        <Button disabled={props.disabled} onClick={(e) => {
             e.preventDefault()
             if (inputRef.current) {
                 inputRef.current.value = nextNumberValue(inputRef.current.value, 1)
+                if (valueAsNumber) {
+                    setValue(+inputRef.current.value)
+                } else {
+                    setValue(inputRef.current.value)
+                }
             }
         }}>
             <FaPlus />
         </Button>
-        <Button type="button" selected={value === null} onClick={() => {
+        <Button disabled={props.disabled} type="button" selected={value === null} onClick={() => {
             (setValue(null))
         }}><RxValueNone /></Button>
     </CombinedFormControlGroup>
