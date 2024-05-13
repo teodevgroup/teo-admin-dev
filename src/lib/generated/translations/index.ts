@@ -28,6 +28,30 @@ export type GeneratedTranslation = StaticGeneratedTranslation & {
     "model.item.id.desc": string
     "model.item.name.name": string
     "model.item.name.desc": string
+    "model.nullableRecord.name": string
+    "model.nullableRecord.desc": string
+    "model.nullableRecord.id.name": string
+    "model.nullableRecord.id.desc": string
+    "model.nullableRecord.string.name": string
+    "model.nullableRecord.string.desc": string
+    "model.nullableRecord.bool.name": string
+    "model.nullableRecord.bool.desc": string
+    "model.nullableRecord.int.name": string
+    "model.nullableRecord.int.desc": string
+    "model.nullableRecord.float.name": string
+    "model.nullableRecord.float.desc": string
+    "model.nullableRecord.decimal.name": string
+    "model.nullableRecord.decimal.desc": string
+    "model.nullableRecord.date.name": string
+    "model.nullableRecord.date.desc": string
+    "model.nullableRecord.dateTime.name": string
+    "model.nullableRecord.dateTime.desc": string
+    "model.nullableRecord.sex.name": string
+    "model.nullableRecord.sex.desc": string
+    "model.nullableRecord.strings.name": string
+    "model.nullableRecord.strings.desc": string
+    "model.nullableRecord.genders.name": string
+    "model.nullableRecord.genders.desc": string
     "model.product.name": string
     "model.product.desc": string
     "model.product.id.name": string

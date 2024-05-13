@@ -4,6 +4,7 @@ let groupDelegateMap = [
     "Admin",
     "Category",
     "Item",
+    "NullableRecord",
     "Product",
     "Record",
     "Root",

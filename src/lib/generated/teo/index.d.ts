@@ -295,6 +295,41 @@ export type ItemDirectRelations = undefined
 export type ItemIndirectRelations = undefined
 
 /**
+ * **Nullable record scalar fields**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type NullableRecordScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "genders" | "id" | "int" | "sex" | "string" | "strings"
+
+/**
+ * **Nullable record serializable scalar fields**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type NullableRecordSerializableScalarFields = "bool" | "date" | "dateTime" | "decimal" | "float" | "genders" | "id" | "int" | "sex" | "string" | "strings"
+
+/**
+ * **Nullable record relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type NullableRecordRelations = undefined
+
+/**
+ * **Nullable record direct relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type NullableRecordDirectRelations = undefined
+
+/**
+ * **Nullable record indirect relations**
+ *
+ * This synthesized enum doesn't have a description.
+ */
+export type NullableRecordIndirectRelations = undefined
+
+/**
  * **Product scalar fields**
  *
  * This synthesized enum doesn't have a description.
@@ -588,6 +623,146 @@ export const enum ItemDirectRelationsEnumType {
 ///
 /// This synthesized enum doesn't have a description.
 export const enum ItemIndirectRelationsEnumType {
+}
+
+/// ## Nullable record scalar fields
+///
+/// This synthesized enum doesn't have a description.
+export const enum NullableRecordScalarFieldsEnumType {
+
+    /// ### Bool
+    ///
+    /// This synthesized enum member doesn't have a description.
+    bool = "bool",
+
+    /// ### Date
+    ///
+    /// This synthesized enum member doesn't have a description.
+    date = "date",
+
+    /// ### Date time
+    ///
+    /// This synthesized enum member doesn't have a description.
+    dateTime = "dateTime",
+
+    /// ### Decimal
+    ///
+    /// This synthesized enum member doesn't have a description.
+    decimal = "decimal",
+
+    /// ### Float
+    ///
+    /// This synthesized enum member doesn't have a description.
+    float = "float",
+
+    /// ### Genders
+    ///
+    /// This synthesized enum member doesn't have a description.
+    genders = "genders",
+
+    /// ### Id
+    ///
+    /// This synthesized enum member doesn't have a description.
+    id = "id",
+
+    /// ### Int
+    ///
+    /// This synthesized enum member doesn't have a description.
+    int = "int",
+
+    /// ### Sex
+    ///
+    /// This synthesized enum member doesn't have a description.
+    sex = "sex",
+
+    /// ### String
+    ///
+    /// This synthesized enum member doesn't have a description.
+    string = "string",
+
+    /// ### Strings
+    ///
+    /// This synthesized enum member doesn't have a description.
+    strings = "strings",
+}
+
+/// ## Nullable record serializable scalar fields
+///
+/// This synthesized enum doesn't have a description.
+export const enum NullableRecordSerializableScalarFieldsEnumType {
+
+    /// ### Bool
+    ///
+    /// This synthesized enum member doesn't have a description.
+    bool = "bool",
+
+    /// ### Date
+    ///
+    /// This synthesized enum member doesn't have a description.
+    date = "date",
+
+    /// ### Date time
+    ///
+    /// This synthesized enum member doesn't have a description.
+    dateTime = "dateTime",
+
+    /// ### Decimal
+    ///
+    /// This synthesized enum member doesn't have a description.
+    decimal = "decimal",
+
+    /// ### Float
+    ///
+    /// This synthesized enum member doesn't have a description.
+    float = "float",
+
+    /// ### Genders
+    ///
+    /// This synthesized enum member doesn't have a description.
+    genders = "genders",
+
+    /// ### Id
+    ///
+    /// This synthesized enum member doesn't have a description.
+    id = "id",
+
+    /// ### Int
+    ///
+    /// This synthesized enum member doesn't have a description.
+    int = "int",
+
+    /// ### Sex
+    ///
+    /// This synthesized enum member doesn't have a description.
+    sex = "sex",
+
+    /// ### String
+    ///
+    /// This synthesized enum member doesn't have a description.
+    string = "string",
+
+    /// ### Strings
+    ///
+    /// This synthesized enum member doesn't have a description.
+    strings = "strings",
+}
+
+/// ## Nullable record relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum NullableRecordRelationsEnumType {
+}
+
+/// ## Nullable record direct relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum NullableRecordDirectRelationsEnumType {
+}
+
+/// ## Nullable record indirect relations
+///
+/// This synthesized enum doesn't have a description.
+export const enum NullableRecordIndirectRelationsEnumType {
 }
 
 /// ## Product scalar fields
@@ -6973,6 +7148,2805 @@ export type ItemSignInInput = {
  * This synthesized interface doesn't have a description
  */
 export type ItemSignInArgs = {
+    
+}
+
+
+/**
+ * **Nullable record select**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSelect = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
+    
+}
+
+
+/**
+ * **Nullable record include**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordInclude = {
+    
+}
+
+
+/**
+ * **Nullable record where input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordWhereInput = {
+    
+    /**
+     * **And**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     AND?: NullableRecordWhereInput[]
+    
+    /**
+     * **Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     NOT?: NullableRecordWhereInput
+    
+    /**
+     * **Or**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     OR?: NullableRecordWhereInput[]
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean | null | std.BoolNullableFilter
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string | null | std.NullableFilter<string>
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date | null | std.NullableFilter<Date>
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal | null | std.NullableFilter<Decimal>
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number | null | std.NullableFilter<number>
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[] | null | std.ArrayNullableFilter<Sex?>
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number | std.Filter<number>
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number | null | std.NullableFilter<number>
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex | null | std.EnumNullableFilter<Sex>
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string | null | std.StringNullableFilter
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[] | null | std.ArrayNullableFilter<string>
+    
+}
+
+
+/**
+ * **Nullable record where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordWhereUniqueInput = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id: number
+    
+}
+
+
+/**
+ * **Nullable record scalar where with aggregates input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordScalarWhereWithAggregatesInput = {
+    
+    /**
+     * **And**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     AND?: NullableRecordWhereInput[]
+    
+    /**
+     * **Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     NOT?: NullableRecordWhereInput
+    
+    /**
+     * **Or**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     OR?: NullableRecordWhereInput[]
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean | null | std.BoolNullableWithAggregatesFilter
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string | null | std.NullableAggregatesFilter<string>
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date | null | std.NullableAggregatesFilter<Date>
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal | null | std.DecimalNullableWithAggregatesFilter<Decimal>
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number | null | std.FloatNumberNullableWithAggregatesFilter<number>
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[] | null | std.ArrayNullableWithAggregatesFilter<Sex?>
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number | std.IntNumberWithAggregatesFilter<number>
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number | null | std.IntNumberNullableWithAggregatesFilter<number>
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex | null | std.EnumNullableWithAggregatesFilter<Sex>
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string | null | std.StringNullableWithAggregatesFilter
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[] | null | std.ArrayNullableWithAggregatesFilter<string>
+    
+}
+
+
+/**
+ * **Nullable record relation filter**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordRelationFilter = {
+    
+    /**
+     * **Is**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     is?: NullableRecordWhereInput
+    
+    /**
+     * **Is Not**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     isNot?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record list relation filter**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordListRelationFilter = {
+    
+    /**
+     * **Every**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     every?: NullableRecordWhereInput
+    
+    /**
+     * **None**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     none?: NullableRecordWhereInput
+    
+    /**
+     * **Some**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     some?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record order by input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordOrderByInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: std.Sort
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: std.Sort
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: std.Sort
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: std.Sort
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: std.Sort
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: std.Sort
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: std.Sort
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: std.Sort
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: std.Sort
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: std.Sort
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: std.Sort
+    
+}
+
+
+/**
+ * **Nullable record count aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCountAggregateInputType = {
+    
+    /**
+     * **All**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _all?: boolean
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
+    
+}
+
+
+/**
+ * **Nullable record sum aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSumAggregateInputType = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+}
+
+
+/**
+ * **Nullable record avg aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordAvgAggregateInputType = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+}
+
+
+/**
+ * **Nullable record min aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordMinAggregateInputType = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
+    
+}
+
+
+/**
+ * **Nullable record max aggregate input type**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordMaxAggregateInputType = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: boolean
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: boolean
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: boolean
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: boolean
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: boolean
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: boolean
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: boolean
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: boolean
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: boolean
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: boolean
+    
+}
+
+
+/**
+ * **Nullable record create input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCreateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record update input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record create nested one input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCreateNestedOneInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: NullableRecordConnectOrCreateInput
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: NullableRecordCreateInput
+    
+}
+
+
+/**
+ * **Nullable record create nested many input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCreateNestedManyInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: Enumerable<NullableRecordWhereUniqueInput>
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: Enumerable<NullableRecordConnectOrCreateInput>
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: Enumerable<NullableRecordCreateInput>
+    
+}
+
+
+/**
+ * **Nullable record update nested one input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateNestedOneInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: NullableRecordConnectOrCreateInput
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: NullableRecordCreateInput
+    
+    /**
+     * **Delete**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     delete?: boolean
+    
+    /**
+     * **Disconnect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     disconnect?: boolean
+    
+    /**
+     * **Set**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     set?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update?: NullableRecordUpdateWithWhereUniqueInput
+    
+    /**
+     * **Upsert**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     upsert?: NullableRecordUpsertWithWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record update nested many input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateNestedManyInput = {
+    
+    /**
+     * **Connect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connect?: Enumerable<NullableRecordWhereUniqueInput>
+    
+    /**
+     * **Connect Or Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     connectOrCreate?: Enumerable<NullableRecordConnectOrCreateInput>
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create?: Enumerable<NullableRecordCreateInput>
+    
+    /**
+     * **Delete**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     delete?: Enumerable<NullableRecordWhereUniqueInput>
+    
+    /**
+     * **Delete Many**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     deleteMany?: Enumerable<NullableRecordWhereInput>
+    
+    /**
+     * **Disconnect**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     disconnect?: Enumerable<NullableRecordWhereUniqueInput>
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update?: Enumerable<NullableRecordUpdateWithWhereUniqueInput>
+    
+    /**
+     * **Update Many**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     updateMany?: Enumerable<NullableRecordUpdateManyWithWhereInput>
+    
+    /**
+     * **Upsert**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     upsert?: Enumerable<NullableRecordUpsertWithWhereUniqueInput>
+    
+}
+
+
+/**
+ * **Nullable record connect or create input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordConnectOrCreateInput = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: NullableRecordCreateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record update with where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateWithWhereUniqueInput = {
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record upsert with where unique input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpsertWithWhereUniqueInput = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: NullableRecordCreateInput
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record update many with where input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateManyWithWhereInput = {
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecord = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+export type NullableRecordGetPayload<S extends boolean | null | undefined | NullableRecordArgs, U = keyof S> = S extends true
+    ? NullableRecord
+    : S extends undefined
+        ? never
+        : S extends NullableRecordArgs | NullableRecordFindManyArgs
+            ? 'include' extends U
+                ? SelectSubset<NullableRecord, S> & {
+                    [P in ExistKeys<S['include']>]:
+                    never
+                }
+                : SelectSubset<NullableRecord, S>
+            : NullableRecord
+
+export type GetNullableRecordAggregateType<T extends NullableRecordAggregateArgs> = {
+    [P in keyof T & keyof NullableRecordAggregateResult]: P extends '_count' | 'count'
+  ? T[P] extends true
+    ? number
+    : GetScalarType<T[P], NullableRecordAggregateResult[P]>
+  : GetScalarType<T[P], NullableRecordAggregateResult[P]>
+}
+
+export type GetNullableRecordGroupByPayload<T extends NullableRecordGroupByArgs> =
+  Array<
+    PickEnumerable<NullableRecordGroupByResult, T['by']> &
+      {
+        [P in ((keyof T) & (keyof NullableRecordGroupByResult))]: P extends '_count'
+          ? T[P] extends boolean
+            ? number
+            : GetScalarType<T[P], NullableRecordGroupByResult[P]>
+          : GetScalarType<T[P], NullableRecordGroupByResult[P]>
+      }
+    >
+
+
+/**
+ * **Nullable record count aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCountAggregateResult = {
+    
+    /**
+     * **All**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _all?: number
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: number
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: number
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: number
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: number
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: number
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: number
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: number
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: number
+    
+}
+
+
+/**
+ * **Nullable record sum aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSumAggregateResult = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+}
+
+
+/**
+ * **Nullable record avg aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordAvgAggregateResult = {
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+}
+
+
+/**
+ * **Nullable record min aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordMinAggregateResult = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record max aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordMaxAggregateResult = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record aggregate result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordAggregateResult = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: NullableRecordAvgAggregateResult
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: NullableRecordCountAggregateResult
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: NullableRecordMaxAggregateResult
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: NullableRecordMinAggregateResult
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: NullableRecordSumAggregateResult
+    
+}
+
+
+/**
+ * **Nullable record group by result**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordGroupByResult = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: NullableRecordAvgAggregateResult
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: NullableRecordCountAggregateResult
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: NullableRecordMaxAggregateResult
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: NullableRecordMinAggregateResult
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: NullableRecordSumAggregateResult
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+}
+
+
+/**
+ * **Nullable record find many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordFindManyArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: NullableRecordSerializableScalarFields
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<NullableRecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record find first args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordFindFirstArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: NullableRecordSerializableScalarFields
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<NullableRecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record find unique args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordFindUniqueArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record create args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCreateArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: NullableRecordCreateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+}
+
+
+/**
+ * **Nullable record update args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record upsert args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpsertArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: NullableRecordCreateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record copy args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCopyArgs = {
+    
+    /**
+     * **Copy**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     copy: NullableRecordUpdateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record delete args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordDeleteArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereUniqueInput
+    
+}
+
+
+/**
+ * **Nullable record create many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCreateManyArgs = {
+    
+    /**
+     * **Create**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     create: Enumerable<NullableRecordCreateInput>
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+}
+
+
+/**
+ * **Nullable record update many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordUpdateManyArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Update**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     update: NullableRecordUpdateInput
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record delete many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordDeleteManyArgs = {
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record copy many args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCopyManyArgs = {
+    
+    /**
+     * **Copy**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     copy: NullableRecordUpdateInput
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record count args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordCountArgs = {
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: NullableRecordSerializableScalarFields
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<NullableRecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordCountAggregateInputType
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record aggregate args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordAggregateArgs = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: NullableRecordAvgAggregateInputType
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: NullableRecordCountAggregateInputType
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: NullableRecordMaxAggregateInputType
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: NullableRecordMinAggregateInputType
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: NullableRecordSumAggregateInputType
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: NullableRecordSerializableScalarFields
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<NullableRecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record group by args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordGroupByArgs = {
+    
+    /**
+     * **Avg**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _avg?: NullableRecordAvgAggregateInputType
+    
+    /**
+     * **Count**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _count?: NullableRecordCountAggregateInputType
+    
+    /**
+     * **Max**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _max?: NullableRecordMaxAggregateInputType
+    
+    /**
+     * **Min**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _min?: NullableRecordMinAggregateInputType
+    
+    /**
+     * **Sum**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     _sum?: NullableRecordSumAggregateInputType
+    
+    /**
+     * **By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     by: Enumerable<NullableRecordSerializableScalarFields>
+    
+    /**
+     * **Cursor**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     cursor?: NullableRecordWhereUniqueInput
+    
+    /**
+     * **Distinct**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     distinct?: NullableRecordSerializableScalarFields
+    
+    /**
+     * **Having**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     having?: NullableRecordScalarWhereWithAggregatesInput
+    
+    /**
+     * **Order By**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     orderBy?: Enumerable<NullableRecordOrderByInput>
+    
+    /**
+     * **Page Number**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageNumber?: number
+    
+    /**
+     * **Page Size**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     pageSize?: number
+    
+    /**
+     * **Skip**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     skip?: number
+    
+    /**
+     * **Take**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     take?: number
+    
+    /**
+     * **Where**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     where?: NullableRecordWhereInput
+    
+}
+
+
+/**
+ * **Nullable record scalar update input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordScalarUpdateInput = {
+    
+    /**
+     * **Bool**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     bool?: boolean
+    
+    /**
+     * **Date**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     date?: string
+    
+    /**
+     * **Date Time**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     dateTime?: Date
+    
+    /**
+     * **Decimal**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     decimal?: Decimal
+    
+    /**
+     * **Float**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     float?: number
+    
+    /**
+     * **Genders**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     genders?: Sex?[]
+    
+    /**
+     * **Id**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     id?: number
+    
+    /**
+     * **Int**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     int?: number
+    
+    /**
+     * **Sex**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     sex?: Sex
+    
+    /**
+     * **String**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     string?: string
+    
+    /**
+     * **Strings**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     strings?: string[]
+    
+}
+
+
+/**
+ * **Nullable record sign in checker ids**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSignInCheckerIds = {
+    
+}
+
+
+/**
+ * **Nullable record sign in checker companions**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSignInCheckerCompanions = {
+    
+}
+
+
+/**
+ * **Nullable record sign in input**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSignInInput = {
+    
+    /**
+     * **Credentials**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     credentials: NullableRecordSignInArgs
+    
+    /**
+     * **Include**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     include?: NullableRecordInclude
+    
+    /**
+     * **Select**
+     *
+     * This synthesized field doesn't have a description.
+     */
+     select?: NullableRecordSelect
+    
+}
+
+
+/**
+ * **Nullable record sign in args**
+ *
+ * This synthesized interface doesn't have a description
+ */
+export type NullableRecordSignInArgs = {
     
 }
 
@@ -16093,6 +19067,110 @@ export interface ItemDelegate {
     $headers(headers?: {[key: string]: string} | undefined): Teo
 }
 
+export interface NullableRecordDelegate {
+
+    
+    findUnique<T extends NullableRecordFindUniqueArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    findFirst<T extends NullableRecordFindFirstArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    findMany<T extends NullableRecordFindManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>[], std.PagingInfo>>
+    
+    create<T extends NullableRecordCreateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    update<T extends NullableRecordUpdateArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    upsert<T extends NullableRecordUpsertArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    copy<T extends NullableRecordCopyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    delete<T extends NullableRecordDeleteArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>>>
+    
+    createMany<T extends NullableRecordCreateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>[], std.PagingInfo>>
+    
+    updateMany<T extends NullableRecordUpdateManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>[], std.PagingInfo>>
+    
+    copyMany<T extends NullableRecordCopyManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>[], std.PagingInfo>>
+    
+    deleteMany<T extends NullableRecordDeleteManyArgs>(body: T,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.DataMeta<CheckSelectInclude<T, NullableRecord, NullableRecordGetPayload<T>>[], std.PagingInfo>>
+    
+    count<T extends NullableRecordCountArgs>(body: Subset<T, NullableRecordCountArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<T extends Record<'select', any>
+       ? T['select'] extends true
+         ? number
+         : GetScalarType<T['select'], NullableRecordCountAggregateResult>
+       : number>>
+    
+    aggregate<T extends NullableRecordAggregateArgs>(body: Subset<T, NullableRecordAggregateArgs>,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<GetNullableRecordAggregateType<T>>>
+    
+    groupBy<T extends NullableRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NullableRecordGroupByArgs['orderBy'] }
+        : { orderBy?: NullableRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]>(body: SubsetIntersection<T, NullableRecordGroupByArgs, OrderByArg> & InputErrors,headers?: {[key: string]: string} | undefined, queryString?: string | undefined): Promise<std.Data<{} extends InputErrors ? GetNullableRecordGroupByPayload<T> : InputErrors>>
+    
+
+    
+
+    
+
+    /**
+     * Get a new client altered with `headers`.
+     * @param {headers?} headers - The new headers.
+     */
+    $headers(headers?: {[key: string]: string} | undefined): Teo
+}
+
 export interface ProductDelegate {
 
     
@@ -16423,6 +19501,8 @@ export interface Teo {
     category: CategoryDelegate
     
     item: ItemDelegate
+    
+    nullableRecord: NullableRecordDelegate
     
     product: ProductDelegate
     

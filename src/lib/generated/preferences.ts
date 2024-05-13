@@ -68,6 +68,22 @@ export interface ItemModelFormPreferences {
 export interface ItemModelPreferences {
     form: ItemModelFormPreferences
 }
+export interface NullableRecordModelFormPreferences {
+    "string": FormFieldPreferences
+    "bool": FormFieldPreferences
+    "int": FormFieldPreferences
+    "float": FormFieldPreferences
+    "decimal": FormFieldPreferences
+    "date": FormFieldPreferences
+    "dateTime": FormFieldPreferences
+    "sex": FormFieldPreferences
+    "strings": FormFieldPreferences
+    "genders": FormFieldPreferences
+}
+
+export interface NullableRecordModelPreferences {
+    form: NullableRecordModelFormPreferences
+}
 export interface ProductModelFormPreferences {
     "name": FormFieldPreferences
     "stock": FormFieldPreferences
@@ -105,6 +121,7 @@ export interface ModelPreferences {
     "Admin": AdminModelPreferences
     "Category": CategoryModelPreferences
     "Item": ItemModelPreferences
+    "NullableRecord": NullableRecordModelPreferences
     "Product": ProductModelPreferences
     "Record": RecordModelPreferences
     "Root": RootModelPreferences
@@ -148,6 +165,7 @@ export const useSignInRootDefaultCheckerKey = makePathedPreferencesHook<string>(
 export const useModelAdminFormPreferences = makePathedPreferencesHook<AdminModelFormPreferences>(["models", "Admin", "form"])
 export const useModelCategoryFormPreferences = makePathedPreferencesHook<CategoryModelFormPreferences>(["models", "Category", "form"])
 export const useModelItemFormPreferences = makePathedPreferencesHook<ItemModelFormPreferences>(["models", "Item", "form"])
+export const useModelNullableRecordFormPreferences = makePathedPreferencesHook<NullableRecordModelFormPreferences>(["models", "NullableRecord", "form"])
 export const useModelProductFormPreferences = makePathedPreferencesHook<ProductModelFormPreferences>(["models", "Product", "form"])
 export const useModelRecordFormPreferences = makePathedPreferencesHook<RecordModelFormPreferences>(["models", "Record", "form"])
 export const useModelRootFormPreferences = makePathedPreferencesHook<RootModelFormPreferences>(["models", "Root", "form"])

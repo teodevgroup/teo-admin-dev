@@ -11,6 +11,7 @@ const defaultPreferences: Preferences = {
             { id: "Admin", name: "model.admin.name", icon: "RiBox3Line", path: "Admin"},
             { id: "Category", name: "model.category.name", icon: "RiBox3Line", path: "Category"},
             { id: "Item", name: "model.item.name", icon: "RiBox3Line", path: "Item"},
+            { id: "NullableRecord", name: "model.nullableRecord.name", icon: "RiBox3Line", path: "NullableRecord"},
             { id: "Product", name: "model.product.name", icon: "RiBox3Line", path: "Product"},
             { id: "Record", name: "model.record.name", icon: "RiBox3Line", path: "Record"},
             { id: "Root", name: "model.root.name", icon: "RiBox3Line", path: "Root"},
@@ -43,6 +44,20 @@ const defaultPreferences: Preferences = {
         "Item": {
             form: {
                 name: { width: "full" },
+            },
+        },
+        "NullableRecord": {
+            form: {
+                string: { width: "full" },
+                bool: { width: "full" },
+                int: { width: "full" },
+                float: { width: "full" },
+                decimal: { width: "full" },
+                date: { width: "full" },
+                dateTime: { width: "full" },
+                sex: { width: "full" },
+                strings: { width: "full" },
+                genders: { width: "full" },
             },
         },
         "Product": {
