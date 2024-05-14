@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react"
-import { appBackgroundColorDark, appContentBackgroundColorDark, appContentBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, panelBoxShadow, paperRadius } from "../../../lib/extended/theme"
+import { appBackgroundColorDark, appContentBackgroundColorDark, appContentBackgroundColorLight, controlBorderColorDark, controlBorderColorLight, panelBoxShadow, paperRadius, popUpShadow } from "../../../lib/extended/theme"
 import { dark, light } from "../../../lib/generated/theme"
 
 const ErrorMessagePopup = styled.div`
@@ -11,6 +11,7 @@ const ErrorMessagePopup = styled.div`
         background-color: ${appBackgroundColorDark};
         border: 1px solid ${controlBorderColorDark};
     }
+    box-shadow: ${popUpShadow};
     font-size: 0.75rem;
     padding: 0.5rem;
     border-radius: ${paperRadius};

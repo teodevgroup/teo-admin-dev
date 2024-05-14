@@ -119,6 +119,13 @@ rgb(0 0 0 / 2%) 0px 41.7776px 33.4221px,
 rgb(0 0 0 / 2%) 0px 22.3363px 17.869px,
 rgb(0 0 0 / 4%) 0px 12.5216px 10.0172px`
 
+export const popUpShadow = `
+rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+rgba(30, 58, 58, 0.05) 0px 10px 15px -3px, 
+rgba(30, 58, 58, 0.05) 0px 4px 6px -4px
+`
+
 export const zIndexTooltip = 11
 export const zIndexMenu = 10
 export const zIndexModal = 3
