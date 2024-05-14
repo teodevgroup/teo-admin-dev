@@ -117,7 +117,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                 </WithErrorMessage>
             }} />
         } else {
-            return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
+            return <Controller rules={{ validate: (v) => (v === true) || (v === false) }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
                 return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } />                
                 </WithErrorMessage> 

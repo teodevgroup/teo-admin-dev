@@ -33,7 +33,7 @@ const ItemForm = ({ item }: PageProps) => {
             })).data
         }
     }, [item])
-    const form = useForm({ defaultValues: omit(data, ["id"]) })
+    const form = useForm({ defaultValues: Object.assign({}, omit(data, ["id"])) })
     const [loading, setLoading] = useState(false)
     const onSubmit = async (data: any) => {
         setLoading(true)
