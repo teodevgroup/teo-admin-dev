@@ -87,7 +87,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             return <Controller defaultValue={null} rules={{ validate: (v) => Number.isInteger(v) || v === null }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
                 return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <NullableNumberInput valueAsNumber type="number" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
-                </WithErrorMessage>            
+                </WithErrorMessage>
             }} />
         } else {
             return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
@@ -116,7 +116,6 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
                     </ControlGroup>                 
                 </WithErrorMessage>
             }} />
-    
         } else {
             return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
                 return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
