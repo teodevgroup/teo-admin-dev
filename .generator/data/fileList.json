@@ -173,7 +173,8 @@
         "src/lib/generated/utilities/get.ts",
         "src/lib/generated/utilities/arrayKey.ts",
         "src/lib/generated/modal/untransform.ts",
-        "src/lib/generated/lang/tr.ts"
+        "src/lib/generated/lang/tr.ts",
+        "src/lib/generated/formErrors/decodeFormErrors.ts"
     ],
     "extended": [
         ".babelrc",

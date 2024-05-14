@@ -175,7 +175,7 @@ type MaybeTupleToUnion<T> = T extends any[] ? TupleToUnion<T> : T
 export declare class TeoError extends Error {
     type: string
 
-    fields: {[key: string]: string} | null
+    errors: {[key: string]: string} | null
 
     constructor(responseError: std.ResponseError)
 

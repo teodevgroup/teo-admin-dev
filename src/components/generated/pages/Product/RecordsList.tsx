@@ -53,7 +53,6 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Th>{t('model.product.id.name')}</Th>
                     <Th>{t('model.product.name.name')}</Th>
                     <Th>{t('model.product.stock.name')}</Th>
-                    <Th>{t('model.product.categoryId.name')}</Th>
                 </tr>
             }}
             style={{ height: 400 }}
@@ -64,7 +63,6 @@ const RecordsList = ({ filter }: RecordsListProps) => {
                     <Td>{displayValue(item.id, t)}</Td>
                     <Td>{displayValue(item.name, t)}</Td>
                     <Td>{displayValue(item.stock, t)}</Td>
-                    <Td>{displayValue(item.categoryId, t)}</Td>
                 </>
             )}
         />
