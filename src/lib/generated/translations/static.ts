@@ -23,6 +23,12 @@ export type StaticGeneratedTranslation = {
     "form.control.width.full": string
     "form.control.width.half": string
     "form.control.width.oneThird": string
+    "form.valueRequired": string
+    "form.manyErrors": string
+    "form.unknownErrorType": string
+    "form.cannotCreateNewRecord": string
+    "form.cannotUpdateThisRecord": string
+    "form.unknownErrorOccurred": string
     "records.filters": string
     "records.orders": string
     "records.create": string

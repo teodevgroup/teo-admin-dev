@@ -63,13 +63,13 @@ const RecordForm = ({ item }: PageProps) => {
                     })
                 } else {
                     if (isEqual(item.query, {}) || !item.query) {
-                        alert(`Cannot create new record: ${e.message}`)
+                        alert(`${t("form.cannotCreateNewRecord")}${e.message}`)
                     } else {
-                        alert(`Cannot update this record: ${e.message}`)
+                        alert(`${t("form.cannotUpdateThisRecord")}${e.message}`)
                     }
                 }
             } else {
-                alert("Unknown error occurred.")
+                alert(t("form.unknownErrorOccurred"))
             }
             setLoading(false)
         }
