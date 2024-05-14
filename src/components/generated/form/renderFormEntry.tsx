@@ -38,6 +38,8 @@ export type FormType = {
 const formatError = (error: ErrorOption) => {
     if (error.type === "required") {
         return "Value required"
+    } else {
+        return error.message || "Unknown error type"
     }
 }
 
