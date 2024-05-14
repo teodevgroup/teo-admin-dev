@@ -25,6 +25,8 @@ import NullableNumberInput from '../numberInput/NullableNumberInput'
 import CombinedFormControlGroup from '../combinedFormControlGroup/CombinedFormControlGroup'
 import { RxValueNone } from 'react-icons/rx'
 import WithErrorMessage from './WithErrorMessage'
+import get from '../../../lib/generated/utilities/get'
+import arrayKey from '../../../lib/generated/utilities/arrayKey'
 
 export type FormTypeName = "String" | "Bool" | "Int" | "Int64" | "Float" | "Float32" | "Decimal" | "Date" | "DateTime" | "Array" | "Enum"
 
@@ -36,9 +38,12 @@ export type FormType = {
     enumNameCamelcase?: string
 }
 
-const formatError = (error: ErrorOption | undefined) => {
+const formatError = (error: ErrorOption | undefined | ErrorOption[]) => {
     if (!error) {
         return ""
+    }
+    if (Array.isArray(error)) {
+        return "Many errors"
     }
     if (error.type === "required") {
         return "Value required"
@@ -68,44 +73,43 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     if (type.type === "String") {
         if (type.optional) {
             return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <NullableInput disabled={disabled} value={field.value} setValue={(v) => field.onChange(v)} {...(secure ? { type: "password" } : {})} />
                 </WithErrorMessage>
             }} />
         } else {
-            return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+            return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                 <Input disabled={disabled} {...form.register(key, { required: true })} {...(secure ? { type: "password" } : {})} />
             </WithErrorMessage>
         }
     } else if (type.type === "Int" || type.type === "Int64") {
         if (type.optional) {
             return <Controller defaultValue={null} rules={{ validate: (v) => Number.isInteger(v) || v === null }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <NullableNumberInput valueAsNumber type="number" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
                 </WithErrorMessage>            
             }} />
         } else {
-            console.log(form.formState.errors[key])
-            return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+            return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                 <NumberInput type="number" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true, validate: Number.isInteger })} />            
             </WithErrorMessage>
         }
     } else if (type.type === "Float" || type.type === "Float32") {
         if (type.optional) {
             return <Controller defaultValue={null} rules={{ validate: (v) => !Number.isNaN(v) || v === null }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <NullableNumberInput valueAsNumber type="number" step="any" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />
                 </WithErrorMessage>
             }} />
         } else {
-            return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+            return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                 <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true, valueAsNumber: true })} />            
             </WithErrorMessage>
         }
     } else if (type.type === "Bool") {
         if (type.optional) {
             return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <ControlGroup>
                         <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } />
                         <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
@@ -115,7 +119,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     
         } else {
             return <Controller rules={{ required: true }} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <Toggle ref={field.ref} disabled={field.disabled} isOn={!!field.value} setIsOn={(on) => field.onChange(on) } />                
                 </WithErrorMessage> 
             }} />    
@@ -123,19 +127,19 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     } else if (type.type === "Decimal") {
         if (type.optional) {
             return <Controller defaultValue={null} disabled={disabled} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <NullableNumberInput type="number" step="any" disabled={disabled} value={field.value} setValue={(v: any) => field.onChange(v)} />                
                 </WithErrorMessage>
             }} />
         } else {
-            return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+            return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                 <NumberInput type="number" step="any" disabled={disabled} {...form.register(key, { required: true })} />            
             </WithErrorMessage>
         }
     } else if (type.type === "Date") {
         if (type.optional) {
             return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <CombinedFormControlGroup>
                         <ReactDatePicker customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />
                         <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
@@ -144,7 +148,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             }} />    
         } else {
             return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <ReactDatePicker required customInput={<DateInput />} dateFormat="yyyy-MM-dd" disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value.toISOString().substring(0, 10))} onChange={(value) => value ? field.onChange(value?.toISOString().substring(0, 10)) : null} />                
                 </WithErrorMessage>
             }} />    
@@ -152,7 +156,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     } else if (type.type === "DateTime") {
         if (type.optional) {
             return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <CombinedFormControlGroup>
                         <ReactDatePicker dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />
                         <Button type="button" disabled={field.disabled} selected={field.value === null} onClick={() => field.onChange(null)}><RxValueNone /></Button>
@@ -161,7 +165,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             }} />    
         } else {
             return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <ReactDatePicker required dateFormat="yyyy-MM-dd hh:mm aa" customInput={<DateInput />} showTimeInput disabled={field.disabled} selected={field.value ? new Date(field.value) : null} onSelect={(value) => field.onChange(value)} onChange={(value) => field.onChange(value)} />                
                 </WithErrorMessage>
             }} />    
@@ -169,7 +173,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
     } else if (type.type === "Enum") {
         if (type.optional) {
             return <Controller disabled={disabled} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <ControlGroup>
                         <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
                             {(enumDefinitions[type.enumName!]).members.map((m) => {
@@ -184,7 +188,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             }} />    
         } else {
             return <Controller disabled={disabled} rules={{ required: true }} defaultValue={null as any} control={form.control} name={key} render={({ field }) => {
-                return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+                return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
                     <Select value={field.value} display={field.value === null ? t("null.empty") : t(`enum.${type.enumNameCamelcase}.${field.value}.name`)} onChange={(v) => field.onChange(v)}>
                         {(enumDefinitions[type.enumName!]).members.map((m) => {
                             return <Option key={m.value} value={m.value}>
@@ -196,7 +200,7 @@ const renderFormInput = (key: string, type: FormType, form: any, disabled: boole
             }} />    
         }
     } else if (type.type === "Array") {
-        return <WithErrorMessage display={!!form.formState.errors[key]} errorMessage={formatError(form.formState.errors[key])}>
+        return <WithErrorMessage display={!!get(form.formState.errors, arrayKey(key))} errorMessage={formatError(get(form.formState.errors, arrayKey(key)))}>
             <ArrayFieldContainer>
                 {(!form.getValues()[key] || form.getValues()[key]?.length === 0) ? <ControlGroup>
                     <Button disabled={disabled} type="button" onClick={() => {

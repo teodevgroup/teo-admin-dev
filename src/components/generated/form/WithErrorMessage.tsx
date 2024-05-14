@@ -1,6 +1,7 @@
-import { arrow, autoUpdate, flip, FloatingArrow, FloatingPortal, offset, shift, useFloating, useInteractions } from '@floating-ui/react'
+import { arrow, autoUpdate, flip, FloatingArrow, FloatingPortal, offset, shift, useFloating, useInteractions, useMergeRefs } from '@floating-ui/react'
 import React, { cloneElement, ReactElement, ReactNode, useRef } from 'react'
 import ErrorMessagePopup from './ErrorMessagePopup'
+import ErrorMessageControlWrapper from './ErrorMessageControlWrapper'
 
 export type WithErrorMessageProps = {
     errorMessage: ReactNode
@@ -24,7 +25,9 @@ const WithErrorMessage = ({ errorMessage, children, display }: WithErrorMessageP
         getFloatingProps,
     } = useInteractions([])
     return <>
-        {cloneElement(children, { ref: refs.setReference, ...getReferenceProps() })}
+        <ErrorMessageControlWrapper ref={refs.setReference} {...getReferenceProps()}>
+            {children}
+        </ErrorMessageControlWrapper>
         <FloatingPortal>
             {display ? <>
                 <ErrorMessagePopup ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
