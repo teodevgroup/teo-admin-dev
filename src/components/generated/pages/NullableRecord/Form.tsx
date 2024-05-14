@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import PageProps from "../../pageStack/PageProps"
 import { suspend } from 'suspend-react'
 import { isEqual, omit } from 'radash'
-import { teo, NullableRecord, NullableRecordCreateInput, NullableRecordUpdateInput } from '../../../../lib/generated/teo'
+import { teo, TeoError, NullableRecord, NullableRecordCreateInput, NullableRecordUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
@@ -17,6 +17,7 @@ import renderFormEntry from '../../form/renderFormEntry'
 import useRerender from '../../../../lib/useRerender'
 import { useModelNullableRecordFormPreferences } from '../../../../lib/generated/preferences'
 import CenteredButtonGroup from '../../form/CenteredButtonGroup'
+import decodeFormErrors from '../../../../lib/generated/formErrors/decodeFormErrors'
 
 const NullableRecordForm = ({ item }: PageProps) => {
     const { popStack } = usePageStackPage()
@@ -54,11 +55,21 @@ const NullableRecordForm = ({ item }: PageProps) => {
                 refresh()
                 popStack()
             }
-        } catch {
-            if (isEqual(item.query, {}) || !item.query) {
-                alert("Cannot create new record.")
+        } catch(e) {
+            if (e instanceof TeoError) {
+                if (e.errors) {
+                    Object.entries(decodeFormErrors(e.errors)).forEach(([k ,v]) => {
+                        form.setError(k as any, v as any)
+                    })
+                } else {
+                    if (isEqual(item.query, {}) || !item.query) {
+                        alert(`Cannot create new record: ${e.message}`)
+                    } else {
+                        alert(`Cannot update this record: ${e.message}`)
+                    }
+                }
             } else {
-                alert("Cannot update this record.")
+                alert("Unknown error occurred.")
             }
             setLoading(false)
         }

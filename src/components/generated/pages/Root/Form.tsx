@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import PageProps from "../../pageStack/PageProps"
 import { suspend } from 'suspend-react'
 import { isEqual, omit } from 'radash'
-import { teo, Root, RootCreateInput, RootUpdateInput, TeoError } from '../../../../lib/generated/teo'
+import { teo, TeoError, Root, RootCreateInput, RootUpdateInput } from '../../../../lib/generated/teo'
 import FormContainer from '../../form/FormContainer'
 import FormPaddedMainContent from '../../form/FormPaddedMainContent'
 import Button from '../../../extended/button/Button'
@@ -66,7 +66,7 @@ const RootForm = ({ item }: PageProps) => {
                         alert(`Cannot create new record: ${e.message}`)
                     } else {
                         alert(`Cannot update this record: ${e.message}`)
-                    }    
+                    }
                 }
             } else {
                 alert("Unknown error occurred.")
