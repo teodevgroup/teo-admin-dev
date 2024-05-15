@@ -158,6 +158,7 @@
         "src/components/generated/app/AppNavLayout.tsx",
         "src/components/generated/app/AppContentLayout.tsx",
         "src/components/generated/app/App.tsx",
+        "src/lib/generated/useRerender.ts",
         "src/lib/generated/theme.ts",
         "src/lib/generated/refreshToken.ts",
         "src/lib/generated/mergePreferences.ts",
