@@ -12,6 +12,7 @@ import PaddedMainContent from '../../pageStack/PaddedMainContent'
 import { isEqual } from 'radash'
 import RootForm from './Form'
 import { useTranslation } from 'react-i18next'
+import FakeFormShimmer from '../../form/FakeFormShimmer'
 
 const RootFormPage = ({ item }: PageProps) => {
     const { t } = useTranslation("translations")
@@ -25,7 +26,7 @@ const RootFormPage = ({ item }: PageProps) => {
         </NavBar>
         <Main>
             <PaddedMainContent>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<FakeFormShimmer />}>
                     <RootForm item={item} />
                 </Suspense>
             </PaddedMainContent>
