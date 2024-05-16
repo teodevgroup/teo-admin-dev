@@ -18,8 +18,10 @@ import useRerender from '../../../../lib/generated/useRerender'
 import { useModelProductFormPreferences } from '../../../../lib/generated/preferences'
 import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 import decodeFormErrors from '../../../../lib/generated/formErrors/decodeFormErrors'
+import { useAccount } from '../../../../lib/generated/signIn'
 
 const ProductForm = ({ item }: PageProps) => {
+    const _ = useAccount()
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.product")

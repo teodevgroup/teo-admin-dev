@@ -18,8 +18,10 @@ import useRerender from '../../../../lib/generated/useRerender'
 import { useModelRecordFormPreferences } from '../../../../lib/generated/preferences'
 import CenteredButtonGroup from '../../form/CenteredButtonGroup'
 import decodeFormErrors from '../../../../lib/generated/formErrors/decodeFormErrors'
+import { useAccount } from '../../../../lib/generated/signIn'
 
 const RecordForm = ({ item }: PageProps) => {
+    const _ = useAccount()
     const { popStack } = usePageStackPage()
     const rerender = useRerender()
     const { refresh } = useRefreshToken("models.record")
