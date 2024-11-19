@@ -1,6 +1,6 @@
 # Admin dashboard
 
-This project is generated with [Teo](https://teocloud.io).
+This project is generated with [Teo](https://teodev.io).
 
 ## Installation
 
